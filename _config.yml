@@ -222,4 +222,7 @@ sitemap:
 # repository: https://github.com/kavience/xxxxxxx.github.io.git
 # branch: master
 deploy:
-  type: 
+  type: git
+  repository: git@github.com:kavience/blog.git
+  branch: gh-pages
+  

@@ -1,13 +1,19 @@
 #!/bin/bash
 
-GIT_REPOSITORIES=("git@github.com:kavience/kavience.github.io.git" "git@gitee.com:kavience/blog.git")
+GIT_REPOSITORIES=("git@github.com:kavience/blog.git")
 
+echo "git running ..."
 git add -A
 git commit -m "make a new post"
 
 for ((i=0;i<${#GIT_REPOSITORIES[*]};++i)) do
-# echo ${GIT_REPOSITORIES[i]}
 git remote remove origin${i}
 git remote add origin${i} ${GIT_REPOSITORIES[i]}
 git push origin${i} master
 done
+
+echo "git push done, ready deploy"
+
+hexo deploy
+
+echo "deploy done"
