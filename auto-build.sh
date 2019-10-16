@@ -7,8 +7,7 @@ git commit -m "make a new post"
 
 for ((i=0;i<${#GIT_REPOSITORIES[*]};++i)) do
 # echo ${GIT_REPOSITORIES[i]}
-remote=git remote -v
-echo remote
-# git remote add origin${i} ${GIT_REPOSITORIES[i]}
-# git push origin${i} master
+git remote remove origin${i}
+git remote add origin${i} ${GIT_REPOSITORIES[i]}
+git push origin${i} master
 done
