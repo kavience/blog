@@ -14,6 +14,8 @@ done
 
 echo "git push done, ready deploy"
 
+hexo clean
+hexo generate
 hexo deploy
 
 echo "deploy done"
