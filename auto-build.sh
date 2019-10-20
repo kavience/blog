@@ -3,6 +3,7 @@
 GIT_REPOSITORIES=("git@github.com:kavience/blog.git")
 
 echo "git running ..."
+git pull origin0 master
 git add -A
 git commit -m "make a new post"
 

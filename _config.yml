@@ -27,7 +27,7 @@ description: ""
 keyword: ""
 header-img: /img/header_img/home.jpg
 article-img: /img/article_header/article_bg.jpg
-404-img: /img/header_img/404.png
+404-img: /img/header_img/404.jpg
 signature: false #show signature
 # signature-img: img/signature/BeanTechSign-white.png 
 
@@ -35,7 +35,7 @@ signature: false #show signature
 # SNS settings
 # RSS: false
 # weibo_username:     Demonbaneen
-# zhihu_username:     Demonbane
+zhihu_username:     kavience-xiaofan
 github_username:    kavience
 # twitter_username:   Demonbane_x
 # facebook_username:  xxx
@@ -46,7 +46,7 @@ anchorjs: true                          # if you want to customize anchor. check
 
 
 # Disqus settings
-#disqus_username: your-disqus-ID
+disqus_username: kavience
 
 # Duoshuo settings
 # duoshuo_username: kaijun
@@ -83,7 +83,7 @@ show_count: true
 
 ## Featured Tags
 featured-tags: true                     # whether or not using Feature-Tags
-featured-condition-size: 1              # A tag will be featured if the size of it is more than this condition value
+featured-condition-size: 0              # A tag will be featured if the size of it is more than this condition value
 
 
 ## Friends
@@ -120,7 +120,7 @@ skip_render:
 # Writing
 new_post_name: :title.md # File name of new posts
 default_layout: post
-titlecase: false # Transform title into titlecase
+titlecase: true # Transform title into titlecase
 external_link: true # Open external links in new tab
 filename_case: 0
 render_drafts: false
@@ -171,7 +171,19 @@ markdown:
     linkify: true
     typographer: true
     quotes: '“”‘’'
-  
+  # anchors:
+  #   level: 2 # Minimum level for ID creation. (Ex. h2 to h6)
+  #   collisionSuffix: 'v' # A suffix that is prepended to the number given if the ID is repeated
+  #   permalink: false # If `true`, creates an anchor tag with a permalink besides the heading
+  #   permalinkClass: header-anchor # Class used for the permalink anchor tag
+  #   permalinkSymbol: '¶' # The symbol used to make the permalink
+
+
+# TOC config
+## https://github.com/bubkoo/hexo-toc
+toc:
+  maxdepth: 2
+
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 
@@ -192,13 +204,13 @@ markdown:
 
 # MeingJS support for Aplayer
 # reference: https://github.com/metowolf/MetingJS & https://github.com/MoePlayer/APlayer
-metingjs: false
-data-id: 2423410161
+metingjs: true
+data-id: 2764926677
 data-server: netease  
 data-type: playlist
 data-fixed: true
-  # data-mini:
-  # data-autoplay:    
+data-autoplay: true
+# data-mini:
 
 # # Reward
 # reward: false

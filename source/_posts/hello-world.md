@@ -13,6 +13,8 @@ catagories:
 ## hello world
 > This is a personal blog, only recording programming skills and knowledge
 >
-> It's my first blog
+> It's my first post
+>
+> say: hello world!
 
 (done)
