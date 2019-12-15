@@ -5,7 +5,12 @@ GIT_REPOSITORIES=("git@github.com:kavience/blog.git")
 echo "git running ..."
 git pull origin0 master
 git add -A
-git commit -m "make a new post"
+if [ ! -n "$1" ] ;then
+    git commit -m "make a new post"
+else
+    git commit -m "$1"
+fi
+
 
 for ((i=0;i<${#GIT_REPOSITORIES[*]};++i)) do
 git remote remove origin${i}
