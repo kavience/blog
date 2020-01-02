@@ -8,6 +8,7 @@ subtitle: blog
 author: kavience
 language:
 timezone:
+beian: 赣ICP备17009879号
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
