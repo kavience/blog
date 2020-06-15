@@ -3,7 +3,8 @@
   "version": "0.0.1",
   "scripts": {
     "new:post": "hexo new $NAME",
-    "dev": "hexo server"
+    "dev": "hexo server",
+    "deploy": "hexo clean && hexo generate && hexo deploy"
   },
   "hexo": {
     "version": "4.2.1"
