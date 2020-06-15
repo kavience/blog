@@ -9,7 +9,7 @@ git clone https://github.com/kavience/blog.git
 ```
 - And then update your config in _config.yml and auto-build.sh.
 
-- Run `hexo new xxx(post name)` to make a post.
+- Run `hexo new xxx(post name)` or `NAME=XXX yarn new:post` to make a post.
 
 - Finally run `./auto-build.sh` to build post and push it to github, or run `./auto-build.sh xxx(commit name)` to commit this change with the message.
 
