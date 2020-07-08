@@ -4,7 +4,8 @@
   "scripts": {
     "new:post": "hexo new $NAME",
     "dev": "hexo server",
-    "deploy": "hexo clean && hexo generate && hexo deploy"
+    "deploy": "hexo clean && hexo generate && hexo deploy",
+    "generate": "hexo generate"
   },
   "hexo": {
     "version": "4.2.1"
