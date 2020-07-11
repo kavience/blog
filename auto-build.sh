@@ -20,8 +20,8 @@ done
 
 echo "git push done, ready deploy"
 
-hexo clean
-hexo generate
-hexo deploy
+node_modules/hexo/bin/hexo clean
+node_modules/hexo/bin/hexo generate
+node_modules/hexo/bin/hexo deploy
 
 echo "deploy done"
