@@ -6,8 +6,8 @@
 title: kavience
 subtitle: blog
 author: kavience
-language:
-timezone:
+language: zh-CN
+timezone: asia/shanghai
 beian: 赣ICP备17009879号
 
 # URL
@@ -17,14 +17,14 @@ root: /
 #permalink: :year/:month/:day/:title/
 permalink: :category/:title/
 permalink_defaults:
-  lang: en
+  lang: zh-CN
 
 #Custom Setting Start
 
 # Site settings
 SEOTitle: kavience | Blog
 email: kavience@gmail.com
-description: "kavience博客"
+description: "kavience 的博客, 专注于前端开发, web开发, 编程技术"
 keyword: "kavience,javascript,前端开发,php,react,kavience博客"
 header-img: /img/header_img/home.jpg
 article-img: /img/article_header/article_bg.jpg
@@ -33,11 +33,16 @@ signature: false #show signature
 # signature-img: img/signature/BeanTechSign-white.png
 
 # SNS settings
-# RSS: false
+RSS: true
+feed:
+  type: atom
+  path: feed
+  limit: false
+
 # weibo_username:     Demonbaneen
 zhihu_username: kavience-xiaofan
 github_username: kavience
-# twitter_username:   Demonbane_x
+twitter_username: Mr_Kavience
 # facebook_username:  xxx
 # linkedin_username:  xxx
 
@@ -56,12 +61,12 @@ disqus_username: kavience
 #Baidu Analytics
 # ba_track_id: xxx
 # Google Analytics
-# ga_track_id: 'UA-XXXXXXXX-X'          # Format: UA-xxxxxx-xx
-# ga_domain: yoursite
+ga_track_id: "UA-171834825-2" # Format: UA-xxxxxx-xx
+ga_domain: www.kavience.com
 
 # Sidebar settings
 sidebar: true # whether or not using Sidebar.
-sidebar-about-description: "Learning is better when it's social"
+sidebar-about-description: "种一棵树最好的时间是十年前，其次是现在。"
 sidebar-avatar: /img/avatar/my-avatar.jpg # use absolute URL, seeing it's used in both `/` and `/about/`
 widgets:
   - short-about
@@ -217,6 +222,7 @@ share: true
 theme: easy-read
 
 #sitemap
+sitemapIcon: true
 sitemap:
   path: sitemap.xml
 
