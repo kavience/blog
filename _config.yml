@@ -29,8 +29,7 @@ keyword: "kavience,javascript,前端开发,php,react,kavience博客"
 header-img: /img/header_img/home.jpg
 article-img: /img/article_header/article_bg.jpg
 404-img: /img/header_img/404.jpg
-signature: false #show signature
-# signature-img: img/signature/BeanTechSign-white.png
+signature: false
 
 # SNS settings
 RSS: true
@@ -51,11 +50,6 @@ anchorjs: true # if you want to customize anchor. check out line:181 of `post.ht
 
 # Disqus settings
 disqus_username: kavience
-
-# Duoshuo settings
-# duoshuo_username: kaijun
-# Share component is depend on Comment so we can NOT use share only.
-#duoshuo_share: true                     # set to false if you want to use Comment without Sharing
 
 # Analytics settings
 #Baidu Analytics
@@ -87,20 +81,7 @@ featured-tags: true # whether or not using Feature-Tags
 featured-condition-size: 0 # A tag will be featured if the size of it is more than this condition value
 
 ## Friends
-# friends: [
-#     {
-#         title: "CSDN Blog kavience",
-#         href: "http://blog.csdn.net/huwh_"
-#     },
-#     {
-#         title: "DockOne kavience",
-#         href: "http://dockone.io/people/kavience"
-#     },
-#     {
-#         title: "阿里云栖社区 kavience",
-#         href: "https://yq.aliyun.com/u/kavience"
-#     }
-# ]
+# friends: [{ title: "CSDN Blog kavience", href: "http://blog.csdn.net/huwh_" }]
 
 #Custom Setting End
 
@@ -132,12 +113,12 @@ highlight:
 
 # Category & Tag
 default_category: article
-category_map:
-  Frontend: frontend
-  Backend: frontend
-  Life: life
+# category_map:
+#   Frontend: frontend
+#   Backend: frontend
+#   Life: life
 
-tag_map:
+# tag_map:
 home_posts_tag: true # show posts tags
 
 # Date / Time format
@@ -168,17 +149,12 @@ markdown:
     linkify: true
     typographer: true
     quotes: "“”‘’"
-  # anchors:
-  #   level: 2 # Minimum level for ID creation. (Ex. h2 to h6)
-  #   collisionSuffix: 'v' # A suffix that is prepended to the number given if the ID is repeated
-  #   permalink: false # If `true`, creates an anchor tag with a permalink besides the heading
-  #   permalinkClass: header-anchor # Class used for the permalink anchor tag
-  #   permalinkSymbol: '¶' # The symbol used to make the permalink
-
-# TOC config
-## https://github.com/bubkoo/hexo-toc
-toc:
-  maxdepth: 2
+  anchors:
+    level: 2 # Minimum level for ID creation. (Ex. h2 to h6)
+    collisionSuffix: "v" # A suffix that is prepended to the number given if the ID is repeated
+    permalink: true # If `true`, creates an anchor tag with a permalink besides the heading
+    permalinkClass: header-anchor # Class used for the permalink anchor tag
+    permalinkSymbol: "" # The symbol used to make the permalink
 
 # Extensions
 ## Plugins: https://hexo.io/plugins/

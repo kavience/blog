@@ -8,7 +8,7 @@
     "generate": "hexo generate"
   },
   "hexo": {
-    "version": "4.2.1"
+    "version": "4.0.0"
   },
   "dependencies": {
     "aplayer": "^1.10.1",
@@ -24,7 +24,6 @@
     "hexo-renderer-markdown-it": "^3.4.1",
     "hexo-renderer-stylus": "^1.1.0",
     "hexo-server": "^1.0.0",
-    "hexo-toc": "^1.1.0",
     "hexo-wordcount": "^6.0.1"
   }
 }
