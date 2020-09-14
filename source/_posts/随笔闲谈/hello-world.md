@@ -10,29 +10,12 @@ catagories:
 - Life
 ---
 
-## About
-This is a personal blog, only record programming skills and knowledge.
+## Hello World
 
-## How to use
-- First you need download.
-```bash
-git clone https://github.com/kavience/blog.git
+试过各种各样的博客搭建平台，最终还是决定依托 HEXO 搭建，我觉得我的博客不需要有多少多复杂的功能，只需要简单清新一点就好了。
 
-```
-- And then update your config in _config.yml and auto-build.sh.
+## 目的
 
-- Run `hexo new xxx(post name)` to make a post.
+做事总是带点目的性，个人博客于我而言，就像是网络上的一个家，这是属于自己的地盘，在网络上有了归属感，我想写点什么、记录点什么，都是自己决定。
 
-- Finally run `./auto-build.sh` to build post and push it to github, or run `./auto-build.sh xxx(commit name)` to commit this change with the message.
-
-## Bugs need to fixs, if you download my project, it's unnecessary
-1. edit node_modules/hexo-toc/lib/filter.js as following:
-```javascript
-$title.attr('id', id);
-// $title.children('a').remove();
-// $title.html( '<span id="' + id + '">' + $title.html() + '</span>' );
-// $title.removeAttr('id');
-```
-this can fix the post anchors list.
-
-(done)
+希望能一直纯粹下去。^_^

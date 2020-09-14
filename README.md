@@ -1,24 +1,7 @@
-## About
-This is a personal blog, only record programming skills and knowledge.
+## 个人博客
 
-## How to use
-- First you need download.
-```bash
-git clone https://github.com/kavience/blog.git
+这是[个人博客](https://www.kavience.com/)的代码仓库。
 
-```
-- And then update your config in _config.yml and auto-build.sh.
+## 为什么写博客？
 
-- Run `hexo new xxx(post name)` or `NAME=XXX yarn new:post` to make a post.
-
-- Finally run `./auto-build.sh` to build post and push it to github, or run `./auto-build.sh xxx(commit name)` to commit this change with the message.
-
-## Bugs need to fixs, if you download my project, it's unnecessary
-1. edit node_modules/hexo-toc/lib/filter.js as following:
-```
-$title.attr('id', id);
-// $title.children('a').remove();
-// $title.html( '<span id="' + id + '">' + $title.html() + '</span>' );
-// $title.removeAttr('id');
-```
-this can fix the post anchors list.
+或许是爱好、信念、毅力的某一种表现，奇奇怪怪的想法总是需要用文字表达出来的。
