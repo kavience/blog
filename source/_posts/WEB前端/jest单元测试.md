@@ -6,9 +6,9 @@ subtitle:
 header-img:
 tags:
   - JavaScript
-  - 单元测试
+  - jest
 catagories:
-  - JavaScript
+  - 前端开发
 ---
 
 ## What

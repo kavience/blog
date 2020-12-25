@@ -5,10 +5,10 @@ date: 2019-12-15 14:26:11
 subtitle:
 header-img:
 tags:
-  - JavaScript
+  - mocha
   - 单元测试
 catagories:
-  - JavaScript
+  - 前端开发
 ---
 
 ## 什么是单元测试?

@@ -7,7 +7,7 @@ header-img:
 tags:
   - 前端面试题
 catagories:
-  - JavaScript
+  - 前端开发
 ---
 
 ## 数据类型

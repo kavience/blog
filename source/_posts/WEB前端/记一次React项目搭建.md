@@ -5,9 +5,9 @@ date: 2020-06-15 18:30:09
 subtitle:
 header-img:
 tags:
-  - JavaScript
+  - Reactjs
 catagories:
-  - JavaScript
+  - 前端开发
 ---
 
 ## 阅读建议

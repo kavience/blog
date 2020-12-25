@@ -8,9 +8,8 @@ subtitle:
 header-img:
 tags:
   - JavaScript
-  - 前端开发
 catagories:
-  - JavaScript
+  - 前端开发
 ---
 
 ## 起因

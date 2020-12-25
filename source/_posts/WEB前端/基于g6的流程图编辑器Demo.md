@@ -8,7 +8,7 @@ tags:
   - g6
   - 流程图
 catagories:
-  - JavaScript
+  - 前端开发
 ---
 
 ## ✨ 特点

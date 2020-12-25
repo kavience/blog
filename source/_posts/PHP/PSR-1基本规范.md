@@ -5,7 +5,6 @@ date: 2020-07-08 14:31:52
 subtitle:
 header-img:
 tags:
-  - PHP
   - PSR规范
 catagories:
   - PHP
