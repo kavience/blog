@@ -8,7 +8,7 @@
     "generate": "hexo generate"
   },
   "hexo": {
-    "version": "4.0.0"
+    "version": "4.2.1"
   },
   "dependencies": {
     "aplayer": "^1.10.1",
