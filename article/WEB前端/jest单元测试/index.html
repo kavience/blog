@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="kavience 的博客, 专注于前端开发, web开发, 编程技术-Jest单元测试">
+    <meta name="keyword"  content="kavience,javascript,前端开发,php,react,kavience博客,Jest单元测试">
+    <link rel="shortcut icon" href="/img/ironman-draw.png">
+    <!-- Place this tag in your head or just before your close body tag. -->
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+    <title>
+        
+          Jest单元测试 - kavience | Blog
+        
+    </title>
+
+    <link rel="canonical" href="http://www.kavience.com/article/WEB前端/jest单元测试/">
+
+    <!-- Bootstrap Core CSS -->
+    
+<link rel="stylesheet" href="/css/bootstrap.min.css">
+
+
+    <!-- Custom CSS --> 
+    
+<link rel="stylesheet" href="/css/beantech.min.css">
+
+
+    
+<link rel="stylesheet" href="/css/donate.css">
+
+    
+    <!-- Pygments Highlight CSS -->
+    
+<link rel="stylesheet" href="/css/highlight.css">
+
+
+    
+<link rel="stylesheet" href="/css/widget.css">
+
+
+    
+<link rel="stylesheet" href="/css/rocket.css">
+
+
+    
+<link rel="stylesheet" href="/css/signature.css">
+
+
+    
+<link rel="stylesheet" href="/css/toc.css">
+
+
+    <!-- Custom Fonts -->
+    <link href="https://cdn.staticfile.org/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+
+    <!-- Hux Delete, sad but pending in China
+    <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/
+    css'>
+    -->
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- ga & ba script hoook -->
+    <script></script>
+<meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/feed.xml" title="kavience" type="application/atom+xml">
+</head>
+
+
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="">
+	<!-- Modified by Yu-Hsuan Yen -->
+<!-- Post Header -->
+<style type="text/css">
+    header.intro-header{
+        
+            background-image: url('/img/article_header/article_bg.jpg')
+            /*post*/
+        
+    }
+    
+</style>
+
+<header class="intro-header" >
+    <!-- Signature -->
+    <div id="signature">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                
+                    <div class="post-heading">
+                        <div class="tags">
+                            
+                              <a class="tag" href="/tags/#JavaScript" title="JavaScript">JavaScript</a>
+                            
+                              <a class="tag" href="/tags/#jest" title="jest">jest</a>
+                            
+                        </div>
+                        <h1>Jest单元测试</h1>
+                        <h2 class="subheading"></h2>
+                        <span class="meta">
+                            Posted by kavience on
+                            2020-08-25
+                        </span>
+                    </div>
+                
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+	
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header page-scroll">
+      <button type="button" class="navbar-toggle">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/">kavience</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+    <div id="huxblog_navbar">
+      <div class="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <a href="/">首页</a>
+          </li>
+
+              
+          <li>
+            <a
+              href="/archive/"
+              >归档</a
+            >
+          </li>
+            
+          <li>
+            <a
+              href="/tags/"
+              >标签</a
+            >
+          </li>
+            
+          <li>
+            <a
+              href="/about/"
+              >关于</a
+            >
+          </li>
+           
+        </ul>
+      </div>
+    </div>
+    <!-- /.navbar-collapse -->
+  </div>
+  <!-- /.container -->
+</nav>
+<script>
+  // Drop Bootstarp low-performance Navbar
+  // Use customize navbar with high-quality material design animation
+  // in high-perf jank-free CSS3 implementation
+  var $body = document.body;
+  var $toggle = document.querySelector(".navbar-toggle");
+  var $navbar = document.querySelector("#huxblog_navbar");
+  var $collapse = document.querySelector(".navbar-collapse");
+
+  $toggle.addEventListener("click", handleMagic);
+  function handleMagic(e) {
+    if ($navbar.className.indexOf("in") > 0) {
+      // CLOSE
+      $navbar.className = " ";
+      // wait until animation end.
+      setTimeout(function () {
+        // prevent frequently toggle
+        if ($navbar.className.indexOf("in") < 0) {
+          $collapse.style.height = "0px";
+        }
+      }, 400);
+    } else {
+      // OPEN
+      $collapse.style.height = "auto";
+      $navbar.className += " in";
+    }
+  }
+</script>
+
+
+    <!-- Main Content -->
+    
+<!-- Post Content -->
+<article>
+    <div class="container" style="overflow: hidden">
+        <div class="row">
+
+            <!-- Post Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                <h2 id="what"><a class="header-anchor" href="#what"></a>What</h2>
+<p>采用 Jest 对 react 项目进行单元测试。</p>
+<h2 id="why"><a class="header-anchor" href="#why"></a>Why</h2>
+<p>曾使用 Mocha 对项目进行过单元测试，但是 Mocha 需要配合一系列工具包( sinon, enzyme, chai, nyc )等，加上 Mocha 对 typescript 支持不是特别友好。所以打算采用 Jest 进行单元测试，目前的测试工具 Mocha、Jest、Ava 区别大致如下：</p>
+<table>
+<thead>
+<tr>
+<th>框架</th>
+<th>断言</th>
+<th>异步</th>
+<th>Mock</th>
+<th>代码覆盖率</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Mocha</td>
+<td>不支持（Chai/power-asset）</td>
+<td>友好</td>
+<td>不支持（Sinon）</td>
+<td>不支持（Istanbul）</td>
+</tr>
+<tr>
+<td>Jest</td>
+<td>默认支持</td>
+<td>友好</td>
+<td>默认支持</td>
+<td>支持</td>
+</tr>
+<tr>
+<td>Ava</td>
+<td>默认支持</td>
+<td>友好</td>
+<td>不支持（Sinon)</td>
+<td>不支持（Istanbul)</td>
+</tr>
+</tbody>
+</table>
+<h2 id="how"><a class="header-anchor" href="#how"></a>How</h2>
+<h3 id="配置包与命令"><a class="header-anchor" href="#配置包与命令"></a>配置包与命令</h3>
+<p>安装所需依赖(采用的 typescript )</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yarn add -D jest babel-jest jest-transform-stub ts-jest enzyme-to-json enzyme enzyme-adapter-react-16</span><br></pre></td></tr></table></figure>
+<p>配置命令</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line"><span class="string">"scripts"</span>: &#123;</span><br><span class="line">    <span class="string">"test"</span>: <span class="string">"cross-env jest"</span>,</span><br><span class="line">    <span class="string">"test:with-coverage"</span>: <span class="string">"cross-env TEST_COVERAGE=true jest"</span></span><br><span class="line">  &#125;,</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+<h3 id="配置-jest"><a class="header-anchor" href="#配置-jest"></a>配置 Jest</h3>
+<p>根目录下编辑 jest.config.js</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  preset: <span class="string">"ts-jest"</span>, <span class="comment">// 采用 ts 测试</span></span><br><span class="line">  setupFiles: [<span class="string">"./jest.setup.js"</span>],</span><br><span class="line">  transform: &#123;</span><br><span class="line">    <span class="string">"^.+\\.[tj]s?$"</span>: <span class="string">"babel-jest"</span>,</span><br><span class="line">    <span class="string">"^.+\\.[tj]sx?$"</span>: <span class="string">"babel-jest"</span>,</span><br><span class="line">    <span class="string">"^.+\\.(css|styl|less|sass|scss|png|jpg|ttf|woff|woff2|svg)$"</span>:</span><br><span class="line">      <span class="string">"jest-transform-stub"</span>,</span><br><span class="line">  &#125;,</span><br><span class="line">  moduleNameMapper: &#123;</span><br><span class="line">    <span class="string">"^@/(.*)$"</span>: <span class="string">"&lt;rootDir&gt;/src/$1"</span>, <span class="comment">// 用 @ 映射当前 src 下的路径</span></span><br><span class="line">    <span class="string">"^.+.(css|styl|less|sass|scss|png|jpg|ttf|woff|woff2|svg)$"</span>:</span><br><span class="line">      <span class="string">"jest-transform-stub"</span>, <span class="comment">// stub 掉 css|styl|less|sass|scss|png|jpg|ttf|woff|woff2|svg 的测试</span></span><br><span class="line">    <span class="string">"\\.worker.entry.js"</span>: <span class="string">"&lt;rootDir&gt;/__mocks__/workerMock.js"</span>,</span><br><span class="line">  &#125;,</span><br><span class="line">  globals: &#123;</span><br><span class="line">    <span class="string">"ts-jest"</span>: &#123;</span><br><span class="line">      tsConfig: <span class="string">"./tsconfig.test.json"</span>, <span class="comment">// 指定 ts 测试配置文件</span></span><br><span class="line">    &#125;,</span><br><span class="line">  &#125;,</span><br><span class="line">  collectCoverage: process.env.TEST_COVERAGE ? <span class="literal">true</span> : <span class="literal">false</span>, <span class="comment">// 是否需要查看测试覆盖率</span></span><br><span class="line">  collectCoverageFrom: [<span class="string">"&lt;rootDir&gt;/src/**/*.&#123;ts,tsx&#125;"</span>, <span class="string">"!**/node_modules/**"</span>],</span><br><span class="line">  testPathIgnorePatterns: [<span class="string">"&lt;rootDir&gt;/dist/"</span>, <span class="string">"&lt;rootDir&gt;/node_modules/"</span>],</span><br><span class="line">  snapshotSerializers: [<span class="string">"enzyme-to-json/serializer"</span>],</span><br><span class="line">  transformIgnorePatterns: [<span class="string">"&lt;rootDir&gt;/dist/"</span>, <span class="string">"&lt;rootDir&gt;/node_modules/"</span>],</span><br><span class="line">  testURL: <span class="string">"http://localhost"</span>,</span><br><span class="line">  clearMocks: <span class="literal">true</span>,</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>根目录下编辑 jest.setup.js</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 该文件是运行单元测试前会执行一遍，可以 mock 掉一些报错的东西</span></span><br><span class="line"><span class="keyword">const</span> React = <span class="built_in">require</span>(<span class="string">"react"</span>);</span><br><span class="line"><span class="keyword">if</span> (<span class="keyword">typeof</span> <span class="built_in">window</span> !== <span class="string">"undefined"</span>) &#123;</span><br><span class="line">  global.window.resizeTo = <span class="function">(<span class="params">width, height</span>) =&gt;</span> &#123;</span><br><span class="line">    global.window.innerWidth = width || global.window.innerWidth;</span><br><span class="line">    global.window.innerHeight = height || global.window.innerHeight;</span><br><span class="line">    global.window.dispatchEvent(<span class="keyword">new</span> Event(<span class="string">"resize"</span>));</span><br><span class="line">  &#125;;</span><br><span class="line">  global.window.scrollTo = <span class="function"><span class="params">()</span> =&gt;</span> &#123;&#125;;</span><br><span class="line">  <span class="keyword">if</span> (!<span class="built_in">window</span>.matchMedia) &#123;</span><br><span class="line">    <span class="built_in">Object</span>.defineProperty(global.window, <span class="string">"matchMedia"</span>, &#123;</span><br><span class="line">      value: jest.fn(<span class="function">(<span class="params">query</span>) =&gt;</span> (&#123;</span><br><span class="line">        matches: query.includes(<span class="string">"max-width"</span>),</span><br><span class="line">        addListener: jest.fn(),</span><br><span class="line">        removeListener: jest.fn(),</span><br><span class="line">      &#125;)),</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">const</span> mockResponse = jest.fn();</span><br><span class="line">  <span class="built_in">Object</span>.defineProperty(<span class="built_in">window</span>, <span class="string">"location"</span>, &#123;</span><br><span class="line">    value: &#123;</span><br><span class="line">      hash: &#123;</span><br><span class="line">        endsWith: mockResponse,</span><br><span class="line">        includes: mockResponse,</span><br><span class="line">      &#125;,</span><br><span class="line">      assign: mockResponse,</span><br><span class="line">    &#125;,</span><br><span class="line">    writable: <span class="literal">true</span>,</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> Enzyme = <span class="built_in">require</span>(<span class="string">"enzyme"</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> Adapter = <span class="built_in">require</span>(<span class="string">"enzyme-adapter-react-16"</span>);</span><br><span class="line"></span><br><span class="line">Enzyme.configure(&#123; <span class="attr">adapter</span>: <span class="keyword">new</span> Adapter() &#125;);</span><br><span class="line"></span><br><span class="line"><span class="built_in">Object</span>.assign(Enzyme.ReactWrapper.prototype, &#123;</span><br><span class="line">  findObserver() &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.find(<span class="string">"ResizeObserver"</span>);</span><br><span class="line">  &#125;,</span><br><span class="line">  triggerResize() &#123;</span><br><span class="line">    <span class="keyword">const</span> ob = <span class="keyword">this</span>.findObserver();</span><br><span class="line">    ob.instance().onResize([&#123; <span class="attr">target</span>: ob.getDOMNode() &#125;]);</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">"Current React Version:"</span>, React.version);</span><br></pre></td></tr></table></figure>
+<p>至此 Jest 项目搭建就已经完成了, 比 Mocha 简单些。</p>
+<h3 id="jest-使用"><a class="header-anchor" href="#jest-使用"></a>Jest 使用</h3>
+<p>编写测试文件</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> React <span class="keyword">from</span> <span class="string">"react"</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; App <span class="keyword">as</span> TargetComponent &#125; <span class="keyword">from</span> <span class="string">"../App"</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; shallow &#125; <span class="keyword">from</span> <span class="string">"enzyme"</span>;</span><br><span class="line"></span><br><span class="line">describe(<span class="string">"src &gt; APP"</span>, <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">const</span> defaultProps = &#123;</span><br><span class="line">    updateTabs: jest.fn(), <span class="comment">// 模拟 updateTabs 函数</span></span><br><span class="line">    user: &#123;&#125;,</span><br><span class="line">  &#125;;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// shallow 浅拷贝模拟 react 组件</span></span><br><span class="line">  <span class="keyword">const</span> render = <span class="function">(<span class="params">props: &#123;&#125; = &#123;&#125;</span>) =&gt;</span></span><br><span class="line">    shallow(&lt;TargetComponent &#123;...defaultProps&#125; &#123;...props&#125; /&gt;);</span><br><span class="line"></span><br><span class="line">  <span class="comment">// describe 一个方法</span></span><br><span class="line">  describe(<span class="string">"componentDidMount"</span>, <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="comment">// 判断行为</span></span><br><span class="line">    it(<span class="string">"should direct return if no tab"</span>, <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">      <span class="comment">// 实例化组件</span></span><br><span class="line">      <span class="keyword">const</span> component = render(&#123;</span><br><span class="line">        user: &#123;</span><br><span class="line">          permissionsMapping: &#123;</span><br><span class="line">            <span class="string">"/"</span>: <span class="literal">null</span>,</span><br><span class="line">          &#125;,</span><br><span class="line">        &#125;,</span><br><span class="line">      &#125;);</span><br><span class="line">      <span class="comment">// 执行方法</span></span><br><span class="line">      <span class="keyword">const</span> result = component.instance().componentDidMount();</span><br><span class="line">      <span class="comment">// 执行断言</span></span><br><span class="line">      expect(component.instance().props.updateTabs).toBeCalledWith(<span class="string">"test"</span>);</span><br><span class="line">      expect(result).toBeUndefined();</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>执行单元测试</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yarn <span class="built_in">test</span></span><br></pre></td></tr></table></figure>
+<p>或者执行单个测试文件</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 采用 describe.only 方法不行，略坑</span></span><br><span class="line">node_modules/.bin/jest src/components/BaseList/__test__/index.test.tsx</span><br></pre></td></tr></table></figure>
+<p>查看覆盖率</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yarn <span class="built_in">test</span>:with-coverage</span><br></pre></td></tr></table></figure>
+<p>在跟目录下 coverage 下会生成 html 文件，在浏览器打开查看覆盖率即可，可以在 Jest 配置中配置测试率要求，具体可以查看官网文档。</p>
+<h2 id="总结"><a class="header-anchor" href="#总结"></a>总结</h2>
+<p>个人感觉 Jest 比 Mocha 配置简单些，易上手，Mocha 需要配合 sinon 进行 stub，配合 Chai 断言效果才会更好，在使用上 Jest 和 Mocha 并无太大区别。</p>
+<p>(完)</p>
+
+                
+
+                <hr>
+                <!-- Pager -->
+                <ul class="pager">
+                    
+                        <li class="previous">
+                            <a href="/article/未来的路/世界在发展-人类有进步吗/" data-toggle="tooltip" data-placement="top" title="世界在发展, 人类有进步吗">&larr; Previous Post</a>
+                        </li>
+                    
+                    
+                        <li class="next">
+                            <a href="/article/WEB前端/一道有趣的JavaScript题/" data-toggle="tooltip" data-placement="top" title="一道有趣的JavaScript题">Next Post &rarr;</a>
+                        </li>
+                    
+                </ul>
+
+                <br>
+
+                <!--打赏-->
+                
+                <!--打赏-->
+
+                <br>
+                <!--分享-->
+                
+                    <div class="social-share"  data-wechat-qrcode-helper="" align="center"></div>
+                    <!--  css & js -->
+                    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css">
+                    <script src="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script>
+                
+                <!--分享-->
+                <br>                       
+                
+                <!-- require APlayer -->
+                
+                <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.css">
+                <script src="https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.js"></script>
+                <script src="https://cdn.jsdelivr.net/npm/meting@1.2/dist/Meting.min.js"></script>
+
+                <div class="aplayer"
+                    data-id="2764926677"
+                    data-server="netease"
+                    data-type="playlist"
+                    data-fixed="true" >
+                </div>
+                
+
+                <!-- disqus comment start -->
+                
+                    <div class="comment">
+                        <div id="disqus_thread" class="disqus-thread"></div>
+                    </div>
+                
+                <!-- disqus comment end -->
+
+                
+
+            </div>
+            
+            <!-- Tabe of Content -->
+            <!-- Table of Contents -->
+
+  
+    <style>
+      /* span.toc-nav-number{
+        display: none
+      } */
+    </style>
+  
+    
+      <aside id="sidebar">
+        <div id="toc" class="toc-article">
+        <strong class="toc-title">Contents</strong>
+        
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#what"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">What</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#why"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">Why</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#how"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">How</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#配置包与命令"><span class="toc-nav-number">3.1.</span> <span class="toc-nav-text">配置包与命令</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#配置-jest"><span class="toc-nav-number">3.2.</span> <span class="toc-nav-text">配置 Jest</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#jest-使用"><span class="toc-nav-number">3.3.</span> <span class="toc-nav-text">Jest 使用</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#总结"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">总结</span></a></li></ol>
+        
+        </div>
+      </aside>
+    
+
+                
+            <!-- Sidebar Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+                <section>
+                    <!-- no hr -->
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                       
+                          <a class="tag" href="/tags/#JavaScript" title="JavaScript">JavaScript</a>
+                        
+                          <a class="tag" href="/tags/#jest" title="jest">jest</a>
+                        
+                    </div>
+                </section>
+                
+
+                <!-- Friends Blog -->
+                
+            </div>
+        </div>
+    </div>
+</article>
+
+
+<!-- disqus embedded js code start (one page only need to embed once) -->
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES * * */
+    var disqus_shortname = "kavience";
+    var disqus_identifier = "http://www.kavience.com/article/WEB%E5%89%8D%E7%AB%AF/jest%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/";
+    var disqus_url = "http://www.kavience.com/article/WEB%E5%89%8D%E7%AB%AF/jest%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/";
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<!-- disqus embedded js code start end -->
+
+
+
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<script>
+    async("https://cdn.bootcss.com/anchor-js/1.1.1/anchor.min.js",function(){
+        anchors.options = {
+          visible: 'hover',
+          placement: 'left',
+          icon: 'な'
+        };
+        anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+    })
+</script>
+<style>
+    /* place left on bigger screen */
+    @media all and (min-width: 800px) {
+        .anchorjs-link{
+            position: absolute;
+            left: -0.2em;
+            font-size: 1.1em;
+            margin-top : -0.1em;
+        }
+    }
+</style>
+
+
+
+    <!-- Footer -->
+    <!-- Footer -->
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center">
+          
+            <li>
+              <a href="/sitemap.xml">
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-sitemap fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+            </li>
+            
+
+          
+          <li>
+            <a href="/feed.xml">
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+           
+          <li>
+            <a
+              target="_blank"
+              href="https://twitter.com/Mr_Kavience"
+            >
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+           
+          <li>
+            <a
+              target="_blank"
+              href="https://www.zhihu.com/people/kavience-xiaofan"
+            >
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-stack-1x fa-inverse">知</i>
+              </span>
+            </a>
+          </li>
+             
+          <li>
+            <a
+              target="_blank"
+              href="https://github.com/kavience"
+            >
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+           
+        </ul>
+        <p class="copyright text-muted">
+          Copyright &copy;
+          <a href="http://beian.miit.gov.cn/" target="_blank" rel="noopener">赣ICP备17009879号</a> kavience 2021
+          <span class="post-count">
+            & 28.1k words altogether</span
+          >
+          <br />
+          Theme by <a href="http://huangxuan.me" target="_blank" rel="noopener">Hux</a>
+          <span style="display: inline-block; margin: 0 5px;">
+            <i class="fa fa-heart"></i>
+          </span>
+          re-Ported by <a href="http://www.kavience.com">kavience</a> |
+          <iframe
+            style="margin-left: 2px; margin-bottom: -5px;"
+            frameborder="0"
+            scrolling="0"
+            width="91px"
+            height="20px"
+            src="https://ghbtns.com/github-btn.html?user=kavience&repo=blog&type=star&count=true"
+          >
+          </iframe>
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- jQuery -->
+
+<script src="/js/jquery.min.js"></script>
+
+
+<!-- Bootstrap Core JavaScript -->
+
+<script src="/js/bootstrap.min.js"></script>
+
+
+<!-- Custom Theme JavaScript -->
+
+<script src="/js/hux-blog.min.js"></script>
+
+
+<!-- async load function -->
+<script>
+  function async(u, c) {
+    var d = document,
+      t = "script",
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (c) {
+      o.addEventListener(
+        "load",
+        function (e) {
+          c(null, e);
+        },
+        false
+      );
+    }
+    s.parentNode.insertBefore(o, s);
+  }
+</script>
+
+<!-- jquery.tagcloud.js -->
+<script>
+  // only load tagcloud.js in tag.html
+  if ($("#tag_cloud").length !== 0) {
+    async(
+      "http://www.kavience.com/js/jquery.tagcloud.js",
+      function () {
+        $.fn.tagcloud.defaults = {
+          //size: {start: 1, end: 1, unit: 'em'},
+          color: { start: "#bbbbee", end: "#0085a1" },
+        };
+        $("#tag_cloud a").tagcloud();
+      }
+    );
+  }
+</script>
+
+<!--fastClick.js -->
+<script>
+  async(
+    "https://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js",
+    function () {
+      var $nav = document.querySelector("nav");
+      if ($nav) FastClick.attach($nav);
+    }
+  );
+</script>
+
+<!-- Google Analytics -->
+
+
+<script
+  async
+  src="https://www.googletagmanager.com/gtag/js?id=UA-171834825-2"
+></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() {
+    dataLayer.push(arguments);
+  }
+  gtag("js", new Date());
+  gtag("config", "UA-171834825-2");
+</script>
+
+
+
+<!-- Baidu Tongji -->
+
+
+
+
+	<a id="rocket" href="#top" class=""></a>
+	<script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+    <script type="text/javascript" src="/js/toc.js?v=1.0.0" async=""></script>
+<!-- Image to hack wechat -->
+<img src="http://www.kavience.com/img/icon_wechat.png" width="0" height="0" />
+<!-- Migrate from head to bottom, no longer block render and still work -->
+
+</body>
+
+</html>
