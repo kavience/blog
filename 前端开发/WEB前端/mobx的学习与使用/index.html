@@ -225,7 +225,9 @@
                 post-container">
 
                 <h2 id="mobx-简介"><a class="header-anchor" href="#mobx-简介"></a>mobx 简介</h2>
-<p>| 简单、可扩展的状态管理，相比于 redux，更轻巧，更简单，更灵活，在某些时候性能甚至更优越。</p>
+<blockquote>
+<p>简单、可扩展的状态管理，相比于 redux，更轻巧，更简单，更灵活，在某些时候性能甚至更优越。</p>
+</blockquote>
 <p>在这里简单的记录和介绍一下 mobx 的使用。</p>
 <h2 id="简单例子"><a class="header-anchor" href="#简单例子"></a>简单例子</h2>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; observable &#125; <span class="keyword">from</span> <span class="string">"mobx"</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; observer &#125; <span class="keyword">from</span> <span class="string">"mobx-react"</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> numStore = observable(&#123;</span><br><span class="line">  num: <span class="number">1</span>,</span><br><span class="line">  addNum: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.num++;</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">@observer</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">TimerView</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span> </span>&#123;</span><br><span class="line">  handleAdd = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">this</span>.props.numStore.addNum();</span><br><span class="line">  &#125;;</span><br><span class="line"></span><br><span class="line">  render() &#123;</span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">      &lt;div&gt;</span><br><span class="line">        &lt;span&gt; num: &#123;<span class="keyword">this</span>.props.numStore.num&#125; &lt;<span class="regexp">/span&gt;</span></span><br><span class="line"><span class="regexp">        &lt;button onClick=&#123;this.handleAdd&#125;&gt;&lt;/</span>button&gt;</span><br><span class="line">      &lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">    );</span></span><br><span class="line"><span class="regexp">  &#125;</span></span><br><span class="line"><span class="regexp">&#125;</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">ReactDOM.render(&lt;TimerView numStore=&#123;numStore&#125; /</span>&gt;, <span class="built_in">document</span>.body);</span><br></pre></td></tr></table></figure>
@@ -270,6 +272,10 @@
                 <hr>
                 <!-- Pager -->
                 <ul class="pager">
+                    
+                        <li class="previous">
+                            <a href="/article/WEB前端/Apple-M1-下的-Rosetta-与-npm/" data-toggle="tooltip" data-placement="top" title="Apple M1 下的 Rosetta 与 Npm">&larr; Previous Post</a>
+                        </li>
                     
                     
                         <li class="next">
@@ -496,7 +502,7 @@
           Copyright &copy;
           <a href="http://beian.miit.gov.cn/" target="_blank" rel="noopener">赣ICP备17009879号</a> kavience 2021
           <span class="post-count">
-            & 28.1k words altogether</span
+            & 28.5k words altogether</span
           >
           <br />
           Theme by <a href="http://huangxuan.me" target="_blank" rel="noopener">Hux</a>

@@ -7,18 +7,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="kavience 的博客, 专注于前端开发, web开发, 编程技术-Hello World">
-    <meta name="keyword"  content="kavience,javascript,前端开发,php,react,kavience博客,Hello World">
+    <meta name="description" content="kavience 的博客, 专注于前端开发, web开发, 编程技术-Apple M1 下的 Rosetta 与 Npm">
+    <meta name="keyword"  content="kavience,javascript,前端开发,php,react,kavience博客,Apple M1 下的 Rosetta 与 Npm">
     <link rel="shortcut icon" href="/img/ironman-draw.png">
     <!-- Place this tag in your head or just before your close body tag. -->
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <title>
         
-          Hello World - kavience | Blog
+          Apple M1 下的 Rosetta 与 Npm - kavience | Blog
         
     </title>
 
-    <link rel="canonical" href="http://www.kavience.com/article/随笔闲谈/hello-world/">
+    <link rel="canonical" href="http://www.kavience.com/article/WEB前端/Apple-M1-下的-Rosetta-与-npm/">
 
     <!-- Bootstrap Core CSS -->
     
@@ -103,14 +103,12 @@
                     <div class="post-heading">
                         <div class="tags">
                             
-                              <a class="tag" href="/tags/#开始" title="开始">开始</a>
-                            
                         </div>
-                        <h1>Hello World</h1>
+                        <h1>Apple M1 下的 Rosetta 与 Npm</h1>
                         <h2 class="subheading"></h2>
                         <span class="meta">
                             Posted by kavience on
-                            2019-10-16
+                            2021-03-26
                         </span>
                     </div>
                 
@@ -222,11 +220,22 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-                <h2 id="hello-world"><a class="header-anchor" href="#hello-world"></a>Hello World</h2>
-<p>试过各种各样的博客搭建平台，最终还是决定依托 HEXO 搭建，我觉得我的博客不需要有多少多复杂的功能，只需要简单清新一点就好了。</p>
-<h2 id="目的"><a class="header-anchor" href="#目的"></a>目的</h2>
-<p>做事总是带点目的性，个人博客于我而言，就像是网络上的一个家，这是属于自己的地盘，在网络上有了归属感，我想写点什么、记录点什么，都是自己决定。</p>
-<p>希望能一直纯粹下去。^_^</p>
+                <h2 id="what"><a class="header-anchor" href="#what"></a>what</h2>
+<p>新版的 Apple M1 是基于 arm 架构的，然而大部分的软件 和 npm 包都还没有适配 arm 架构，所以苹果公司就使用 Rosetta 来兼容 x86 架构的软件。</p>
+<h2 id="why"><a class="header-anchor" href="#why"></a>why</h2>
+<p>第一次使用 x86 软件的时候，系统会自动提示安装 Rosetta ，安装后直接运行软件即可。</p>
+<p>然而，今天遇到一个非常奇怪的问题，在安装依赖的时候我发现无法安装 <code>node-canvas</code> 这个包，经过一系列的排查，我发现问题出在这里：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line">npm ERR! node-pre-gyp http 404 status code downloading tarball https://github.com/Automattic/node-canvas/releases/download/v2.7.0/canvas-v2.7.0-node-v88-darwin-unknown-arm64.tar.gz</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+<p>无法找到 <code>canvas-v2.7.0-node-v88-darwin-unknown-arm64.tar.gz</code> 这个包，顺着 node-canvas 的 releases 发现，根本就没有发布这个包，只有 <code>canvas-v2.7.0-node-v88-darwin-unknown-x64.tar.gz</code>，这个时候我突然意识到，当前是以 arm 架构运行的 terminal 和 npm，所以识别出来后，自动去寻找适合 arm 架构的包，然而并没有适配 arm 的包，所以就导致无法安装。</p>
+<h2 id="how"><a class="header-anchor" href="#how"></a>how</h2>
+<p>我顺着使用 x86 架构的软件的思路，我觉得既然软件可以移植到 M1 上，npm 肯定也是可以的，一定有某种方法，而且肯定与 Rosetta 有关。终于，想到办法了。</p>
+<ol>
+<li>在应用程序中找到 terminal ，然后右键 <code>显示简介</code>，发现有个选项 <code>使用Rosetta打开</code></li>
+<li>打开一个 terminal，然后卸载 node ，再重新安装一次。(我是使用 nvm 安装的 node)</li>
+<li>使用该版本的 node 安装依赖，发现成功了。</li>
+</ol>
+<h2 id="总结"><a class="header-anchor" href="#总结"></a>总结</h2>
+<p>简而言之就是安装依赖的时候，发现依赖不适用于 arm 架构的 M1，只能使用 x86 架构的依赖，所以需要借助于 Rosetta 去安装依赖。</p>
 
                 
 
@@ -234,10 +243,10 @@
                 <!-- Pager -->
                 <ul class="pager">
                     
-                        <li class="previous">
-                            <a href="/article/WEB前端/js-进阶之执行上下文和执行栈/" data-toggle="tooltip" data-placement="top" title="Js 进阶之执行上下文和执行栈">&larr; Previous Post</a>
-                        </li>
                     
+                        <li class="next">
+                            <a href="/前端开发/WEB前端/mobx的学习与使用/" data-toggle="tooltip" data-placement="top" title="Mobx的学习与使用">Next Post &rarr;</a>
+                        </li>
                     
                 </ul>
 
@@ -287,24 +296,6 @@
             <!-- Tabe of Content -->
             <!-- Table of Contents -->
 
-  
-    <style>
-      /* span.toc-nav-number{
-        display: none
-      } */
-    </style>
-  
-    
-      <aside id="sidebar">
-        <div id="toc" class="toc-article">
-        <strong class="toc-title">Contents</strong>
-        
-          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#hello-world"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">Hello World</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#目的"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">目的</span></a></li></ol>
-        
-        </div>
-      </aside>
-    
-
                 
             <!-- Sidebar Container -->
             <div class="
@@ -319,8 +310,6 @@
                     <h5><a href="/tags/">FEATURED TAGS</a></h5>
                     <div class="tags">
                        
-                          <a class="tag" href="/tags/#开始" title="开始">开始</a>
-                        
                     </div>
                 </section>
                 
@@ -337,8 +326,8 @@
 <script type="text/javascript">
     /* * * CONFIGURATION VARIABLES * * */
     var disqus_shortname = "kavience";
-    var disqus_identifier = "http://www.kavience.com/article/%E9%9A%8F%E7%AC%94%E9%97%B2%E8%B0%88/hello-world/";
-    var disqus_url = "http://www.kavience.com/article/%E9%9A%8F%E7%AC%94%E9%97%B2%E8%B0%88/hello-world/";
+    var disqus_identifier = "http://www.kavience.com/article/WEB%E5%89%8D%E7%AB%AF/Apple-M1-%E4%B8%8B%E7%9A%84-Rosetta-%E4%B8%8E-npm/";
+    var disqus_url = "http://www.kavience.com/article/WEB%E5%89%8D%E7%AB%AF/Apple-M1-%E4%B8%8B%E7%9A%84-Rosetta-%E4%B8%8E-npm/";
 
     (function() {
         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
