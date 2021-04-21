@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="kavience 的博客, 专注于前端开发, web开发, 编程技术-生命的脆弱">
+    <meta name="keyword"  content="kavience,javascript,前端开发,php,react,kavience博客,生命的脆弱">
+    <link rel="shortcut icon" href="/img/ironman-draw.png">
+    <!-- Place this tag in your head or just before your close body tag. -->
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+    <title>
+        
+          生命的脆弱 - kavience | Blog
+        
+    </title>
+
+    <link rel="canonical" href="http://www.kavience.com/think/fragility-of-life.html">
+
+    <!-- Bootstrap Core CSS -->
+    
+<link rel="stylesheet" href="/css/bootstrap.min.css">
+
+
+    <!-- Custom CSS --> 
+    
+<link rel="stylesheet" href="/css/beantech.min.css">
+
+
+    
+<link rel="stylesheet" href="/css/donate.css">
+
+    
+    <!-- Pygments Highlight CSS -->
+    
+<link rel="stylesheet" href="/css/highlight.css">
+
+
+    
+<link rel="stylesheet" href="/css/widget.css">
+
+
+    
+<link rel="stylesheet" href="/css/rocket.css">
+
+
+    
+<link rel="stylesheet" href="/css/signature.css">
+
+
+    
+<link rel="stylesheet" href="/css/toc.css">
+
+
+    
+<link rel="stylesheet" href="/css/search.css">
+
+    
+<link rel="stylesheet" href="/css/gitalk.min.css">
+
+
+    <!-- Custom Fonts -->
+    <link href="https://cdn.staticfile.org/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+
+    <!-- Hux Delete, sad but pending in China
+    <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/
+    css'>
+    -->
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+   
+<!-- jQuery -->
+    
+<script src="/js/jquery.min.js"></script>
+
+    
+<script src="/js/gitalk.min.js"></script>
+
+    <!-- ga & ba script hoook -->
+    <script></script>
+<meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/feed.xml" title="kavience" type="application/atom+xml">
+</head>
+
+
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="">
+	<!-- Modified by Yu-Hsuan Yen -->
+<!-- Post Header -->
+<style type="text/css">
+    header.intro-header{
+        
+            background-image: url('/img/article_header/article_bg.jpg')
+            /*post*/
+        
+    }
+    
+</style>
+
+<header class="intro-header" >
+    <!-- Signature -->
+    <div id="signature">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                
+                    <div class="post-heading">
+                        <div class="tags">
+                            
+                              <a class="tag" href="/tags/#生命" title="生命">生命</a>
+                            
+                        </div>
+                        <h1>生命的脆弱</h1>
+                        <h2 class="subheading"></h2>
+                        <span class="meta">
+                            Posted by kavience on
+                            2020-08-08
+                        </span>
+                    </div>
+                
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+	
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header page-scroll">
+      <button type="button" class="navbar-toggle">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/">kavience</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+    <div id="huxblog_navbar">
+      <div class="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <a href="#" id="search" ><img style="width: 16px;height: 16px;margin: -2px 5px 0px 0;" src="/icons/search.svg " alt="">搜索</a>
+          </li>
+          <li>
+            <a href="/">首页</a>
+          </li>
+
+              
+          <li>
+            <a
+              href="/archive/"
+              >归档</a
+            >
+          </li>
+            
+          <li>
+            <a
+              href="/tags/"
+              >标签</a
+            >
+          </li>
+            
+          <li>
+            <a
+              href="/about/"
+              >关于</a
+            >
+          </li>
+           
+        </ul>
+      </div>
+    </div>
+    <!-- /.navbar-collapse -->
+  </div>
+  <!-- /.container -->
+</nav>
+
+<div class="modal search-modal">
+  <div class="search-container">
+    <div class="search-container-top">
+      <img src="/icons/close.svg" alt="">
+    </div>
+    <input class="search-container-input" placeholder="输入关键字搜索" type="text">
+    <div class="search-container-content"></div>
+  </div>
+</div>
+
+<script>
+  $('.search-container').css({ "height": window.innerHeight, "overflow": 'hidden' })
+  $('.search-container-content').css({ "height": window.innerHeight - 70, "overflow": 'scroll' })
+  var allArticles = [];
+  var xReq = new XMLHttpRequest();
+  xReq.open('GET', '/search.json');
+  xReq.send();
+  xReq.onreadystatechange = function(){
+    // 若响应完成且请求成功
+    if(xReq.readyState === 4 && xReq.status === 200){
+      allArticles = JSON.parse(xReq.responseText);
+    }
+  }
+
+  $('#search').on('click', function() {
+    $('.search-modal').addClass('modal-show');
+  });
+  
+  $('.search-modal,.search-container-top img').on('click', function() {
+    $('.search-modal').removeClass('modal-show');
+  });
+  
+  $('.search-container').on('click', function(e) {
+    e.stopPropagation();
+  });
+  
+  $('.search-container-input').bind('input propertychange', function(e) {
+    var searchValue = e.currentTarget.value;
+    var correctArticles = allArticles.filter(article => article.content.indexOf(searchValue) > -1 || article.title.indexOf(searchValue) > -1)
+    var articleListHtml = '';
+    for (let index = 0; index < correctArticles.length; index++) {
+      var article = correctArticles[index];
+      article.description = article.content.replace(/<[^>]+>/g,"");
+      var title = article.title, description = '';
+      var searchReg = RegExp(searchValue, 'i');
+      var searchRegGlobal = RegExp(searchValue, 'ig');
+      if (article.title.match(searchReg)) {
+        title = article.title.replaceAll(searchRegGlobal, `<span class="search-value-active">${searchValue}</span>`);
+      }
+      var contentMatch = article.description.match(searchReg);
+      if (contentMatch) {
+        description = `...${article.description.substr(contentMatch['index'], 210)}...`.replaceAll(searchRegGlobal, `<span class="search-value-active">${searchValue}</span>`);
+        // description = `...<span class="search-value-active">${searchValue}</span>${article.description.substr(contentMatch[0].length + contentMatch['index'], 200)}...`;
+      } else {
+        description = article.description.substr(0, 200);
+      }
+
+      articleListHtml += `<div class="search-container-content_item">
+        <a href="${article.url}" class="search-container-content_item-title">${title}</a>
+        <div class="search-container-content_item-description">${description}</div>
+      </div>`
+    }
+
+    $('.search-container-content').html(articleListHtml);
+  });
+  
+</script>
+<script>
+  // Drop Bootstarp low-performance Navbar
+  // Use customize navbar with high-quality material design animation
+  // in high-perf jank-free CSS3 implementation
+  var $body = document.body;
+  var $toggle = document.querySelector(".navbar-toggle");
+  var $navbar = document.querySelector("#huxblog_navbar");
+  var $collapse = document.querySelector(".navbar-collapse");
+
+  $toggle.addEventListener("click", handleMagic);
+  function handleMagic(e) {
+    if ($navbar.className.indexOf("in") > 0) {
+      // CLOSE
+      $navbar.className = " ";
+      // wait until animation end.
+      setTimeout(function () {
+        // prevent frequently toggle
+        if ($navbar.className.indexOf("in") < 0) {
+          $collapse.style.height = "0px";
+        }
+      }, 400);
+    } else {
+      // OPEN
+      $collapse.style.height = "auto";
+      $navbar.className += " in";
+    }
+  }
+</script>
+
+
+    <!-- Main Content -->
+    
+<!-- Post Content -->
+<article>
+    <div class="container" style="overflow: hidden">
+        <div class="row">
+
+            <!-- Post Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                <blockquote>
+<p>树叶的一生，只是为了归根吗？ – 亚索</p>
+</blockquote>
+<h2 id="对生命的疑问">对生命的疑问</h2>
+<p>每当想起人生的意义的时候，我总是会想起 LOL 中亚索的这句话「树叶的一生，只是为了归根吗？」。我觉得他说的这句话，似乎适合让任何一个失落的人发出这样的呐喊，同时也会产生共鸣，人的一生，其实不也像一片树叶吗？</p>
+<p>树叶源自于树枝，春天发芽，夏天茂盛，秋天落叶，冬天归根。而大多数人，少年时在家乡出生和长大，年轻时外出学习和工作，中年时成家立业，准备退休，年老时解甲归田。人生代代如此，反复循环，那人生究竟有何意义？</p>
+<h2 id="对人生的探究">对人生的探究</h2>
+<p>有人希望大富大贵，有人希望平平淡淡一生，有人希望走遍世界。为什么大家会有这么多不同的想法？我其实一直认为人类，是一种特殊的动物，动物有的行为，人类基本都有。但唯独，好奇与恐惧是人类特有的。七情六欲，动物应该也有这样的行为，但是好奇心和恐惧心里远远不如人类。为什么有人喜欢大富大贵？他好奇那种拥有花不完的钱的感觉。为什么喜欢拥有强大的权力？他好奇那种强大权力的感觉。为什么想环游世界？他好奇那种走遍世界的感觉。为什么有人希望平平淡淡一生？因为恐惧接受一些事物。为什么你能在电影中看到有些人为了活下去，做出各种匪夷所思的事情？因为恐惧死亡。</p>
+<p>基本上，人类的行为大部分在动物身上也发生过，但唯独好奇与恐惧就像是人类特有的。好奇使人类进化的更聪明，恐惧使人类更加珍惜生命。如果生活中凡事发生了一些难以理解的事情，你只要把这件事当做发生在动物身上，基本就能说的通了。还真是有点细思极恐。</p>
+<h2 id="生命的脆弱">生命的脆弱</h2>
+<p>年少时，我一直以为这个世界有鬼怪和神仙存在，我以为只有他们是永远存在的。恐怕，世界上，没有什么生命是永远存在的，人的一生短短几十年，其实脆弱的很。</p>
+<p>为什么我今天会写这么沉重的话题？一方面是因为我很早就自己想过这件事，另一方面是因为前两天去医院检查了一下腰，发现自己腰椎峡部断裂和腰椎滑脱。我相信大部分人，都应该把自己的生命看的非常非常重要，在没有大灾大难的时候，可能总觉得自己能活非常久，其实是我们大意了，生命发生意外的时候，很有可能招呼都不会和你打。我很早前做过一个手术，那种恐惧感可能这辈子都不会忘记，所以当医生说我的腰很严重的时候，我的心里有那么一瞬间非常失落，感觉就像是给我判了死刑一样。其实这还只是中等情况，不至于说威胁生命安全，但是如果真的有一天，人被宣告得了不治之症，有多少人能承受得住这个打击呢？</p>
+<p>我们总觉得发生在别人身上的，很难在自己身上重复，离自己太遥远，其实这就发生在身边。愿所有人，能早点意识到生命的脆弱，或许很多不必要发生的事情，就会少很多。</p>
+
+                
+                <div id="生命的脆弱"></div>
+                <hr>
+                <!-- Pager -->
+                <ul class="pager">
+                    
+                        <li class="previous">
+                            <a href="/front-end/an-interesting-javascript-question.html" data-toggle="tooltip" data-placement="top" title="一道有趣的JavaScript题">&larr; Previous Post</a>
+                        </li>
+                    
+                    
+                        <li class="next">
+                            <a href="/front-end/summary-of-web-frontend-optimization.html" data-toggle="tooltip" data-placement="top" title="Web前端优化总结">Next Post &rarr;</a>
+                        </li>
+                    
+                </ul>
+
+                <br>
+
+                <!--打赏-->
+                
+                <!--打赏-->
+
+                <br>
+                <!--分享-->
+                
+                    <div class="social-share"  data-wechat-qrcode-helper="" align="center"></div>
+                    <!--  css & js -->
+                    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css">
+                    <script src="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script>
+                
+                <!--分享-->
+                <br>                       
+                
+                <!-- require APlayer -->
+                
+                <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.css">
+                <script src="https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.js"></script>
+                <script src="https://cdn.jsdelivr.net/npm/meting@1.2/dist/Meting.min.js"></script>
+
+                <div class="aplayer"
+                    data-id="2764926677"
+                    data-server="netease"
+                    data-type="playlist"
+                    data-fixed="true" >
+                </div>
+                
+
+                <!-- disqus comment start -->
+                
+                <!-- disqus comment end -->
+
+                
+
+            </div>
+            
+            <!-- Tabe of Content -->
+            <!-- Table of Contents -->
+
+  
+    <!-- <style>
+      span.toc-nav-number {
+        display: none;
+      }
+    </style> -->
+    
+      
+        <aside id="sidebar">
+          <div id="toc" class="toc-article">
+            <strong class="toc-title">
+              Contents
+            </strong>
+            
+              <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#对生命的疑问"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">对生命的疑问</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#对人生的探究"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">对人生的探究</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#生命的脆弱"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">生命的脆弱</span></a></li></ol>
+                
+          </div>
+        </aside>
+        
+          
+                
+            <!-- Sidebar Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+                <section>
+                    <!-- no hr -->
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                       
+                          <a class="tag" href="/tags/#生命" title="生命">生命</a>
+                        
+                    </div>
+                </section>
+                
+
+                <!-- Friends Blog -->
+                
+            </div>
+        </div>
+    </div>
+</article>
+
+<script>
+    var gitalk = new Gitalk({
+    clientID: 'd25cda615a572205be1e',
+    clientSecret: 'faa4cf10f1daea3d4701f8be90d80feb88c818ac',
+    repo: 'blog',
+    owner: 'kavience',
+    admin: ['kavience'],
+    id: '生命的脆弱',
+    title: '生命的脆弱',
+    distractionFreeMode: false  
+    });
+
+    gitalk.render('生命的脆弱')
+</script>
+
+
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<script>
+    async("https://cdn.bootcss.com/anchor-js/1.1.1/anchor.min.js",function(){
+        anchors.options = {
+          visible: 'hover',
+          placement: 'left',
+          icon: 'な'
+        };
+        anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+    })
+</script>
+<style>
+    /* place left on bigger screen */
+    @media all and (min-width: 800px) {
+        .anchorjs-link{
+            position: absolute;
+            left: -0.2em;
+            font-size: 1.1em;
+            margin-top : -0.1em;
+        }
+    }
+</style>
+
+
+
+    <!-- Footer -->
+    <!-- Footer -->
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center">
+          
+            <li>
+              <a href="/sitemap.xml">
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-sitemap fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+            </li>
+            
+
+          
+          <li>
+            <a href="/feed.xml">
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+           
+          <li>
+            <a
+              target="_blank"
+              href="https://twitter.com/Mr_Kavience"
+            >
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+           
+          <li>
+            <a
+              target="_blank"
+              href="https://www.zhihu.com/people/kavience-xiaofan"
+            >
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-stack-1x fa-inverse">知</i>
+              </span>
+            </a>
+          </li>
+             
+          <li>
+            <a
+              target="_blank"
+              href="https://github.com/kavience"
+            >
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+           
+        </ul>
+        <p class="copyright text-muted">
+          Copyright &copy;
+          <a href="http://beian.miit.gov.cn/" target="_blank" rel="noopener">赣ICP备17009879号</a> kavience 2021
+          <span class="post-count">
+            & 29.3k words altogether</span
+          >
+          <br />
+          Theme by <a href="http://huangxuan.me" target="_blank" rel="noopener">Hux</a>
+          <span style="display: inline-block; margin: 0 5px;">
+            <i class="fa fa-heart"></i>
+          </span>
+          re-Ported by <a href="http://www.kavience.com">kavience</a> |
+          <iframe
+            style="margin-left: 2px; margin-bottom: -5px;"
+            frameborder="0"
+            scrolling="0"
+            width="91px"
+            height="20px"
+            src="https://ghbtns.com/github-btn.html?user=kavience&repo=blog&type=star&count=true"
+          >
+          </iframe>
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Bootstrap Core JavaScript -->
+
+<script src="/js/bootstrap.min.js"></script>
+
+
+<!-- Custom Theme JavaScript -->
+
+<script src="/js/hux-blog.min.js"></script>
+
+
+<!-- async load function -->
+<script>
+  function async(u, c) {
+    var d = document,
+      t = "script",
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (c) {
+      o.addEventListener(
+        "load",
+        function (e) {
+          c(null, e);
+        },
+        false
+      );
+    }
+    s.parentNode.insertBefore(o, s);
+  }
+</script>
+
+<!-- jquery.tagcloud.js -->
+<script>
+  // only load tagcloud.js in tag.html
+  if ($("#tag_cloud").length !== 0) {
+    async(
+      "http://www.kavience.com/js/jquery.tagcloud.js",
+      function () {
+        $.fn.tagcloud.defaults = {
+          //size: {start: 1, end: 1, unit: 'em'},
+          color: { start: "#bbbbee", end: "#0085a1" },
+        };
+        $("#tag_cloud a").tagcloud();
+      }
+    );
+  }
+</script>
+
+<!--fastClick.js -->
+<script>
+  async(
+    "https://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js",
+    function () {
+      var $nav = document.querySelector("nav");
+      if ($nav) FastClick.attach($nav);
+    }
+  );
+</script>
+
+<!-- Google Analytics -->
+
+
+<script
+  async
+  src="https://www.googletagmanager.com/gtag/js?id=UA-171834825-2"
+></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() {
+    dataLayer.push(arguments);
+  }
+  gtag("js", new Date());
+  gtag("config", "UA-171834825-2");
+</script>
+
+
+
+<!-- Baidu Tongji -->
+
+
+<script>
+  $(".toc-nav-link").bind("click touch", function () {
+    //根据a标签的href转换为id选择器，获取id元素所处的位置
+    $('html,body').animate({ scrollTop: ($($(this).attr('href')).offset().top) }, 300);
+  });
+</script>
+
+
+	<a id="rocket" href="#top" class=""></a>
+	<script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+    <script type="text/javascript" src="/js/toc.js?v=1.0.0" async=""></script>
+<!-- Image to hack wechat -->
+<!-- <img src="http://www.kavience.com/img/icon_wechat.png" width="0" height="0" /> -->
+<!-- Migrate from head to bottom, no longer block render and still work -->
+
+</body>
+
+</html>

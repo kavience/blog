@@ -55,6 +55,13 @@
 <link rel="stylesheet" href="/css/toc.css">
 
 
+    
+<link rel="stylesheet" href="/css/search.css">
+
+    
+<link rel="stylesheet" href="/css/gitalk.min.css">
+
+
     <!-- Custom Fonts -->
     <link href="https://cdn.staticfile.org/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
@@ -72,6 +79,14 @@
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
+
+   
+<!-- jQuery -->
+    
+<script src="/js/jquery.min.js"></script>
+
+    
+<script src="/js/gitalk.min.js"></script>
 
     <!-- ga & ba script hoook -->
     <script></script>
@@ -139,6 +154,9 @@
       <div class="navbar-collapse">
         <ul class="nav navbar-nav navbar-right">
           <li>
+            <a href="#" id="search" ><img style="width: 16px;height: 16px;margin: -2px 5px 0px 0;" src="/icons/search.svg " alt="">搜索</a>
+          </li>
+          <li>
             <a href="/">首页</a>
           </li>
 
@@ -171,6 +189,74 @@
   </div>
   <!-- /.container -->
 </nav>
+
+<div class="modal search-modal">
+  <div class="search-container">
+    <div class="search-container-top">
+      <img src="/icons/close.svg" alt="">
+    </div>
+    <input class="search-container-input" placeholder="输入关键字搜索" type="text">
+    <div class="search-container-content"></div>
+  </div>
+</div>
+
+<script>
+  $('.search-container').css({ "height": window.innerHeight, "overflow": 'hidden' })
+  $('.search-container-content').css({ "height": window.innerHeight - 70, "overflow": 'scroll' })
+  var allArticles = [];
+  var xReq = new XMLHttpRequest();
+  xReq.open('GET', '/search.json');
+  xReq.send();
+  xReq.onreadystatechange = function(){
+    // 若响应完成且请求成功
+    if(xReq.readyState === 4 && xReq.status === 200){
+      allArticles = JSON.parse(xReq.responseText);
+    }
+  }
+
+  $('#search').on('click', function() {
+    $('.search-modal').addClass('modal-show');
+  });
+  
+  $('.search-modal,.search-container-top img').on('click', function() {
+    $('.search-modal').removeClass('modal-show');
+  });
+  
+  $('.search-container').on('click', function(e) {
+    e.stopPropagation();
+  });
+  
+  $('.search-container-input').bind('input propertychange', function(e) {
+    var searchValue = e.currentTarget.value;
+    var correctArticles = allArticles.filter(article => article.content.indexOf(searchValue) > -1 || article.title.indexOf(searchValue) > -1)
+    var articleListHtml = '';
+    for (let index = 0; index < correctArticles.length; index++) {
+      var article = correctArticles[index];
+      article.description = article.content.replace(/<[^>]+>/g,"");
+      var title = article.title, description = '';
+      var searchReg = RegExp(searchValue, 'i');
+      var searchRegGlobal = RegExp(searchValue, 'ig');
+      if (article.title.match(searchReg)) {
+        title = article.title.replaceAll(searchRegGlobal, `<span class="search-value-active">${searchValue}</span>`);
+      }
+      var contentMatch = article.description.match(searchReg);
+      if (contentMatch) {
+        description = `...${article.description.substr(contentMatch['index'], 210)}...`.replaceAll(searchRegGlobal, `<span class="search-value-active">${searchValue}</span>`);
+        // description = `...<span class="search-value-active">${searchValue}</span>${article.description.substr(contentMatch[0].length + contentMatch['index'], 200)}...`;
+      } else {
+        description = article.description.substr(0, 200);
+      }
+
+      articleListHtml += `<div class="search-container-content_item">
+        <a href="${article.url}" class="search-container-content_item-title">${title}</a>
+        <div class="search-container-content_item-description">${description}</div>
+      </div>`
+    }
+
+    $('.search-container-content').html(articleListHtml);
+  });
+  
+</script>
 <script>
   // Drop Bootstarp low-performance Navbar
   // Use customize navbar with high-quality material design animation
@@ -229,410 +315,61 @@
              <!-- 归档列表 -->
 
             
-            <div class="one-tag-list">
-                <span class="fa fa-calendar-times-o listing-seperator" id="2021">
-                    <span class="tag-text">2021</span>
-                </span>
-                <ul>
-                
-                  <!-- <li class="listing-item">
-                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                  </li> -->
-                 <li >
-                    03-30
-                    <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-                    <a href="/article/WEB前端/nodejs模块c++-addons入门/" style="color: #0085a1">
-                        <span>
-                            Nodejs模块c++addons入门
-                        </span>
-                    </a>
-                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-                </li>
-                
-                  <!-- <li class="listing-item">
-                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                  </li> -->
-                 <li >
-                    03-26
-                    <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-                    <a href="/article/WEB前端/Apple-M1-下的-Rosetta-与-npm/" style="color: #0085a1">
-                        <span>
-                            Apple M1 下的 Rosetta 与 Npm
-                        </span>
-                    </a>
-                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-                </li>
-                
-                  <!-- <li class="listing-item">
-                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                  </li> -->
-                 <li >
-                    03-24
-                    <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-                    <a href="/前端开发/WEB前端/mobx的学习与使用/" style="color: #0085a1">
-                        <span>
-                            Mobx的学习与使用
-                        </span>
-                    </a>
-                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-                </li>
-                
-                </ul>
-            </div>
-            
-            <div class="one-tag-list">
-                <span class="fa fa-calendar-times-o listing-seperator" id="2020">
-                    <span class="tag-text">2020</span>
-                </span>
-                <ul>
-                
-                  <!-- <li class="listing-item">
-                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                  </li> -->
-                 <li >
-                    12-25
-                    <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-                    <a href="/article/WEB前端/TypeScript常见知识总结/" style="color: #0085a1">
-                        <span>
-                            Typescript常见知识总结
-                        </span>
-                    </a>
-                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-                </li>
-                
-                  <!-- <li class="listing-item">
-                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                  </li> -->
-                 <li >
-                    11-12
-                    <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-                    <a href="/article/WEB前端/前端面试题之界面与样式(持续更新)/" style="color: #0085a1">
-                        <span>
-                            前端面试题之界面与样式(持续更新)
-                        </span>
-                    </a>
-                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-                </li>
-                
-                  <!-- <li class="listing-item">
-                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                  </li> -->
-                 <li >
-                    11-12
-                    <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-                    <a href="/article/WEB前端/前端面试题之其它概念(持续更新)/" style="color: #0085a1">
-                        <span>
-                            前端面试题之其它概念(持续更新)
-                        </span>
-                    </a>
-                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-                </li>
-                
-                  <!-- <li class="listing-item">
-                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                  </li> -->
-                 <li >
-                    11-12
-                    <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-                    <a href="/article/WEB前端/前端面试题之js进阶(持续更新)/" style="color: #0085a1">
-                        <span>
-                            前端面试题之Js进阶(持续更新)
-                        </span>
-                    </a>
-                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-                </li>
-                
-                  <!-- <li class="listing-item">
-                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                  </li> -->
-                 <li >
-                    10-14
-                    <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-                    <a href="/article/WEB前端/基于g6的流程图编辑器Demo/" style="color: #0085a1">
-                        <span>
-                            基于g6的流程图编辑器Demo
-                        </span>
-                    </a>
-                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-                </li>
-                
-                  <!-- <li class="listing-item">
-                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                  </li> -->
-                 <li >
-                    09-07
-                    <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-                    <a href="/article/WEB前端/js-彻底了解this的指向/" style="color: #0085a1">
-                        <span>
-                            Js-彻底了解This的指向
-                        </span>
-                    </a>
-                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-                </li>
-                
-                  <!-- <li class="listing-item">
-                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                  </li> -->
-                 <li >
-                    08-27
-                    <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-                    <a href="/article/未来的路/世界在发展-人类有进步吗/" style="color: #0085a1">
-                        <span>
-                            世界在发展, 人类有进步吗
-                        </span>
-                    </a>
-                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-                </li>
-                
-                  <!-- <li class="listing-item">
-                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                  </li> -->
-                 <li >
-                    08-25
-                    <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-                    <a href="/article/WEB前端/jest单元测试/" style="color: #0085a1">
-                        <span>
-                            Jest单元测试
-                        </span>
-                    </a>
-                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-                </li>
-                
-                  <!-- <li class="listing-item">
-                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                  </li> -->
-                 <li >
-                    08-10
-                    <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-                    <a href="/article/WEB前端/一道有趣的JavaScript题/" style="color: #0085a1">
-                        <span>
-                            一道有趣的JavaScript题
-                        </span>
-                    </a>
-                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-                </li>
-                
-                  <!-- <li class="listing-item">
-                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                  </li> -->
-                 <li >
-                    08-08
-                    <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-                    <a href="/article/未来的路/生命的脆弱/" style="color: #0085a1">
-                        <span>
-                            生命的脆弱
-                        </span>
-                    </a>
-                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-                </li>
-                
-                  <!-- <li class="listing-item">
-                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                  </li> -->
-                 <li >
-                    08-04
-                    <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-                    <a href="/article/WEB前端/web前端优化总结/" style="color: #0085a1">
-                        <span>
-                            Web前端优化总结
-                        </span>
-                    </a>
-                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-                </li>
-                
-                  <!-- <li class="listing-item">
-                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                  </li> -->
-                 <li >
-                    07-31
-                    <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-                    <a href="/article/未来的路/如果坚持一个行业五年/" style="color: #0085a1">
-                        <span>
-                            如果坚持一个行业五年
-                        </span>
-                    </a>
-                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-                </li>
-                
-                  <!-- <li class="listing-item">
-                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                  </li> -->
-                 <li >
-                    07-29
-                    <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-                    <a href="/article/未来的路/程序员的焦虑/" style="color: #0085a1">
-                        <span>
-                            程序员的焦虑
-                        </span>
-                    </a>
-                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-                </li>
-                
-                  <!-- <li class="listing-item">
-                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                  </li> -->
-                 <li >
-                    07-27
-                    <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-                    <a href="/article/未来的路/未来的路/" style="color: #0085a1">
-                        <span>
-                            未来的路
-                        </span>
-                    </a>
-                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-                </li>
-                
-                  <!-- <li class="listing-item">
-                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                  </li> -->
-                 <li >
-                    07-21
-                    <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-                    <a href="/article/常用工具/terminal翻墙代理/" style="color: #0085a1">
-                        <span>
-                            Terminal翻墙代理
-                        </span>
-                    </a>
-                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-                </li>
-                
-                  <!-- <li class="listing-item">
-                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                  </li> -->
-                 <li >
-                    07-11
-                    <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-                    <a href="/article/随笔闲谈/今年计划/" style="color: #0085a1">
-                        <span>
-                            今年计划
-                        </span>
-                    </a>
-                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-                </li>
-                
-                  <!-- <li class="listing-item">
-                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                  </li> -->
-                 <li >
-                    07-08
-                    <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-                    <a href="/article/PHP/PSR-1基本规范/" style="color: #0085a1">
-                        <span>
-                            PSR-1基本规范
-                        </span>
-                    </a>
-                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-                </li>
-                
-                  <!-- <li class="listing-item">
-                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                  </li> -->
-                 <li >
-                    06-16
-                    <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-                    <a href="/article/常用工具/自建前端错误监控系统/" style="color: #0085a1">
-                        <span>
-                            自建前端错误监控系统
-                        </span>
-                    </a>
-                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-                </li>
-                
-                  <!-- <li class="listing-item">
-                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                  </li> -->
-                 <li >
-                    06-15
-                    <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-                    <a href="/article/WEB前端/记一次React项目搭建/" style="color: #0085a1">
-                        <span>
-                            记一次React项目搭建
-                        </span>
-                    </a>
-                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-                </li>
-                
-                </ul>
-            </div>
-            
-            <div class="one-tag-list">
-                <span class="fa fa-calendar-times-o listing-seperator" id="2019">
-                    <span class="tag-text">2019</span>
-                </span>
-                <ul>
-                
-                  <!-- <li class="listing-item">
-                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                  </li> -->
-                 <li >
-                    12-15
-                    <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-                    <a href="/article/WEB前端/mocha单元测试/" style="color: #0085a1">
-                        <span>
-                            Mocha单元测试
-                        </span>
-                    </a>
-                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-                </li>
-                
-                  <!-- <li class="listing-item">
-                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                  </li> -->
-                 <li >
-                    10-19
-                    <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-                    <a href="/article/WEB前端/js-进阶之执行上下文和执行栈/" style="color: #0085a1">
-                        <span>
-                            Js 进阶之执行上下文和执行栈
-                        </span>
-                    </a>
-                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-                </li>
-                
-                  <!-- <li class="listing-item">
-                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                  </li> -->
-                 <li >
-                    10-16
-                    <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-                    <a href="/article/随笔闲谈/hello-world/" style="color: #0085a1">
-                        <span>
-                            Hello World
-                        </span>
-                    </a>
-                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-                </li>
-                
-                </ul>
-            </div>
-            
+                <div class="one-tag-list">
+                    <span class="fa fa-calendar-times-o listing-seperator" id="2021">
+                        <span class="tag-text">2021</span>
+                    </span>
+                    <ul>
+                    
+                        <!-- <li class="listing-item">
+                        <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
+                        <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
+                        </li> -->
+                        <li >
+                        03-30
+                        <i class="fa fa-angle-double-right" aria-hidden="true"></i>
+                        <a href="/front-end/.html" style="color: #0085a1">
+                            <span>
+                                Nodejs模块c++addons入门
+                            </span>
+                        </a>
+                        <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
+                    </li>
+                    
+                        <!-- <li class="listing-item">
+                        <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
+                        <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
+                        </li> -->
+                        <li >
+                        03-26
+                        <i class="fa fa-angle-double-right" aria-hidden="true"></i>
+                        <a href="/tools/rosetta-and-npm-under-apple-m1.html" style="color: #0085a1">
+                            <span>
+                                Apple M1 下的 Rosetta 与 Npm
+                            </span>
+                        </a>
+                        <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
+                    </li>
+                    
+                        <!-- <li class="listing-item">
+                        <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
+                        <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
+                        </li> -->
+                        <li >
+                        03-24
+                        <i class="fa fa-angle-double-right" aria-hidden="true"></i>
+                        <a href="/front-end/study-and-use-of-mobx.html" style="color: #0085a1">
+                            <span>
+                                Mobx的学习与使用
+                            </span>
+                        </a>
+                        <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
+                    </li>
+                    
+                    </ul>
+                </div>
 
-
+            
         </div>
     </div>
 </div>
@@ -732,7 +469,19 @@
     <div class="tags">
         
             
+            <a href="/tags/#apple" title="apple" rel="1">apple</a>
+            
+        
+            
             <a href="/tags/#PSR规范" title="PSR规范" rel="1">PSR规范</a>
+            
+        
+            
+            <a href="/tags/#typescript" title="typescript" rel="1">typescript</a>
+            
+        
+            
+            <a href="/tags/#开始" title="开始" rel="1">开始</a>
             
         
             
@@ -744,7 +493,11 @@
             
         
             
-            <a href="/tags/#nodejs" title="nodejs" rel="1">nodejs</a>
+            <a href="/tags/#mobx" title="mobx" rel="1">mobx</a>
+            
+        
+            
+            <a href="/tags/#mobx-react" title="mobx-react" rel="1">mobx-react</a>
             
         
             
@@ -756,15 +509,27 @@
             
         
             
+            <a href="/tags/#nodejs" title="nodejs" rel="1">nodejs</a>
+            
+        
+            
+            <a href="/tags/#翻墙" title="翻墙" rel="1">翻墙</a>
+            
+        
+            
             <a href="/tags/#优化" title="优化" rel="1">优化</a>
             
         
             
-            <a href="/tags/#mobx" title="mobx" rel="1">mobx</a>
+            <a href="/tags/#人类" title="人类" rel="1">人类</a>
             
         
             
-            <a href="/tags/#mobx-react" title="mobx-react" rel="1">mobx-react</a>
+            <a href="/tags/#随笔闲谈" title="随笔闲谈" rel="1">随笔闲谈</a>
+            
+        
+            
+            <a href="/tags/#2020计划" title="2020计划" rel="1">2020计划</a>
             
         
             
@@ -780,14 +545,6 @@
             
         
             
-            <a href="/tags/#翻墙" title="翻墙" rel="1">翻墙</a>
-            
-        
-            
-            <a href="/tags/#Reactjs" title="Reactjs" rel="1">Reactjs</a>
-            
-        
-            
             <a href="/tags/#坚持" title="坚持" rel="1">坚持</a>
             
         
@@ -800,31 +557,15 @@
             
         
             
-            <a href="/tags/#sentry" title="sentry" rel="1">sentry</a>
-            
-        
-            
             <a href="/tags/#焦虑" title="焦虑" rel="1">焦虑</a>
             
         
             
-            <a href="/tags/#开始" title="开始" rel="1">开始</a>
+            <a href="/tags/#sentry" title="sentry" rel="1">sentry</a>
             
         
             
-            <a href="/tags/#随笔闲谈" title="随笔闲谈" rel="1">随笔闲谈</a>
-            
-        
-            
-            <a href="/tags/#2020计划" title="2020计划" rel="1">2020计划</a>
-            
-        
-            
-            <a href="/tags/#typescript" title="typescript" rel="1">typescript</a>
-            
-        
-            
-            <a href="/tags/#人类" title="人类" rel="1">人类</a>
+            <a href="/tags/#Reactjs" title="Reactjs" rel="1">Reactjs</a>
             
         
     </div>
@@ -838,23 +579,23 @@
     <ul>
       
         <li>
-          <a href="/article/WEB%E5%89%8D%E7%AB%AF/nodejs%E6%A8%A1%E5%9D%97c++-addons%E5%85%A5%E9%97%A8/">Nodejs模块c++addons入门</a>
+          <a href="/front-end/.html">Nodejs模块c++addons入门</a>
         </li>
       
         <li>
-          <a href="/article/WEB%E5%89%8D%E7%AB%AF/Apple-M1-%E4%B8%8B%E7%9A%84-Rosetta-%E4%B8%8E-npm/">Apple M1 下的 Rosetta 与 Npm</a>
+          <a href="/tools/rosetta-and-npm-under-apple-m1.html">Apple M1 下的 Rosetta 与 Npm</a>
         </li>
       
         <li>
-          <a href="/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/WEB%E5%89%8D%E7%AB%AF/mobx%E7%9A%84%E5%AD%A6%E4%B9%A0%E4%B8%8E%E4%BD%BF%E7%94%A8/">Mobx的学习与使用</a>
+          <a href="/front-end/study-and-use-of-mobx.html">Mobx的学习与使用</a>
         </li>
       
         <li>
-          <a href="/article/WEB%E5%89%8D%E7%AB%AF/TypeScript%E5%B8%B8%E8%A7%81%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93/">Typescript常见知识总结</a>
+          <a href="/front-end/typescript-common-knowledge-summary.html">Typescript常见知识总结</a>
         </li>
       
         <li>
-          <a href="/article/WEB%E5%89%8D%E7%AB%AF/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E9%A2%98%E4%B9%8Bjs%E8%BF%9B%E9%98%B6(%E6%8C%81%E7%BB%AD%E6%9B%B4%E6%96%B0)/">前端面试题之Js进阶(持续更新)</a>
+          <a href="/front-end/advanced-js-for-frontend-interview-questions-continuous-update.html">前端面试题之Js进阶(持续更新)</a>
         </li>
       
     </ul>
@@ -973,11 +714,6 @@
   </div>
 </footer>
 
-<!-- jQuery -->
-
-<script src="/js/jquery.min.js"></script>
-
-
 <!-- Bootstrap Core JavaScript -->
 
 <script src="/js/bootstrap.min.js"></script>
@@ -1058,13 +794,19 @@
 <!-- Baidu Tongji -->
 
 
+<script>
+  $(".toc-nav-link").bind("click touch", function () {
+    //根据a标签的href转换为id选择器，获取id元素所处的位置
+    $('html,body').animate({ scrollTop: ($($(this).attr('href')).offset().top) }, 300);
+  });
+</script>
 
 
 	<a id="rocket" href="#top" class=""></a>
 	<script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
     <script type="text/javascript" src="/js/toc.js?v=1.0.0" async=""></script>
 <!-- Image to hack wechat -->
-<img src="http://www.kavience.com/img/icon_wechat.png" width="0" height="0" />
+<!-- <img src="http://www.kavience.com/img/icon_wechat.png" width="0" height="0" /> -->
 <!-- Migrate from head to bottom, no longer block render and still work -->
 
 </body>
