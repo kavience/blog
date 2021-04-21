@@ -1,15 +1,17 @@
 ---
-title: nodejs模块c++addons入门
+title: nodejs模块addons入门
+catalog: true
 tags:
   - nodejs
   - JavaScript
 categories:
   - front-end
-translate_title: getting-started-with-nodejs-module-c++-addons
+translate_title: getting-started-with-nodejs-module-addons
 date: 2021-03-30 13:17:19
 subtitle:
 header-img:
 ---
+
 
 ## what
 
