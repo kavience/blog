@@ -6,12 +6,7 @@ jobs:
     - yarn install
   script:
     - yarn generate
-    - pwd
-    - ls
     - mv public/ /tmp/public
-  before_deploy:
-    - pwd
-    - ls
   deploy:
     provider: pages
     local_dir: /tmp/public
