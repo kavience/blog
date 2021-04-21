@@ -1,13 +1,14 @@
 ---
 title: Hello World
 catalog: true
+tags:
+  - 开始
+categories:
+  - think
+translate_title: hello-world
 date: 2019-10-16 23:02:43
 subtitle:
 header-img:
-tags:
-  - 开始
-catagories:
-  - 随笔闲谈
 ---
 
 ## Hello World

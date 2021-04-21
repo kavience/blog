@@ -1,14 +1,15 @@
 ---
 title: mocha单元测试
 catalog: true
-date: 2019-12-15 14:26:11
-subtitle:
-header-img:
 tags:
   - mocha
   - 单元测试
-catagories:
-  - 前端开发
+categories:
+  - front-end
+translate_title: mocha-unit-test
+date: 2019-12-15 14:26:11
+subtitle:
+header-img:
 ---
 
 ## 什么是单元测试?

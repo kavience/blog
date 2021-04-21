@@ -1,14 +1,15 @@
 ---
 title: mobx的学习与使用
 catalog: true
-date: 2021-03-24 13:20:39
-subtitle:
-header-img:
 tags:
   - mobx
   - mobx-react
 categories:
-  - 前端开发
+  - front-end
+translate_title: study-and-use-of-mobx
+date: 2021-03-24 13:20:39
+subtitle:
+header-img:
 ---
 
 ## mobx 简介

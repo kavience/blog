@@ -1,13 +1,14 @@
 ---
 title: 一道有趣的JavaScript题
 catalog: true
+tags:
+  - JavaScript
+categories:
+  - front-end
+translate_title: an-interesting-javascript-question
 date: 2020-08-10 12:03:47
 subtitle:
 header-img:
-tags:
-  - JavaScript
-catagories:
-  - 前端开发
 ---
 
 ## 题目

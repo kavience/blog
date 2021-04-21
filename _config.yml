@@ -14,12 +14,12 @@ beian: 赣ICP备17009879号
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
 url: http://www.kavience.com/ # Note: don't forget to modify the CNAME file to your url
 root: /
-#permalink: :year/:month/:day/:title/
-permalink: :category/:title/
-permalink_defaults:
-  lang: zh-CN
+permalink: :category/:translate_title.html
+# permalink: :category/:title/
+# permalink_defaults:
+#   lang: zh-CN
 
-#Custom Setting Start
+# Custom Setting Start
 
 # Site settings
 SEOTitle: kavience | Blog
@@ -38,7 +38,7 @@ feed:
   path: feed
   limit: false
 
-# weibo_username:     Demonbaneen
+# weibo_username:
 zhihu_username: kavience-xiaofan
 github_username: kavience
 twitter_username: Mr_Kavience
@@ -49,7 +49,7 @@ twitter_username: Mr_Kavience
 anchorjs: true # if you want to customize anchor. check out line:181 of `post.html`
 
 # Disqus settings
-disqus_username: kavience
+# disqus_username: kavience
 
 # Analytics settings
 #Baidu Analytics
@@ -152,7 +152,7 @@ markdown:
   anchors:
     level: 2 # Minimum level for ID creation. (Ex. h2 to h6)
     collisionSuffix: "v" # A suffix that is prepended to the number given if the ID is repeated
-    permalink: true # If `true`, creates an anchor tag with a permalink besides the heading
+    permalink: false # If `true`, creates an anchor tag with a permalink besides the heading
     permalinkClass: header-anchor # Class used for the permalink anchor tag
     permalinkSymbol: "" # The symbol used to make the permalink
 
@@ -210,3 +210,14 @@ deploy:
   type: git
   repository: git@github.com:kavience/blog.git
   branch: gh-pages
+
+# translate
+translate_title:
+  translate_way: google # google,youdao,baidu_with_appid,baidu_no_appid
+  youdao_api_key: "" # Your youdao_api_key
+  youdao_keyfrom: xxxx-blog # Your youdao_keyfrom
+  is_need_proxy: false # true | false
+  # proxy_url: http://127.0.0.1:7890 # Your proxy_url
+  baidu_appid: "" # Your baidu_appid
+  baidu_appkey: "" # Your baidu_appkey
+  rewrite: false # is rewrite true | false

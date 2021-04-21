@@ -1,8 +1,12 @@
 ---
 layout: apple
 title: Apple M1 下的 Rosetta 与 npm
+translate_title: rosetta-and-npm-under-apple-m1
 date: 2021-03-26 14:07:46
 tags:
+  - apple
+categories:
+  - tools
 ---
 
 ## what

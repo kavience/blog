@@ -1,12 +1,13 @@
 ---
-layout: "about"
-title: "关于"
+layout: about
+title: 关于
 sort: 999
-date: 2019-10-16 21:52:61
-description: "Left hand guitar, Right hand code"
-header-img: "/img/header_img/about.jpg"
+description: 'Left hand guitar, Right hand code'
+header-img: /img/header_img/about.jpg
 aplayer: true
 fixed: false
+translate_title: 'on'
+date: 2019-10-16 21:53:01
 ---
 
 ### 一句话描述自己

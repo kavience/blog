@@ -1,14 +1,15 @@
 ---
 title: Jest单元测试
 catalog: true
-date: 2020-08-25 11:19:51
-subtitle:
-header-img:
 tags:
   - JavaScript
   - jest
-catagories:
-  - 前端开发
+categories:
+  - front-end
+translate_title: jest-unit-testing
+date: 2020-08-25 11:19:51
+subtitle:
+header-img:
 ---
 
 ## What

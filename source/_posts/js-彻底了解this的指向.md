@@ -2,14 +2,14 @@
 title: js-彻底了解this的指向
 catalog: true
 top: true
-toc: true
+tags:
+  - JavaScript
+categories:
+  - front-end
+translate_title: js-thoroughly-understand-the-point-of-this
 date: 2020-09-07 17:37:16
 subtitle:
 header-img:
-tags:
-  - JavaScript
-catagories:
-  - 前端开发
 ---
 
 ## 起因

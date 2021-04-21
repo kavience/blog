@@ -1,13 +1,14 @@
 ---
 title: typescript常见知识总结
 catalog: true
+tags:
+  - typescript
+categories:
+  - front-end
+translate_title: typescript-common-knowledge-summary
 date: 2020-12-25 14:11:17
 subtitle:
 header-img:
-tags:
-  - typescript
-catagories:
-  - 前端开发
 ---
 
 ## never, unknown, any 三者之间的区别

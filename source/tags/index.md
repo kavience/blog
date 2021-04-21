@@ -1,7 +1,8 @@
 ---
-layout: "tags"
-title: "标签"
+layout: tags
+title: 标签
 sort: 2
-description: "Hey, this is Tags."
-header-img: "/img/header_img/tag.jpg"
+description: 'Hey, this is Tags.'
+header-img: /img/header_img/tag.jpg
+translate_title: label
 ---

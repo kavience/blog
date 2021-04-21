@@ -15,7 +15,7 @@ layout: layout
 
                 <%- page.content %>
                 
-
+                <div id="<%- page.title  %>"></div>
                 <hr>
                 <!-- Pager -->
                 <ul class="pager">
@@ -126,6 +126,21 @@ layout: layout
     </div>
 </article>
 
+<script>
+    var gitalk = new Gitalk({
+    clientID: 'd25cda615a572205be1e',
+    clientSecret: 'faa4cf10f1daea3d4701f8be90d80feb88c818ac',
+    repo: 'blog',
+    owner: 'kavience',
+    admin: ['kavience'],
+    id: '<%- page.title  %>',
+    title: '<%- page.title  %>',
+    distractionFreeMode: false  
+    });
+
+    gitalk.render('<%- page.title  %>')
+</script>
+
 <% if(config['disqus_username']) { %>
 <!-- disqus embedded js code start (one page only need to embed once) -->
 <script type="text/javascript">
@@ -141,25 +156,6 @@ layout: layout
     })();
 </script>
 <!-- disqus embedded js code start end -->
-<% } %>
-
-<% if(config['livere_uid']) { %>
-    <!-- 来必力City版公共JS代码 start (一个网页只需插入一次) -->
-    <script type="text/javascript">
-       (function(d, s) {
-           var j, e = d.getElementsByTagName(s)[0];
-    
-           if (typeof LivereTower === 'function') { return; }
-    
-           j = d.createElement(s);
-           j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
-           j.async = true;
-    
-           e.parentNode.insertBefore(j, e);
-       })(document, 'script');
-    </script>
-    <noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
-    <!-- 来必力City版 公共JS代码 end -->
 <% } %>
 
 <% if(config['anchorjs']) { %>

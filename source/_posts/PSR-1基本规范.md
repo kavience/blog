@@ -1,13 +1,15 @@
 ---
 title: PSR-1基本规范
 catalog: true
+tags:
+  - PSR规范
+categories:
+  - php
+abbrlink: 28080
+translate_title: psr1-basic-specification
 date: 2020-07-08 14:31:52
 subtitle:
 header-img:
-tags:
-  - PSR规范
-catagories:
-  - PHP
 ---
 
 ## 阅读建议

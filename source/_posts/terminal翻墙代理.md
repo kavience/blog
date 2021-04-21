@@ -1,13 +1,15 @@
 ---
 title: terminal翻墙代理
 catalog: true
+tags:
+  - 翻墙
+categories:
+  - tools
+abbrlink: 28167
+translate_title: terminal-over-the-wall-proxy
 date: 2020-07-21 10:06:58
 subtitle:
 header-img:
-tags:
-  - 翻墙
-catagories:
-  - 常用工具
 ---
 
 ## What？

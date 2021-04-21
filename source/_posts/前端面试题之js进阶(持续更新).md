@@ -1,13 +1,14 @@
 ---
 title: 前端面试题之js进阶(持续更新)
 catalog: true
+tags:
+  - 前端面试题
+categories:
+  - front-end
+translate_title: advanced-js-for-frontend-interview-questions-continuous-update
 date: 2020-11-12 19:05:46
 subtitle:
 header-img:
-tags:
-  - 前端面试题
-catagories:
-  - 前端开发
 ---
 
 ## 数据类型

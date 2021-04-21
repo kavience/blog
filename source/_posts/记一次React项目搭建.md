@@ -1,13 +1,14 @@
 ---
 title: 记一次React项目搭建
 catalog: true
+tags:
+  - Reactjs
+categories:
+  - front-end
+translate_title: remember-to-build-a-react-project
 date: 2020-06-15 18:30:09
 subtitle:
 header-img:
-tags:
-  - Reactjs
-catagories:
-  - 前端开发
 ---
 
 ## 阅读建议

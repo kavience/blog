@@ -1,14 +1,15 @@
 ---
 title: 基于g6的流程图编辑器Demo
 catalog: true
-date: 2020-10-14 14:01:46
-subtitle:
-header-img:
 tags:
   - g6
   - 流程图
-catagories:
-  - 前端开发
+categories:
+  - front-end
+translate_title: demo-of-flow-chart-editor-based-on-g6
+date: 2020-10-14 14:01:46
+subtitle:
+header-img:
 ---
 
 ## ✨ 特点
