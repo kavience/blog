@@ -21,7 +21,7 @@ layout: page
 
              <!-- 归档列表 -->
 
-            <% if (!!page.year) { %>
+            <% if (is_year()) { %>
                 <div class="one-tag-list">
                     <span class="fa fa-calendar-times-o listing-seperator" id="<%= page.year %>">
                         <span class="tag-text"><%= page.year %></span>

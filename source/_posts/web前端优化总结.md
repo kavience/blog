@@ -16,10 +16,6 @@ header-img:
 ## What
 
 针对 web 前端优化方案的总结, 主要技术栈为 React。
-<div id="中文测试" name="中文测试">中文测试</div>
-<div id="test2">test2</div>
-<a href="#中文测试">ttttttttt</a>
-<a href="#test2">ttttttttt</a>
 
 ## Why
 

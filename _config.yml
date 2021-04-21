@@ -221,3 +221,10 @@ translate_title:
   baidu_appid: "" # Your baidu_appid
   baidu_appkey: "" # Your baidu_appkey
   rewrite: false # is rewrite true | false
+
+# search
+search:
+  path: search.json
+  field: post
+  content: true
+  format: html
