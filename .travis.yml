@@ -5,16 +5,16 @@ jobs:
   install:
     - yarn install
   script:
-    - yarn build
+    - yarn generate
     - pwd
     - ls
-    - mv build/ /tmp/build
+    - mv public/ /tmp/public
   before_deploy:
     - pwd
     - ls
   deploy:
     provider: pages
-    local_dir: /tmp/build
+    local_dir: /tmp/public
     skip_cleanup: true
     github_token: "$GITHUB_TOKEN"
     keep_history: true
