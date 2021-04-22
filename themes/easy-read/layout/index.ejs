@@ -45,14 +45,22 @@ layout: page
 
 <!-- Pager -->
 
-<ul class="pager">
-  <% if (page.prev){ %>
-  <li class="previous">
-    <a href="<%- config.root %><%- page.prev_link %>">&larr; 上一页</a>
-  </li>
-  <% } %> <% if (page.next){ %>
-  <li class="next">
-    <a href="<%- config.root %><%- page.next_link %>">下一页 &rarr;</a>
-  </li>
-  <% } %>
-</ul>
+<div id="kkpager"></div>
+
+<script>
+$(function(){
+	kkpager.generPageHtml({
+		pno: '<%- page.current %>',
+		total: '<%- page.total %>',
+		totalRecords: '<%- site.posts.length %>',
+		mode: 'link',
+    hrefFormer: '/page',
+    getLink: function(n){
+      if(n == 1){
+        return '/';
+      }
+      return this.hrefFormer + '/' + n;
+    }
+	});
+});
+</script>
