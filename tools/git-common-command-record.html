@@ -7,18 +7,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="kavience 的博客, 专注于前端开发, web开发, 编程技术-基于g6的流程图编辑器Demo">
-    <meta name="keyword"  content="kavience,javascript,前端开发,php,react,kavience博客,基于g6的流程图编辑器Demo">
+    <meta name="description" content="kavience 的博客, 专注于前端开发, web开发, 编程技术-Git常用命令记录">
+    <meta name="keyword"  content="kavience,javascript,前端开发,php,react,kavience博客,Git常用命令记录">
     <link rel="shortcut icon" href="/img/ironman-draw.png">
     <!-- Place this tag in your head or just before your close body tag. -->
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <title>
         
-          基于g6的流程图编辑器Demo - kavience | Blog
+          Git常用命令记录 - kavience | Blog
         
     </title>
 
-    <link rel="canonical" href="http://www.kavience.com/front-end/demo-of-flow-chart-editor-based-on-g6.html">
+    <link rel="canonical" href="http://www.kavience.com/tools/git-common-command-record.html">
 
     <!-- Bootstrap Core CSS -->
     
@@ -124,16 +124,14 @@
                     <div class="post-heading">
                         <div class="tags">
                             
-                              <a class="tag" href="/tags/#g6" title="g6">g6</a>
-                            
-                              <a class="tag" href="/tags/#流程图" title="流程图">流程图</a>
+                              <a class="tag" href="/tags/#git" title="git">git</a>
                             
                         </div>
-                        <h1>基于g6的流程图编辑器Demo</h1>
+                        <h1>Git常用命令记录</h1>
                         <h2 class="subheading"></h2>
                         <span class="meta">
                             Posted by kavience on
-                            2020-10-14
+                            2021-04-23
                         </span>
                     </div>
                 
@@ -316,36 +314,247 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-                <h2 id="✨-特点">✨ 特点</h2>
+                <h2 id="what">what</h2>
+<p>一篇关于 Git 常用命令的记录文章。</p>
+<h2 id="why">why</h2>
+<p>Git 在工作中成了必不可少的工具，个人比较喜欢使用 Git 命令，但是 Git 命令其实比较繁杂，有点难记，例如 <code>rebase</code>, <code>reset</code> 等，只要不用的时间久了，就会忘记。所以特此记录。</p>
+<h2 id="how">how</h2>
+<h3 id="git-clone">git clone</h3>
+<p>用法： <code>git clone [&lt;options&gt;] [--] &lt;repo&gt; [&lt;dir&gt;]</code></p>
+<p>作用： 克隆一个仓库到本地</p>
+<p>常用：</p>
 <ul>
-<li>拖拽式更新工作流程图</li>
-<li>数据与图双向转换</li>
+<li>-b
+<ul>
+<li>克隆指定分支： <code>git clone -b test git@github.com:kavience/blog.git</code></li>
 </ul>
-<h2 id="📦-原理">📦 原理</h2>
-<h3 id="拖拽">拖拽</h3>
-<p>基于 <code>react-dnd</code> 和 <code>react-dnd-html5-backend</code> 创建拖拽节点与背景画布。</p>
-<h3 id="图">图</h3>
-<p>基于 <code>g6</code> 创建可视化图，根据 api 提供的 <code>registerBehavior</code> 注册行为，监听鼠标事件，基于 g6 提供的 <code>ToolBar</code>, <code>Menu</code>, <code>Minimap</code>, <code>Grid</code> 等插件，提供更多功能。</p>
-<h3 id="样式">样式</h3>
-<p>基于 <code>antd</code> 提供的 UI 组件优化样式。</p>
-<h2 id="💡-预览">💡 预览</h2>
-<p>请查看 <a href="https://kavience.github.io/work-flow-editor" target="_blank" rel="noopener">在线 Demo </a></p>
-<h2 id="🔨-说明">🔨 说明</h2>
-<p>项目仅供学习和参考，或许不适合直接用于项目中，<a href="https://github.com/kavience/work-flow-editor" target="_blank" rel="noopener">项目地址</a>;</p>
+</li>
+</ul>
+<h3 id="git-status">git status</h3>
+<p>用法： <code>git status [&lt;options&gt;] [--] &lt;pathspec&gt;...</code></p>
+<p>作用： 查看暂存区</p>
+<p>常用：</p>
+<ul>
+<li>s
+<ul>
+<li>简要显示暂存区</li>
+</ul>
+</li>
+</ul>
+<h3 id="git-add">git add</h3>
+<p>用法： <code>git add [&lt;options&gt;] [--] &lt;pathspec&gt;...</code></p>
+<p>作用： 添加修改（包括添加、删除、修改等操作）到暂存区</p>
+<p>常用：</p>
+<ul>
+<li>A
+<ul>
+<li>添加所有修改到暂存区，等同于 <code>git add .</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="git-log">git log</h3>
+<p>用法： <code>git log [&lt;options&gt;] [&lt;revision-range&gt;] [[--] &lt;path&gt;...]</code></p>
+<p>作用： 查看日志</p>
+<p>常用：</p>
+<ul>
+<li>统计个人代码量
+<ul>
+<li><code>git log --author=&quot;username&quot; --pretty=tformat: --numstat | awk '{ add += $1; subs += $2; loc += $1 - $2 } END { printf &quot;added lines: %s, removed lines: %s, total lines: %s\n&quot;, add, subs, loc }' -</code></li>
+</ul>
+</li>
+<li>统计所有人增删行数
+<ul>
+<li><code>git log --format='%aN' | sort -u | while read name; do echo -en &quot;$name\t&quot;; git log --author=&quot;$name&quot; --pretty=tformat: --numstat | awk '{ add += $1; subs += $2; loc += $1 - $2 } END { printf &quot;added lines: %s, removed lines: %s, total lines: %s\n&quot;, add, subs, loc }' -; done</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="git-commit">git commit</h3>
+<p>用法： <code>git commit [&lt;options&gt;] [--] &lt;pathspec&gt;...</code></p>
+<p>作用： 提交暂存区里面的修改，并生成一个唯一的 commit 号</p>
+<p>常用：</p>
+<h3 id="git-push">git push</h3>
+<p>用法： <code>git push [&lt;options&gt;] [&lt;repository&gt; [&lt;refspec&gt;...]]</code></p>
+<p>作用： 上传当前仓库的 commit 到远程仓库地址</p>
+<p>常用：</p>
+<ul>
+<li>上传一个远程仓库不存在的分支
+<ul>
+<li><code>git push --set-upstream [origin] [branch]</code></li>
+</ul>
+</li>
+<li>强制上传，会强制替换远程仓库（<code>慎用！！！</code>）
+<ul>
+<li><code>git push -f [origin] [branch]</code></li>
+</ul>
+</li>
+<li>上传 tag 到仓库
+<ul>
+<li><code>git push [origin] [tag name]</code></li>
+<li><code>git push [origin] --tags</code> 上传所有 tag</li>
+</ul>
+</li>
+</ul>
+<h3 id="git-fetch">git fetch</h3>
+<p>用法：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git fetch [&lt;options&gt;] [&lt;repository&gt; [&lt;refspec&gt;...]]</span><br><span class="line">   or: git fetch [&lt;options&gt;] &lt;group&gt;</span><br><span class="line">   or: git fetch --multiple [&lt;options&gt;] [(&lt;repository&gt; | &lt;group&gt;)...]</span><br><span class="line">   or: git fetch --all [&lt;options&gt;]</span><br></pre></td></tr></table></figure>
+<p>作用： 拉取远程分支</p>
+<p>常用：</p>
+<ul>
+<li>拉取指定远程分支
+<ul>
+<li><code>git fetch [origin] [branch]</code></li>
+</ul>
+</li>
+<li>拉取所有分支
+<ul>
+<li><code>git fetch --all</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="git-merge">git merge</h3>
+<p>用法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git merge [&lt;options&gt;] [&lt;commit&gt;...]</span><br><span class="line">   or: git merge --abort</span><br><span class="line">   or: git merge --continue</span><br></pre></td></tr></table></figure>
+<p>作用： 合并分支</p>
+<p>常用：</p>
+<ul>
+<li>合并指定分支到当前分支
+<ul>
+<li><code>git merge [target_branch]</code></li>
+</ul>
+</li>
+<li>当有冲突的时候，继续合并（必须先解决冲突）
+<ul>
+<li><code>git merge --continue</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="git-pull">git pull</h3>
+<p>用法： <code>git pull [&lt;options&gt;] [&lt;repository&gt; [&lt;refspec&gt;...]]</code></p>
+<p>作用： 拉取远程分支并与本地分支合并</p>
+<p>常用：</p>
+<ul>
+<li>本地分支与远程分支合并
+<ul>
+<li><code>git pull origin [origin_branch]:[local_branch]</code></li>
+<li>如果本地分支与远程分支存在跟踪关系，可以直接使用  <code>git pull origin [branch]</code> ，建立跟踪关系可以使用 <code>git branch --set-upstream [local_branch] origin/[origin_branch]</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="git-branch">git branch</h3>
+<p>用法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">git branch [&lt;options&gt;] [-r | -a] [--merged | --no-merged]</span><br><span class="line">   or: git branch [&lt;options&gt;] [-l] [-f] &lt;branch-name&gt; [&lt;start-point&gt;]</span><br><span class="line">   or: git branch [&lt;options&gt;] [-r] (-d | -D) &lt;branch-name&gt;...</span><br><span class="line">   or: git branch [&lt;options&gt;] (-m | -M) [&lt;old-branch&gt;] &lt;new-branch&gt;</span><br><span class="line">   or: git branch [&lt;options&gt;] (-c | -C) [&lt;old-branch&gt;] &lt;new-branch&gt;</span><br><span class="line">   or: git branch [&lt;options&gt;] [-r | -a] [--points-at]</span><br><span class="line">   or: git branch [&lt;options&gt;] [-r | -a] [--format]</span><br></pre></td></tr></table></figure>
+<p>作用： 查看、新建、删除、跟踪等操作分支</p>
+<p>常用：</p>
+<ul>
+<li>查看本地所有分支
+<ul>
+<li><code>git branch</code></li>
+<li><code>git branch -v</code> 带最后一次 commit</li>
+</ul>
+</li>
+<li>建立新分支
+<ul>
+<li><code>git branch [branch_name]</code></li>
+</ul>
+</li>
+<li>删除分支
+<ul>
+<li><code>git branch -d [branch]</code></li>
+<li><code>git branch -D [branch]</code> 强制删除，丢弃修改（慎用！！！）</li>
+</ul>
+</li>
+<li>本地分支和远程分支建立跟踪关系
+<ul>
+<li><code>git branch --set-upstream [local_branch] origin/[origin_branch]</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="git-checkout">git checkout</h3>
+<p>用法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git checkout [&lt;options&gt;] &lt;branch&gt;</span><br><span class="line">   or: git checkout [&lt;options&gt;] [&lt;branch&gt;] -- &lt;file&gt;...</span><br></pre></td></tr></table></figure>
+<p>作用： 切换分支、 tag 、 commit ，或创建且切换到新分支</p>
+<p>常用：</p>
+<ul>
+<li>切换分支或指定 commit ，或者指定 tag
+<ul>
+<li><code>git checkout [branch|commit|tag]</code></li>
+</ul>
+</li>
+<li>创建新分支，且切换到该分支
+<ul>
+<li><code>git checkout -b [branch]</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="git-stash">git stash</h3>
+<p>用法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">git stash list [&lt;options&gt;]</span><br><span class="line">   or: git stash show [&lt;options&gt;] [&lt;stash&gt;]</span><br><span class="line">   or: git stash drop [-q|--quiet] [&lt;stash&gt;]</span><br><span class="line">   or: git stash ( pop | apply ) [--index] [-q|--quiet] [&lt;stash&gt;]</span><br><span class="line">   or: git stash branch &lt;branchname&gt; [&lt;stash&gt;]</span><br><span class="line">   or: git stash clear</span><br><span class="line">   or: git stash [push [-p|--patch] [-k|--[no-]keep-index] [-q|--quiet]</span><br><span class="line">          [-u|--include-untracked] [-a|--all] [-m|--message &lt;message&gt;]</span><br><span class="line">          [--] [&lt;pathspec&gt;...]]</span><br><span class="line">   or: git stash save [-p|--patch] [-k|--[no-]keep-index] [-q|--quiet]</span><br><span class="line">          [-u|--include-untracked] [-a|--all] [&lt;message&gt;]</span><br></pre></td></tr></table></figure>
+<p>作用： 暂存和恢复进度</p>
+<p>常用：</p>
+<ul>
+<li>查看所有暂存的进度
+<ul>
+<li><code>git stash list</code></li>
+</ul>
+</li>
+<li>暂存当前修改
+<ul>
+<li><code>git stash</code></li>
+</ul>
+</li>
+<li>恢复进度
+<ul>
+<li><code>git stash apply</code> 恢复最近的一次进度</li>
+<li><code>git stash apply [stash]</code> 恢复指定的进度</li>
+<li><code>git stash drop [stash]</code> 删除该进度</li>
+<li><code>git stash pop [stash]</code> 恢复指定的进度并删除该进度</li>
+</ul>
+</li>
+</ul>
+<h3 id="git-rebase">git rebase</h3>
+<p>用法： <code>git commit [&lt;options&gt;] [--] &lt;pathspec&gt;...</code></p>
+<p>作用： 合并多次 commit 、分支合并、保持一个简洁的 commit 信息</p>
+<p>常用：</p>
+<ul>
+<li>合并多次 commit
+<ul>
+<li><code>git rebase -i HEAD~[n]</code> n 为 commit 次数</li>
+</ul>
+</li>
+<li>分支合并
+<ul>
+<li><code>git rebase [branch]</code>  合并分支到当前分支，和 merge 不一样的是不会产生 commit 信息，确保当前分支是只有本人使用，否则可能会产生丢失别人的 commit 信息。</li>
+</ul>
+</li>
+</ul>
+<h3 id="git-reset">git reset</h3>
+<p>用法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">git reset [--mixed | --soft | --hard | --merge | --keep] [-q] [&lt;commit&gt;]</span><br><span class="line">   or: git reset [-q] [&lt;tree-ish&gt;] [--] &lt;paths&gt;...</span><br><span class="line">   or: git reset --patch [&lt;tree-ish&gt;] [--] [&lt;paths&gt;...]</span><br><span class="line"></span><br><span class="line">    -q, --quiet           be quiet, only report errors</span><br><span class="line">    --mixed               reset HEAD and index</span><br><span class="line">    --soft                reset only HEAD</span><br><span class="line">    --hard                reset HEAD, index and working tree</span><br><span class="line">    --merge               reset HEAD, index and working tree</span><br><span class="line">    --keep                reset HEAD but keep local changes</span><br><span class="line">    --recurse-submodules[&#x3D;&lt;reset&gt;]</span><br><span class="line">                          control recursive updating of submodules</span><br><span class="line">    -p, --patch           select hunks interactively</span><br><span class="line">    -N, --intent-to-add   record only the fact that removed paths will be added later</span><br></pre></td></tr></table></figure>
+<p>作用： 回滚到某个 commit</p>
+<p>常用：</p>
+<ul>
+<li>软回滚，保留文件修改，硬回滚，丢失文件修改
+<ul>
+<li><code>git reset --[soft|hard] HEAD</code> 最近一次，等同于 <code>git reset --[soft|hard] HEAD~0</code></li>
+<li><code>git reset --[soft|hard] HEAD^</code> 上一次，等同于 <code>git reset --[soft|hard] HEAD~1</code></li>
+<li><code>git reset --[soft|hard] HEAD^^</code> 上两次，等同于 <code>git reset --[soft|hard] HEAD~2</code></li>
+<li><code>git reset --[soft|hard] HEAD^n^</code> 上n次，等同于 <code>git reset --[soft|hard] HEAD~n</code></li>
+</ul>
+</li>
+</ul>
+<h2 id="总结">总结</h2>
+<p>这只是个人工作中总结常用的一些命令，并不全面，会持续更新。</p>
+<p>（完）</p>
 
                 
-                <div id="基于g6的流程图编辑器Demo"></div>
+                <div id="Git常用命令记录"></div>
                 <hr>
                 <!-- Pager -->
                 <ul class="pager">
                     
-                        <li class="previous">
-                            <a href="/front-end/interface-and-style-of-frontend-interview-questions-continuous-update.html" data-toggle="tooltip" data-placement="top" title="前端面试题之界面与样式(持续更新)">&larr; Previous Post</a>
-                        </li>
-                    
                     
                         <li class="next">
-                            <a href="/front-end/js-thoroughly-understand-the-point-of-this.html" data-toggle="tooltip" data-placement="top" title="Js-彻底了解This的指向">Next Post &rarr;</a>
+                            <a href="/tools/use-travis-for-ci-and-cd.html" data-toggle="tooltip" data-placement="top" title="利用travis做CI和CD">Next Post &rarr;</a>
                         </li>
                     
                 </ul>
@@ -406,7 +615,7 @@
               Contents
             </strong>
             
-              <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#✨-特点"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">✨ 特点</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#📦-原理"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">📦 原理</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#拖拽"><span class="toc-nav-number">2.1.</span> <span class="toc-nav-text">拖拽</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#图"><span class="toc-nav-number">2.2.</span> <span class="toc-nav-text">图</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#样式"><span class="toc-nav-number">2.3.</span> <span class="toc-nav-text">样式</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#💡-预览"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">💡 预览</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#🔨-说明"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">🔨 说明</span></a></li></ol>
+              <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#what"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">what</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#why"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">why</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#how"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">how</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#git-clone"><span class="toc-nav-number">3.1.</span> <span class="toc-nav-text">git clone</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#git-status"><span class="toc-nav-number">3.2.</span> <span class="toc-nav-text">git status</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#git-add"><span class="toc-nav-number">3.3.</span> <span class="toc-nav-text">git add</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#git-log"><span class="toc-nav-number">3.4.</span> <span class="toc-nav-text">git log</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#git-commit"><span class="toc-nav-number">3.5.</span> <span class="toc-nav-text">git commit</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#git-push"><span class="toc-nav-number">3.6.</span> <span class="toc-nav-text">git push</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#git-fetch"><span class="toc-nav-number">3.7.</span> <span class="toc-nav-text">git fetch</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#git-merge"><span class="toc-nav-number">3.8.</span> <span class="toc-nav-text">git merge</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#git-pull"><span class="toc-nav-number">3.9.</span> <span class="toc-nav-text">git pull</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#git-branch"><span class="toc-nav-number">3.10.</span> <span class="toc-nav-text">git branch</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#git-checkout"><span class="toc-nav-number">3.11.</span> <span class="toc-nav-text">git checkout</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#git-stash"><span class="toc-nav-number">3.12.</span> <span class="toc-nav-text">git stash</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#git-rebase"><span class="toc-nav-number">3.13.</span> <span class="toc-nav-text">git rebase</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#git-reset"><span class="toc-nav-number">3.14.</span> <span class="toc-nav-text">git reset</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#总结"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">总结</span></a></li></ol>
                 
           </div>
         </aside>
@@ -426,9 +635,7 @@
                     <h5><a href="/tags/">FEATURED TAGS</a></h5>
                     <div class="tags">
                        
-                          <a class="tag" href="/tags/#g6" title="g6">g6</a>
-                        
-                          <a class="tag" href="/tags/#流程图" title="流程图">流程图</a>
+                          <a class="tag" href="/tags/#git" title="git">git</a>
                         
                     </div>
                 </section>
@@ -448,12 +655,12 @@
     repo: 'blog',
     owner: 'kavience',
     admin: ['kavience'],
-    id: '基于g6的流程图编辑器Demo',
-    title: '基于g6的流程图编辑器Demo',
+    id: 'Git常用命令记录',
+    title: 'Git常用命令记录',
     distractionFreeMode: false  
     });
 
-    gitalk.render('基于g6的流程图编辑器Demo')
+    gitalk.render('Git常用命令记录')
 </script>
 
 
