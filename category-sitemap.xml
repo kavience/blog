@@ -9,28 +9,28 @@
 
     <url>
         <loc>http://www.kavience.com/categories/think/</loc>
-        <lastmod>2021-04-21T10:48:49.200Z</lastmod>
+        <lastmod>2021-04-23T02:16:39.360Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>http://www.kavience.com/categories/front-end/</loc>
-        <lastmod>2021-04-21T10:48:49.200Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://www.kavience.com/categories/tools/</loc>
-        <lastmod>2021-04-21T10:48:49.200Z</lastmod>
+        <lastmod>2021-04-23T02:16:39.360Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>http://www.kavience.com/categories/php/</loc>
-        <lastmod>2021-04-21T10:48:49.196Z</lastmod>
+        <lastmod>2021-04-23T02:16:39.360Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://www.kavience.com/categories/tools/</loc>
+        <lastmod>2021-04-23T02:16:39.360Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>

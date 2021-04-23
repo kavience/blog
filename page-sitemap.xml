@@ -9,28 +9,28 @@
     
     <url>
         <loc>http://www.kavience.com/tags/</loc>
-        <lastmod>2021-04-21T10:48:49.208Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    
-    <url>
-        <loc>http://www.kavience.com/about/</loc>
-        <lastmod>2021-04-21T10:48:49.200Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    
-    <url>
-        <loc>http://www.kavience.com/archive/</loc>
-        <lastmod>2021-04-21T10:48:49.200Z</lastmod>
+        <lastmod>2021-04-23T02:16:39.376Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
     
     <url>
         <loc>http://www.kavience.com/404.html</loc>
-        <lastmod>2021-04-21T10:48:49.196Z</lastmod>
+        <lastmod>2021-04-23T02:16:39.360Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <url>
+        <loc>http://www.kavience.com/about/</loc>
+        <lastmod>2021-04-23T02:16:39.360Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <url>
+        <loc>http://www.kavience.com/archive/</loc>
+        <lastmod>2021-04-23T02:16:39.360Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>

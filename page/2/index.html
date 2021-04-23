@@ -18,7 +18,7 @@
         
     </title>
 
-    <link rel="canonical" href="http://www.kavience.com/archives/3/">
+    <link rel="canonical" href="http://www.kavience.com/page/2/">
 
     <!-- Bootstrap Core CSS -->
     
@@ -61,6 +61,9 @@
     
 <link rel="stylesheet" href="/css/gitalk.min.css">
 
+    
+<link rel="stylesheet" href="/css/kkpager_orange.css">
+
 
     <!-- Custom Fonts -->
     <link href="https://cdn.staticfile.org/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
@@ -87,6 +90,9 @@
 
     
 <script src="/js/gitalk.min.js"></script>
+
+    
+<script src="/js/kkpager.min.js"></script>
 
     <!-- ga & ba script hoook -->
     <script></script>
@@ -307,191 +313,249 @@
 <!-- Main Content -->
 
 
-<div class="post-preview">
-  <a href="/tools/selfbuilt-frontend-error-monitoring-system.html">
-    <h2 class="post-title">
-       自建前端错误监控系统
-    </h2>
-    <h3 class="post-subtitle">
+
+  
+    <div class="post-preview">
+      <a href="/front-end/typescript-common-knowledge-summary.html">
+        <h2 class="post-title">
+           Typescript常见知识总结
+        </h2>
+        <h3 class="post-subtitle">
+          
+        </h3>
+        <div class="post-content-preview">
+          never, unknown, any 三者之间的区别
+三者都是 TypeScript 的类型, never 是最具体的类型，因为没有哪个集合比空集合更小了；而 unknown 是最弱的类型，因为它包含了全部可能的值。 any 则不为集合，它破坏了类型检查，因此请尽量不要使用 any。在 TypeScript 中， nerver 可以赋值为 unknown 和 any ，但是 unknown......
+        </div>
+      </a>
       
-    </h3>
-    <div class="post-content-preview">
-      阅读建议
-
-先整体快速阅读一遍，再回头看其中的配置。
-
-What？
-
-使用开源工具sentry，自建一套 bug 监控系统。
-
-Why？
-
-在日常前端的开发中，当产品部署到线上的时候，前端页面一旦发生错误往往是非常严重，并且难以重现 bug ，为了使得项目中的 bug 可控，bug 监控就显得尤其重要了。然而，现在市面上的 bug 监控软件，可以说并不便宜，这个时候我们可以选择自建一套监控系......
-    </div>
-  </a>
-  
-  <p class="post-meta" style="margin: 10px 0;">
-    Posted by kavience on 2020-06-16
-  </p>
-  <div class="tags">
-    
-    <a href="/tags/#sentry" title="sentry"
-      >sentry</a
-    >
-    
-  </div>
-  
-</div>
-<hr />
-
-<div class="post-preview">
-  <a href="/front-end/remember-to-build-a-react-project.html">
-    <h2 class="post-title">
-       记一次React项目搭建
-    </h2>
-    <h3 class="post-subtitle">
+      <p class="post-meta" style="margin: 10px 0;">
+        Posted by kavience on 2020-12-25
+      </p>
+      <div class="tags">
+        
+        <a href="/tags/#typescript" title="typescript"
+          >typescript</a
+        >
+        
+      </div>
       
-    </h3>
-    <div class="post-content-preview">
-      阅读建议
-
-先整体快速阅读一遍，再回头看其中的配置。
-
-What？
-
-通过 npm、webpack、babel、typescript 等工具，自己搭建一次 React 的 typescript 项目。
-
-Why？
-
-之前用过 next.js、ant-design-pro、create-react-app 等各种脚手架搭建过 react 项目，但是在使用过程中发现这些框架要么灵活性不足、要么打......
     </div>
-  </a>
-  
-  <p class="post-meta" style="margin: 10px 0;">
-    Posted by kavience on 2020-06-15
-  </p>
-  <div class="tags">
-    
-    <a href="/tags/#Reactjs" title="Reactjs"
-      >Reactjs</a
-    >
-    
-  </div>
-  
-</div>
-<hr />
+    <hr />
+   
 
-<div class="post-preview">
-  <a href="/front-end/mocha-unit-test.html">
-    <h2 class="post-title">
-       Mocha单元测试
-    </h2>
-    <h3 class="post-subtitle">
+
+  
+    <div class="post-preview">
+      <a href="/front-end/advanced-js-for-frontend-interview-questions-continuous-update.html">
+        <h2 class="post-title">
+           前端面试题之Js进阶(持续更新)
+        </h2>
+        <h3 class="post-subtitle">
+          
+        </h3>
+        <div class="post-content-preview">
+          数据类型
+Number, String, Bool, Null, Undefined, Symbol, 引用数据类型( Object, Function, Array )。
+Null 与 Undefined 的区别:
+Null
+
+
+作为函数的参数, 表示该函数的参数不是对象。
+
+
+作为对象原型链的终点。
+
+
+Undefined
+
+
+变量被声明了, 但没有赋值时, 就等于 undefined。......
+        </div>
+      </a>
       
-    </h3>
-    <div class="post-content-preview">
-      什么是单元测试?
-单元测试( unit testing )，是指对软件中的最小可测试单元进行检查和验证。在前端领域来说，我们主要是针对 JavaScript 的类( class ) 或者方法( function ) 进行单元测试，以增强代码的可靠性和可维护性。下面介绍的是 mocha 单元测试框架。
-mocha 测试框架
-mocha 是一个测试框架，可以通过 npm 全局安装在本地，或者是局......
-    </div>
-  </a>
-  
-  <p class="post-meta" style="margin: 10px 0;">
-    Posted by kavience on 2019-12-15
-  </p>
-  <div class="tags">
-    
-    <a href="/tags/#mocha" title="mocha"
-      >mocha</a
-    >
-    
-    <a href="/tags/#单元测试" title="单元测试"
-      >单元测试</a
-    >
-    
-  </div>
-  
-</div>
-<hr />
-
-<div class="post-preview">
-  <a href="/front-end/js-advanced-execution-context-and-stack.html">
-    <h2 class="post-title">
-       Js 进阶之执行上下文和执行栈
-    </h2>
-    <h3 class="post-subtitle">
+      <p class="post-meta" style="margin: 10px 0;">
+        Posted by kavience on 2020-11-12
+      </p>
+      <div class="tags">
+        
+        <a href="/tags/#前端面试题" title="前端面试题"
+          >前端面试题</a
+        >
+        
+      </div>
       
-    </h3>
-    <div class="post-content-preview">
-      什么是 JavaScript 执行上下文？
-
-执行上下文是评估和执行 JavaScript 代码的环境的抽象概念，Javascript 代码都是在执行上下文中运行。
-
-什么是 JavaScript 执行栈？
-
-执行栈，也叫调用栈，具有 LIFO（后进先出）结构，用于存储在代码执行期间创建的所有执行上下文。
-首次运行 JS 代码时，会创建一个全局执行上下文并 Push 到当前的执行栈中。每当发......
     </div>
-  </a>
-  
-  <p class="post-meta" style="margin: 10px 0;">
-    Posted by kavience on 2019-10-19
-  </p>
-  <div class="tags">
-    
-    <a href="/tags/#JavaScript" title="JavaScript"
-      >JavaScript</a
-    >
-    
-  </div>
-  
-</div>
-<hr />
+    <hr />
+   
 
-<div class="post-preview">
-  <a href="/think/hello-world.html">
-    <h2 class="post-title">
-       Hello World
-    </h2>
-    <h3 class="post-subtitle">
+
+  
+    <div class="post-preview">
+      <a href="/front-end/other-concepts-of-frontend-interview-questions-continuous-update.html">
+        <h2 class="post-title">
+           前端面试题之其它概念(持续更新)
+        </h2>
+        <h3 class="post-subtitle">
+          
+        </h3>
+        <div class="post-content-preview">
+          浏览器垃圾回收机制
+浏览器的垃圾回收机制（Garbage collection
+）, 简称 GC, 它会周期性运行以释放那些不需要的内存, 否则, JavaScript 的解释器将会耗尽全部系统内存而导致系统崩溃。具体到浏览器中的实现, 通常有两个策略: 标记清除和引用计数。
+引用计数法
+此算法把“对象是否不再需要”简化定义为“对象有没有其他对象引用到它”。如果没有引用指向该对象（零引用）,......
+        </div>
+      </a>
       
-    </h3>
-    <div class="post-content-preview">
-      Hello World
-试过各种各样的博客搭建平台，最终还是决定依托 HEXO 搭建，我觉得我的博客不需要有多少多复杂的功能，只需要简单清新一点就好了。
-目的
-做事总是带点目的性，个人博客于我而言，就像是网络上的一个家，这是属于自己的地盘，在网络上有了归属感，我想写点什么、记录点什么，都是自己决定。
-希望能一直纯粹下去。^_^
-...
+      <p class="post-meta" style="margin: 10px 0;">
+        Posted by kavience on 2020-11-12
+      </p>
+      <div class="tags">
+        
+        <a href="/tags/#前端面试题" title="前端面试题"
+          >前端面试题</a
+        >
+        
+      </div>
+      
     </div>
-  </a>
+    <hr />
+   
+
+
   
-  <p class="post-meta" style="margin: 10px 0;">
-    Posted by kavience on 2019-10-16
-  </p>
-  <div class="tags">
-    
-    <a href="/tags/#开始" title="开始"
-      >开始</a
-    >
-    
-  </div>
+    <div class="post-preview">
+      <a href="/front-end/interface-and-style-of-frontend-interview-questions-continuous-update.html">
+        <h2 class="post-title">
+           前端面试题之界面与样式(持续更新)
+        </h2>
+        <h3 class="post-subtitle">
+          
+        </h3>
+        <div class="post-content-preview">
+          Html 概念
+DOCTYPE 的作用
+告诉浏览器使用哪个版本的 HTML 规范来渲染文档。DOCTYPE 不存在或形式不正确会导致 HTML 文档以混杂模式呈现。
+标准模式（Standards mode）以浏览器支持的最高标准运行；混杂模式（Quirks mode）中页面是一种比较宽松的向后兼容的方式显示。
+常见的行内元素有哪些？块级元素有哪些？ 空(void)元素有那些？
+行内元素: a......
+        </div>
+      </a>
+      
+      <p class="post-meta" style="margin: 10px 0;">
+        Posted by kavience on 2020-11-12
+      </p>
+      <div class="tags">
+        
+        <a href="/tags/#前端面试题" title="前端面试题"
+          >前端面试题</a
+        >
+        
+      </div>
+      
+    </div>
+    <hr />
+   
+
+
   
-</div>
-<hr />
+    <div class="post-preview">
+      <a href="/front-end/demo-of-flow-chart-editor-based-on-g6.html">
+        <h2 class="post-title">
+           基于g6的流程图编辑器Demo
+        </h2>
+        <h3 class="post-subtitle">
+          
+        </h3>
+        <div class="post-content-preview">
+          ✨ 特点
+
+拖拽式更新工作流程图
+数据与图双向转换
+
+📦 原理
+拖拽
+基于 react-dnd 和 react-dnd-html5-backend 创建拖拽节点与背景画布。
+图
+基于 g6 创建可视化图，根据 api 提供的 registerBehavior 注册行为，监听鼠标事件，基于 g6 提供的 ToolBar, Menu, Minimap, Grid 等插件，提供更多功能。
+样式
+......
+        </div>
+      </a>
+      
+      <p class="post-meta" style="margin: 10px 0;">
+        Posted by kavience on 2020-10-14
+      </p>
+      <div class="tags">
+        
+        <a href="/tags/#g6" title="g6"
+          >g6</a
+        >
+        
+        <a href="/tags/#流程图" title="流程图"
+          >流程图</a
+        >
+        
+      </div>
+      
+    </div>
+    <hr />
+   
+
+
+  
+    <div class="post-preview">
+      <a href="/think/the-world-is-developing-mankind-progressing.html">
+        <h2 class="post-title">
+           世界在发展，人类有进步吗
+        </h2>
+        <h3 class="post-subtitle">
+          
+        </h3>
+        <div class="post-content-preview">
+          本文是受阮一峰老师的博客 为什么人类没有越来越闲？ 启发，于是想独立的思考更多这个问题。
+地球已经出现几十亿年，人类出现不过区区几百万年，而且真正开始在地球占领统治地位的时间则更短了。有时候我也时常在想，为什么我感觉现在人的生活并没有因为人类统治地位而更轻松？很明显，近现代一两百年的科技发展，将人类带上了一个新的台阶，我觉得这个变化不亚于人类第一次用火和人类第一次有国家、文明的概念。按理说，......
+        </div>
+      </a>
+      
+      <p class="post-meta" style="margin: 10px 0;">
+        Posted by kavience on 2020-08-27
+      </p>
+      <div class="tags">
+        
+        <a href="/tags/#人类" title="人类"
+          >人类</a
+        >
+        
+      </div>
+      
+    </div>
+    <hr />
+   
 
 
 <!-- Pager -->
 
-<ul class="pager">
-  
-  <li class="previous">
-    <a href="/archives/2/">&larr; 上一页</a>
-  </li>
-   
-</ul>
+<div id="kkpager"></div>
 
+<script>
+$(function(){
+	kkpager.generPageHtml({
+		pno: '2',
+		total: '5',
+		totalRecords: '26',
+		mode: 'link',
+    hrefFormer: '/page',
+    getLink: function(n){
+      if(n == 1){
+        return '/';
+      }
+      return this.hrefFormer + '/' + n;
+    }
+	});
+});
+</script>
 
                 <br>
 
@@ -636,11 +700,11 @@ mocha 是一个测试框架，可以通过 npm 全局安装在本地，或者是
             
         
             
-            <a href="/tags/#人类" title="人类" rel="1">人类</a>
+            <a href="/tags/#优化" title="优化" rel="1">优化</a>
             
         
             
-            <a href="/tags/#优化" title="优化" rel="1">优化</a>
+            <a href="/tags/#人类" title="人类" rel="1">人类</a>
             
         
             
@@ -649,6 +713,10 @@ mocha 是一个测试框架，可以通过 npm 全局安装在本地，或者是
         
             
             <a href="/tags/#2020计划" title="2020计划" rel="1">2020计划</a>
+            
+        
+            
+            <a href="/tags/#CI/CD" title="CI/CD" rel="1">CI/CD</a>
             
         
             
@@ -698,6 +766,10 @@ mocha 是一个测试框架，可以通过 npm 全局安装在本地，或者是
     <ul>
       
         <li>
+          <a href="/tools/use-travis-for-ci-and-cd.html">利用travis做CI和CD</a>
+        </li>
+      
+        <li>
           <a href="/front-end/getting-started-with-nodejs-module-addons.html">Nodejs模块addons入门</a>
         </li>
       
@@ -713,10 +785,6 @@ mocha 是一个测试框架，可以通过 npm 全局安装在本地，或者是
           <a href="/front-end/typescript-common-knowledge-summary.html">Typescript常见知识总结</a>
         </li>
       
-        <li>
-          <a href="/front-end/other-concepts-of-frontend-interview-questions-continuous-update.html">前端面试题之其它概念(持续更新)</a>
-        </li>
-      
     </ul>
   </div>
 
@@ -729,7 +797,7 @@ mocha 是一个测试框架，可以通过 npm 全局安装在本地，或者是
         
     <h5>ARCHIVES</h5>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/03/">三月 2021</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/12/">十二月 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">十一月 2020</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">十月 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/09/">九月 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">八月 2020</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">七月 2020</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">六月 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">十二月 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">十月 2019</a><span class="archive-list-count">2</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/04/">四月 2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/03/">三月 2021</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/12/">十二月 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">十一月 2020</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">十月 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/09/">九月 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">八月 2020</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">七月 2020</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">六月 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">十二月 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">十月 2019</a><span class="archive-list-count">2</span></li></ul>
     </div>
 
         <hr>
@@ -810,7 +878,7 @@ mocha 是一个测试框架，可以通过 npm 全局安装在本地，或者是
           Copyright &copy;
           <a href="http://beian.miit.gov.cn/" target="_blank" rel="noopener">赣ICP备17009879号</a> kavience 2021
           <span class="post-count">
-            & 29.3k words altogether</span
+            & 30.4k words altogether</span
           >
           <br />
           Theme by <a href="http://huangxuan.me" target="_blank" rel="noopener">Hux</a>
