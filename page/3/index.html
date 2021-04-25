@@ -316,6 +316,51 @@
 
   
     <div class="post-preview">
+      <a href="/front-end/demo-of-flow-chart-editor-based-on-g6.html">
+        <h2 class="post-title">
+           基于g6的流程图编辑器Demo
+        </h2>
+        <h3 class="post-subtitle">
+          
+        </h3>
+        <div class="post-content-preview">
+          ✨ 特点
+
+拖拽式更新工作流程图
+数据与图双向转换
+
+📦 原理
+拖拽
+基于 react-dnd 和 react-dnd-html5-backend 创建拖拽节点与背景画布。
+图
+基于 g6 创建可视化图，根据 api 提供的 registerBehavior 注册行为，监听鼠标事件，基于 g6 提供的 ToolBar, Menu, Minimap, Grid 等插件，提供更多功能。
+样式
+......
+        </div>
+      </a>
+      
+      <p class="post-meta" style="margin: 10px 0;">
+        Posted by kavience on 2020-10-14
+      </p>
+      <div class="tags">
+        
+        <a href="/tags/#g6" title="g6"
+          >g6</a
+        >
+        
+        <a href="/tags/#流程图" title="流程图"
+          >流程图</a
+        >
+        
+      </div>
+      
+    </div>
+    <hr />
+   
+
+
+  
+    <div class="post-preview">
       <a href="/think/the-world-is-developing-mankind-progressing.html">
         <h2 class="post-title">
            世界在发展，人类有进步吗
@@ -457,7 +502,7 @@ Why
 
   
     <div class="post-preview">
-      <a href="/think/if-you-stick-to-an-industry-for-five-years.html">
+      <a href="/think/if-you-stick-to-one-industry-for-five-years.html">
         <h2 class="post-title">
            如果坚持一个行业五年
         </h2>
@@ -487,37 +532,6 @@ Why
    
 
 
-  
-    <div class="post-preview">
-      <a href="/think/programmers-anxiety.html">
-        <h2 class="post-title">
-           程序员的焦虑
-        </h2>
-        <h3 class="post-subtitle">
-          
-        </h3>
-        <div class="post-content-preview">
-          写在开头
-有时候我一直怀疑自己不适合做一个程序员，出身普普通通，小学六年从未接触过英语，接触计算机也是因为去网吧打游戏。小时候的我像大多数的人的童年一样，希望以后做个科学家，从没想过去做程序员，那时候连程序员这个职业是什么都不知道。一直到高中，吵着跟爸妈说要买电脑，说是为了学习，实则是为了打游戏。最疯狂的时候，痴迷到什么程度呢？高一高二每次开运动会的时候，我都是在家打游戏度过的。基本不参加一......
-        </div>
-      </a>
-      
-      <p class="post-meta" style="margin: 10px 0;">
-        Posted by kavience on 2020-07-29
-      </p>
-      <div class="tags">
-        
-        <a href="/tags/#焦虑" title="焦虑"
-          >焦虑</a
-        >
-        
-      </div>
-      
-    </div>
-    <hr />
-   
-
-
 <!-- Pager -->
 
 <div id="kkpager"></div>
@@ -527,7 +541,7 @@ $(function(){
 	kkpager.generPageHtml({
 		pno: '3',
 		total: '5',
-		totalRecords: '27',
+		totalRecords: '28',
 		mode: 'link',
     hrefFormer: '/page',
     getLink: function(n){
@@ -742,6 +756,10 @@ $(function(){
             <a href="/tags/#Reactjs" title="Reactjs" rel="1">Reactjs</a>
             
         
+            
+            <a href="/tags/#迷茫" title="迷茫" rel="1">迷茫</a>
+            
+        
     </div>
 </section>
 
@@ -751,6 +769,10 @@ $(function(){
   <h5>RECENT POSTS</h3>
   <div class="widget">
     <ul>
+      
+        <li>
+          <a href="/think/a-lost-day.html">迷茫的一天</a>
+        </li>
       
         <li>
           <a href="/tools/git-common-command-record.html">Git常用命令记录</a>
@@ -768,10 +790,6 @@ $(function(){
           <a href="/tools/rosetta-and-npm-under-apple-m1.html">Apple M1 下的 Rosetta 与 Npm</a>
         </li>
       
-        <li>
-          <a href="/front-end/study-and-use-of-mobx.html">Mobx的学习与使用</a>
-        </li>
-      
     </ul>
   </div>
 
@@ -784,7 +802,7 @@ $(function(){
         
     <h5>ARCHIVES</h5>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/04/">四月 2021</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/03/">三月 2021</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/12/">十二月 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">十一月 2020</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">十月 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/09/">九月 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">八月 2020</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">七月 2020</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">六月 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">十二月 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">十月 2019</a><span class="archive-list-count">2</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/04/">四月 2021</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/03/">三月 2021</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/12/">十二月 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">十一月 2020</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">十月 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/09/">九月 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">八月 2020</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">七月 2020</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">六月 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">十二月 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">十月 2019</a><span class="archive-list-count">2</span></li></ul>
     </div>
 
         <hr>
@@ -865,7 +883,7 @@ $(function(){
           Copyright &copy;
           <a href="http://beian.miit.gov.cn/" target="_blank" rel="noopener">赣ICP备17009879号</a> kavience 2021
           <span class="post-count">
-            & 31.9k words altogether</span
+            & 32.6k words altogether</span
           >
           <br />
           Theme by <a href="http://huangxuan.me" target="_blank" rel="noopener">Hux</a>
