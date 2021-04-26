@@ -7,18 +7,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="kavience 的博客, 专注于前端开发, web开发, 编程技术-一道有趣的JavaScript题">
-    <meta name="keyword"  content="kavience,javascript,前端开发,php,react,kavience博客,一道有趣的JavaScript题">
+    <meta name="description" content="kavience 的博客, 专注于前端开发, web开发, 编程技术-PSR-1基本规范">
+    <meta name="keyword"  content="kavience,javascript,前端开发,php,react,kavience博客,PSR-1基本规范">
     <link rel="shortcut icon" href="/img/ironman-draw.png">
     <!-- Place this tag in your head or just before your close body tag. -->
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <title>
         
-          一道有趣的JavaScript题 - kavience | Blog
+          PSR-1基本规范 - kavience | Blog
         
     </title>
 
-    <link rel="canonical" href="http://www.kavience.com/front-end/an-interesting-javascript-question.html">
+    <link rel="canonical" href="http://www.kavience.com/php/psr1-basic-specifications.html">
 
     <!-- Bootstrap Core CSS -->
     
@@ -124,14 +124,14 @@
                     <div class="post-heading">
                         <div class="tags">
                             
-                              <a class="tag" href="/tags/#JavaScript" title="JavaScript">JavaScript</a>
+                              <a class="tag" href="/tags/#PSR规范" title="PSR规范">PSR规范</a>
                             
                         </div>
-                        <h1>一道有趣的JavaScript题</h1>
+                        <h1>PSR-1基本规范</h1>
                         <h2 class="subheading"></h2>
                         <span class="meta">
                             Posted by kavience on
-                            2020-08-10
+                            2020-07-08
                         </span>
                     </div>
                 
@@ -314,31 +314,107 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-                <h2 id="题目">题目</h2>
-<p>如下为一段代码, 请完善 sum 函数, 使得 sum(1, 2, 3, 4, 5, 6) 函数返回值为 21 , 需要在 sum 函数中调用 asyncAdd 函数, 且不能修改 asyncAdd 函数:</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 请在 sum函数中调用此函数, 完成数值计算</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;*&#125;</span> </span>a 要相加的第一个值</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;*&#125;</span> </span>b 要相加的第二个值</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;*&#125;</span> </span>callback 相加之后的回调函数</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">asyncAdd</span>(<span class="params">a, b, callback</span>) </span>&#123;</span><br><span class="line">  setTimeout(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    callback(<span class="literal">null</span>, a + b);</span><br><span class="line">  &#125;, <span class="number">100</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 请在此方法中调用asyncAdd方法, 完成数值计算</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param  <span class="type">&#123;...any&#125;</span> </span>rest 传入的参数</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">async</span> <span class="function"><span class="keyword">function</span> <span class="title">sum</span>(<span class="params">...rest</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// 请在此处完善代码</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> start = <span class="built_in">window</span>.performance.now();</span><br><span class="line">sum(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>).then(<span class="function">(<span class="params">res</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="comment">// 请保证在调用sum方法之后, 返回结果21</span></span><br><span class="line">  <span class="built_in">console</span>.log(res);</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">`程序执行共耗时: <span class="subst">$&#123;<span class="built_in">window</span>.performance.now() - start&#125;</span>`</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-<h2 id="自己的解决方法">自己的解决方法</h2>
-<p>题目是在掘金上看到的, 立马开始动手做题, 第一时间想到的就是使用剩余参数, 然后配合 promise 做递归, 下面是我的实现方式:</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">async</span> <span class="function"><span class="keyword">function</span> <span class="title">sum</span>(<span class="params">...rest</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> [a = <span class="number">0</span>, b = <span class="number">0</span>, ...others] = rest;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="keyword">function</span> (<span class="params">resolve, reject</span>) </span>&#123;</span><br><span class="line">    asyncAdd(a, b, <span class="function"><span class="keyword">function</span> (<span class="params">arg1, callBackResult</span>) </span>&#123;</span><br><span class="line">      <span class="keyword">if</span> (others.length !== <span class="number">0</span>) &#123;</span><br><span class="line">        sum(callBackResult, ...others).then(<span class="function">(<span class="params">res</span>) =&gt;</span> &#123;</span><br><span class="line">          resolve(res);</span><br><span class="line">        &#125;);</span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        resolve(callBackResult);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>思路很简单, 在 sum 函数中, 返回一个 promise , 如果剩余参数的长度为 0 , 则直接 resolve asyncAdd 函数执行的回调的结果, 否则递归调用 sum, 把结果作为第一个 sum 的第一个参数, 剩余参数直接展开, 然后在递归调用的回调中, 再 resolve 结果, 最终达到题目要求。</p>
-<h2 id="标准答案">标准答案</h2>
-<p>比较满意的看了看自己的代码, 觉得不错, 然后看了一下标准答案, 发现, 自己的代码执行速度还是太慢, 看一下别人的实现：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 方法一, 和我的差不多, 但是比我的更简洁。。。</span></span><br><span class="line"><span class="keyword">async</span> <span class="function"><span class="keyword">function</span> <span class="title">sum1</span>(<span class="params">...rest</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> result = rest.shift();</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> num <span class="keyword">of</span> rest) &#123;</span><br><span class="line">    result = <span class="keyword">await</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve</span>) =&gt;</span> &#123;</span><br><span class="line">      asyncAdd(result, num, (_, res) =&gt; &#123;</span><br><span class="line">        resolve(res);</span><br><span class="line">      &#125;);</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 方法二, 重点在于把参数两两分开, 使用 Promise.all 一次执行多个 promise</span></span><br><span class="line"><span class="keyword">async</span> <span class="function"><span class="keyword">function</span> <span class="title">sum2</span>(<span class="params">...rest</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (rest.length &lt;= <span class="number">1</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> rest[<span class="number">0</span>] || <span class="number">0</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">const</span> promises = [];</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; rest.length; i += <span class="number">2</span>) &#123;</span><br><span class="line">    promises.push(</span><br><span class="line">      <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (rest[i + <span class="number">1</span>] === <span class="literal">undefined</span>) &#123;</span><br><span class="line">          resolve(rest[i]);</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">          asyncAdd(rest[i], rest[i + <span class="number">1</span>], (_, result) =&gt; &#123;</span><br><span class="line">            resolve(result);</span><br><span class="line">          &#125;);</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;)</span><br><span class="line">    );</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">const</span> result = <span class="keyword">await</span> <span class="built_in">Promise</span>.all(promises);</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">await</span> sum(...result);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 方法三, 隐氏类型转换 和 promise.all 结合使用</span></span><br><span class="line"><span class="keyword">async</span> <span class="function"><span class="keyword">function</span> <span class="title">sum</span>(<span class="params">...rest</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> result = <span class="number">0</span>;</span><br><span class="line">  <span class="comment">// 隐氏类型转换, 对象 + 数字, 会先调用对象的toString 方法</span></span><br><span class="line">  <span class="keyword">const</span> obj = &#123;&#125;;</span><br><span class="line">  obj.toString = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> result;</span><br><span class="line">  &#125;;</span><br><span class="line">  <span class="keyword">const</span> promises = [];</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> num <span class="keyword">of</span> rest) &#123;</span><br><span class="line">    promises.push(</span><br><span class="line">      <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve</span>) =&gt;</span> &#123;</span><br><span class="line">        asyncAdd(obj, num, (_, res) =&gt; &#123;</span><br><span class="line">          resolve(res);</span><br><span class="line">        &#125;);</span><br><span class="line">      &#125;).then(<span class="function">(<span class="params">res</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="comment">// 把回调的结果直接给 result, obj下次计算的时候, 会自动调用 toString 方法拿到最新的 result</span></span><br><span class="line">        result = res;</span><br><span class="line">      &#125;)</span><br><span class="line">    );</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">await</span> <span class="built_in">Promise</span>.all(promises);</span><br><span class="line">  <span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>以上几种结果, 方法三是最快的, 本想给我的方法也做做优化, 发现我的方法确实没办法优化, 因为我是直接在 sum 里面返回 promise , 没有办法使用 promise.all 。 究其原因, 是因为我第一时间就想到用递归, 而不是 for 循环, 我发现在敲代码的过程中, 类似循环的问题, 能用递归的地方, 我第一想到的方案都是采用递归, 很少很少采用 for 循环去做某件事, 这是为什么呢？看来以后还是得转变一下思路, 递归的效率有的时候不一定是最高的。</p>
+                <h2 id="阅读建议">阅读建议</h2>
+<blockquote>
+<p>本文是根据 PSR 规范英文文档翻译而来，建议多次阅读以便熟悉这些规范，并在工作中用到这些规范。</p>
+</blockquote>
+<h2 id="what">What?</h2>
+<blockquote>
+<p>一篇翻译而来的 PSR-1 规范</p>
+</blockquote>
+<h2 id="why">Why?</h2>
+<blockquote>
+<p>通过翻译 PSR 规范，掌握 PHP 的开发规范</p>
+</blockquote>
+<h2 id="how">How?</h2>
+<h3 id="关键字">关键字</h3>
+<p>本文中的关键词 <code>&quot;必须&quot;</code>, <code>&quot;禁止&quot;</code>, <code>&quot;必要&quot;</code>, <code>&quot;最好&quot;</code>, <code>&quot;最好不要&quot;</code>, <code>&quot;应该&quot;</code>, <code>&quot;不应该&quot;</code>, <code>&quot;建议&quot;</code>, <code>&quot;可以&quot;</code>, <code>&quot;可选&quot;</code> 应按照 <a href="https://www.ietf.org/rfc/rfc2119.txt" target="_blank" rel="noopener">RFC 2119</a> 的规定进行解释。</p>
+<h3 id="概览">概览</h3>
+<ul>
+<li>
+<p>PHP 文件<code>必须</code>使用 <code>&lt;?php</code> 或者 <code>&lt;?=</code> 标签开始</p>
+</li>
+<li>
+<p>PHP 文件<code>必须</code>使用不带 bom 的 UTF-8 编码</p>
+</li>
+<li>
+<p>PHP 文件<code>应该</code>要么只声明类、函数、变量等，要么引起副作用（例如生成输出，改变 .ini 配置文件等操作），但是<code>不应该</code>两者都做。</p>
+</li>
+<li>
+<p>命名空间和类<code>必须</code>遵循自动加载规范 [PSR-0, PSR-4]</p>
+</li>
+<li>
+<p>PHP 类名<code>必须</code>以大驼峰规范命名，例如 <code>HomeClass</code></p>
+</li>
+<li>
+<p>PHP 类文件中的常量<code>必须</code>使用下划线分隔且以大写形式声明，例如 <code>APP_KEY</code></p>
+</li>
+<li>
+<p>方法名<code>必须</code>以小驼峰规范命名，例如 <code>updateUser</code></p>
+</li>
+</ul>
+<h3 id="文件">文件</h3>
+<h3 id="php-标签">PHP 标签</h3>
+<p>PHP 便签<code>必须</code>使用 <code>&lt;?php ?&gt;</code> 或者 <code>&lt;?= ?&gt;</code> , <code>禁止</code>使用其它标签代替。</p>
+<h3 id="字符编码">字符编码</h3>
+<p>PHP 代码<code>必须</code>使用不带 Bom 的 UTF-8 编码</p>
+<h3 id="副作用">副作用</h3>
+<p>PHP 文件<code>应该</code>要么只声明类、函数、变量等，要么引起副作用（例如生成输出，改变 .ini 配置文件等操作），但是<code>不应该</code>两者都做。</p>
+<p>「副作用」(side effects) 一词的意思是，通过包含文件，但不直接声明类、函数、常量等而执行的逻辑操作。</p>
+<p>「副作用」包含却不仅限于：</p>
+<ul>
+<li>生成输出</li>
+<li>直接的 require 或 include</li>
+<li>连接外部服务</li>
+<li>修改 ini 配置</li>
+<li>抛出错误或异常</li>
+<li>修改全局或静态变量</li>
+<li>读或写文件等</li>
+</ul>
+<p>以下是一个违反此规范的例子：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="comment">// 副作用: 根本 ini 设置</span></span><br><span class="line">ini_set(<span class="string">'error_reporting'</span>, E_ALL);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 副作用: 加载文件</span></span><br><span class="line"><span class="keyword">include</span> <span class="string">"file.php"</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 副作用: 生成输出</span></span><br><span class="line"><span class="keyword">echo</span> <span class="string">"&lt;html&gt;\n"</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 声明</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>以下是一个符合此规范的例子：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="comment">// 声明 foo 函数</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 有条件的声明不产生副作用</span></span><br><span class="line"><span class="keyword">if</span> (! function_exists(<span class="string">'bar'</span>)) &#123;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">bar</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="命名空间和类名">命名空间和类名</h3>
+<p>命名空间和类<code>必须</code>遵循 PSR 自动加载规范：[PSR-0, PSR-4]。</p>
+<p>根据规范，每个类都独立为一个文件，且命名空间至少有一个层次：顶级的组织名称（vendor name）。</p>
+<p>类的命名<code>必须</code>遵循 StudlyCaps 大写开头的驼峰命名规范。</p>
+<p>PHP 5.3 及以后版本的代码<code>必须</code>使用正式的命名空间。</p>
+<p>例如：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="comment">// PHP 5.3 以后版本:</span></span><br><span class="line"><span class="keyword">namespace</span> <span class="title">Vendor</span>\<span class="title">Model</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Foo</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>5.2.x 及之前的版本<code>应该</code>使用伪命名空间的写法，约定俗成使用顶级的组织名称（vendor name）如 Vendor_ 为类前缀。</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="comment">// PHP 5.2.x 及更早版本:</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Vendor_Model_Foo</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="类常量-类属性-方法">类常量、类属性、方法</h3>
+<p>此处的「类」指代所有的类、接口以及可复用代码块（traits）。</p>
+<h4 id="常量">常量</h4>
+<ul>
+<li>PHP 类文件中的常量<code>必须</code>使用下划线分隔且以大写形式声明，例如:</li>
+</ul>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="keyword">namespace</span> <span class="title">Vendor</span>\<span class="title">Model</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Foo</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="keyword">const</span> VERSION = <span class="string">'1.0'</span>;</span><br><span class="line">    <span class="keyword">const</span> DATE_APPROVED = <span class="string">'2012-06-01'</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="属性">属性</h4>
+<p>类的属性命名<code>可以</code>遵循：</p>
+<ul>
+<li>大写开头的驼峰式 ($StudlyCaps)</li>
+<li>小写开头的驼峰式 ($camelCase)</li>
+<li>下划线分隔式 ($under_score)</li>
+<li>本规范不做强制要求，但无论遵循哪种命名方式，都<code>应该</code>在一定的范围内保持一致。这个范围可以是整个团队、整个包、整个类或整个方法。</li>
+</ul>
+<h4 id="方法">方法</h4>
+<p>方法名<code>必须</code>为小驼峰命名</p>
 
                 
-                <div id="一道有趣的JavaScript题"></div>
+                <div id="PSR-1基本规范"></div>
                 <hr>
                 <!-- Pager -->
                 <ul class="pager">
                     
                         <li class="previous">
-                            <a href="/front-end/jest-unit-testing.html" data-toggle="tooltip" data-placement="top" title="Jest单元测试">&larr; Previous Post</a>
+                            <a href="/think/plan-this-year.html" data-toggle="tooltip" data-placement="top" title="今年计划">&larr; Previous Post</a>
                         </li>
                     
                     
                         <li class="next">
-                            <a href="/think/fragility-of-life.html" data-toggle="tooltip" data-placement="top" title="生命的脆弱">Next Post &rarr;</a>
+                            <a href="/tools/selfbuilt-frontend-error-monitoring-system.html" data-toggle="tooltip" data-placement="top" title="自建前端错误监控系统">Next Post &rarr;</a>
                         </li>
                     
                 </ul>
@@ -399,7 +475,7 @@
               Contents
             </strong>
             
-              <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#题目"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">题目</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#自己的解决方法"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">自己的解决方法</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#标准答案"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">标准答案</span></a></li></ol>
+              <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#阅读建议"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">阅读建议</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#what"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">What?</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#why"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">Why?</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#how"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">How?</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#关键字"><span class="toc-nav-number">4.1.</span> <span class="toc-nav-text">关键字</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#概览"><span class="toc-nav-number">4.2.</span> <span class="toc-nav-text">概览</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#文件"><span class="toc-nav-number">4.3.</span> <span class="toc-nav-text">文件</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#php-标签"><span class="toc-nav-number">4.4.</span> <span class="toc-nav-text">PHP 标签</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#字符编码"><span class="toc-nav-number">4.5.</span> <span class="toc-nav-text">字符编码</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#副作用"><span class="toc-nav-number">4.6.</span> <span class="toc-nav-text">副作用</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#命名空间和类名"><span class="toc-nav-number">4.7.</span> <span class="toc-nav-text">命名空间和类名</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#类常量-类属性-方法"><span class="toc-nav-number">4.8.</span> <span class="toc-nav-text">类常量、类属性、方法</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#常量"><span class="toc-nav-number">4.8.1.</span> <span class="toc-nav-text">常量</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#属性"><span class="toc-nav-number">4.8.2.</span> <span class="toc-nav-text">属性</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#方法"><span class="toc-nav-number">4.8.3.</span> <span class="toc-nav-text">方法</span></a></li></ol></li></ol></li></ol>
                 
           </div>
         </aside>
@@ -419,7 +495,7 @@
                     <h5><a href="/tags/">FEATURED TAGS</a></h5>
                     <div class="tags">
                        
-                          <a class="tag" href="/tags/#JavaScript" title="JavaScript">JavaScript</a>
+                          <a class="tag" href="/tags/#PSR规范" title="PSR规范">PSR规范</a>
                         
                     </div>
                 </section>
@@ -439,12 +515,12 @@
     repo: 'blog',
     owner: 'kavience',
     admin: ['kavience'],
-    id: '一道有趣的JavaScript题',
-    title: '一道有趣的JavaScript题',
+    id: 'PSR-1基本规范',
+    title: 'PSR-1基本规范',
     distractionFreeMode: false  
     });
 
-    gitalk.render('一道有趣的JavaScript题')
+    gitalk.render('PSR-1基本规范')
 </script>
 
 
