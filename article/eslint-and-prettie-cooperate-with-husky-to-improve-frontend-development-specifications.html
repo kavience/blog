@@ -7,18 +7,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="kavience 的博客, 专注于前端开发, web开发, 编程技术-PSR-1基本规范">
-    <meta name="keyword"  content="kavience,javascript,前端开发,php,react,kavience博客,PSR-1基本规范">
+    <meta name="description" content="kavience 的博客, 专注于前端开发, web开发, 编程技术-Eslint和prettie配合husky提高前端开发规范">
+    <meta name="keyword"  content="kavience,javascript,前端开发,php,react,kavience博客,Eslint和prettie配合husky提高前端开发规范">
     <link rel="shortcut icon" href="/img/ironman-draw.png">
     <!-- Place this tag in your head or just before your close body tag. -->
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <title>
         
-          PSR-1基本规范 - kavience | Blog
+          Eslint和prettie配合husky提高前端开发规范 - kavience | Blog
         
     </title>
 
-    <link rel="canonical" href="http://www.kavience.com/php/psr1-basic-specifications.html">
+    <link rel="canonical" href="http://www.kavience.com/article/eslint-and-prettie-cooperate-with-husky-to-improve-frontend-development-specifications.html">
 
     <!-- Bootstrap Core CSS -->
     
@@ -124,14 +124,12 @@
                     <div class="post-heading">
                         <div class="tags">
                             
-                              <a class="tag" href="/tags/#PSR规范" title="PSR规范">PSR规范</a>
-                            
                         </div>
-                        <h1>PSR-1基本规范</h1>
+                        <h1>Eslint和prettie配合husky提高前端开发规范</h1>
                         <h2 class="subheading"></h2>
                         <span class="meta">
                             Posted by kavience on
-                            2020-07-08
+                            2021-04-26
                         </span>
                     </div>
                 
@@ -314,107 +312,36 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-                <h2 id="阅读建议">阅读建议</h2>
+                <h2 id="what">what</h2>
+<p>使用 eslint 和 prettie 再配合 husky 提高前端开发规范。</p>
+<h2 id="why">why</h2>
+<p>平时的开发中，开发规范必不可少，手动修改规范既不可靠，也非常繁琐，所以可以利用 eslint 和 prettie 自动修复以及规范化代码。</p>
+<p>再配合 husky ，当开发者 commit 的时候，会自动校验，且尝试自动修复代码，一旦修复失败，则会放弃代码提交。</p>
+<h2 id="how">how</h2>
+<p>安装以下几个依赖：</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// package.json</span></span><br><span class="line">&#123;</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">  <span class="comment">// 忽略其他代码</span></span><br><span class="line">  <span class="attr">"scripts"</span>: &#123;</span><br><span class="line">    <span class="attr">"test"</span>: <span class="string">"echo \"Error: no test specified\" &amp;&amp; exit 1"</span>,</span><br><span class="line">    <span class="attr">"lint"</span>: <span class="string">"lint-staged"</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">"dependencies"</span>: &#123;</span><br><span class="line">    <span class="attr">"eslint"</span>: <span class="string">"^7.25.0"</span>,</span><br><span class="line">    <span class="attr">"eslint-config-airbnb"</span>: <span class="string">"^18.2.1"</span>,</span><br><span class="line">    <span class="attr">"eslint-config-prettier"</span>: <span class="string">"^8.3.0"</span>,</span><br><span class="line">    <span class="attr">"eslint-import-resolver-alias"</span>: <span class="string">"^1.1.2"</span>,</span><br><span class="line">    <span class="attr">"eslint-plugin-import"</span>: <span class="string">"^2.22.1"</span>,</span><br><span class="line">    <span class="attr">"eslint-plugin-jsx-a11y"</span>: <span class="string">"^6.4.1"</span>,</span><br><span class="line">    <span class="attr">"eslint-plugin-prettier"</span>: <span class="string">"^3.4.0"</span>,</span><br><span class="line">    <span class="attr">"eslint-plugin-react"</span>: <span class="string">"^7.23.2"</span>,</span><br><span class="line">    <span class="attr">"husky"</span>: <span class="string">"^6.0.0"</span>,</span><br><span class="line">    <span class="attr">"lint-staged"</span>: <span class="string">"^10.5.4"</span>,</span><br><span class="line">    <span class="attr">"module-alias"</span>: <span class="string">"^2.2.2"</span>,</span><br><span class="line">    <span class="attr">"prettier"</span>: <span class="string">"^2.2.1"</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">"husky"</span>: &#123;</span><br><span class="line">    <span class="attr">"hooks"</span>: &#123;</span><br><span class="line">      <span class="attr">"pre-commit"</span>: <span class="string">"lint-staged"</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">"lint-staged"</span>: &#123;</span><br><span class="line">    <span class="attr">"**/*.js"</span>: [</span><br><span class="line">      <span class="string">"eslint --fix"</span>,</span><br><span class="line">      <span class="string">"git add"</span></span><br><span class="line">    ]</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">"_moduleAliases"</span>: &#123;</span><br><span class="line">    <span class="attr">"@root"</span>: <span class="string">"."</span>,</span><br><span class="line">    <span class="attr">"@lib"</span>: <span class="string">"./lib"</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>配置 <strong>.eslintrc.js</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  <span class="comment">// 使用 airbnb, prettier 推荐的规范</span></span><br><span class="line">  extends: [<span class="string">'airbnb'</span>, <span class="string">'plugin:prettier/recommended'</span>],</span><br><span class="line">  parserOptions: &#123;</span><br><span class="line">    <span class="comment">// 使用 es6</span></span><br><span class="line">    ecmaVersion: <span class="number">6</span>,</span><br><span class="line">    sourceType: <span class="string">'module'</span>,</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="comment">// 自定义规则</span></span><br><span class="line">  rules: &#123;</span><br><span class="line">    <span class="string">'arrow-body-style'</span>: <span class="number">0</span>,</span><br><span class="line">    strict: <span class="number">0</span>,</span><br><span class="line">    <span class="string">'no-console'</span>: <span class="number">0</span>,</span><br><span class="line">    <span class="string">'func-names'</span>: <span class="number">0</span>,</span><br><span class="line">    <span class="string">'space-before-function-paren'</span>: <span class="number">0</span>,</span><br><span class="line">    <span class="string">'no-param-reassign'</span>: <span class="number">0</span>,</span><br><span class="line">    <span class="string">'import/no-dynamic-require'</span>: <span class="number">0</span>,</span><br><span class="line">    <span class="string">'global-require'</span>: <span class="number">0</span>,</span><br><span class="line">    <span class="string">'consistent-return'</span>: <span class="number">0</span>,</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="comment">// 配置别名</span></span><br><span class="line">  settings: &#123;</span><br><span class="line">    <span class="string">'import/resolver'</span>: &#123;</span><br><span class="line">      alias: &#123;</span><br><span class="line">        map: [[<span class="string">'@'</span>, <span class="string">'.'</span>]],</span><br><span class="line">        extensions: [<span class="string">'.js'</span>],</span><br><span class="line">      &#125;,</span><br><span class="line">    &#125;,</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>配置好之后，安装 vscode 插件 eslint，这样可以在项目编译前检查错误，另外需要重启 vscode 使配置生效。</p>
+<p>接下来配置 husky，安装依赖后运行以下命令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># husky v6 版本是需要先安装的，会在项目下生成 .husky 目录</span></span><br><span class="line">node_modules/.bin/husky install</span><br><span class="line"></span><br><span class="line"><span class="comment"># 添加 pre-commit 钩子</span></span><br><span class="line">node_modules/.bin/husky <span class="built_in">set</span> .husky/pre-commit <span class="string">"npm run lint"</span></span><br></pre></td></tr></table></figure>
+<p>到此为止，项目就配置完了，接下来可以测试一下，修改一个文件，然后 commit 的时候，就会自动运行 <strong>npm run lint</strong> 了。</p>
 <blockquote>
-<p>本文是根据 PSR 规范英文文档翻译而来，建议多次阅读以便熟悉这些规范，并在工作中用到这些规范。</p>
+<p>!注意如果 husky 没生效，一定要确认 git 是在 <strong>node_modules/.bin/husky set .husky/pre-commit “npm run lint”</strong> 之前初始化的。</p>
 </blockquote>
-<h2 id="what">What?</h2>
-<blockquote>
-<p>一篇翻译而来的 PSR-1 规范</p>
-</blockquote>
-<h2 id="why">Why?</h2>
-<blockquote>
-<p>通过翻译 PSR 规范，掌握 PHP 的开发规范</p>
-</blockquote>
-<h2 id="how">How?</h2>
-<h3 id="关键字">关键字</h3>
-<p>本文中的关键词 <code>&quot;必须&quot;</code>, <code>&quot;禁止&quot;</code>, <code>&quot;必要&quot;</code>, <code>&quot;最好&quot;</code>, <code>&quot;最好不要&quot;</code>, <code>&quot;应该&quot;</code>, <code>&quot;不应该&quot;</code>, <code>&quot;建议&quot;</code>, <code>&quot;可以&quot;</code>, <code>&quot;可选&quot;</code> 应按照 <a href="https://www.ietf.org/rfc/rfc2119.txt" target="_blank" rel="noopener">RFC 2119</a> 的规定进行解释。</p>
-<h3 id="概览">概览</h3>
-<ul>
-<li>
-<p>PHP 文件<code>必须</code>使用 <code>&lt;?php</code> 或者 <code>&lt;?=</code> 标签开始</p>
-</li>
-<li>
-<p>PHP 文件<code>必须</code>使用不带 bom 的 UTF-8 编码</p>
-</li>
-<li>
-<p>PHP 文件<code>应该</code>要么只声明类、函数、变量等，要么引起副作用（例如生成输出，改变 .ini 配置文件等操作），但是<code>不应该</code>两者都做。</p>
-</li>
-<li>
-<p>命名空间和类<code>必须</code>遵循自动加载规范 [PSR-0, PSR-4]</p>
-</li>
-<li>
-<p>PHP 类名<code>必须</code>以大驼峰规范命名，例如 <code>HomeClass</code></p>
-</li>
-<li>
-<p>PHP 类文件中的常量<code>必须</code>使用下划线分隔且以大写形式声明，例如 <code>APP_KEY</code></p>
-</li>
-<li>
-<p>方法名<code>必须</code>以小驼峰规范命名，例如 <code>updateUser</code></p>
-</li>
-</ul>
-<h3 id="文件">文件</h3>
-<h3 id="php-标签">PHP 标签</h3>
-<p>PHP 便签<code>必须</code>使用 <code>&lt;?php ?&gt;</code> 或者 <code>&lt;?= ?&gt;</code> , <code>禁止</code>使用其它标签代替。</p>
-<h3 id="字符编码">字符编码</h3>
-<p>PHP 代码<code>必须</code>使用不带 Bom 的 UTF-8 编码</p>
-<h3 id="副作用">副作用</h3>
-<p>PHP 文件<code>应该</code>要么只声明类、函数、变量等，要么引起副作用（例如生成输出，改变 .ini 配置文件等操作），但是<code>不应该</code>两者都做。</p>
-<p>「副作用」(side effects) 一词的意思是，通过包含文件，但不直接声明类、函数、常量等而执行的逻辑操作。</p>
-<p>「副作用」包含却不仅限于：</p>
-<ul>
-<li>生成输出</li>
-<li>直接的 require 或 include</li>
-<li>连接外部服务</li>
-<li>修改 ini 配置</li>
-<li>抛出错误或异常</li>
-<li>修改全局或静态变量</li>
-<li>读或写文件等</li>
-</ul>
-<p>以下是一个违反此规范的例子：</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="comment">// 副作用: 根本 ini 设置</span></span><br><span class="line">ini_set(<span class="string">'error_reporting'</span>, E_ALL);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 副作用: 加载文件</span></span><br><span class="line"><span class="keyword">include</span> <span class="string">"file.php"</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 副作用: 生成输出</span></span><br><span class="line"><span class="keyword">echo</span> <span class="string">"&lt;html&gt;\n"</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 声明</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>以下是一个符合此规范的例子：</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="comment">// 声明 foo 函数</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 有条件的声明不产生副作用</span></span><br><span class="line"><span class="keyword">if</span> (! function_exists(<span class="string">'bar'</span>)) &#123;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">bar</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="命名空间和类名">命名空间和类名</h3>
-<p>命名空间和类<code>必须</code>遵循 PSR 自动加载规范：[PSR-0, PSR-4]。</p>
-<p>根据规范，每个类都独立为一个文件，且命名空间至少有一个层次：顶级的组织名称（vendor name）。</p>
-<p>类的命名<code>必须</code>遵循 StudlyCaps 大写开头的驼峰命名规范。</p>
-<p>PHP 5.3 及以后版本的代码<code>必须</code>使用正式的命名空间。</p>
-<p>例如：</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="comment">// PHP 5.3 以后版本:</span></span><br><span class="line"><span class="keyword">namespace</span> <span class="title">Vendor</span>\<span class="title">Model</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Foo</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>5.2.x 及之前的版本<code>应该</code>使用伪命名空间的写法，约定俗成使用顶级的组织名称（vendor name）如 Vendor_ 为类前缀。</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="comment">// PHP 5.2.x 及更早版本:</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Vendor_Model_Foo</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="类常量-类属性-方法">类常量、类属性、方法</h3>
-<p>此处的「类」指代所有的类、接口以及可复用代码块（traits）。</p>
-<h4 id="常量">常量</h4>
-<ul>
-<li>PHP 类文件中的常量<code>必须</code>使用下划线分隔且以大写形式声明，例如:</li>
-</ul>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="keyword">namespace</span> <span class="title">Vendor</span>\<span class="title">Model</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Foo</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="keyword">const</span> VERSION = <span class="string">'1.0'</span>;</span><br><span class="line">    <span class="keyword">const</span> DATE_APPROVED = <span class="string">'2012-06-01'</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="属性">属性</h4>
-<p>类的属性命名<code>可以</code>遵循：</p>
-<ul>
-<li>大写开头的驼峰式 ($StudlyCaps)</li>
-<li>小写开头的驼峰式 ($camelCase)</li>
-<li>下划线分隔式 ($under_score)</li>
-<li>本规范不做强制要求，但无论遵循哪种命名方式，都<code>应该</code>在一定的范围内保持一致。这个范围可以是整个团队、整个包、整个类或整个方法。</li>
-</ul>
-<h4 id="方法">方法</h4>
-<p>方法名<code>必须</code>为小驼峰命名</p>
+<h2 id="总结">总结</h2>
+<p>添加项目规范，可以保证项目的格式统一，养成良好的开发习惯。</p>
+<p>（完）</p>
 
                 
-                <div id="PSR-1基本规范"></div>
+                <div id="Eslint和prettie配合husky提高前端开发规范"></div>
                 <hr>
                 <!-- Pager -->
                 <ul class="pager">
                     
-                        <li class="previous">
-                            <a href="/think/plan-this-year.html" data-toggle="tooltip" data-placement="top" title="今年计划">&larr; Previous Post</a>
-                        </li>
-                    
                     
                         <li class="next">
-                            <a href="/tools/selfbuilt-frontend-error-monitoring-system.html" data-toggle="tooltip" data-placement="top" title="自建前端错误监控系统">Next Post &rarr;</a>
+                            <a href="/front-end/reengineering-the-frontend-component-library-wheel-project.html" data-toggle="tooltip" data-placement="top" title="再造前端组件库轮子项目">Next Post &rarr;</a>
                         </li>
                     
                 </ul>
@@ -475,7 +402,7 @@
               Contents
             </strong>
             
-              <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#阅读建议"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">阅读建议</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#what"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">What?</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#why"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">Why?</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#how"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">How?</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#关键字"><span class="toc-nav-number">4.1.</span> <span class="toc-nav-text">关键字</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#概览"><span class="toc-nav-number">4.2.</span> <span class="toc-nav-text">概览</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#文件"><span class="toc-nav-number">4.3.</span> <span class="toc-nav-text">文件</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#php-标签"><span class="toc-nav-number">4.4.</span> <span class="toc-nav-text">PHP 标签</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#字符编码"><span class="toc-nav-number">4.5.</span> <span class="toc-nav-text">字符编码</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#副作用"><span class="toc-nav-number">4.6.</span> <span class="toc-nav-text">副作用</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#命名空间和类名"><span class="toc-nav-number">4.7.</span> <span class="toc-nav-text">命名空间和类名</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#类常量-类属性-方法"><span class="toc-nav-number">4.8.</span> <span class="toc-nav-text">类常量、类属性、方法</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#常量"><span class="toc-nav-number">4.8.1.</span> <span class="toc-nav-text">常量</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#属性"><span class="toc-nav-number">4.8.2.</span> <span class="toc-nav-text">属性</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#方法"><span class="toc-nav-number">4.8.3.</span> <span class="toc-nav-text">方法</span></a></li></ol></li></ol></li></ol>
+              <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#what"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">what</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#why"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">why</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#how"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">how</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#总结"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">总结</span></a></li></ol>
                 
           </div>
         </aside>
@@ -495,8 +422,6 @@
                     <h5><a href="/tags/">FEATURED TAGS</a></h5>
                     <div class="tags">
                        
-                          <a class="tag" href="/tags/#PSR规范" title="PSR规范">PSR规范</a>
-                        
                     </div>
                 </section>
                 
@@ -515,12 +440,12 @@
     repo: 'blog',
     owner: 'kavience',
     admin: ['kavience'],
-    id: 'PSR-1基本规范',
-    title: 'PSR-1基本规范',
+    id: 'Eslint和prettie配合husky提高前端开发规范',
+    title: 'Eslint和prettie配合husky提高前端开发规范',
     distractionFreeMode: false  
     });
 
-    gitalk.render('PSR-1基本规范')
+    gitalk.render('Eslint和prettie配合husky提高前端开发规范')
 </script>
 
 
@@ -631,7 +556,7 @@
           Copyright &copy;
           <a href="http://beian.miit.gov.cn/" target="_blank" rel="noopener">赣ICP备17009879号</a> kavience 2021
           <span class="post-count">
-            & 32.9k words altogether</span
+            & 33.4k words altogether</span
           >
           <br />
           Theme by <a href="http://huangxuan.me" target="_blank" rel="noopener">Hux</a>
