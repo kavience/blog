@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="kavience 的博客, 专注于前端开发, web开发, 编程技术-Mocha单元测试">
     <meta name="keyword"  content="kavience,javascript,前端开发,php,react,kavience博客,Mocha单元测试">
-    <link rel="shortcut icon" href="/img/ironman-draw.png">
+    <link rel="shortcut icon" href="/img/avatar/my-avatar.jpg">
     <!-- Place this tag in your head or just before your close body tag. -->
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <title>
@@ -27,7 +27,7 @@
 
     <!-- Custom CSS --> 
     
-<link rel="stylesheet" href="/css/beantech.min.css">
+<link rel="stylesheet" href="/css/beantech.css">
 
 
     
@@ -63,6 +63,9 @@
 
     
 <link rel="stylesheet" href="/css/kkpager_orange.css">
+
+    
+<link rel="stylesheet" href="/css/custom.css">
 
 
     <!-- Custom Fonts -->
@@ -179,8 +182,8 @@
               
           <li>
             <a
-              href="/archive/"
-              >归档</a
+              href="/categories/"
+              >分类</a
             >
           </li>
             
@@ -188,6 +191,13 @@
             <a
               href="/tags/"
               >标签</a
+            >
+          </li>
+            
+          <li>
+            <a
+              href="/archive/"
+              >归档</a
             >
           </li>
             
@@ -304,7 +314,8 @@
 
 
     <!-- Main Content -->
-    
+    <div class="main-content">
+        
 <!-- Post Content -->
 <article>
     <div class="container" style="overflow: hidden">
@@ -314,7 +325,7 @@
             <div class="
                 col-lg-8 col-lg-offset-2
                 col-md-10 col-md-offset-1
-                post-container">
+                post-container post-markdown-body">
 
                 <h2 id="什么是单元测试">什么是单元测试?</h2>
 <p>单元测试( unit testing )，是指对软件中的最小可测试单元进行检查和验证。在前端领域来说，我们主要是针对 JavaScript 的类( class ) 或者方法( function ) 进行单元测试，以增强代码的可靠性和可维护性。下面介绍的是 mocha 单元测试框架。</p>
@@ -517,194 +528,97 @@
 </style>
 
 
-
-    <!-- Footer -->
-    <!-- Footer -->
-<footer>
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-        <ul class="list-inline text-center">
-          
-            <li>
-              <a href="/sitemap.xml">
-                <span class="fa-stack fa-lg">
-                  <i class="fa fa-circle fa-stack-2x"></i>
-                  <i class="fa fa-sitemap fa-stack-1x fa-inverse"></i>
-                </span>
-              </a>
-            </li>
-            
-
-          
-          <li>
-            <a href="/feed.xml">
-              <span class="fa-stack fa-lg">
-                <i class="fa fa-circle fa-stack-2x"></i>
-                <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
-              </span>
-            </a>
-          </li>
-           
-          <li>
-            <a
-              target="_blank"
-              href="https://twitter.com/Mr_Kavience"
-            >
-              <span class="fa-stack fa-lg">
-                <i class="fa fa-circle fa-stack-2x"></i>
-                <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
-              </span>
-            </a>
-          </li>
-           
-          <li>
-            <a
-              target="_blank"
-              href="https://www.zhihu.com/people/kavience-xiaofan"
-            >
-              <span class="fa-stack fa-lg">
-                <i class="fa fa-circle fa-stack-2x"></i>
-                <i class="fa fa-stack-1x fa-inverse">知</i>
-              </span>
-            </a>
-          </li>
-             
-          <li>
-            <a
-              target="_blank"
-              href="https://github.com/kavience"
-            >
-              <span class="fa-stack fa-lg">
-                <i class="fa fa-circle fa-stack-2x"></i>
-                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
-              </span>
-            </a>
-          </li>
-           
-        </ul>
-        <p class="copyright text-muted">
-          Copyright &copy;
-          <a href="http://beian.miit.gov.cn/" target="_blank" rel="noopener">赣ICP备17009879号</a> kavience 2021
-          <span class="post-count">
-            & 33.4k words altogether</span
-          >
-          <br />
-          Theme by <a href="http://huangxuan.me" target="_blank" rel="noopener">Hux</a>
-          <span style="display: inline-block; margin: 0 5px;">
-            <i class="fa fa-heart"></i>
-          </span>
-          re-Ported by <a href="http://www.kavience.com">kavience</a> |
-          <iframe
-            style="margin-left: 2px; margin-bottom: -5px;"
-            frameborder="0"
-            scrolling="0"
-            width="91px"
-            height="20px"
-            src="https://ghbtns.com/github-btn.html?user=kavience&repo=blog&type=star&count=true"
-          >
-          </iframe>
-        </p>
-      </div>
     </div>
-  </div>
-</footer>
 
-<!-- Bootstrap Core JavaScript -->
-
+	<a id="rocket" href="#top" class=""></a>
+    <!-- Bootstrap Core JavaScript -->
+    
 <script src="/js/bootstrap.min.js"></script>
 
 
-<!-- Custom Theme JavaScript -->
-
+    <!-- Custom Theme JavaScript -->
+    
 <script src="/js/hux-blog.min.js"></script>
 
 
-<!-- async load function -->
-<script>
-  function async(u, c) {
-    var d = document,
-      t = "script",
-      o = d.createElement(t),
-      s = d.getElementsByTagName(t)[0];
-    o.src = u;
-    if (c) {
-      o.addEventListener(
-        "load",
-        function (e) {
-          c(null, e);
-        },
-        false
-      );
+    <!-- async load function -->
+    <script>
+    function async(u, c) {
+        var d = document,
+        t = "script",
+        o = d.createElement(t),
+        s = d.getElementsByTagName(t)[0];
+        o.src = u;
+        if (c) {
+        o.addEventListener(
+            "load",
+            function (e) {
+            c(null, e);
+            },
+            false
+        );
+        }
+        s.parentNode.insertBefore(o, s);
     }
-    s.parentNode.insertBefore(o, s);
-  }
-</script>
+    </script>
 
-<!-- jquery.tagcloud.js -->
-<script>
-  // only load tagcloud.js in tag.html
-  if ($("#tag_cloud").length !== 0) {
+    <!-- jquery.tagcloud.js -->
+    <script>
+    // only load tagcloud.js in tag.html
+    if ($("#tag_cloud").length !== 0) {
+        async(
+        "http://www.kavience.com/js/jquery.tagcloud.js",
+        function () {
+            $.fn.tagcloud.defaults = {
+            //size: {start: 1, end: 1, unit: 'em'},
+            color: { start: "#bbbbee", end: "#0085a1" },
+            };
+            $("#tag_cloud a").tagcloud();
+        }
+        );
+    }
+    </script>
+
+    <!--fastClick.js -->
+    <script>
     async(
-      "http://www.kavience.com/js/jquery.tagcloud.js",
-      function () {
-        $.fn.tagcloud.defaults = {
-          //size: {start: 1, end: 1, unit: 'em'},
-          color: { start: "#bbbbee", end: "#0085a1" },
-        };
-        $("#tag_cloud a").tagcloud();
-      }
+        "https://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js",
+        function () {
+        var $nav = document.querySelector("nav");
+        if ($nav) FastClick.attach($nav);
+        }
     );
-  }
-</script>
+    </script>
 
-<!--fastClick.js -->
-<script>
-  async(
-    "https://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js",
-    function () {
-      var $nav = document.querySelector("nav");
-      if ($nav) FastClick.attach($nav);
+    <!-- Google Analytics -->
+
+    
+    <script
+    async
+    src="https://www.googletagmanager.com/gtag/js?id=UA-171834825-2"
+    ></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+        dataLayer.push(arguments);
     }
-  );
-</script>
+    gtag("js", new Date());
+    gtag("config", "UA-171834825-2");
+    </script>
 
-<!-- Google Analytics -->
+    
 
+    <!-- Baidu Tongji -->
+    
 
-<script
-  async
-  src="https://www.googletagmanager.com/gtag/js?id=UA-171834825-2"
-></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag() {
-    dataLayer.push(arguments);
-  }
-  gtag("js", new Date());
-  gtag("config", "UA-171834825-2");
-</script>
-
-
-
-<!-- Baidu Tongji -->
-
-
-<script>
-  $(".toc-nav-link").bind("click touch", function () {
-    //根据a标签的href转换为id选择器，获取id元素所处的位置
-    $('html,body').animate({ scrollTop: ($($(this).attr('href')).offset().top) }, 300);
-  });
-</script>
-
-
-	<a id="rocket" href="#top" class=""></a>
+    <script>
+    $(".toc-nav-link").bind("click touch", function () {
+        //根据a标签的href转换为id选择器，获取id元素所处的位置
+        $('html,body').animate({ scrollTop: ($($(this).attr('href')).offset().top) }, 300);
+    });
+    </script>
 	<script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
     <script type="text/javascript" src="/js/toc.js?v=1.0.0" async=""></script>
-<!-- Image to hack wechat -->
-<!-- <img src="http://www.kavience.com/img/icon_wechat.png" width="0" height="0" /> -->
-<!-- Migrate from head to bottom, no longer block render and still work -->
-
 </body>
 
 </html>
