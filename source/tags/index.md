@@ -5,4 +5,5 @@ sort: 2
 description: 'Hey, this is Tags.'
 header-img: /img/header_img/tag.jpg
 translate_title: label
+type: 'tags'
 ---

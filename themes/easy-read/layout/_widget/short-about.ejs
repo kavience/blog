@@ -13,6 +13,16 @@
 
         <!-- SNS Link -->
         <ul class="list-inline">
+            <% if (config.sitemapIcon) { %>
+                <li>
+                  <a href="<%= config.root + 'sitemap.xml' %>">
+                    <span class="fa-stack fa-lg">
+                      <i class="fa fa-circle fa-stack-2x"></i>
+                      <i class="fa fa-sitemap fa-stack-1x fa-inverse"></i>
+                    </span>
+                  </a>
+                </li>
+            <% } %>
             <% if (config.RSS) { %>
                 <li>
                     <a href="<%= config.root + 'feed.xml' %>">

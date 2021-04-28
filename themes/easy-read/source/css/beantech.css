@@ -1,7 +1,7 @@
 @media (min-width: 1200px) {
   .post-container,
   .sidebar-container {
-    padding-right: 5%;
+    padding-right: 2%;
   }
 }
 @media (min-width: 768px) {
@@ -407,12 +407,6 @@ pre code {
   margin-bottom: 0px;
   /* modify by Yu-Hsuan Yen */
 }
-@media only screen and (min-width: 768px) {
-  .intro-header {
-    margin-bottom: 20px;
-    /* response on desktop */
-  }
-}
 .intro-header .site-heading,
 .intro-header .post-heading,
 .intro-header .page-heading {
@@ -793,6 +787,7 @@ body {
   margin: 0 2px;
   margin-bottom: 8px;
   background: #D6D6D6;
+  color: #ffffff;
 }
 #tag_cloud a:hover,
 #tag_cloud .tag:hover,

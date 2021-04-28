@@ -64,11 +64,11 @@ sidebar-about-description: "种一棵树最好的时间是十年前，其次是�
 sidebar-avatar: /img/avatar/my-avatar.jpg # use absolute URL, seeing it's used in both `/` and `/about/`
 widgets:
   - short-about
-  - featured-tags
   - recent-posts
-  - friends-blog
+  - category
   - archive
-#- category
+  - featured-tags
+  - copyright
 
 # widget behavior
 ## Archive
@@ -110,13 +110,6 @@ highlight:
   line_number: true
   auto_detect: false
   tab_replace:
-
-# Category & Tag
-default_category: article
-# category_map:
-#   Frontend: frontend
-#   Backend: frontend
-#   Life: life
 
 # tag_map:
 home_posts_tag: true # show posts tags

@@ -5,74 +5,131 @@ layout: page
 <!-- Main Content -->
 <div class="container">
     <div class="row">
-        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-            <!-- 归档列表 -->
-            
-            <% 
-                var years = {};
-                site.posts.sort('date').reverse().forEach(function(post){
-                    var year = post.date.year()
-                    if(years[year]===undefined){
-                        years[year] = [];
-                    }
-                    years[year].push(post);
-                });
-            %>
-
-             <!-- 归档列表 -->
-
-            <% if (is_year()) { %>
-                <div class="one-tag-list">
-                    <span class="fa fa-calendar-times-o listing-seperator" id="<%= page.year %>">
-                        <span class="tag-text"><%= page.year %></span>
-                    </span>
-                    <ul>
-                    <% years[page.year].map(function(post){  %>
-                        <!-- <li class="listing-item">
-                        <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                        <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                        </li> -->
-                        <li >
-                        <%= post.date.format('MM-DD') %>
-                        <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-                        <a href="<%- config.root %><%- post.path %>" style="color: #0085a1">
-                            <span>
-                                <%- post.title || "Untitled" %>
-                            </span>
-                        </a>
-                        <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-                    </li>
-                    <% }) %>
-                    </ul>
-                </div>
-
-            <% } else { %>
-                <% Object.keys(years).reverse().forEach(function(year){ console.log(page.year, page.month, year) %>
+        <div class="col-lg-8 col-md-10">
+            <!-- 归档/标签/分类/列表 -->
+            <% if (page.category) { %>
+                <!-- 分类 -->
+                <% site.categories.forEach(function(category){ %>
+                    <% if (category.name == page.category) { %>
+                     
                     <div class="one-tag-list">
-                        <span class="fa fa-calendar-times-o listing-seperator" id="<%= year %>">
-                            <span class="tag-text"><%= year %></span>
+                        <span class="fa fa-newspaper-o listing-seperator" id="<%= category.name %>">
+                            <span class="tag-text"><%= category.name %></span>
                         </span>
                         <ul>
-                        <% years[year].map(function(post){  %>
-                          <!-- <li class="listing-item">
-                          <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                          <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                          </li> -->
-                         <li >
-                            <%= post.date.format('MM-DD') %>
+                        <% category.posts.map(function(post){  %>
+                        <li >
+                            <%= post.date.format('YYYY-MM-DD') %>
                             <i class="fa fa-angle-double-right" aria-hidden="true"></i>
                             <a href="<%- config.root %><%- post.path %>" style="color: #0085a1">
                                 <span>
                                     <%- post.title || "Untitled" %>
                                 </span>
                             </a>
-                            <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
                         </li>
                         <% }) %>
                         </ul>
                     </div>
-                    <% }) %>
+                    <% } %>
+                  <% }) %>
+                <% } else if (page.tag) { %>
+                     <!-- 标签 -->
+                    <!-- 标签云 -->
+            <div id='tag_cloud' class="tags">
+                <% site.tags.map(function(tag){  %>
+                    <a href="../<%= tag.name %>" title="<%= tag.name %>" rel="<%= tag.length %>"><%= tag.name %></a>
+                <% }) %>
+            </div>
+
+            <!-- 标签列表 -->
+
+            <% site.tags.map(function(tag){  %>
+                <% if (tag.name == page.tag) { %>
+            <div class="one-tag-list">
+                <span class="fa fa-tag listing-seperator" id="<%= tag.name %>">
+                    <span class="tag-text"><%= tag.name %></span>
+                </span>
+                <% tag.posts.map(function(post){  %>
+                 <div class="post-preview">
+                     <a href="<%- config.root %><%- post.path %>">
+                        <h2 class="post-title">
+                            <%- post.title || "Untitled" %>
+                        </h2>
+                        <% if (post.subtitle && post.subtitle.length) { %>
+                            <h3 class="post-subtitle">
+                                <%- post.subtitle %>
+                            </h3>
+                        <% } %>
+                    </a>
+                </div>
+                <hr>
+                <% }) %>
+            </div>
             <% } %>
+
+            <% }) %>
+                    <% } else { %>
+                     <!-- 归档 -->
+
+                        <% 
+                        var years = {};
+                        site.posts.sort('date').reverse().forEach(function(post){
+                            var year = post.date.year()
+                            if(years[year]===undefined){
+                                years[year] = [];
+                            }
+                            years[year].push(post);
+                        });
+                    %>
+        
+                    <% if (is_year()) { %>
+                        <div class="one-tag-list">
+                            <span class="fa fa-calendar-times-o listing-seperator" id="<%= page.year %>">
+                                <span class="tag-text"><%= page.year %></span>
+                            </span>
+                            <ul>
+                            <% years[page.year].map(function(post){  %>
+                                <li >
+                                <%= post.date.format('MM-DD') %>
+                                <i class="fa fa-angle-double-right" aria-hidden="true"></i>
+                                <a href="<%- config.root %><%- post.path %>" style="color: #0085a1">
+                                    <span>
+                                        <%- post.title || "Untitled" %>
+                                    </span>
+                                </a>
+                            </li>
+                            <% }) %>
+                            </ul>
+                        </div>
+        
+                    <% } else { %>
+                        <% Object.keys(years).reverse().forEach(function(year){ %>
+                            <div class="one-tag-list">
+                                <span class="fa fa-calendar-times-o listing-seperator" id="<%= year %>">
+                                    <span class="tag-text"><%= year %></span>
+                                </span>
+                                <ul>
+                                <% years[year].map(function(post){  %>
+                                  <!-- <li class="listing-item">
+                                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
+                                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
+                                  </li> -->
+                                 <li >
+                                    <%= post.date.format('MM-DD') %>
+                                    <i class="fa fa-angle-double-right" aria-hidden="true"></i>
+                                    <a href="<%- config.root %><%- post.path %>" style="color: #0085a1">
+                                        <span>
+                                            <%- post.title || "Untitled" %>
+                                        </span>
+                                    </a>
+                                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
+                                </li>
+                                <% }) %>
+                                </ul>
+                            </div>
+                            <% }) %>
+                    <% } %> 
+            <% } %> 
         </div>
     </div>
 </div>

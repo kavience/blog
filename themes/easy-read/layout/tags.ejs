@@ -1,14 +1,14 @@
 ---
-layout: layout
+layout: page
 ---
 <!-- Main Content -->
 <div class="container">
     <div class="row">
-        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="col-lg-8 col-md-10">
             <!-- 标签云 -->
             <div id='tag_cloud' class="tags">
                 <% site.tags.map(function(tag){  %>
-                    <a href="#<%= tag.name %>" title="<%= tag.name %>" rel="<%= tag.length %>"><%= tag.name %></a>
+                    <a href="../<%= tag.name %>" title="<%= tag.name %>" rel="<%= tag.length %>"><%= tag.name %></a>
                 <% }) %>
             </div>
 
@@ -20,10 +20,6 @@ layout: layout
                     <span class="tag-text"><%= tag.name %></span>
                 </span>
                 <% tag.posts.map(function(post){  %>
-                  <!-- <li class="listing-item">
-                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                  </li> -->
                  <div class="post-preview">
                      <a href="<%- config.root %><%- post.path %>">
                         <h2 class="post-title">
@@ -35,14 +31,11 @@ layout: layout
                             </h3>
                         <% } %>
                     </a>
-                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
                 </div>
                 <hr>
                 <% }) %>
             </div>
             <% }) %>
-
-
         </div>
     </div>
 </div>
