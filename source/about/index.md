@@ -3,9 +3,10 @@ layout: about
 title: 关于
 sort: 999
 description: 'Left hand guitar, Right hand code'
-header-img: /img/header_img/about.jpg
-aplayer: true
-fixed: false
+header_img: /img/header_img/about.jpg
+sidebar: true
+comment: true
+reward: true
 translate_title: 'on'
 date: 2019-10-16 21:53:01
 ---

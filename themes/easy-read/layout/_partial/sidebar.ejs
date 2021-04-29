@@ -1,4 +1,4 @@
-<!-- Sidebar Container -->
+<!-- Sidebar Start -->
 <div class="
     col-lg-3 col-lg-offset-0
     col-md-3 col-md-offset-0
@@ -7,7 +7,8 @@
     sidebar-container
 ">
     <% theme.widgets.forEach(function(widget){ %>
-        <%- partial('_widget/' + widget) %>
+        <%- partial('_widget/' + widget, { cache: true }) %>
         <hr>
     <% }) %>
 </div>
+<!-- Sidebar End -->

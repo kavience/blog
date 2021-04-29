@@ -2,21 +2,31 @@
 layout: layout
 ---
 
+<!-- Page Style -->
+<style>
+    .intro-header {
+        background-image: url('<%= page["header_img"] || theme["header_img"] %>');
+    }
+</style>
+<!-- Page Style End-->
+
 <!-- Page Header -->
-<header class="intro-header" style="background-image: url('<%= page["header-img"] || config["header-img"] %>')">
+<header class="intro-header">
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 ">
                 <div class="site-heading">
                     <h1>404</h1>
-                    <!--<hr class="small">-->
                     <span class="subheading"><%= page.description || config.subtitle || "" %></span>
                 </div>
             </div>
         </div>
     </div>
 </header>
+<!-- Page Header End -->
 
+<!-- Page Header JS -->
 <script>
     document.body.classList.add('page-fullscreen');
 </script>
+<!-- Page Header JS End -->
