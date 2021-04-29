@@ -1,14 +1,12 @@
-<!-- Featured Tags -->
-<% if(config['featured-tags']) { %>
-<section>
-    <!-- no hr -->
-    <h5><a href="<%= config.root %>tags/">FEATURED TAGS</a></h5>
-    <div class="tags">
-        <% site.tags.map(function(tag){  %>
-            <% if(tag.length > config['featured-condition-size']) { %>
-            <a href="<%= config.root %>tags/#<%= tag.name %>" title="<%= tag.name %>" rel="<%= tag.length %>"><%= tag.name %></a>
-            <% } %>
-        <% }) %>
+<% if (site.tags.length) { %>
+    <script type="text/javascript" charset="utf-8" src="/js/tagcloud.js"></script>
+    <script type="text/javascript" charset="utf-8" src="/js/tagcanvas.js"></script>
+    <div class="widget-wrap">
+        <h5><a href="<%= config.root %>tags/">TAGS</a></h5>
+        <div id="myCanvasContainer" class="widget tagcloud">
+            <canvas width="250" height="250" id="resCanvas" style="width: 100%">
+                <%- tagcloud() %>
+            </canvas>
+        </div>
     </div>
-</section>
-<% }%>
+<% } %>

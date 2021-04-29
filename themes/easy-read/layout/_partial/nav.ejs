@@ -12,13 +12,7 @@
       <a class="navbar-brand" href="<%= config.root %>"><%= config.title %></a>
     </div>
 
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    <!-- Known Issue, found by Hux:
-            <nav>'s height woule be hold on by its content.
-            so, when navbar scale out, the <nav> will cover tags.
-            also mask any touch event of tags, unfortunately.
-        -->
-    <div id="huxblog_navbar">
+    <div id="blog_navbar">
       <div class="navbar-collapse">
         <ul class="nav navbar-nav navbar-right">
           <li>
@@ -27,26 +21,26 @@
           <li>
             <a href="<%= config.root %>">首页</a>
           </li>
+          <% 
+            let navs = (site.pages.map(page => page)).sort(function (page1, page2){
+              return page1['sort'] - page2['sort']; 
+            })
+          %> 
 
-          <% let navs =[]; site.pages.forEach(page => { navs.push(page); });
-          navs = navs.sort(function(obj1,obj2){ var value1 = obj1['sort']; var
-          value2 = obj2['sort']; return value1 - value2; } )%> <%
-          navs.forEach(page => {%> <% if (page.title) {%>
-          <li>
-            <a
-              href="<%= config.root %><%= page.path.replace('index.html', '') %>"
-              ><%= page.title %></a
-            >
-          </li>
-          <% } %> <%}); %>
+          <% navs.forEach(page => { %> 
+            <% if (page.title) {%>
+              <li>
+                <a href="<%= config.root %><%= page.path.replace('index.html', '') %>"><%= page.title %></a>
+              </li>
+            <% } %> 
+          <%}) %>
         </ul>
       </div>
     </div>
-    <!-- /.navbar-collapse -->
   </div>
-  <!-- /.container -->
 </nav>
 
+<!-- Search Modal -->
 <div class="modal search-modal">
   <div class="search-container">
     <div class="search-container-top">
@@ -65,17 +59,18 @@
   xReq.open('GET', '/search.json');
   xReq.send();
   xReq.onreadystatechange = function(){
-    // 若响应完成且请求成功
     if(xReq.readyState === 4 && xReq.status === 200){
       allArticles = JSON.parse(xReq.responseText);
     }
   }
 
   $('#search').on('click', function() {
+    document.body.style['overflow-y'] = 'hidden'
     $('.search-modal').addClass('modal-show');
   });
   
   $('.search-modal,.search-container-top img').on('click', function() {
+    document.body.style['overflow-y'] = 'scroll';
     $('.search-modal').removeClass('modal-show');
   });
   
@@ -99,7 +94,6 @@
       var contentMatch = article.description.match(searchReg);
       if (contentMatch) {
         description = `...${article.description.substr(contentMatch['index'], 210)}...`.replaceAll(searchRegGlobal, `<span class="search-value-active">${searchValue}</span>`);
-        // description = `...<span class="search-value-active">${searchValue}</span>${article.description.substr(contentMatch[0].length + contentMatch['index'], 200)}...`;
       } else {
         description = article.description.substr(0, 200);
       }
@@ -115,18 +109,14 @@
   
 </script>
 <script>
-  // Drop Bootstarp low-performance Navbar
-  // Use customize navbar with high-quality material design animation
-  // in high-perf jank-free CSS3 implementation
   var $body = document.body;
   var $toggle = document.querySelector(".navbar-toggle");
-  var $navbar = document.querySelector("#huxblog_navbar");
+  var $navbar = document.querySelector("#blog_navbar");
   var $collapse = document.querySelector(".navbar-collapse");
 
   $toggle.addEventListener("click", handleMagic);
   function handleMagic(e) {
     if ($navbar.className.indexOf("in") > 0) {
-      // CLOSE
       $navbar.className = " ";
       // wait until animation end.
       setTimeout(function () {
@@ -136,7 +126,6 @@
         }
       }, 400);
     } else {
-      // OPEN
       $collapse.style.height = "auto";
       $navbar.className += " in";
     }

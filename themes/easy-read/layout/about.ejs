@@ -1,35 +1,27 @@
 ---
-layout: page
+layout: layout
 ---
-<style type="text/css">
-    header.intro-header{
-        background-position: right; 
-    }
-</style>
-<!-- Chinese Version -->
-<div class="zh post-container">
-    <%- page.content %>
-</div>
 
-<% if(config['disqus_username']) { %>
-<div class="comment">
-    <div id="disqus_thread" class="disqus-thread">
-
+<!-- Page Start -->
+<div class="container">
+    <div class="row">
+        <div class="
+            col-lg-8 col-lg-offset-1
+            col-md-8 col-md-offset-1
+            col-sm-12
+            col-xs-12
+            content-container
+        ">
+            <%- page.content || body %>
+            <br>
+            <% if (page.reward) { %>
+                <%- partial('_partial/reward') %>
+            <% } %>
+            <% if (page.comment) { %>
+                <%- partial('_partial/comment') %>
+            <% } %>
+        </div>
+        <%- partial('_partial/sidebar') %>
     </div>
 </div>
-<!-- disqus 公共JS代码 start (一个网页只需插入一次) -->
-<script type="text/javascript">
-    /* * * CONFIGURATION VARIABLES * * */
-    var disqus_shortname = "<%= config['disqus_username'] %>";
-    var disqus_identifier = "<%= page.permalink %>";
-    var disqus_url = "<%= page.permalink %>";
-
-    (function() {
-        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    })();
-</script>
-<!-- disqus 公共JS代码 end -->
-<% } %>
-
+<!-- Page End -->

@@ -1,29 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<!-- Head tag -->
+<!-- Head Start -->
 <%- partial('_partial/head') %>
-
-<!-- hack iOS CSS :active style -->
+<!-- Head End -->
 <body ontouchstart="">
-	<%- partial('_partial/header',{cache: true}) %>
-	
-    <%- partial('_partial/nav',{cache: true}) %>
+    <!-- Header Start -->
+    <%- partial('_partial/header', { cache: true }) %>
+    <!-- Header End -->
 
-    <!-- Main Content -->
-    <%- body %>
+    <!-- Nav Start -->
+    <%- partial('_partial/nav', { cache: true }) %>
+    <!-- Nav End -->
 
-    <!-- Footer -->
-    <%- partial('_partial/footer') %>
+    <!-- Main Content Start -->
+    <div class="main-content">
+        <%- body %>
+    </div>
+    <!-- Main Content End -->
 
+    <span id="rocket"></span>
 
-	<a id="rocket" href="#top" class=""></a>
-	<script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
-    <script type="text/javascript" src="/js/toc.js?v=1.0.0" async=""></script>
-<!-- Image to hack wechat -->
-<!-- <img src="<%= config['url'] %><%= config['root'] %>img/icon_wechat.png" width="0" height="0" /> -->
-<!-- Migrate from head to bottom, no longer block render and still work -->
+    <!-- Google Analytics -->
+    <% if (theme.ga_track_id) { %>
+        <script async src="https://www.googletagmanager.com/gtag/js?id=<%= theme.ga_track_id %>" ></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag() {
+                dataLayer.push(arguments);
+            }
+            gtag("js", new Date());
+            gtag("config", "<%= theme.ga_track_id %>");
+        </script>
+    <% } %>
 
+    <!-- Baidu Tongji -->
+    <% if (theme.ba_track_id) { %>
+        <script>
+            let _baId = "<%= theme.ba_track_id %>";
+            let _hmt = _hmt || [];
+            (function () {
+                let hm = document.createElement("script");
+                hm.src = "//hm.baidu.com/hm.js?" + _baId;
+                let s = document.getElementsByTagName("script")[0];
+                s.parentNode.insertBefore(hm, s);
+            })();
+        </script>
+    <% } %>
+
+    <script>
+        // TOC scroll
+        $(".toc-nav-link").bind("click touch", function () {
+            // 根据a标签的href转换为id选择器，获取id元素所处的位置
+            $('html,body').animate({ scrollTop: ($($(this).attr('href')).offset().top) }, 300);
+        });
+    </script>
 </body>
-
 </html>

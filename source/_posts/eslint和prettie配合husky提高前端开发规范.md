@@ -3,9 +3,9 @@ title: eslint和prettie配合husky提高前端开发规范
 catalog: true
 hidden: false
 tags:
-  - null
+  - eslint
 categories:
-  - null
+  - front-end
 translate_title: >-
   eslint-and-prettie-cooperate-with-husky-to-improve-frontend-development-specifications
 date: 2021-04-26 18:54:50
