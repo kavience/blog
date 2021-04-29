@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<!-- Head tag -->
+<!-- Head Start -->
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,86 +9,34 @@
     <meta name="description" content="kavience 的博客, 专注于前端开发, web开发, 编程技术-PSR-1基本规范">
     <meta name="keyword"  content="kavience,javascript,前端开发,php,react,kavience博客,PSR-1基本规范">
     <link rel="shortcut icon" href="/img/avatar/my-avatar.jpg">
-    <!-- Place this tag in your head or just before your close body tag. -->
-    <script async defer src="https://buttons.github.io/buttons.js"></script>
     <title>
         
           PSR-1基本规范 - kavience | Blog
         
     </title>
-
     <link rel="canonical" href="http://www.kavience.com/php/psr1-basic-specification.html">
-
-    <!-- Bootstrap Core CSS -->
+    <link href="https://cdn.staticfile.org/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     
 <link rel="stylesheet" href="/css/bootstrap.min.css">
 
-
-    <!-- Custom CSS --> 
     
-<link rel="stylesheet" href="/css/beantech.css">
+<link rel="stylesheet" href="/css/easy-read.css">
 
-
-    
-<link rel="stylesheet" href="/css/donate.css">
-
-    
-    <!-- Pygments Highlight CSS -->
     
 <link rel="stylesheet" href="/css/highlight.css">
-
-
-    
-<link rel="stylesheet" href="/css/widget.css">
-
-
-    
-<link rel="stylesheet" href="/css/rocket.css">
-
-
-    
-<link rel="stylesheet" href="/css/signature.css">
-
-
-    
-<link rel="stylesheet" href="/css/toc.css">
-
-
-    
-<link rel="stylesheet" href="/css/search.css">
 
     
 <link rel="stylesheet" href="/css/gitalk.min.css">
 
     
-<link rel="stylesheet" href="/css/kkpager_orange.css">
-
-    
-<link rel="stylesheet" href="/css/custom.css">
+<link rel="stylesheet" href="/css/kkpager_orange.min.css">
 
 
-    <!-- Custom Fonts -->
-    <link href="https://cdn.staticfile.org/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-
-
-    <!-- Hux Delete, sad but pending in China
-    <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/
-    css'>
-    -->
-
-
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
-
-   
-<!-- jQuery -->
     
 <script src="/js/jquery.min.js"></script>
+
+    
+<script src="/js/bootstrap.min.js"></script>
 
     
 <script src="/js/gitalk.min.js"></script>
@@ -97,56 +44,56 @@
     
 <script src="/js/kkpager.min.js"></script>
 
-    <!-- ga & ba script hoook -->
-    <script></script>
-<meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/feed.xml" title="kavience" type="application/atom+xml">
+    
+<script src="https://buttons.github.io/buttons.js"></script>
+
+    
+<script src="https://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js"></script>
+
+    
+<script src="/js/easy-read.js"></script>
+
+<meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/feed.xml" title="Kavience" type="application/atom+xml">
 </head>
 
-
-<!-- hack iOS CSS :active style -->
+<!-- Head End -->
 <body ontouchstart="">
-	<!-- Modified by Yu-Hsuan Yen -->
-<!-- Post Header -->
-<style type="text/css">
-    header.intro-header{
+    <!-- Header Start -->
+    <style type="text/css">
+    header.intro-header {
         
             background-image: url('/img/article_header/article_bg.jpg')
-            /*post*/
         
     }
-    
 </style>
 
-<header class="intro-header" >
-    <!-- Signature -->
-    <div id="signature">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+<header id="intro-header" class="intro-header" >
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                 
                     <div class="post-heading">
                         <div class="tags">
                             
-                              <a class="tag" href="/tags/#PSR规范" title="PSR规范">PSR规范</a>
+                            <a class="tag" href="/tags/PSR规范" title="PSR规范">PSR规范</a>
                             
                         </div>
                         <h1>PSR-1基本规范</h1>
                         <h2 class="subheading"></h2>
                         <span class="meta">
-                            Posted by kavience on
+                            Posted by Kavience on
                             2020-07-08
                         </span>
                     </div>
                 
-
-
-                </div>
             </div>
         </div>
     </div>
 </header>
 
-	
+    <!-- Header End -->
+
+    <!-- Nav Start -->
     <!-- Navigation -->
 <nav class="navbar navbar-default navbar-custom navbar-fixed-top">
   <div class="container-fluid">
@@ -158,16 +105,10 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="/">kavience</a>
+      <a class="navbar-brand" href="/">Kavience</a>
     </div>
 
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    <!-- Known Issue, found by Hux:
-            <nav>'s height woule be hold on by its content.
-            so, when navbar scale out, the <nav> will cover tags.
-            also mask any touch event of tags, unfortunately.
-        -->
-    <div id="huxblog_navbar">
+    <div id="blog_navbar">
       <div class="navbar-collapse">
         <ul class="nav navbar-nav navbar-right">
           <li>
@@ -176,44 +117,42 @@
           <li>
             <a href="/">首页</a>
           </li>
-
-              
-          <li>
-            <a
-              href="/categories/"
-              >分类</a
-            >
-          </li>
-            
-          <li>
-            <a
-              href="/tags/"
-              >标签</a
-            >
-          </li>
-            
-          <li>
-            <a
-              href="/archive/"
-              >归档</a
-            >
-          </li>
-            
-          <li>
-            <a
-              href="/about/"
-              >关于</a
-            >
-          </li>
            
+
+           
+             
+           
+            
+              <li>
+                <a href="/categories/">分类</a>
+              </li>
+             
+           
+            
+              <li>
+                <a href="/tags/">标签</a>
+              </li>
+             
+           
+            
+              <li>
+                <a href="/archive/">归档</a>
+              </li>
+             
+           
+            
+              <li>
+                <a href="/about/">关于</a>
+              </li>
+             
+          
         </ul>
       </div>
     </div>
-    <!-- /.navbar-collapse -->
   </div>
-  <!-- /.container -->
 </nav>
 
+<!-- Search Modal -->
 <div class="modal search-modal">
   <div class="search-container">
     <div class="search-container-top">
@@ -232,17 +171,18 @@
   xReq.open('GET', '/search.json');
   xReq.send();
   xReq.onreadystatechange = function(){
-    // 若响应完成且请求成功
     if(xReq.readyState === 4 && xReq.status === 200){
       allArticles = JSON.parse(xReq.responseText);
     }
   }
 
   $('#search').on('click', function() {
+    document.body.style['overflow-y'] = 'hidden'
     $('.search-modal').addClass('modal-show');
   });
   
   $('.search-modal,.search-container-top img').on('click', function() {
+    document.body.style['overflow-y'] = 'scroll';
     $('.search-modal').removeClass('modal-show');
   });
   
@@ -266,7 +206,6 @@
       var contentMatch = article.description.match(searchReg);
       if (contentMatch) {
         description = `...${article.description.substr(contentMatch['index'], 210)}...`.replaceAll(searchRegGlobal, `<span class="search-value-active">${searchValue}</span>`);
-        // description = `...<span class="search-value-active">${searchValue}</span>${article.description.substr(contentMatch[0].length + contentMatch['index'], 200)}...`;
       } else {
         description = article.description.substr(0, 200);
       }
@@ -282,18 +221,14 @@
   
 </script>
 <script>
-  // Drop Bootstarp low-performance Navbar
-  // Use customize navbar with high-quality material design animation
-  // in high-perf jank-free CSS3 implementation
   var $body = document.body;
   var $toggle = document.querySelector(".navbar-toggle");
-  var $navbar = document.querySelector("#huxblog_navbar");
+  var $navbar = document.querySelector("#blog_navbar");
   var $collapse = document.querySelector(".navbar-collapse");
 
   $toggle.addEventListener("click", handleMagic);
   function handleMagic(e) {
     if ($navbar.className.indexOf("in") > 0) {
-      // CLOSE
       $navbar.className = " ";
       // wait until animation end.
       setTimeout(function () {
@@ -303,18 +238,18 @@
         }
       }, 400);
     } else {
-      // OPEN
       $collapse.style.height = "auto";
       $navbar.className += " in";
     }
   }
 </script>
 
+    <!-- Nav End -->
 
-    <!-- Main Content -->
+    <!-- Main Content Start -->
     <div class="main-content">
         
-<!-- Post Content -->
+<!-- Post Content Start -->
 <article>
     <div class="container" style="overflow: hidden">
         <div class="row">
@@ -323,8 +258,8 @@
             <div class="
                 col-lg-8 col-lg-offset-2
                 col-md-10 col-md-offset-1
-                post-container post-markdown-body">
-
+                post-container post-markdown-body
+            ">
                 <h2 id="阅读建议">阅读建议</h2>
 <blockquote>
 <p>本文是根据 PSR 规范英文文档翻译而来，建议多次阅读以便熟悉这些规范，并在工作中用到这些规范。</p>
@@ -383,25 +318,66 @@
 <li>读或写文件等</li>
 </ul>
 <p>以下是一个违反此规范的例子：</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="comment">// 副作用: 根本 ini 设置</span></span><br><span class="line">ini_set(<span class="string">'error_reporting'</span>, E_ALL);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 副作用: 加载文件</span></span><br><span class="line"><span class="keyword">include</span> <span class="string">"file.php"</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 副作用: 生成输出</span></span><br><span class="line"><span class="keyword">echo</span> <span class="string">"&lt;html&gt;\n"</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 声明</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="highlight php"><span class="meta">&lt;?php</span>
+<span class="comment">// 副作用: 根本 ini 设置</span>
+ini_set(<span class="string">'error_reporting'</span>, E_ALL);
+
+<span class="comment">// 副作用: 加载文件</span>
+<span class="keyword">include</span> <span class="string">"file.php"</span>;
+
+<span class="comment">// 副作用: 生成输出</span>
+<span class="keyword">echo</span> <span class="string">"&lt;html&gt;\n"</span>;
+
+<span class="comment">// 声明</span>
+<span class="function"><span class="keyword">function</span> <span class="title">foo</span><span class="params">()</span></span>
+<span class="function"></span>&#123;
+&#125;</code></pre>
 <p>以下是一个符合此规范的例子：</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="comment">// 声明 foo 函数</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 有条件的声明不产生副作用</span></span><br><span class="line"><span class="keyword">if</span> (! function_exists(<span class="string">'bar'</span>)) &#123;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">bar</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="highlight php"><span class="meta">&lt;?php</span>
+<span class="comment">// 声明 foo 函数</span>
+<span class="function"><span class="keyword">function</span> <span class="title">foo</span><span class="params">()</span></span>
+<span class="function"></span>&#123;
+&#125;
+
+<span class="comment">// 有条件的声明不产生副作用</span>
+<span class="keyword">if</span> (! function_exists(<span class="string">'bar'</span>)) &#123;
+    <span class="function"><span class="keyword">function</span> <span class="title">bar</span><span class="params">()</span></span>
+<span class="function">    </span>&#123;
+    &#125;
+&#125;</code></pre>
 <h3 id="命名空间和类名">命名空间和类名</h3>
 <p>命名空间和类<code>必须</code>遵循 PSR 自动加载规范：[PSR-0, PSR-4]。</p>
 <p>根据规范，每个类都独立为一个文件，且命名空间至少有一个层次：顶级的组织名称（vendor name）。</p>
 <p>类的命名<code>必须</code>遵循 StudlyCaps 大写开头的驼峰命名规范。</p>
 <p>PHP 5.3 及以后版本的代码<code>必须</code>使用正式的命名空间。</p>
 <p>例如：</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="comment">// PHP 5.3 以后版本:</span></span><br><span class="line"><span class="keyword">namespace</span> <span class="title">Vendor</span>\<span class="title">Model</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Foo</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="highlight php"><span class="meta">&lt;?php</span>
+<span class="comment">// PHP 5.3 以后版本:</span>
+<span class="keyword">namespace</span> <span class="title">Vendor</span>\<span class="title">Model</span>;
+
+<span class="class"><span class="keyword">class</span> <span class="title">Foo</span></span>
+<span class="class"></span>&#123;
+&#125;</code></pre>
 <p>5.2.x 及之前的版本<code>应该</code>使用伪命名空间的写法，约定俗成使用顶级的组织名称（vendor name）如 Vendor_ 为类前缀。</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="comment">// PHP 5.2.x 及更早版本:</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Vendor_Model_Foo</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="highlight php"><span class="meta">&lt;?php</span>
+<span class="comment">// PHP 5.2.x 及更早版本:</span>
+<span class="class"><span class="keyword">class</span> <span class="title">Vendor_Model_Foo</span></span>
+<span class="class"></span>&#123;
+&#125;</code></pre>
 <h3 id="类常量-类属性-方法">类常量、类属性、方法</h3>
 <p>此处的「类」指代所有的类、接口以及可复用代码块（traits）。</p>
 <h4 id="常量">常量</h4>
 <ul>
 <li>PHP 类文件中的常量<code>必须</code>使用下划线分隔且以大写形式声明，例如:</li>
 </ul>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="keyword">namespace</span> <span class="title">Vendor</span>\<span class="title">Model</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Foo</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="keyword">const</span> VERSION = <span class="string">'1.0'</span>;</span><br><span class="line">    <span class="keyword">const</span> DATE_APPROVED = <span class="string">'2012-06-01'</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="highlight php"><span class="meta">&lt;?php</span>
+<span class="keyword">namespace</span> <span class="title">Vendor</span>\<span class="title">Model</span>;
+
+<span class="class"><span class="keyword">class</span> <span class="title">Foo</span></span>
+<span class="class"></span>&#123;
+    <span class="keyword">const</span> VERSION = <span class="string">'1.0'</span>;
+    <span class="keyword">const</span> DATE_APPROVED = <span class="string">'2012-06-01'</span>;
+&#125;</code></pre>
 <h4 id="属性">属性</h4>
 <p>类的属性命名<code>可以</code>遵循：</p>
 <ul>
@@ -414,9 +390,36 @@
 <p>方法名<code>必须</code>为小驼峰命名</p>
 
                 
-                <div id="PSR-1基本规范"></div>
                 <hr>
-                <!-- Pager -->
+                <div class="row">
+                    <div class="col-md-6 col-sm-12">
+                        <!-- Categories Start -->
+                        <section>
+                            <h5><a href="/tags/">CATEGORIES</a></h5>
+                            <div class="tags">
+                                
+                                    <a class="tag" href="/categories/php" title="php">php</a>
+                                
+                            </div>
+                        </section>
+                        <!-- Categories End -->
+                    </div>
+                    <div class="col-md-6 col-sm-12">
+                        <!-- Tags Start -->
+                        <section style="text-align: right;">
+                            <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                            <div class="tags">
+                                
+                                    <a class="tag" href="/tags/PSR规范" title="PSR规范">PSR规范</a>
+                                
+                            </div>
+                        </section>
+                        <!-- Tags End -->
+                    </div>
+                </div>
+
+                <hr>
+                <!-- Pager Start -->
                 <ul class="pager">
                     
                         <li class="previous">
@@ -429,240 +432,139 @@
                         </li>
                     
                 </ul>
+                <!-- Pager End -->
+               
+                <!-- Comment Start -->
+<div class="comment">
+  
+      <div id="PSR-1基本规范" class="gitalk"></div>
+  
+  
 
+  
+      <script>
+          var gitalk = new Gitalk({
+          clientID: `d25cda615a572205be1e`,
+          clientSecret: `faa4cf10f1daea3d4701f8be90d80feb88c818ac`,
+          repo: `blog`,
+          owner: `kavience`,
+          admin: `kavience`,
+          id: 'PSR-1基本规范',
+          title: 'PSR-1基本规范',
+          distractionFreeMode: `false`,
+          });
+      
+          gitalk.render('PSR-1基本规范')
+      </script>
+  
+
+  
+</div>            
+<!-- Comment End -->
+                
                 <br>
+                <!-- Comment Start -->
+<div class="comment">
+  
+      <div id="PSR-1基本规范" class="gitalk"></div>
+  
+  
 
-                <!--打赏-->
-                
-                <!--打赏-->
+  
+      <script>
+          var gitalk = new Gitalk({
+          clientID: `d25cda615a572205be1e`,
+          clientSecret: `faa4cf10f1daea3d4701f8be90d80feb88c818ac`,
+          repo: `blog`,
+          owner: `kavience`,
+          admin: `kavience`,
+          id: 'PSR-1基本规范',
+          title: 'PSR-1基本规范',
+          distractionFreeMode: `false`,
+          });
+      
+          gitalk.render('PSR-1基本规范')
+      </script>
+  
 
-                <br>
-                <!--分享-->
-                
-                    <div class="social-share"  data-wechat-qrcode-helper="" align="center"></div>
-                    <!--  css & js -->
-                    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css">
-                    <script src="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script>
-                
-                <!--分享-->
-                <br>                       
-                
-                <!-- require APlayer -->
-                
-                <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.css">
-                <script src="https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.js"></script>
-                <script src="https://cdn.jsdelivr.net/npm/meting@1.2/dist/Meting.min.js"></script>
-
-                <div class="aplayer"
-                    data-id="2764926677"
-                    data-server="netease"
-                    data-type="playlist"
-                    data-fixed="true" >
-                </div>
-                
-
-                <!-- disqus comment start -->
-                
-                <!-- disqus comment end -->
-
-                
-
+  
+</div>            
+<!-- Comment End -->
             </div>
             
             <!-- Tabe of Content -->
-            <!-- Table of Contents -->
-
-  
-    <!-- <style>
-      span.toc-nav-number {
-        display: none;
-      }
-    </style> -->
-    
-      
-        <aside id="sidebar">
-          <div id="toc" class="toc-article">
-            <strong class="toc-title">
-              Contents
-            </strong>
             
-              <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#阅读建议"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">阅读建议</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#what"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">What?</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#why"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">Why?</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#how"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">How?</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#关键字"><span class="toc-nav-number">4.1.</span> <span class="toc-nav-text">关键字</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#概览"><span class="toc-nav-number">4.2.</span> <span class="toc-nav-text">概览</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#文件"><span class="toc-nav-number">4.3.</span> <span class="toc-nav-text">文件</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#php-标签"><span class="toc-nav-number">4.4.</span> <span class="toc-nav-text">PHP 标签</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#字符编码"><span class="toc-nav-number">4.5.</span> <span class="toc-nav-text">字符编码</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#副作用"><span class="toc-nav-number">4.6.</span> <span class="toc-nav-text">副作用</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#命名空间和类名"><span class="toc-nav-number">4.7.</span> <span class="toc-nav-text">命名空间和类名</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#类常量-类属性-方法"><span class="toc-nav-number">4.8.</span> <span class="toc-nav-text">类常量、类属性、方法</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#常量"><span class="toc-nav-number">4.8.1.</span> <span class="toc-nav-text">常量</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#属性"><span class="toc-nav-number">4.8.2.</span> <span class="toc-nav-text">属性</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#方法"><span class="toc-nav-number">4.8.3.</span> <span class="toc-nav-text">方法</span></a></li></ol></li></ol></li></ol>
-                
-          </div>
-        </aside>
-        
-          
+	
+		<aside id="sidebar">
+			<div id="toc" class="toc-article">
+				<strong class="toc-title">
+					Contents
+				</strong>
+				
+					<ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#阅读建议"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">阅读建议</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#what"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">What?</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#why"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">Why?</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#how"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">How?</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#关键字"><span class="toc-nav-number">4.1.</span> <span class="toc-nav-text">关键字</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#概览"><span class="toc-nav-number">4.2.</span> <span class="toc-nav-text">概览</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#文件"><span class="toc-nav-number">4.3.</span> <span class="toc-nav-text">文件</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#php-标签"><span class="toc-nav-number">4.4.</span> <span class="toc-nav-text">PHP 标签</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#字符编码"><span class="toc-nav-number">4.5.</span> <span class="toc-nav-text">字符编码</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#副作用"><span class="toc-nav-number">4.6.</span> <span class="toc-nav-text">副作用</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#命名空间和类名"><span class="toc-nav-number">4.7.</span> <span class="toc-nav-text">命名空间和类名</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#类常量-类属性-方法"><span class="toc-nav-number">4.8.</span> <span class="toc-nav-text">类常量、类属性、方法</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#常量"><span class="toc-nav-number">4.8.1.</span> <span class="toc-nav-text">常量</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#属性"><span class="toc-nav-number">4.8.2.</span> <span class="toc-nav-text">属性</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#方法"><span class="toc-nav-number">4.8.3.</span> <span class="toc-nav-text">方法</span></a></li></ol></li></ol></li></ol>
+				
+			</div>
+		</aside>
+	
+
+
+<script>
+let toc = document.getElementById('toc')
+if (toc != null) {
+    window.addEventListener("scroll", scrollcatelogHandler);
+    let tocPosition = toc.offsetTop;
+    function scrollcatelogHandler(e) {
+        let event = e || window.event,
+            target = event.target || event.srcElement;
+        let scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+        if (scrollTop > tocPosition - 60) {
+            toc.classList.add("toc-fixed");
+        } else {
+            toc.classList.remove("toc-fixed");
+        }
+    }
+}
+</script>
                 
             <!-- Sidebar Container -->
-            <div class="
+            <!-- <div class="
                 col-lg-8 col-lg-offset-2
                 col-md-10 col-md-offset-1
                 sidebar-container">
-
-                <!-- Featured Tags -->
-                
-                <section>
-                    <!-- no hr -->
-                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
-                    <div class="tags">
-                       
-                          <a class="tag" href="/tags/#PSR规范" title="PSR规范">PSR规范</a>
-                        
-                    </div>
-                </section>
-                
-
-                <!-- Friends Blog -->
-                
-            </div>
+            </div> -->
         </div>
     </div>
 </article>
 
-<script>
-    var gitalk = new Gitalk({
-    clientID: 'd25cda615a572205be1e',
-    clientSecret: 'faa4cf10f1daea3d4701f8be90d80feb88c818ac',
-    repo: 'blog',
-    owner: 'kavience',
-    admin: ['kavience'],
-    id: 'PSR-1基本规范',
-    title: 'PSR-1基本规范',
-    distractionFreeMode: false  
-    });
-
-    gitalk.render('PSR-1基本规范')
-</script>
-
-
-
-
-<!-- async load function -->
-<script>
-    function async(u, c) {
-      var d = document, t = 'script',
-          o = d.createElement(t),
-          s = d.getElementsByTagName(t)[0];
-      o.src = u;
-      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
-      s.parentNode.insertBefore(o, s);
-    }
-</script>
-<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
-<script>
-    async("https://cdn.bootcss.com/anchor-js/1.1.1/anchor.min.js",function(){
-        anchors.options = {
-          visible: 'hover',
-          placement: 'left',
-          icon: 'な'
-        };
-        anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
-    })
-</script>
-<style>
-    /* place left on bigger screen */
-    @media all and (min-width: 800px) {
-        .anchorjs-link{
-            position: absolute;
-            left: -0.2em;
-            font-size: 1.1em;
-            margin-top : -0.1em;
-        }
-    }
-</style>
 
 
     </div>
+    <!-- Main Content End -->
 
-	<a id="rocket" href="#top" class=""></a>
-    <!-- Bootstrap Core JavaScript -->
-    
-<script src="/js/bootstrap.min.js"></script>
-
-
-    <!-- Custom Theme JavaScript -->
-    
-<script src="/js/hux-blog.min.js"></script>
-
-
-    <!-- async load function -->
-    <script>
-    function async(u, c) {
-        var d = document,
-        t = "script",
-        o = d.createElement(t),
-        s = d.getElementsByTagName(t)[0];
-        o.src = u;
-        if (c) {
-        o.addEventListener(
-            "load",
-            function (e) {
-            c(null, e);
-            },
-            false
-        );
-        }
-        s.parentNode.insertBefore(o, s);
-    }
-    </script>
-
-    <!-- jquery.tagcloud.js -->
-    <script>
-    // only load tagcloud.js in tag.html
-    if ($("#tag_cloud").length !== 0) {
-        async(
-        "http://www.kavience.com/js/jquery.tagcloud.js",
-        function () {
-            $.fn.tagcloud.defaults = {
-            //size: {start: 1, end: 1, unit: 'em'},
-            color: { start: "#bbbbee", end: "#0085a1" },
-            };
-            $("#tag_cloud a").tagcloud();
-        }
-        );
-    }
-    </script>
-
-    <!--fastClick.js -->
-    <script>
-    async(
-        "https://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js",
-        function () {
-        var $nav = document.querySelector("nav");
-        if ($nav) FastClick.attach($nav);
-        }
-    );
-    </script>
+    <span id="rocket"></span>
 
     <!-- Google Analytics -->
-
     
-    <script
-    async
-    src="https://www.googletagmanager.com/gtag/js?id=UA-171834825-2"
-    ></script>
-    <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag() {
-        dataLayer.push(arguments);
-    }
-    gtag("js", new Date());
-    gtag("config", "UA-171834825-2");
-    </script>
-
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-171834825-2" ></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag() {
+                dataLayer.push(arguments);
+            }
+            gtag("js", new Date());
+            gtag("config", "UA-171834825-2");
+        </script>
     
 
     <!-- Baidu Tongji -->
     
 
     <script>
-    $(".toc-nav-link").bind("click touch", function () {
-        //根据a标签的href转换为id选择器，获取id元素所处的位置
-        $('html,body').animate({ scrollTop: ($($(this).attr('href')).offset().top) }, 300);
-    });
+        // TOC scroll
+        $(".toc-nav-link").bind("click touch", function () {
+            // 根据a标签的href转换为id选择器，获取id元素所处的位置
+            $('html,body').animate({ scrollTop: ($($(this).attr('href')).offset().top) }, 300);
+        });
     </script>
-	<script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
-    <script type="text/javascript" src="/js/toc.js?v=1.0.0" async=""></script>
 </body>
-
 </html>
