@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN ">
 <!-- Head Start -->
 <head>
     <meta charset="utf-8">
@@ -15,7 +15,9 @@
         
     </title>
     <link rel="canonical" href="http://www.kavience.com/front-end/js-thoroughly-understand-the-point-of-this.html">
-    <link href="https://cdn.staticfile.org/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    
+<link rel="stylesheet" href="/css/font-awesome.min.css">
+
     
 <link rel="stylesheet" href="/css/bootstrap.min.css">
 
@@ -45,10 +47,10 @@
 <script src="/js/kkpager.min.js"></script>
 
     
-<script src="https://buttons.github.io/buttons.js"></script>
+<script src="/js/button.min.js"></script>
 
     
-<script src="https://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js"></script>
+<script src="/js/fastclick.min.js"></script>
 
     
 <script src="/js/easy-read.js"></script>
@@ -59,14 +61,14 @@
 <!-- Head End -->
 <body ontouchstart="">
     <!-- Header Start -->
-    <style type="text/css">
+     
+        <style type="text/css">
     header.intro-header {
         
-            background-image: url('/img/article_header/article_bg.jpg')
+            background-image: url('/img/header_img/article-bg.jpg')
         
     }
 </style>
-
 <header id="intro-header" class="intro-header" >
     <div class="container">
         <div class="row">
@@ -91,6 +93,7 @@
     </div>
 </header>
 
+     
     <!-- Header End -->
 
     <!-- Nav Start -->
@@ -112,10 +115,10 @@
       <div class="navbar-collapse">
         <ul class="nav navbar-nav navbar-right">
           <li>
-            <a href="#" id="search" ><img style="width: 16px;height: 16px;margin: -2px 5px 0px 0;" src="/icons/search.svg " alt="">搜索</a>
+            <a href="#" id="search" ><img style="width: 16px;height: 16px;margin: -2px 5px 0px 0;" src="/icons/search.svg " alt="">搜索 </a>
           </li>
           <li>
-            <a href="/">首页</a>
+            <a href="/">首页 </a>
           </li>
            
 
@@ -158,7 +161,7 @@
     <div class="search-container-top">
       <img src="/icons/close.svg" alt="">
     </div>
-    <input class="search-container-input" placeholder="输入关键字搜索" type="text">
+    <input class="search-container-input" placeholder="输入关键字搜索 " type="text">
     <div class="search-container-content"></div>
   </div>
 </div>
@@ -247,7 +250,7 @@
     <!-- Nav End -->
 
     <!-- Main Content Start -->
-    <div class="main-content">
+    <div class="main-content content-post ">
         
 <!-- Post Content Start -->
 <article>
@@ -590,7 +593,7 @@ func2(); <span class="comment">// t</span></code></pre>
                     <div class="col-md-6 col-sm-12">
                         <!-- Categories Start -->
                         <section>
-                            <h5><a href="/tags/">CATEGORIES</a></h5>
+                            <h5><a href="/tags/">分类 </a></h5>
                             <div class="tags">
                                 
                                     <a class="tag" href="/categories/front-end" title="front-end">front-end</a>
@@ -601,8 +604,8 @@ func2(); <span class="comment">// t</span></code></pre>
                     </div>
                     <div class="col-md-6 col-sm-12">
                         <!-- Tags Start -->
-                        <section style="text-align: right;">
-                            <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                        <section class="past-tags">
+                            <h5><a href="/tags/">标签 </a></h5>
                             <div class="tags">
                                 
                                     <a class="tag" href="/tags/JavaScript" title="JavaScript">JavaScript</a>
@@ -618,12 +621,12 @@ func2(); <span class="comment">// t</span></code></pre>
                 <ul class="pager">
                     
                         <li class="previous">
-                            <a href="/front-end/demo-of-flow-chart-editor-based-on-g6.html" data-toggle="tooltip" data-placement="top" title="基于g6的流程图编辑器Demo">&larr; Previous Post</a>
+                            <a href="/front-end/demo-of-flow-chart-editor-based-on-g6.html" data-toggle="tooltip" data-placement="top" title="基于g6的流程图编辑器Demo">&larr; 上一篇 </a>
                         </li>
                     
                     
                         <li class="next">
-                            <a href="/think/the-world-is-developing-mankind-progressing.html" data-toggle="tooltip" data-placement="top" title="世界在发展，人类有进步吗">Next Post &rarr;</a>
+                            <a href="/think/the-world-is-developing-mankind-progressing.html" data-toggle="tooltip" data-placement="top" title="世界在发展，人类有进步吗">下一篇  &rarr;</a>
                         </li>
                     
                 </ul>
@@ -693,7 +696,7 @@ func2(); <span class="comment">// t</span></code></pre>
 		<aside id="sidebar">
 			<div id="toc" class="toc-article">
 				<strong class="toc-title">
-					Contents
+					目录
 				</strong>
 				
 					<ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#起因"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">起因</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#什么是-this-？"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">什么是 this ？</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#this-存在的情形"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">this 存在的情形</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#全局状态下"><span class="toc-nav-number">3.1.</span> <span class="toc-nav-text">全局状态下</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#一般函数内"><span class="toc-nav-number">3.2.</span> <span class="toc-nav-text">一般函数内</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#函数在全局状态下"><span class="toc-nav-number">3.2.1.</span> <span class="toc-nav-text">函数在全局状态下</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#函数在对象内部"><span class="toc-nav-number">3.2.2.</span> <span class="toc-nav-text">函数在对象内部</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#函数在-class-内"><span class="toc-nav-number">3.2.3.</span> <span class="toc-nav-text">函数在 class 内</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#改变-this-指向"><span class="toc-nav-number">3.2.4.</span> <span class="toc-nav-text">改变 this 指向</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#this-和对象转换"><span class="toc-nav-number">3.3.</span> <span class="toc-nav-text">this 和对象转换</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#原型链中"><span class="toc-nav-number">3.4.</span> <span class="toc-nav-text">原型链中</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#与-dom-相关"><span class="toc-nav-number">3.5.</span> <span class="toc-nav-text">与 DOM 相关</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#最后"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">最后</span></a></li></ol>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN ">
 <!-- Head Start -->
 <head>
     <meta charset="utf-8">
@@ -15,7 +15,9 @@
         
     </title>
     <link rel="canonical" href="http://www.kavience.com/front-end/study-and-use-of-mobx.html">
-    <link href="https://cdn.staticfile.org/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    
+<link rel="stylesheet" href="/css/font-awesome.min.css">
+
     
 <link rel="stylesheet" href="/css/bootstrap.min.css">
 
@@ -45,10 +47,10 @@
 <script src="/js/kkpager.min.js"></script>
 
     
-<script src="https://buttons.github.io/buttons.js"></script>
+<script src="/js/button.min.js"></script>
 
     
-<script src="https://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js"></script>
+<script src="/js/fastclick.min.js"></script>
 
     
 <script src="/js/easy-read.js"></script>
@@ -59,14 +61,14 @@
 <!-- Head End -->
 <body ontouchstart="">
     <!-- Header Start -->
-    <style type="text/css">
+     
+        <style type="text/css">
     header.intro-header {
         
-            background-image: url('/img/article_header/article_bg.jpg')
+            background-image: url('/img/header_img/article-bg.jpg')
         
     }
 </style>
-
 <header id="intro-header" class="intro-header" >
     <div class="container">
         <div class="row">
@@ -93,6 +95,7 @@
     </div>
 </header>
 
+     
     <!-- Header End -->
 
     <!-- Nav Start -->
@@ -114,10 +117,10 @@
       <div class="navbar-collapse">
         <ul class="nav navbar-nav navbar-right">
           <li>
-            <a href="#" id="search" ><img style="width: 16px;height: 16px;margin: -2px 5px 0px 0;" src="/icons/search.svg " alt="">搜索</a>
+            <a href="#" id="search" ><img style="width: 16px;height: 16px;margin: -2px 5px 0px 0;" src="/icons/search.svg " alt="">搜索 </a>
           </li>
           <li>
-            <a href="/">首页</a>
+            <a href="/">首页 </a>
           </li>
            
 
@@ -160,7 +163,7 @@
     <div class="search-container-top">
       <img src="/icons/close.svg" alt="">
     </div>
-    <input class="search-container-input" placeholder="输入关键字搜索" type="text">
+    <input class="search-container-input" placeholder="输入关键字搜索 " type="text">
     <div class="search-container-content"></div>
   </div>
 </div>
@@ -249,7 +252,7 @@
     <!-- Nav End -->
 
     <!-- Main Content Start -->
-    <div class="main-content">
+    <div class="main-content content-post ">
         
 <!-- Post Content Start -->
 <article>
@@ -453,7 +456,7 @@ configure(&#123; <span class="attr">enforceActions</span>: <span class="string">
                     <div class="col-md-6 col-sm-12">
                         <!-- Categories Start -->
                         <section>
-                            <h5><a href="/tags/">CATEGORIES</a></h5>
+                            <h5><a href="/tags/">分类 </a></h5>
                             <div class="tags">
                                 
                                     <a class="tag" href="/categories/front-end" title="front-end">front-end</a>
@@ -464,8 +467,8 @@ configure(&#123; <span class="attr">enforceActions</span>: <span class="string">
                     </div>
                     <div class="col-md-6 col-sm-12">
                         <!-- Tags Start -->
-                        <section style="text-align: right;">
-                            <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                        <section class="past-tags">
+                            <h5><a href="/tags/">标签 </a></h5>
                             <div class="tags">
                                 
                                     <a class="tag" href="/tags/mobx" title="mobx">mobx</a>
@@ -483,12 +486,12 @@ configure(&#123; <span class="attr">enforceActions</span>: <span class="string">
                 <ul class="pager">
                     
                         <li class="previous">
-                            <a href="/tools/rosetta-and-npm-under-apple-m1.html" data-toggle="tooltip" data-placement="top" title="Apple M1 下的 Rosetta 与 Npm">&larr; Previous Post</a>
+                            <a href="/tools/rosetta-and-npm-under-apple-m1.html" data-toggle="tooltip" data-placement="top" title="Apple M1 下的 Rosetta 与 Npm">&larr; 上一篇 </a>
                         </li>
                     
                     
                         <li class="next">
-                            <a href="/front-end/typescript-common-knowledge-summary.html" data-toggle="tooltip" data-placement="top" title="Typescript常见知识总结">Next Post &rarr;</a>
+                            <a href="/front-end/typescript-common-knowledge-summary.html" data-toggle="tooltip" data-placement="top" title="Typescript常见知识总结">下一篇  &rarr;</a>
                         </li>
                     
                 </ul>
@@ -558,7 +561,7 @@ configure(&#123; <span class="attr">enforceActions</span>: <span class="string">
 		<aside id="sidebar">
 			<div id="toc" class="toc-article">
 				<strong class="toc-title">
-					Contents
+					目录
 				</strong>
 				
 					<ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#mobx-简介"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">mobx 简介</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#简单例子"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">简单例子</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#主要的-api"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">主要的 api</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#observable"><span class="toc-nav-number">3.1.</span> <span class="toc-nav-text">observable</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#computed"><span class="toc-nav-number">3.2.</span> <span class="toc-nav-text">computed</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#autorun"><span class="toc-nav-number">3.3.</span> <span class="toc-nav-text">autorun</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#action"><span class="toc-nav-number">3.4.</span> <span class="toc-nav-text">action</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#flows"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">flows</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#总结"><span class="toc-nav-number">5.</span> <span class="toc-nav-text">总结</span></a></li></ol>
