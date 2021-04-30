@@ -1,4 +1,4 @@
-# Easy-read setting start
+# omega setting start
 
 # ----------------------------------------------------------
 # Site settings
@@ -30,7 +30,7 @@ RSS: true
 # ----------------------------------------------------------
 # Comment settings
 comment_method: gitalk # gitalk or disqus
-## Method 1: gitalk
+## Method 1: gitalk https://github.com/gitalk/gitalk
 gitalk:
   clientID: 'd25cda615a572205be1e'
   clientSecret: 'faa4cf10f1daea3d4701f8be90d80feb88c818ac'
@@ -69,17 +69,17 @@ widgets:
   - copyright
 
 # ----------------------------------------------------------
-# Friends settings
-# friends: [{ title: "CSDN Blog kavience", href: "http://blog.csdn.net/huwh_" }]
-
-
-# ----------------------------------------------------------
 # less vars
 less:
   options:
     globalVars:
       bg-color: '#f1e5c9'
       main-bg-color: '#f6f8fa'
+      text-main-color: '#404046'
+      text-secondary-color: '#a3a3a3'
+      text-threed-color: '#808080'
+      hover-color: '#0085a1'
+      border-color: gray
       ## highlight vars
       # highlight-background: "#f6f8fa"
       # highlight-current-line: "#efefef"

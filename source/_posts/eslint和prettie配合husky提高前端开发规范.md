@@ -10,7 +10,7 @@ translate_title: >-
   eslint-and-prettie-cooperate-with-husky-to-improve-frontend-development-specifications
 date: 2021-04-26 18:54:50
 subtitle:
-header-img:
+header_img:
 ---
 
 ## what

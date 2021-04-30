@@ -8,7 +8,7 @@ categories:
 translate_title: remember-to-build-a-react-project
 date: 2020-06-15 18:30:09
 subtitle:
-header-img:
+header_img:
 ---
 
 ## 阅读建议

@@ -8,7 +8,7 @@ categories:
 translate_title: js-advanced-execution-context-and-stack
 date: 2019-10-19 10:50:06
 subtitle:
-header-img:
+header_img:
 ---
 
 ## 什么是 JavaScript 执行上下文？

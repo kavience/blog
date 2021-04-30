@@ -9,7 +9,7 @@ abbrlink: 28080
 translate_title: psr1-basic-specification
 date: 2020-07-08 14:31:52
 subtitle:
-header-img:
+header_img:
 ---
 
 ## 阅读建议

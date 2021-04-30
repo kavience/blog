@@ -9,7 +9,7 @@ categories:
 translate_title: demo-of-flow-chart-editor-based-on-g6
 date: 2020-10-14 14:01:46
 subtitle:
-header-img:
+header_img:
 ---
 
 ## ✨ 特点

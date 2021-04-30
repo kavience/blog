@@ -8,7 +8,7 @@ categories:
 translate_title: hello-world
 date: 2019-10-16 23:02:43
 subtitle:
-header-img:
+header_img:
 ---
 
 ## Hello World

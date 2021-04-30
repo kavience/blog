@@ -8,7 +8,7 @@ categories:
 translate_title: typescript-common-knowledge-summary
 date: 2020-12-25 14:11:17
 subtitle:
-header-img:
+header_img:
 ---
 
 ## never, unknown, any 三者之间的区别

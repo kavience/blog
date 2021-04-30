@@ -5,7 +5,7 @@ subtitle:
 date: {{ date }}
 catalog: true
 hidden: false
-header-img:
+header_img:
 tags:
   -
 categories:

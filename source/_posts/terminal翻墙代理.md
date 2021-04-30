@@ -9,7 +9,7 @@ abbrlink: 28167
 translate_title: terminal-over-the-wall-proxy
 date: 2020-07-21 10:06:58
 subtitle:
-header-img:
+header_img:
 ---
 
 ## What？

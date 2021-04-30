@@ -1,7 +1,28 @@
 ---
 title: {{ title }}
+translate_title:
 subtitle:
+date: {{ date }}
 catalog: true
-header-img:
+hidden: false
+header_img:
 tags:
+  -
+categories:
+  -
 ---
+
+## what
+
+
+## why
+
+
+## how
+
+
+## 总结
+
+
+
+（完）

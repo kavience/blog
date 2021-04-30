@@ -10,7 +10,7 @@ categories:
 translate_title: git-common-command-record
 date: 2021-04-23 10:17:23
 subtitle:
-header-img:
+header_img:
 ---
 
 ## what

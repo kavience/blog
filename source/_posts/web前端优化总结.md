@@ -1,7 +1,6 @@
 ---
 title: web前端优化总结
 catalog: true
-top: true
 tags:
   - JavaScript
   - 优化
@@ -10,7 +9,7 @@ categories:
 translate_title: summary-of-web-frontend-optimization
 date: 2020-08-04 10:04:24
 subtitle:
-header-img:
+header_img:
 ---
 
 ## What

@@ -5,9 +5,9 @@ subtitle:
 date: 2021-04-21 18:46:14
 catalog: true
 hidden: true
-header-img:
+header_img:
 tags:
-  - CI/CD
+  - CI-CD
 categories:
   - tools
 ---

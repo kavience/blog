@@ -7,7 +7,7 @@
 title: Kavience
 subtitle: blog
 author: Kavience
-language: en # change the language in themes/easy-read-languages
+language: zh-CN # change the language in themes/omega/languages
 timezone: asia/shanghai
 description: "kavience 的博客, 专注于前端开发, web开发, 编程技术"
 keyword: "kavience,javascript,前端开发,php,react,kavience博客"
@@ -55,7 +55,7 @@ per_page: 6 # Set per_page to 0 to disable pagination
 # Plugins: https://hexo.io/plugins/
 
 # Themes: https://hexo.io/themes/
-theme: easy-read
+theme: omega
 
 # Markdown-it config
 # https://github.com/celsomiranda/hexo-renderer-markdown-it/wiki

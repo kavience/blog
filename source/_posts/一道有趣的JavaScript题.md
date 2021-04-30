@@ -8,7 +8,7 @@ categories:
 translate_title: an-interesting-javascript-question
 date: 2020-08-10 12:03:47
 subtitle:
-header-img:
+header_img:
 ---
 
 ## 题目

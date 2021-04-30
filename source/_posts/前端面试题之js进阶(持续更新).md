@@ -8,7 +8,7 @@ categories:
 translate_title: js-advanced-frontend-interview-questions-continuous-update
 date: 2020-11-12 19:05:46
 subtitle:
-header-img:
+header_img:
 ---
 
 ## 数据类型

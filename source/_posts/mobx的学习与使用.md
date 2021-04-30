@@ -9,7 +9,7 @@ categories:
 translate_title: study-and-use-of-mobx
 date: 2021-03-24 13:20:39
 subtitle:
-header-img:
+header_img:
 ---
 
 ## mobx 简介
