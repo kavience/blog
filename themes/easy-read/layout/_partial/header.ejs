@@ -4,12 +4,15 @@
             background-image: url('<%= theme["header_img"] %>') 
         <%} else if (is_post()){%>
             background-image: url('<%= page["header_img"] || theme["article_img"]  %>')
+        <%} else if (page.category){%>
+            background-image: url('<%= theme["archive_category_img"]  %>')
+        <%} else if (page.tag){%>
+            background-image: url('<%= theme["archive_tag_img"]  %>')
         <%} else {%>
             background-image: url('<%= page["header_img"] || theme["archives_img"] %>')
         <%} %>
     }
 </style>
-
 <header id="intro-header" class="intro-header" >
     <div class="container">
         <div class="row">
@@ -39,9 +42,12 @@
                         <span class="subheading">
                             <% if (page.category) { %>
                                 All articles under the <%- page.category %> 
-                            <% } %>
-                            <% if (page.tag) { %>
+                            <% } else if (page.tag) { %>
                                 All articles under the <%- page.tag %> 
+                            <% } else if (page.archive) { %>
+                                All articles write in <%- page.year %>
+                            <% } else { %>
+                                <span class="subheading"><%= page.description || config.subtitle || "" %></span>
                             <% } %>
                         </span>
                     </div>

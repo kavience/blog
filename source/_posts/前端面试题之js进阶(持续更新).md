@@ -5,7 +5,7 @@ tags:
   - 前端面试题
 categories:
   - front-end
-translate_title: advanced-js-for-frontend-interview-questions-continuous-update
+translate_title: js-advanced-frontend-interview-questions-continuous-update
 date: 2020-11-12 19:05:46
 subtitle:
 header-img:
