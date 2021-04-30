@@ -5,7 +5,6 @@
     "new:post": "hexo new $NAME",
     "start": "hexo server",
     "dev": "hexo clean && hexo server",
-    "deploy": "hexo clean && hexo generate && hexo deploy",
     "generate": "hexo clean && hexo generate"
   },
   "hexo": {

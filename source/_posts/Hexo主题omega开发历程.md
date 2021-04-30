@@ -15,7 +15,7 @@ header_img:
 ---
 
 ## what
-[Omega](https://github.com/kavience/blog) 是 hexo 框架下的一个博客主题。
+[Omega](https://github.com/kavience/omega) 是 hexo 框架下的一个博客主题。
 
 ![theme-preview](/img/blog_img/theme-preview.jpg)
 
