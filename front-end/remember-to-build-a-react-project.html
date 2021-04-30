@@ -22,7 +22,7 @@
 <link rel="stylesheet" href="/css/bootstrap.min.css">
 
     
-<link rel="stylesheet" href="/css/easy-read.css">
+<link rel="stylesheet" href="/css/omega.css">
 
     
 <link rel="stylesheet" href="/css/highlight.css">
@@ -53,7 +53,7 @@
 <script src="/js/fastclick.min.js"></script>
 
     
-<script src="/js/easy-read.js"></script>
+<script src="/js/omega.js"></script>
 
 <meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/feed.xml" title="Kavience" type="application/atom+xml">
 </head>
@@ -736,10 +736,16 @@ FORM_DESCRIPTION_URL=<span class="string">"http://api-form.example.com"</span></
                 
                 <hr>
                 <div class="row">
-                    <div class="col-md-6 col-sm-12">
+                    <div class="col-md-12 post-statement">
+                        <span>作者: Kavience</span>
+                        <span>本文链接: <a href="http://www.kavience.com/front-end/remember-to-build-a-react-project.html">http://www.kavience.com/front-end/remember-to-build-a-react-project.html </a></span>
+                        <span>转载请注明:《记一次React项目搭建》转自 http://www.kavience.com/front-end/remember-to-build-a-react-project.html，原作者：Kavience </span>
+                        <span><a href="https://creativecommons.org/licenses/by-nc-nd/3.0/deed.zh" target="_blank" rel="noopener">版权声明: 自由转载-非商用-非衍生-保持署名（创意共享3.0许可证）</a></span>
+                    </div>
+                    <div class="col-md-12">
                         <!-- Categories Start -->
                         <section>
-                            <h5><a href="/tags/">分类 </a></h5>
+                            <h5><a href="/categories/">分类 </a></h5>
                             <div class="tags">
                                 
                                     <a class="tag" href="/categories/front-end" title="front-end">front-end</a>
@@ -748,7 +754,7 @@ FORM_DESCRIPTION_URL=<span class="string">"http://api-form.example.com"</span></
                         </section>
                         <!-- Categories End -->
                     </div>
-                    <div class="col-md-6 col-sm-12">
+                    <div class="col-md-12">
                         <!-- Tags Start -->
                         <section class="past-tags">
                             <h5><a href="/tags/">标签 </a></h5>
@@ -787,18 +793,17 @@ FORM_DESCRIPTION_URL=<span class="string">"http://api-form.example.com"</span></
 
   
       <script>
-          var gitalk = new Gitalk({
-          clientID: `d25cda615a572205be1e`,
-          clientSecret: `faa4cf10f1daea3d4701f8be90d80feb88c818ac`,
-          repo: `blog`,
-          owner: `kavience`,
-          admin: `kavience`,
-          id: '记一次React项目搭建',
-          title: '记一次React项目搭建',
-          distractionFreeMode: `false`,
-          });
-      
-          gitalk.render('记一次React项目搭建')
+          new Gitalk({
+            clientID: `d25cda615a572205be1e`,
+            clientSecret: `faa4cf10f1daea3d4701f8be90d80feb88c818ac`,
+            repo: `blog`,
+            owner: `kavience`,
+            admin: `kavience`,
+            id: '记一次React项目搭建',
+            title: '记一次React项目搭建',
+            distractionFreeMode: `false`,
+            language: `zh-CN`
+          }).render('记一次React项目搭建');
       </script>
   
 
@@ -816,18 +821,17 @@ FORM_DESCRIPTION_URL=<span class="string">"http://api-form.example.com"</span></
 
   
       <script>
-          var gitalk = new Gitalk({
-          clientID: `d25cda615a572205be1e`,
-          clientSecret: `faa4cf10f1daea3d4701f8be90d80feb88c818ac`,
-          repo: `blog`,
-          owner: `kavience`,
-          admin: `kavience`,
-          id: '记一次React项目搭建',
-          title: '记一次React项目搭建',
-          distractionFreeMode: `false`,
-          });
-      
-          gitalk.render('记一次React项目搭建')
+          new Gitalk({
+            clientID: `d25cda615a572205be1e`,
+            clientSecret: `faa4cf10f1daea3d4701f8be90d80feb88c818ac`,
+            repo: `blog`,
+            owner: `kavience`,
+            admin: `kavience`,
+            id: '记一次React项目搭建',
+            title: '记一次React项目搭建',
+            distractionFreeMode: `false`,
+            language: `zh-CN`
+          }).render('记一次React项目搭建');
       </script>
   
 
@@ -869,18 +873,9 @@ if (toc != null) {
     }
 }
 </script>
-                
-            <!-- Sidebar Container -->
-            <!-- <div class="
-                col-lg-8 col-lg-offset-2
-                col-md-10 col-md-offset-1
-                sidebar-container">
-            </div> -->
         </div>
     </div>
 </article>
-
-
 
     </div>
     <!-- Main Content End -->

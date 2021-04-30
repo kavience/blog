@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="zh-CN ">
+<!-- Head Start -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="kavience 的博客, 专注于前端开发, web开发, 编程技术-undefined">
+    <meta name="keyword"  content="kavience,javascript,前端开发,php,react,kavience博客,undefined">
+    <link rel="shortcut icon" href="/img/avatar/my-avatar.jpg">
+    <title>
+        
+          kavience | Blog
+        
+    </title>
+    <link rel="canonical" href="http://www.kavience.com/tags/omega/">
+    
+<link rel="stylesheet" href="/css/font-awesome.min.css">
+
+    
+<link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    
+<link rel="stylesheet" href="/css/omega.css">
+
+    
+<link rel="stylesheet" href="/css/highlight.css">
+
+    
+<link rel="stylesheet" href="/css/gitalk.min.css">
+
+    
+<link rel="stylesheet" href="/css/kkpager_orange.min.css">
+
+
+    
+<script src="/js/jquery.min.js"></script>
+
+    
+<script src="/js/bootstrap.min.js"></script>
+
+    
+<script src="/js/gitalk.min.js"></script>
+
+    
+<script src="/js/kkpager.min.js"></script>
+
+    
+<script src="/js/button.min.js"></script>
+
+    
+<script src="/js/fastclick.min.js"></script>
+
+    
+<script src="/js/omega.js"></script>
+
+<meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/feed.xml" title="Kavience" type="application/atom+xml">
+</head>
+
+<!-- Head End -->
+<body ontouchstart="">
+    <!-- Header Start -->
+     
+        <style type="text/css">
+    header.intro-header {
+        
+            background-image: url('/img/header_img/archive-tag.jpg')
+        
+    }
+</style>
+<header id="intro-header" class="intro-header" >
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                
+                    <div class="site-heading">
+                        <h1>omega</h1>
+                        <span class="subheading">
+                            
+                                All articles under the omega 
+                            
+                        </span>
+                    </div>
+                
+            </div>
+        </div>
+    </div>
+</header>
+
+     
+    <!-- Header End -->
+
+    <!-- Nav Start -->
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header page-scroll">
+      <button type="button" class="navbar-toggle">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/">Kavience</a>
+    </div>
+
+    <div id="blog_navbar">
+      <div class="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <a href="#" id="search" ><img style="width: 16px;height: 16px;margin: -2px 5px 0px 0;" src="/icons/search.svg " alt="">搜索 </a>
+          </li>
+          <li>
+            <a href="/">首页 </a>
+          </li>
+           
+
+           
+             
+           
+            
+              <li>
+                <a href="/categories/">分类</a>
+              </li>
+             
+           
+            
+              <li>
+                <a href="/tags/">标签</a>
+              </li>
+             
+           
+            
+              <li>
+                <a href="/archive/">归档</a>
+              </li>
+             
+           
+            
+              <li>
+                <a href="/about/">关于</a>
+              </li>
+             
+          
+        </ul>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- Search Modal -->
+<div class="modal search-modal">
+  <div class="search-container">
+    <div class="search-container-top">
+      <img src="/icons/close.svg" alt="">
+    </div>
+    <input class="search-container-input" placeholder="输入关键字搜索 " type="text">
+    <div class="search-container-content"></div>
+  </div>
+</div>
+
+<script>
+  $('.search-container').css({ "height": window.innerHeight, "overflow": 'hidden' })
+  $('.search-container-content').css({ "height": window.innerHeight - 70, "overflow": 'scroll' })
+  var allArticles = [];
+  var xReq = new XMLHttpRequest();
+  xReq.open('GET', '/search.json');
+  xReq.send();
+  xReq.onreadystatechange = function(){
+    if(xReq.readyState === 4 && xReq.status === 200){
+      allArticles = JSON.parse(xReq.responseText);
+    }
+  }
+
+  $('#search').on('click', function() {
+    document.body.style['overflow-y'] = 'hidden'
+    $('.search-modal').addClass('modal-show');
+  });
+  
+  $('.search-modal,.search-container-top img').on('click', function() {
+    document.body.style['overflow-y'] = 'scroll';
+    $('.search-modal').removeClass('modal-show');
+  });
+  
+  $('.search-container').on('click', function(e) {
+    e.stopPropagation();
+  });
+  
+  $('.search-container-input').bind('input propertychange', function(e) {
+    var searchValue = e.currentTarget.value;
+    var correctArticles = allArticles.filter(article => article.content.indexOf(searchValue) > -1 || article.title.indexOf(searchValue) > -1)
+    var articleListHtml = '';
+    for (let index = 0; index < correctArticles.length; index++) {
+      var article = correctArticles[index];
+      article.description = article.content.replace(/<[^>]+>/g,"");
+      var title = article.title, description = '';
+      var searchReg = RegExp(searchValue, 'i');
+      var searchRegGlobal = RegExp(searchValue, 'ig');
+      if (article.title.match(searchReg)) {
+        title = article.title.replaceAll(searchRegGlobal, `<span class="search-value-active">${searchValue}</span>`);
+      }
+      var contentMatch = article.description.match(searchReg);
+      if (contentMatch) {
+        description = `...${article.description.substr(contentMatch['index'], 210)}...`.replaceAll(searchRegGlobal, `<span class="search-value-active">${searchValue}</span>`);
+      } else {
+        description = article.description.substr(0, 200);
+      }
+
+      articleListHtml += `<div class="search-container-content_item">
+        <a href="${article.url}" class="search-container-content_item-title">${title}</a>
+        <div class="search-container-content_item-description">${description}</div>
+      </div>`
+    }
+
+    $('.search-container-content').html(articleListHtml);
+  });
+  
+</script>
+<script>
+  var $body = document.body;
+  var $toggle = document.querySelector(".navbar-toggle");
+  var $navbar = document.querySelector("#blog_navbar");
+  var $collapse = document.querySelector(".navbar-collapse");
+
+  $toggle.addEventListener("click", handleMagic);
+  function handleMagic(e) {
+    if ($navbar.className.indexOf("in") > 0) {
+      $navbar.className = " ";
+      // wait until animation end.
+      setTimeout(function () {
+        // prevent frequently toggle
+        if ($navbar.className.indexOf("in") < 0) {
+          $collapse.style.height = "0px";
+        }
+      }, 400);
+    } else {
+      $collapse.style.height = "auto";
+      $navbar.className += " in";
+    }
+  }
+</script>
+
+    <!-- Nav End -->
+
+    <!-- Main Content Start -->
+    <div class="main-content content- ">
+        
+<div class="container">
+    <div class="row">
+        <div class="
+            col-lg-8 col-lg-offset-1
+            col-md-8 col-md-offset-1
+            col-sm-12
+            col-xs-12
+            content-container
+        ">
+            <!-- Archive / Tags / Categories  Start -->
+            
+                <!-- Tags Start -->
+                <div id='tag_cloud' class="tags tag-page-tags">
+                    
+                        <a href="/tags/apple" title="apple" rel="1">apple</a>
+                    
+                        <a href="/tags/hexo" title="hexo" rel="1">hexo</a>
+                    
+                        <a href="/tags/omega" title="omega" rel="1">omega</a>
+                    
+                        <a href="/tags/PSR规范" title="PSR规范" rel="1">PSR规范</a>
+                    
+                        <a href="/tags/typescript" title="typescript" rel="1">typescript</a>
+                    
+                        <a href="/tags/eslint" title="eslint" rel="1">eslint</a>
+                    
+                        <a href="/tags/git" title="git" rel="1">git</a>
+                    
+                        <a href="/tags/开始" title="开始" rel="1">开始</a>
+                    
+                        <a href="/tags/JavaScript" title="JavaScript" rel="7">JavaScript</a>
+                    
+                        <a href="/tags/jest" title="jest" rel="1">jest</a>
+                    
+                        <a href="/tags/mobx" title="mobx" rel="1">mobx</a>
+                    
+                        <a href="/tags/mobx-react" title="mobx-react" rel="1">mobx-react</a>
+                    
+                        <a href="/tags/mocha" title="mocha" rel="1">mocha</a>
+                    
+                        <a href="/tags/单元测试" title="单元测试" rel="1">单元测试</a>
+                    
+                        <a href="/tags/nodejs" title="nodejs" rel="1">nodejs</a>
+                    
+                        <a href="/tags/翻墙" title="翻墙" rel="1">翻墙</a>
+                    
+                        <a href="/tags/优化" title="优化" rel="1">优化</a>
+                    
+                        <a href="/tags/人类" title="人类" rel="1">人类</a>
+                    
+                        <a href="/tags/随笔闲谈" title="随笔闲谈" rel="1">随笔闲谈</a>
+                    
+                        <a href="/tags/2020计划" title="2020计划" rel="1">2020计划</a>
+                    
+                        <a href="/tags/CI-CD" title="CI-CD" rel="1">CI-CD</a>
+                    
+                        <a href="/tags/前端面试题" title="前端面试题" rel="3">前端面试题</a>
+                    
+                        <a href="/tags/g6" title="g6" rel="1">g6</a>
+                    
+                        <a href="/tags/流程图" title="流程图" rel="1">流程图</a>
+                    
+                        <a href="/tags/坚持" title="坚持" rel="1">坚持</a>
+                    
+                        <a href="/tags/路" title="路" rel="1">路</a>
+                    
+                        <a href="/tags/生命" title="生命" rel="1">生命</a>
+                    
+                        <a href="/tags/焦虑" title="焦虑" rel="1">焦虑</a>
+                    
+                        <a href="/tags/sentry" title="sentry" rel="1">sentry</a>
+                    
+                        <a href="/tags/Reactjs" title="Reactjs" rel="1">Reactjs</a>
+                    
+                        <a href="/tags/迷茫" title="迷茫" rel="1">迷茫</a>
+                    
+                </div>
+
+                
+                    
+                
+                    
+                
+                    
+                        <div class="one-tag-list">
+                            <span class="fa fa-tag listing-seperator" id="omega">
+                                <span class="tag-text">omega</span>
+                            </span>
+                            
+                            <div class="post-preview">
+                                <a href="/tools/hexo-theme-omega-development-history.html">
+                                    <h2 class="post-title">
+                                        Hexo主题omega开发历程
+                                    </h2>
+                                    
+                                </a>
+                            </div>
+                            <hr>
+                            
+                        </div>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                <!-- Tags End -->
+             
+            <!-- Archive / Tags / Categories  End -->
+        </div>
+
+        <!-- Sidebar Start -->
+<div class="
+    col-lg-3 col-lg-offset-0
+    col-md-3 col-md-offset-0
+    col-sm-12
+    col-xs-12
+    sidebar-container
+">
+    
+        <!-- Short About -->
+<h5><a href="/about/">关于 </a></h5>
+<div class="widget short-about">
+    
+        <img id = "avatar_pic" src="/img/avatar/my-avatar.jpg" />
+    
+    
+        <p>种一棵树最好的时间是十年前，其次是现在。</p>
+    
+    <ul class="list-inline">
+        
+            <li>
+                <a href="/sitemap.xml">
+                <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-sitemap fa-stack-1x fa-inverse"></i>
+                </span>
+                </a>
+            </li>
+        
+        
+            <li>
+                <a href="/feed.xml">
+                    <span class="fa-stack fa-lg">
+                        <i class="fa fa-circle fa-stack-2x"></i>
+                        <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+                    </span>
+                </a>
+            </li>
+        
+        
+        
+            <li>
+                <a target="_blank" href="https://www.zhihu.com/people/kavience-xiaofan">
+                    <span class="fa-stack fa-lg">
+                        <i class="fa fa-circle fa-stack-2x"></i>
+                        <i class="fa  fa-stack-1x fa-inverse">知</i>
+                    </span>
+                </a>
+            </li>
+        
+        
+        
+        
+            <li>
+                <a target="_blank"  href="https://github.com/kavience">
+                    <span class="fa-stack fa-lg">
+                        <i class="fa fa-circle fa-stack-2x"></i>
+                        <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                    </span>
+                </a>
+            </li>
+        
+        
+    </ul>
+</div>
+
+        <hr>
+    
+        
+  <h5>最近文章</h3>
+  <div class="widget">
+    <ul>
+      
+        <li>
+          <a href="/tools/hexo-theme-omega-development-history.html">Hexo主题omega开发历程</a>
+        </li>
+      
+        <li>
+          <a href="/front-end/eslint-and-prettie-cooperate-with-husky-to-improve-frontend-development-specifications.html">Eslint和prettie配合husky提高前端开发规范</a>
+        </li>
+      
+        <li>
+          <a href="/front-end/reengineering-the-frontend-component-library-wheel-project.html">再造前端组件库轮子项目</a>
+        </li>
+      
+        <li>
+          <a href="/think/a-lost-day.html">迷茫的一天</a>
+        </li>
+      
+        <li>
+          <a href="/tools/git-common-command-record.html">Git常用命令记录</a>
+        </li>
+      
+    </ul>
+  </div>
+
+        <hr>
+    
+        
+    <h5>分类</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/front-end/">front-end</a><span class="category-list-count">16</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/php/">php</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/think/">think</a><span class="category-list-count">8</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/tools/">tools</a><span class="category-list-count">6</span></li></ul>
+    </div>
+
+        <hr>
+    
+        
+    <h5><a href="/archives/">归档</a></h5>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/04/">四月 2021</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/03/">三月 2021</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/12/">十二月 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">十一月 2020</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">十月 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/09/">九月 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">八月 2020</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">七月 2020</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">六月 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">十二月 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">十月 2019</a><span class="archive-list-count">2</span></li></ul>
+    </div>
+
+        <hr>
+    
+        
+    <script type="text/javascript" charset="utf-8" src="/js/tagcloud.js"></script>
+    <script type="text/javascript" charset="utf-8" src="/js/tagcanvas.js"></script>
+    <div class="widget-wrap">
+        <h5><a href="/tags/">标签 </a></h5>
+        <div id="myCanvasContainer" class="widget tagcloud">
+            <canvas width="250" height="250" id="resCanvas" style="width: 100%">
+                <a href="/tags/2020%E8%AE%A1%E5%88%92/" style="font-size: 10px;">2020计划</a> <a href="/tags/CI-CD/" style="font-size: 10px;">CI-CD</a> <a href="/tags/JavaScript/" style="font-size: 20px;">JavaScript</a> <a href="/tags/PSR%E8%A7%84%E8%8C%83/" style="font-size: 10px;">PSR规范</a> <a href="/tags/Reactjs/" style="font-size: 10px;">Reactjs</a> <a href="/tags/apple/" style="font-size: 10px;">apple</a> <a href="/tags/eslint/" style="font-size: 10px;">eslint</a> <a href="/tags/g6/" style="font-size: 10px;">g6</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/jest/" style="font-size: 10px;">jest</a> <a href="/tags/mobx/" style="font-size: 10px;">mobx</a> <a href="/tags/mobx-react/" style="font-size: 10px;">mobx-react</a> <a href="/tags/mocha/" style="font-size: 10px;">mocha</a> <a href="/tags/nodejs/" style="font-size: 10px;">nodejs</a> <a href="/tags/omega/" style="font-size: 10px;">omega</a> <a href="/tags/sentry/" style="font-size: 10px;">sentry</a> <a href="/tags/typescript/" style="font-size: 10px;">typescript</a> <a href="/tags/%E4%BA%BA%E7%B1%BB/" style="font-size: 10px;">人类</a> <a href="/tags/%E4%BC%98%E5%8C%96/" style="font-size: 10px;">优化</a> <a href="/tags/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E9%A2%98/" style="font-size: 15px;">前端面试题</a> <a href="/tags/%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/" style="font-size: 10px;">单元测试</a> <a href="/tags/%E5%9D%9A%E6%8C%81/" style="font-size: 10px;">坚持</a> <a href="/tags/%E5%BC%80%E5%A7%8B/" style="font-size: 10px;">开始</a> <a href="/tags/%E6%B5%81%E7%A8%8B%E5%9B%BE/" style="font-size: 10px;">流程图</a> <a href="/tags/%E7%84%A6%E8%99%91/" style="font-size: 10px;">焦虑</a> <a href="/tags/%E7%94%9F%E5%91%BD/" style="font-size: 10px;">生命</a> <a href="/tags/%E7%BF%BB%E5%A2%99/" style="font-size: 10px;">翻墙</a> <a href="/tags/%E8%B7%AF/" style="font-size: 10px;">路</a> <a href="/tags/%E8%BF%B7%E8%8C%AB/" style="font-size: 10px;">迷茫</a> <a href="/tags/%E9%9A%8F%E7%AC%94%E9%97%B2%E8%B0%88/" style="font-size: 10px;">随笔闲谈</a>
+            </canvas>
+        </div>
+    </div>
+
+        <hr>
+    
+        <div class="widget">
+  <p class="copyright text-muted">
+    Themed by <a href="http://www.kavience.com">Kavience</a>
+    <br>
+    Refers to <a href="http://huangxuan.me" target="_blank" rel="noopener">Hux</a>
+    <br>
+    <span class="post-count">
+      All posts 34.9k words altogether</span>
+    <br />
+    Copyright &copy; Kavience
+      2021
+        <br>
+        
+          <a href="http://beian.miit.gov.cn/" target="_blank" rel="noopener">
+            赣ICP备17009879号
+          </a>
+        
+  </p>
+</div>
+        <hr>
+    
+</div>
+<!-- Sidebar End -->
+
+    </div>
+</div>
+    </div>
+    <!-- Main Content End -->
+
+    <span id="rocket"></span>
+
+    <!-- Google Analytics -->
+    
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-171834825-2" ></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag() {
+                dataLayer.push(arguments);
+            }
+            gtag("js", new Date());
+            gtag("config", "UA-171834825-2");
+        </script>
+    
+
+    <!-- Baidu Tongji -->
+    
+
+    <script>
+        // TOC scroll
+        $(".toc-nav-link").bind("click touch", function () {
+            // 根据a标签的href转换为id选择器，获取id元素所处的位置
+            $('html,body').animate({ scrollTop: ($($(this).attr('href')).offset().top) }, 300);
+        });
+    </script>
+</body>
+</html>

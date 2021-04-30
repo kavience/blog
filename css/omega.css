@@ -35,6 +35,12 @@ body hr {
   padding-top: 10px;
   border-radius: 8px 8px 0 0;
 }
+.content-container .post-statement span,
+.post-container .post-statement span {
+  display: block;
+  margin: 8px 0;
+  font-size: 14px;
+}
 .content-container blockquote,
 .post-container blockquote {
   color: #a3a3a3;
