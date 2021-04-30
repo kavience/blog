@@ -3,8 +3,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="<%= config.description + '-' + page.title  %>">
-    <meta name="keyword"  content="<%= config.keyword + ',' + page.title %>">
+    <meta name="description" content="<%= config.description + '-' + page.title || config.title  %>">
+    <meta name="keyword"  content="<%= config.keyword + ',' + page.title || config.title %>">
     <link rel="shortcut icon" href="<%= config.root %>img/avatar/my-avatar.jpg">
     <title>
         <% if (page.title) { %>
