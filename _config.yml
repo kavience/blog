@@ -2,6 +2,7 @@
 ## Docs: https://hexo.io/docs/configuration.html
 ## Source: https://github.com/hexojs/hexo/
 
+# ----------------------------------------------------------
 # Site
 title: Kavience
 subtitle: blog
@@ -10,16 +11,10 @@ language: zh-CN
 timezone: asia/shanghai
 description: "kavience 的博客, 专注于前端开发, web开发, 编程技术"
 keyword: "kavience,javascript,前端开发,php,react,kavience博客"
-## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: http://www.kavience.com/  # Note: don't forget to modify the CNAME file to your url
+# If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
+url: http://www.kavience.com/ # Note: don't forget to modify the CNAME file to your url
 root: /
 permalink: :category/:translate_title.html # Use hexo-translate-title
-
-# SNS settings
-feed:
-  type: atom
-  path: feed
-  limit: false
 
 # Directory
 source_dir: source
@@ -49,25 +44,21 @@ highlight:
   hljs: false
 
 # Date / Time format
-## Hexo uses Moment.js to parse and display date
-## You can customize the date format as defined in
-## http://momentjs.com/docs/#/displaying/format/
+# Hexo uses Moment.js to parse and display date
 date_format: YYYY-MM-DD
 time_format: HH:mm:ss
 
 # Pagination
-## Set per_page to 0 to disable pagination
-per_page: 6
-# pagination_dir: pages
+per_page: 6 # Set per_page to 0 to disable pagination
 
-archive_generator:
-  per_page: 6
-  yearly: true
-  monthly: true
-  daily: false
+# ----------------------------------------------------------
+# Plugins: https://hexo.io/plugins/
+
+# Themes: https://hexo.io/themes/
+theme: easy-read
 
 # Markdown-it config
-## Docs: https://github.com/celsomiranda/hexo-renderer-markdown-it/wiki
+# https://github.com/celsomiranda/hexo-renderer-markdown-it/wiki
 markdown:
   render:
     html: true
@@ -83,40 +74,24 @@ markdown:
     permalinkClass: header-anchor # Class used for the permalink anchor tag
     permalinkSymbol: "" # The symbol used to make the permalink
 
-# Extensions
-## Plugins: https://hexo.io/plugins/
+# hexo-generator-archive
+# https://github.com/hexojs/hexo-generator-archive
+archive_generator:
+  per_page: 6
+  yearly: true
+  monthly: true
+  daily: false
 
-# recommended-posts
-# reference: https://github.com/huiwang/hexo-recommended-posts
-# recommended_posts:
-#   server: https://api.truelaurel.com #后端推荐服务器地址
-#   timeoutInMillis: 10000 #服务时长，超过此时长，则使用离线推荐模式
-#   internalLinks: 3 #内部文章数量
-#   externalLinks: 0 #外部文章数量
-#   autoDisplay: true, #自动在文章底部显示推荐文章
-#   titleHtml: <h2>推荐文章<span style="font-size:0.45em; color:gray"></span></h2> #自定义标题
-
-# hexo-tag-aplayer
-# reference: https://github.com/MoePlayer/hexo-tag-aplayer
-aplayer:
-  meting: true
-
-# MeingJS support for Aplayer
-# reference: https://github.com/metowolf/MetingJS & https://github.com/MoePlayer/APlayer
-metingjs: true
-data-id: 2764926677
-data-server: netease
-data-type: playlist
-data-fixed: true
-# data-autoplay: false
-# data-mini:
+# hexo-generator-feed
+# https://github.com/hexojs/hexo-generator-feed
+feed:
+  type: atom
+  path: feed
+  limit: false
 
 # Share
 # Reference: https://github.com/overtrue/share.js
 share: true
-
-## Themes: https://hexo.io/themes/
-theme: easy-read
 
 # hexo-generator-seo-friendly-sitemap
 # https://github.com/ludoviclefevre/hexo-generator-seo-friendly-sitemap#readme
@@ -147,7 +122,7 @@ search:
 # https://github.com/D0n9X1n/hexo-tag-cloud#readme
 tag_cloud:
   textFont: Trebuchet MS, Helvetica
-  textColor: '#337ab7'
+  textColor: "#337ab7"
   textHeight: 25
-  outlineColor: '#f1e5c9'
+  outlineColor: "#f1e5c9"
   maxSpeed: 0.08
