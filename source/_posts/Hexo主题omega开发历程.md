@@ -15,7 +15,7 @@ header_img:
 ---
 
 ## what
-[Omega](https://github.com/kavience/omega) 是 hexo 框架下的一个博客主题。
+[Omega](https://github.com/kavience/hexo-theme-omega) 是 hexo 框架下的一个博客主题。
 
 ![theme-preview](/img/blog_img/theme-preview.jpg)
 
@@ -229,6 +229,7 @@ less:
 - 文章名字不能带 + 号等特殊文字，否则可能造成翻译无法通过
 - 文章名字不能带 ',' 且不能超过 50 个字符，因为 GitHub 标签不允许，否则无法生成评论 issue
 - 文章名字不能与文章内各级标题同名，否则无法生成评论 issue
+- 文章不能无标题，否则生成 searchdb 有问题
 
 
 （完）
