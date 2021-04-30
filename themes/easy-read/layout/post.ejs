@@ -20,7 +20,7 @@ layout: layout
                     <div class="col-md-6 col-sm-12">
                         <!-- Categories Start -->
                         <section>
-                            <h5><a href="<%= config.root %>tags/">CATEGORIES</a></h5>
+                            <h5><a href="<%= config.root %>tags/"><%= __('category') %> </a></h5>
                             <div class="tags">
                                 <% page.categories.forEach(function(category){ %>
                                     <a class="tag" href="<%= config.root %>categories/<%= category.name %>" title="<%= category.name %>"><%= category.name %></a>
@@ -31,8 +31,8 @@ layout: layout
                     </div>
                     <div class="col-md-6 col-sm-12">
                         <!-- Tags Start -->
-                        <section style="text-align: right;">
-                            <h5><a href="<%= config.root %>tags/">FEATURED TAGS</a></h5>
+                        <section class="past-tags">
+                            <h5><a href="<%= config.root %>tags/"><%= __('tag') %> </a></h5>
                             <div class="tags">
                                 <% page.tags.forEach(function(tag){ %>
                                     <a class="tag" href="<%= config.root %>tags/<%= tag.name %>" title="<%= tag.name %>"><%= tag.name %></a>
@@ -48,12 +48,12 @@ layout: layout
                 <ul class="pager">
                     <% if (page.prev){ %>
                         <li class="previous">
-                            <a href="<%- config.root %><%- page.prev.path %>" data-toggle="tooltip" data-placement="top" title="<%- page.prev.title %>">&larr; Previous Post</a>
+                            <a href="<%- config.root %><%- page.prev.path %>" data-toggle="tooltip" data-placement="top" title="<%- page.prev.title %>">&larr; <%= __('prevPost') %> </a>
                         </li>
                     <% } %>
                     <% if (page.next){ %>
                         <li class="next">
-                            <a href="<%- config.root %><%- page.next.path %>" data-toggle="tooltip" data-placement="top" title="<%- page.next.title %>">Next Post &rarr;</a>
+                            <a href="<%- config.root %><%- page.next.path %>" data-toggle="tooltip" data-placement="top" title="<%- page.next.title %>"><%= __('nextPost') %>  &rarr;</a>
                         </li>
                     <% } %>
                 </ul>

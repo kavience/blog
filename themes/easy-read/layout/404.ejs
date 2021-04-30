@@ -2,31 +2,42 @@
 layout: layout
 ---
 
-<!-- Page Style -->
 <style>
-    .intro-header {
+    .content-404 {
+        padding: 0;
+    }
+    .content-404-block {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        width: 100%;
         background-image: url('<%= page["header_img"] || theme["header_img"] %>');
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-attachment: fixed;
+        background-position: center;
+    }
+    .site-heading {
+        text-align: center;
+        color: #ffffff;
+    }
+    .site-heading .title {
+        font-size: 50px;
+    }
+    .site-heading .title,
+    .site-heading .sub-title {
+        display: block;
     }
 </style>
-<!-- Page Style End-->
 
-<!-- Page Header -->
-<header class="intro-header">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 ">
-                <div class="site-heading">
-                    <h1>404</h1>
-                    <span class="subheading"><%= page.description || config.subtitle || "" %></span>
-                </div>
-            </div>
-        </div>
+<div class="content-404-block">
+    <div class="site-heading">
+        <span class="title">404</span>
+        <span class="sub-title"><%= page.description || config.subtitle || "" %></span>
     </div>
-</header>
-<!-- Page Header End -->
+</div>
 
-<!-- Page Header JS -->
 <script>
-    document.body.classList.add('page-fullscreen');
+    $('#intro-header').remove();
 </script>
-<!-- Page Header JS End -->

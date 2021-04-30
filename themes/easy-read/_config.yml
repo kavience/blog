@@ -7,11 +7,13 @@ SEOTitle: kavience | Blog
 
 # ----------------------------------------------------------
 # Banner settings
+banner: true # close all header banner if false
 header_img: /img/header_img/home.jpg
-article_img: /img/article_header/article_bg.jpg
-archives_img: /img/header_img/archives-widget.jpg
+article_img: /img/header_img/article-bg.jpg
+archives_img: /img/header_img/archive.jpg
+archive_tag_img: /img/header_img/archive-tag.jpg
+archive_category_img: /img/header_img/archive-category.jpg
 404_img: /img/header_img/404.jpg
-signature: false
 
 # ----------------------------------------------------------
 # Contact settings
@@ -44,7 +46,7 @@ gitalk:
 ## Baidu Analytics
 # ba_track_id: xxx
 ## Google Analytics
-ga_track_id: "UA-171834825-2" # Format: UA-xxxxxx-xx
+ga_track_id: "UA-171834825-2"
 ga_domain: www.kavience.com
 
 # ----------------------------------------------------------
@@ -70,15 +72,15 @@ widgets:
 # Friends settings
 # friends: [{ title: "CSDN Blog kavience", href: "http://blog.csdn.net/huwh_" }]
 
-# anchorjs: true # if you want to customize anchor. check out line:181 of `post.html`
 
+# ----------------------------------------------------------
 # less vars
 less:
   options:
     globalVars:
       bg-color: '#f1e5c9'
       main-bg-color: '#f6f8fa'
-      # 可切换代码高亮主题
+      ## highlight vars
       # highlight-background: "#f6f8fa"
       # highlight-current-line: "#efefef"
       # highlight-selection: "#d6d6d6"
