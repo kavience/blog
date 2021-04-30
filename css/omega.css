@@ -29,11 +29,18 @@ body hr {
   padding-bottom: 0.3em;
   border-bottom: 1px solid #eaecef;
 }
+.post-markdown-body .highlight .table-responsive table {
+  width: 100%;
+}
 .content-container,
 .post-container {
   background-color: #f6f8fa;
   padding-top: 10px;
   border-radius: 8px 8px 0 0;
+}
+.content-container .post-statement,
+.post-container .post-statement {
+  word-break: break-word;
 }
 .content-container .post-statement span,
 .post-container .post-statement span {
