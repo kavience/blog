@@ -17,10 +17,16 @@ layout: layout
                 
                 <hr>
                 <div class="row">
-                    <div class="col-md-6 col-sm-12">
+                    <div class="col-md-12 post-statement">
+                        <span><%= __('author') %>: <%- page.author || config.author %></span>
+                        <span><%= __('postLink') %>: <a href="<%= url %>"><%= url %> </a></span>
+                        <span><%= __('postReprint', page.title || config.author, url, config.author) %> </span>
+                        <span><a href="https://creativecommons.org/licenses/by-nc-nd/3.0/deed.zh"><%= __('postLicense') %></a></span>
+                    </div>
+                    <div class="col-md-12">
                         <!-- Categories Start -->
                         <section>
-                            <h5><a href="<%= config.root %>tags/"><%= __('category') %> </a></h5>
+                            <h5><a href="<%= config.root %>categories/"><%= __('category') %> </a></h5>
                             <div class="tags">
                                 <% page.categories.forEach(function(category){ %>
                                     <a class="tag" href="<%= config.root %>categories/<%= category.name %>" title="<%= category.name %>"><%= category.name %></a>
@@ -29,7 +35,7 @@ layout: layout
                         </section>
                         <!-- Categories End -->
                     </div>
-                    <div class="col-md-6 col-sm-12">
+                    <div class="col-md-12">
                         <!-- Tags Start -->
                         <section class="past-tags">
                             <h5><a href="<%= config.root %>tags/"><%= __('tag') %> </a></h5>
@@ -67,49 +73,6 @@ layout: layout
             
             <!-- Tabe of Content -->
             <%- partial('_partial/toc') %>
-                
-            <!-- Sidebar Container -->
-            <!-- <div class="
-                col-lg-8 col-lg-offset-2
-                col-md-10 col-md-offset-1
-                sidebar-container">
-            </div> -->
         </div>
     </div>
 </article>
-
-<% if(config['anchorjs']) { %>
-<!-- async load function -->
-<script>
-    function async(u, c) {
-      var d = document, t = 'script',
-          o = d.createElement(t),
-          s = d.getElementsByTagName(t)[0];
-      o.src = u;
-      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
-      s.parentNode.insertBefore(o, s);
-    }
-</script>
-<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
-<script>
-    async("https://cdn.bootcss.com/anchor-js/1.1.1/anchor.min.js",function(){
-        anchors.options = {
-          visible: 'hover',
-          placement: 'left',
-          icon: 'な'
-        };
-        anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
-    })
-</script>
-<style>
-    /* place left on bigger screen */
-    @media all and (min-width: 800px) {
-        .anchorjs-link{
-            position: absolute;
-            left: -0.2em;
-            font-size: 1.1em;
-            margin-top : -0.1em;
-        }
-    }
-</style>
-<% } %>

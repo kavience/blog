@@ -9,6 +9,10 @@ tag: TAGS
 contents: Contents
 prevPost: PREV POST
 nextPost: NEXT POST
+author: Author
+postLink: Post Link
+postReprint: 'Indicate: 《%s》reprint %s，original author: %s '
+postLicense: 'License: Attribution-NonCommercial-NoDerivs 3.0 Unported( CC BY-NC-ND 3.0 )'
 firstPageText: first page
 firstPageTipText: first page
 lastPageText: last page

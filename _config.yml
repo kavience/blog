@@ -7,7 +7,7 @@
 title: Kavience
 subtitle: blog
 author: Kavience
-language: zh-CN # change the language in themes/easy-read-languages
+language: en # change the language in themes/easy-read-languages
 timezone: asia/shanghai
 description: "kavience 的博客, 专注于前端开发, web开发, 编程技术"
 keyword: "kavience,javascript,前端开发,php,react,kavience博客"
