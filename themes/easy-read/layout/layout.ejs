@@ -1,11 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="<%= config.language %> ">
 <!-- Head Start -->
 <%- partial('_partial/head') %>
 <!-- Head End -->
 <body ontouchstart="">
     <!-- Header Start -->
-    <%- partial('_partial/header', { cache: true }) %>
+    <% if(theme.banner) { %> 
+        <%- partial('_partial/header', { cache: true }) %>
+    <% } else { %>
+        <%- partial('_partial/header-no-banner', { cache: true }) %>
+    <% } %> 
     <!-- Header End -->
 
     <!-- Nav Start -->

@@ -10,8 +10,10 @@
     Copyright &copy; <%= config.author %>
       <%= new Date().getFullYear() %>
         <br>
-        <a href="http://beian.miit.gov.cn/">
-          <%= theme.beian %>
-        </a>
+        <% if (theme.beian) { %>
+          <a href="http://beian.miit.gov.cn/">
+            <%= theme.beian %>
+          </a>
+        <% } %>
   </p>
 </div>
