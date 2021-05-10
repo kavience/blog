@@ -14,7 +14,7 @@
           前端面试题之Js进阶(持续更新) - kavience | Blog
         
     </title>
-    <link rel="canonical" href="http://www.kavience.com/front-end/advanced-js-for-frontend-interview-questions-continuous-update.html">
+    <link rel="canonical" href="http://www.kavience.com/front-end/js-advanced-frontend-interview-questions-continuous-update.html">
     
 <link rel="stylesheet" href="/css/font-awesome.min.css">
 
@@ -195,7 +195,7 @@
   
   $('.search-container-input').bind('input propertychange', function(e) {
     var searchValue = e.currentTarget.value;
-    var correctArticles = allArticles.filter(article => article.content.indexOf(searchValue) > -1 || article.title.indexOf(searchValue) > -1)
+    var correctArticles = allArticles.filter(article => article.content.toLowerCase().indexOf(searchValue.toLowerCase()) > -1 || article.title.toLowerCase().indexOf(searchValue.toLowerCase()) > -1)
     var articleListHtml = '';
     for (let index = 0; index < correctArticles.length; index++) {
       var article = correctArticles[index];
@@ -621,8 +621,8 @@ obj.constructor = Sub; <span class="comment">// 重点, 一定要修复实例</s
                 <div class="row">
                     <div class="col-md-12 post-statement">
                         <span>作者: Kavience</span>
-                        <span>本文链接: <a href="http://www.kavience.com/front-end/advanced-js-for-frontend-interview-questions-continuous-update.html">http://www.kavience.com/front-end/advanced-js-for-frontend-interview-questions-continuous-update.html </a></span>
-                        <span>转载请注明:《前端面试题之Js进阶(持续更新)》转自 http://www.kavience.com/front-end/advanced-js-for-frontend-interview-questions-continuous-update.html，原作者：Kavience </span>
+                        <span>本文链接: <a href="http://www.kavience.com/front-end/js-advanced-frontend-interview-questions-continuous-update.html">http://www.kavience.com/front-end/js-advanced-frontend-interview-questions-continuous-update.html </a></span>
+                        <span>转载请注明:《前端面试题之Js进阶(持续更新)》转自 http://www.kavience.com/front-end/js-advanced-frontend-interview-questions-continuous-update.html，原作者：Kavience </span>
                         <span><a href="https://creativecommons.org/licenses/by-nc-nd/3.0/deed.zh" target="_blank" rel="noopener">版权声明: 自由转载-非商用-非衍生-保持署名（创意共享3.0许可证）</a></span>
                     </div>
                     <div class="col-md-12">

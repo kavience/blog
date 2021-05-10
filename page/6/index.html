@@ -186,7 +186,7 @@
   
   $('.search-container-input').bind('input propertychange', function(e) {
     var searchValue = e.currentTarget.value;
-    var correctArticles = allArticles.filter(article => article.content.indexOf(searchValue) > -1 || article.title.indexOf(searchValue) > -1)
+    var correctArticles = allArticles.filter(article => article.content.toLowerCase().indexOf(searchValue.toLowerCase()) > -1 || article.title.toLowerCase().indexOf(searchValue.toLowerCase()) > -1)
     var articleListHtml = '';
     for (let index = 0; index < correctArticles.length; index++) {
       var article = correctArticles[index];
@@ -255,6 +255,70 @@
 			
 				
 					<div class="post-preview">
+						<a href="/front-end/mocha-unit-test.html">
+							<h2 class="post-title">
+								 
+								Mocha单元测试
+							</h2>
+							<h3 class="post-subtitle">
+								
+							</h3>
+							<div class="post-content-preview">
+								什么是单元测试?
+单元测试( unit testing )，是指对软件中的最小可测试单元进行检查和验证。在前端领域来说，我们主要是针对 JavaScript 的类( class ) 或者方法( function ) 进行单元测试，以增强代码的可靠性和可维护性。下面介绍的是 mocha 单元测试框架。
+mocha 测试框架
+mocha 是一个测试框架，可以通过 npm 全局安装在本地，或者是局......
+							</div>
+						</a>
+						<p class="post-meta">
+							Posted by Kavience on 2019-12-15
+						</p>
+						<div class="tags">
+							
+								<a href="/tags/mocha" title="mocha">mocha</a>
+							
+								<a href="/tags/单元测试" title="单元测试">单元测试</a>
+							
+						</div>
+					</div>
+					<hr />
+				 
+			
+				
+					<div class="post-preview">
+						<a href="/front-end/js-advanced-execution-context-and-stack.html">
+							<h2 class="post-title">
+								 
+								Js 进阶之执行上下文和执行栈
+							</h2>
+							<h3 class="post-subtitle">
+								
+							</h3>
+							<div class="post-content-preview">
+								什么是 JavaScript 执行上下文？
+
+执行上下文是评估和执行 JavaScript 代码的环境的抽象概念，Javascript 代码都是在执行上下文中运行。
+
+什么是 JavaScript 执行栈？
+
+执行栈，也叫调用栈，具有 LIFO（后进先出）结构，用于存储在代码执行期间创建的所有执行上下文。
+首次运行 JS 代码时，会创建一个全局执行上下文并 Push 到当前的执行栈中。每当发......
+							</div>
+						</a>
+						<p class="post-meta">
+							Posted by Kavience on 2019-10-19
+						</p>
+						<div class="tags">
+							
+								<a href="/tags/JavaScript" title="JavaScript">JavaScript</a>
+							
+						</div>
+					</div>
+					<hr />
+				 
+			
+				
+					<div class="post-preview">
 						<a href="/think/hello-world.html">
 							<h2 class="post-title">
 								 
@@ -292,7 +356,7 @@
 					kkpager.generPageHtml({
 						pno: '6',
 						total: '6',
-						totalRecords: '31',
+						totalRecords: '33',
 						mode: 'link',
 						hrefFormer: '/page',
 						getLink: function(n){
@@ -402,6 +466,14 @@
     <ul>
       
         <li>
+          <a href="/think/reprint-some-reflections-after-starting-a-business.html">[转载]创业后的一些反思</a>
+        </li>
+      
+        <li>
+          <a href="/tools/personal-collection-navigation.html">个人收藏导航</a>
+        </li>
+      
+        <li>
           <a href="/tools/hexo-theme-omega-development-history.html">Hexo主题omega开发历程</a>
         </li>
       
@@ -413,14 +485,6 @@
           <a href="/front-end/reengineering-the-frontend-component-library-wheel-project.html">再造前端组件库轮子项目</a>
         </li>
       
-        <li>
-          <a href="/think/a-lost-day.html">迷茫的一天</a>
-        </li>
-      
-        <li>
-          <a href="/tools/git-common-command-record.html">Git常用命令记录</a>
-        </li>
-      
     </ul>
   </div>
 
@@ -429,7 +493,7 @@
         
     <h5>分类</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/front-end/">front-end</a><span class="category-list-count">16</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/php/">php</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/think/">think</a><span class="category-list-count">8</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/tools/">tools</a><span class="category-list-count">6</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/front-end/">front-end</a><span class="category-list-count">16</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/php/">php</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/think/">think</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/tools/">tools</a><span class="category-list-count">7</span></li></ul>
     </div>
 
         <hr>
@@ -437,7 +501,7 @@
         
     <h5><a href="/archives/">归档</a></h5>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/04/">四月 2021</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/03/">三月 2021</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/12/">十二月 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">十一月 2020</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">十月 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/09/">九月 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">八月 2020</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">七月 2020</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">六月 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">十二月 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">十月 2019</a><span class="archive-list-count">2</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/05/">五月 2021</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/04/">四月 2021</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/03/">三月 2021</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/12/">十二月 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">十一月 2020</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">十月 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/09/">九月 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">八月 2020</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">七月 2020</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">六月 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">十二月 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">十月 2019</a><span class="archive-list-count">2</span></li></ul>
     </div>
 
         <hr>
@@ -449,7 +513,7 @@
         <h5><a href="/tags/">标签 </a></h5>
         <div id="myCanvasContainer" class="widget tagcloud">
             <canvas width="250" height="250" id="resCanvas" style="width: 100%">
-                <a href="/tags/2020%E8%AE%A1%E5%88%92/" style="font-size: 10px;">2020计划</a> <a href="/tags/CI-CD/" style="font-size: 10px;">CI-CD</a> <a href="/tags/JavaScript/" style="font-size: 20px;">JavaScript</a> <a href="/tags/PSR%E8%A7%84%E8%8C%83/" style="font-size: 10px;">PSR规范</a> <a href="/tags/Reactjs/" style="font-size: 10px;">Reactjs</a> <a href="/tags/apple/" style="font-size: 10px;">apple</a> <a href="/tags/eslint/" style="font-size: 10px;">eslint</a> <a href="/tags/g6/" style="font-size: 10px;">g6</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/jest/" style="font-size: 10px;">jest</a> <a href="/tags/mobx/" style="font-size: 10px;">mobx</a> <a href="/tags/mobx-react/" style="font-size: 10px;">mobx-react</a> <a href="/tags/mocha/" style="font-size: 10px;">mocha</a> <a href="/tags/nodejs/" style="font-size: 10px;">nodejs</a> <a href="/tags/omega/" style="font-size: 10px;">omega</a> <a href="/tags/sentry/" style="font-size: 10px;">sentry</a> <a href="/tags/typescript/" style="font-size: 10px;">typescript</a> <a href="/tags/%E4%BA%BA%E7%B1%BB/" style="font-size: 10px;">人类</a> <a href="/tags/%E4%BC%98%E5%8C%96/" style="font-size: 10px;">优化</a> <a href="/tags/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E9%A2%98/" style="font-size: 15px;">前端面试题</a> <a href="/tags/%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/" style="font-size: 10px;">单元测试</a> <a href="/tags/%E5%9D%9A%E6%8C%81/" style="font-size: 10px;">坚持</a> <a href="/tags/%E5%BC%80%E5%A7%8B/" style="font-size: 10px;">开始</a> <a href="/tags/%E6%B5%81%E7%A8%8B%E5%9B%BE/" style="font-size: 10px;">流程图</a> <a href="/tags/%E7%84%A6%E8%99%91/" style="font-size: 10px;">焦虑</a> <a href="/tags/%E7%94%9F%E5%91%BD/" style="font-size: 10px;">生命</a> <a href="/tags/%E7%BF%BB%E5%A2%99/" style="font-size: 10px;">翻墙</a> <a href="/tags/%E8%B7%AF/" style="font-size: 10px;">路</a> <a href="/tags/%E8%BF%B7%E8%8C%AB/" style="font-size: 10px;">迷茫</a> <a href="/tags/%E9%9A%8F%E7%AC%94%E9%97%B2%E8%B0%88/" style="font-size: 10px;">随笔闲谈</a>
+                <a href="/tags/2020%E8%AE%A1%E5%88%92/" style="font-size: 10px;">2020计划</a> <a href="/tags/CI-CD/" style="font-size: 10px;">CI-CD</a> <a href="/tags/JavaScript/" style="font-size: 20px;">JavaScript</a> <a href="/tags/PSR%E8%A7%84%E8%8C%83/" style="font-size: 10px;">PSR规范</a> <a href="/tags/Reactjs/" style="font-size: 10px;">Reactjs</a> <a href="/tags/apple/" style="font-size: 10px;">apple</a> <a href="/tags/eslint/" style="font-size: 10px;">eslint</a> <a href="/tags/g6/" style="font-size: 10px;">g6</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/jest/" style="font-size: 10px;">jest</a> <a href="/tags/mobx/" style="font-size: 10px;">mobx</a> <a href="/tags/mobx-react/" style="font-size: 10px;">mobx-react</a> <a href="/tags/mocha/" style="font-size: 10px;">mocha</a> <a href="/tags/nodejs/" style="font-size: 10px;">nodejs</a> <a href="/tags/omega/" style="font-size: 10px;">omega</a> <a href="/tags/sentry/" style="font-size: 10px;">sentry</a> <a href="/tags/typescript/" style="font-size: 10px;">typescript</a> <a href="/tags/%E4%BA%BA%E7%B1%BB/" style="font-size: 10px;">人类</a> <a href="/tags/%E4%BC%98%E5%8C%96/" style="font-size: 10px;">优化</a> <a href="/tags/%E5%88%9B%E4%B8%9A/" style="font-size: 10px;">创业</a> <a href="/tags/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E9%A2%98/" style="font-size: 15px;">前端面试题</a> <a href="/tags/%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/" style="font-size: 10px;">单元测试</a> <a href="/tags/%E5%9D%9A%E6%8C%81/" style="font-size: 10px;">坚持</a> <a href="/tags/%E5%BC%80%E5%A7%8B/" style="font-size: 10px;">开始</a> <a href="/tags/%E6%94%B6%E8%97%8F/" style="font-size: 10px;">收藏</a> <a href="/tags/%E6%B5%81%E7%A8%8B%E5%9B%BE/" style="font-size: 10px;">流程图</a> <a href="/tags/%E7%84%A6%E8%99%91/" style="font-size: 10px;">焦虑</a> <a href="/tags/%E7%94%9F%E5%91%BD/" style="font-size: 10px;">生命</a> <a href="/tags/%E7%BF%BB%E5%A2%99/" style="font-size: 10px;">翻墙</a> <a href="/tags/%E8%B7%AF/" style="font-size: 10px;">路</a> <a href="/tags/%E8%BF%B7%E8%8C%AB/" style="font-size: 10px;">迷茫</a> <a href="/tags/%E9%9A%8F%E7%AC%94%E9%97%B2%E8%B0%88/" style="font-size: 10px;">随笔闲谈</a>
             </canvas>
         </div>
     </div>
@@ -458,12 +522,12 @@
     
         <div class="widget">
   <p class="copyright text-muted">
-    Themed by <a href="http://www.kavience.com">Kavience</a>
+    Themed by <a href="https://github.com/kavience/hexo-theme-omega" target="_blank" rel="noopener">Omega</a>
     <br>
     Refers to <a href="http://huangxuan.me" target="_blank" rel="noopener">Hux</a>
     <br>
     <span class="post-count">
-      All posts 34.9k words altogether</span>
+      All posts 37k words altogether</span>
     <br />
     Copyright &copy; Kavience
       2021

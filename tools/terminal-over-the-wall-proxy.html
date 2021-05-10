@@ -195,7 +195,7 @@
   
   $('.search-container-input').bind('input propertychange', function(e) {
     var searchValue = e.currentTarget.value;
-    var correctArticles = allArticles.filter(article => article.content.indexOf(searchValue) > -1 || article.title.indexOf(searchValue) > -1)
+    var correctArticles = allArticles.filter(article => article.content.toLowerCase().indexOf(searchValue.toLowerCase()) > -1 || article.title.toLowerCase().indexOf(searchValue.toLowerCase()) > -1)
     var articleListHtml = '';
     for (let index = 0; index < correctArticles.length; index++) {
       var article = correctArticles[index];
@@ -351,7 +351,7 @@ socks5  127.0.0.1 1086</code></pre>
                 <ul class="pager">
                     
                         <li class="previous">
-                            <a href="/think/the-way-to-future.html" data-toggle="tooltip" data-placement="top" title="未来的路">&larr; 上一篇 </a>
+                            <a href="/think/the-way-forward.html" data-toggle="tooltip" data-placement="top" title="未来的路">&larr; 上一篇 </a>
                         </li>
                     
                     

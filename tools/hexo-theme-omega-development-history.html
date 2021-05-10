@@ -197,7 +197,7 @@
   
   $('.search-container-input').bind('input propertychange', function(e) {
     var searchValue = e.currentTarget.value;
-    var correctArticles = allArticles.filter(article => article.content.indexOf(searchValue) > -1 || article.title.indexOf(searchValue) > -1)
+    var correctArticles = allArticles.filter(article => article.content.toLowerCase().indexOf(searchValue.toLowerCase()) > -1 || article.title.toLowerCase().indexOf(searchValue.toLowerCase()) > -1)
     var articleListHtml = '';
     for (let index = 0; index < correctArticles.length; index++) {
       var article = correctArticles[index];
@@ -266,7 +266,7 @@
                 post-container post-markdown-body
             ">
                 <h2 id="what">what</h2>
-<p><a href="https://github.com/kavience/omega" target="_blank" rel="noopener">Omega</a> 是 hexo 框架下的一个博客主题。</p>
+<p><a href="https://github.com/kavience/hexo-theme-omega" target="_blank" rel="noopener">Omega</a> 是 hexo 框架下的一个博客主题。</p>
 <p><img src="/img/blog_img/theme-preview.jpg" alt="theme-preview"></p>
 <h3 id="特点">特点</h3>
 <ul>
@@ -483,6 +483,7 @@
 <li>文章名字不能带 + 号等特殊文字，否则可能造成翻译无法通过</li>
 <li>文章名字不能带 ‘,’ 且不能超过 50 个字符，因为 GitHub 标签不允许，否则无法生成评论 issue</li>
 <li>文章名字不能与文章内各级标题同名，否则无法生成评论 issue</li>
+<li>文章不能无标题，否则生成 searchdb 有问题</li>
 </ul>
 <p>（完）</p>
 
@@ -526,6 +527,10 @@
                 <hr>
                 <!-- Pager Start -->
                 <ul class="pager">
+                    
+                        <li class="previous">
+                            <a href="/tools/personal-collection-navigation.html" data-toggle="tooltip" data-placement="top" title="个人收藏导航">&larr; 上一篇 </a>
+                        </li>
                     
                     
                         <li class="next">

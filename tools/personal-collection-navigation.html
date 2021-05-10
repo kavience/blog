@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="zh-CN ">
+<!-- Head Start -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="kavience 的博客, 专注于前端开发, web开发, 编程技术-个人收藏导航">
+    <meta name="keyword"  content="kavience,javascript,前端开发,php,react,kavience博客,个人收藏导航">
+    <link rel="shortcut icon" href="/img/avatar/my-avatar.jpg">
+    <title>
+        
+          个人收藏导航 - kavience | Blog
+        
+    </title>
+    <link rel="canonical" href="http://www.kavience.com/tools/personal-collection-navigation.html">
+    
+<link rel="stylesheet" href="/css/font-awesome.min.css">
+
+    
+<link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    
+<link rel="stylesheet" href="/css/omega.css">
+
+    
+<link rel="stylesheet" href="/css/highlight.css">
+
+    
+<link rel="stylesheet" href="/css/gitalk.min.css">
+
+    
+<link rel="stylesheet" href="/css/kkpager_orange.min.css">
+
+
+    
+<script src="/js/jquery.min.js"></script>
+
+    
+<script src="/js/bootstrap.min.js"></script>
+
+    
+<script src="/js/gitalk.min.js"></script>
+
+    
+<script src="/js/kkpager.min.js"></script>
+
+    
+<script src="/js/button.min.js"></script>
+
+    
+<script src="/js/fastclick.min.js"></script>
+
+    
+<script src="/js/omega.js"></script>
+
+<meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/feed.xml" title="Kavience" type="application/atom+xml">
+</head>
+
+<!-- Head End -->
+<body ontouchstart="">
+    <!-- Header Start -->
+     
+        <style type="text/css">
+    header.intro-header {
+        
+            background-image: url('/img/header_img/article-bg.jpg')
+        
+    }
+</style>
+<header id="intro-header" class="intro-header" >
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                
+                    <div class="post-heading">
+                        <div class="tags">
+                            
+                            <a class="tag" href="/tags/收藏" title="收藏">收藏</a>
+                            
+                        </div>
+                        <h1>个人收藏导航</h1>
+                        <h2 class="subheading"></h2>
+                        <span class="meta">
+                            Posted by Kavience on
+                            2021-05-10
+                        </span>
+                    </div>
+                
+            </div>
+        </div>
+    </div>
+</header>
+
+     
+    <!-- Header End -->
+
+    <!-- Nav Start -->
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header page-scroll">
+      <button type="button" class="navbar-toggle">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/">Kavience</a>
+    </div>
+
+    <div id="blog_navbar">
+      <div class="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <a href="#" id="search" ><img style="width: 16px;height: 16px;margin: -2px 5px 0px 0;" src="/icons/search.svg " alt="">搜索 </a>
+          </li>
+          <li>
+            <a href="/">首页 </a>
+          </li>
+           
+
+           
+             
+           
+            
+              <li>
+                <a href="/categories/">分类</a>
+              </li>
+             
+           
+            
+              <li>
+                <a href="/tags/">标签</a>
+              </li>
+             
+           
+            
+              <li>
+                <a href="/archive/">归档</a>
+              </li>
+             
+           
+            
+              <li>
+                <a href="/about/">关于</a>
+              </li>
+             
+          
+        </ul>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- Search Modal -->
+<div class="modal search-modal">
+  <div class="search-container">
+    <div class="search-container-top">
+      <img src="/icons/close.svg" alt="">
+    </div>
+    <input class="search-container-input" placeholder="输入关键字搜索 " type="text">
+    <div class="search-container-content"></div>
+  </div>
+</div>
+
+<script>
+  $('.search-container').css({ "height": window.innerHeight, "overflow": 'hidden' })
+  $('.search-container-content').css({ "height": window.innerHeight - 70, "overflow": 'scroll' })
+  var allArticles = [];
+  var xReq = new XMLHttpRequest();
+  xReq.open('GET', '/search.json');
+  xReq.send();
+  xReq.onreadystatechange = function(){
+    if(xReq.readyState === 4 && xReq.status === 200){
+      allArticles = JSON.parse(xReq.responseText);
+    }
+  }
+
+  $('#search').on('click', function() {
+    document.body.style['overflow-y'] = 'hidden'
+    $('.search-modal').addClass('modal-show');
+  });
+  
+  $('.search-modal,.search-container-top img').on('click', function() {
+    document.body.style['overflow-y'] = 'scroll';
+    $('.search-modal').removeClass('modal-show');
+  });
+  
+  $('.search-container').on('click', function(e) {
+    e.stopPropagation();
+  });
+  
+  $('.search-container-input').bind('input propertychange', function(e) {
+    var searchValue = e.currentTarget.value;
+    var correctArticles = allArticles.filter(article => article.content.toLowerCase().indexOf(searchValue.toLowerCase()) > -1 || article.title.toLowerCase().indexOf(searchValue.toLowerCase()) > -1)
+    var articleListHtml = '';
+    for (let index = 0; index < correctArticles.length; index++) {
+      var article = correctArticles[index];
+      article.description = article.content.replace(/<[^>]+>/g,"");
+      var title = article.title, description = '';
+      var searchReg = RegExp(searchValue, 'i');
+      var searchRegGlobal = RegExp(searchValue, 'ig');
+      if (article.title.match(searchReg)) {
+        title = article.title.replaceAll(searchRegGlobal, `<span class="search-value-active">${searchValue}</span>`);
+      }
+      var contentMatch = article.description.match(searchReg);
+      if (contentMatch) {
+        description = `...${article.description.substr(contentMatch['index'], 210)}...`.replaceAll(searchRegGlobal, `<span class="search-value-active">${searchValue}</span>`);
+      } else {
+        description = article.description.substr(0, 200);
+      }
+
+      articleListHtml += `<div class="search-container-content_item">
+        <a href="${article.url}" class="search-container-content_item-title">${title}</a>
+        <div class="search-container-content_item-description">${description}</div>
+      </div>`
+    }
+
+    $('.search-container-content').html(articleListHtml);
+  });
+  
+</script>
+<script>
+  var $body = document.body;
+  var $toggle = document.querySelector(".navbar-toggle");
+  var $navbar = document.querySelector("#blog_navbar");
+  var $collapse = document.querySelector(".navbar-collapse");
+
+  $toggle.addEventListener("click", handleMagic);
+  function handleMagic(e) {
+    if ($navbar.className.indexOf("in") > 0) {
+      $navbar.className = " ";
+      // wait until animation end.
+      setTimeout(function () {
+        // prevent frequently toggle
+        if ($navbar.className.indexOf("in") < 0) {
+          $collapse.style.height = "0px";
+        }
+      }, 400);
+    } else {
+      $collapse.style.height = "auto";
+      $navbar.className += " in";
+    }
+  }
+</script>
+
+    <!-- Nav End -->
+
+    <!-- Main Content Start -->
+    <div class="main-content content-post ">
+        
+<!-- Post Content Start -->
+<article>
+    <div class="container" style="overflow: hidden">
+        <div class="row">
+
+            <!-- Post Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container post-markdown-body
+            ">
+                <h2 id="what">what</h2>
+<p>一篇关于个人收藏的导航文章。</p>
+<h2 id="why">why</h2>
+<p>个人的大多数收藏都是通过谷歌的书签收藏，但访问谷歌又不是那么方便，而且找的时候也有点难找，有的时候想快速查点东西，很麻烦。</p>
+<h2 id="how">how</h2>
+<p>对这些资源进行分类是挺麻烦的，就按照内容类型区分吧，不定期整理，表格排名不分先后。</p>
+<h3 id="开发相关">开发相关</h3>
+<h4 id="精彩社区">精彩社区</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">名字</th>
+<th style="text-align:center">链接</th>
+<th style="text-align:center">简介</th>
+<th style="text-align:center">标签</th>
+<th style="text-align:center">备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">干货集中营</td>
+<td style="text-align:center"><a href="https://gank.io/" target="_blank" rel="noopener">https://gank.io/</a></td>
+<td style="text-align:center">偏前端社区</td>
+<td style="text-align:center">全栈,app,flutter</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">码力全开</td>
+<td style="text-align:center"><a href="https://www.maliquankai.com/" target="_blank" rel="noopener">https://www.maliquankai.com/</a></td>
+<td style="text-align:center">自由职业</td>
+<td style="text-align:center">app</td>
+<td style="text-align:center">可以在上面找资料</td>
+</tr>
+</tbody>
+</table>
+<h4 id="技术博客">技术博客</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">名字</th>
+<th style="text-align:center">链接</th>
+<th style="text-align:center">简介</th>
+<th style="text-align:center">标签</th>
+<th style="text-align:center">备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">风雪之隅</td>
+<td style="text-align:center"><a href="https://www.laruence.com/" target="_blank" rel="noopener">https://www.laruence.com/</a></td>
+<td style="text-align:center">Laruence</td>
+<td style="text-align:center">php,Laruence</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">岁寒</td>
+<td style="text-align:center"><a href="https://lvwenhan.com/" target="_blank" rel="noopener">https://lvwenhan.com/</a></td>
+<td style="text-align:center">全栈开发</td>
+<td style="text-align:center">php,laravel,iOS</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">施国鹏 seth-shi 的博客</td>
+<td style="text-align:center"><a href="https://www.shiguopeng.cn/" target="_blank" rel="noopener">https://www.shiguopeng.cn/</a></td>
+<td style="text-align:center">全栈开发</td>
+<td style="text-align:center">php,golang</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">jafeney 的博客</td>
+<td style="text-align:center"><a href="http://jafeney.com/" target="_blank" rel="noopener">http://jafeney.com/</a></td>
+<td style="text-align:center">前端开发</td>
+<td style="text-align:center">前端</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">晚晴幽草轩</td>
+<td style="text-align:center"><a href="https://www.jeffjade.com/" target="_blank" rel="noopener">https://www.jeffjade.com/</a></td>
+<td style="text-align:center">好多互联网内容</td>
+<td style="text-align:center">各种各样</td>
+<td style="text-align:center">没事可以逛逛，激发灵感 ,里面也有一些收集资料</td>
+</tr>
+<tr>
+<td style="text-align:center">贾鹏辉的博客</td>
+<td style="text-align:center"><a href="https://www.devio.org/" target="_blank" rel="noopener">https://www.devio.org/</a></td>
+<td style="text-align:center">移动端开发</td>
+<td style="text-align:center">flutter,iOS,Android</td>
+<td style="text-align:center"></td>
+</tr>
+</tbody>
+</table>
+<h4 id="精彩博文">精彩博文</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">名字</th>
+<th style="text-align:center">链接</th>
+<th style="text-align:center">简介</th>
+<th style="text-align:center">标签</th>
+<th style="text-align:center">备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">HTTP 接口设计指北</td>
+<td style="text-align:center"><a href="https://github.com/bolasblack/http-api-guide" target="_blank" rel="noopener">https://github.com/bolasblack/http-api-guide</a></td>
+<td style="text-align:center">api设计</td>
+<td style="text-align:center">http,api</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">你真的了解React Hooks吗？</td>
+<td style="text-align:center"><a href="https://tech.youzan.com/hookhe-lei-zu-jian-zai-shi-yong-shang-you-he-bu-tong/" target="_blank" rel="noopener">https://tech.youzan.com/hookhe-lei-zu-jian-zai-shi-yong-shang-you-he-bu-tong/</a></td>
+<td style="text-align:center">react hooks深入了解</td>
+<td style="text-align:center">react,hooks</td>
+<td style="text-align:center"></td>
+</tr>
+</tbody>
+</table>
+<h3 id="设计相关">设计相关</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">名字</th>
+<th style="text-align:center">链接</th>
+<th style="text-align:center">简介</th>
+<th style="text-align:center">标签</th>
+<th style="text-align:center">备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">pinterest</td>
+<td style="text-align:center"><a href="https://www.pinterest.com/" target="_blank" rel="noopener">https://www.pinterest.com/</a></td>
+<td style="text-align:center">高清图片</td>
+<td style="text-align:center">picture,idea</td>
+<td style="text-align:center">可以去上面逛逛找灵感</td>
+</tr>
+<tr>
+<td style="text-align:center">logo</td>
+<td style="text-align:center"><a href="https://hatchful.shopify.com/zh-CN/" target="_blank" rel="noopener">https://hatchful.shopify.com/zh-CN/</a></td>
+<td style="text-align:center">快速制作logo</td>
+<td style="text-align:center">logo,idea</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">正版高清图片</td>
+<td style="text-align:center"><a href="https://pixabay.com/zh/" target="_blank" rel="noopener">https://pixabay.com/zh/</a></td>
+<td style="text-align:center">正版高清图片</td>
+<td style="text-align:center">picture</td>
+<td style="text-align:center"></td>
+</tr>
+</tbody>
+</table>
+<h3 id="工具">工具</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">名字</th>
+<th style="text-align:center">链接</th>
+<th style="text-align:center">简介</th>
+<th style="text-align:center">标签</th>
+<th style="text-align:center">备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">验证码接收</td>
+<td style="text-align:center"><a href="https://www.yinsiduanxin.com/" target="_blank" rel="noopener">https://www.yinsiduanxin.com/</a></td>
+<td style="text-align:center">验证码接收平台</td>
+<td style="text-align:center">验证码</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">图片转字符</td>
+<td style="text-align:center"><a href="https://www.degraeve.com/img2txt.php" target="_blank" rel="noopener">https://www.degraeve.com/img2txt.php</a></td>
+<td style="text-align:center">图片转字符</td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">vultr</td>
+<td style="text-align:center"><a href="https://www.vultr.com/?ref=8868444-6G" target="_blank" rel="noopener">https://www.vultr.com/?ref=8868444-6G</a></td>
+<td style="text-align:center">国外服务器</td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">shadowsocks</td>
+<td style="text-align:center"><a href="https://portal.shadowsocks.nz/aff.php?aff=36748" target="_blank" rel="noopener">https://portal.shadowsocks.nz/aff.php?aff=36748</a></td>
+<td style="text-align:center">翻墙服务</td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+</tr>
+</tbody>
+</table>
+<h2 id="总结">总结</h2>
+<p>（完）</p>
+
+                
+                <hr>
+                <div class="row">
+                    <div class="col-md-12 post-statement">
+                        <span>作者: Kavience</span>
+                        <span>本文链接: <a href="http://www.kavience.com/tools/personal-collection-navigation.html">http://www.kavience.com/tools/personal-collection-navigation.html </a></span>
+                        <span>转载请注明:《个人收藏导航》转自 http://www.kavience.com/tools/personal-collection-navigation.html，原作者：Kavience </span>
+                        <span><a href="https://creativecommons.org/licenses/by-nc-nd/3.0/deed.zh" target="_blank" rel="noopener">版权声明: 自由转载-非商用-非衍生-保持署名（创意共享3.0许可证）</a></span>
+                    </div>
+                    <div class="col-md-12">
+                        <!-- Categories Start -->
+                        <section>
+                            <h5><a href="/categories/">分类 </a></h5>
+                            <div class="tags">
+                                
+                                    <a class="tag" href="/categories/tools" title="tools">tools</a>
+                                
+                            </div>
+                        </section>
+                        <!-- Categories End -->
+                    </div>
+                    <div class="col-md-12">
+                        <!-- Tags Start -->
+                        <section class="past-tags">
+                            <h5><a href="/tags/">标签 </a></h5>
+                            <div class="tags">
+                                
+                                    <a class="tag" href="/tags/收藏" title="收藏">收藏</a>
+                                
+                            </div>
+                        </section>
+                        <!-- Tags End -->
+                    </div>
+                </div>
+
+                <hr>
+                <!-- Pager Start -->
+                <ul class="pager">
+                    
+                        <li class="previous">
+                            <a href="/think/reprint-some-reflections-after-starting-a-business.html" data-toggle="tooltip" data-placement="top" title="[转载]创业后的一些反思">&larr; 上一篇 </a>
+                        </li>
+                    
+                    
+                        <li class="next">
+                            <a href="/tools/hexo-theme-omega-development-history.html" data-toggle="tooltip" data-placement="top" title="Hexo主题omega开发历程">下一篇  &rarr;</a>
+                        </li>
+                    
+                </ul>
+                <!-- Pager End -->
+               
+                <!-- Comment Start -->
+<div class="comment">
+  
+      <div id="个人收藏导航" class="gitalk"></div>
+  
+  
+
+  
+      <script>
+          new Gitalk({
+            clientID: `d25cda615a572205be1e`,
+            clientSecret: `faa4cf10f1daea3d4701f8be90d80feb88c818ac`,
+            repo: `blog`,
+            owner: `kavience`,
+            admin: `kavience`,
+            id: '个人收藏导航',
+            title: '个人收藏导航',
+            distractionFreeMode: `false`,
+            language: `zh-CN`
+          }).render('个人收藏导航');
+      </script>
+  
+
+  
+</div>            
+<!-- Comment End -->
+                
+                <br>
+                <!-- Comment Start -->
+<div class="comment">
+  
+      <div id="个人收藏导航" class="gitalk"></div>
+  
+  
+
+  
+      <script>
+          new Gitalk({
+            clientID: `d25cda615a572205be1e`,
+            clientSecret: `faa4cf10f1daea3d4701f8be90d80feb88c818ac`,
+            repo: `blog`,
+            owner: `kavience`,
+            admin: `kavience`,
+            id: '个人收藏导航',
+            title: '个人收藏导航',
+            distractionFreeMode: `false`,
+            language: `zh-CN`
+          }).render('个人收藏导航');
+      </script>
+  
+
+  
+</div>            
+<!-- Comment End -->
+            </div>
+            
+            <!-- Tabe of Content -->
+            
+	
+		<aside id="sidebar">
+			<div id="toc" class="toc-article">
+				<strong class="toc-title">
+					目录
+				</strong>
+				
+					<ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#what"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">what</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#why"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">why</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#how"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">how</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#开发相关"><span class="toc-nav-number">3.1.</span> <span class="toc-nav-text">开发相关</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#精彩社区"><span class="toc-nav-number">3.1.1.</span> <span class="toc-nav-text">精彩社区</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#技术博客"><span class="toc-nav-number">3.1.2.</span> <span class="toc-nav-text">技术博客</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#精彩博文"><span class="toc-nav-number">3.1.3.</span> <span class="toc-nav-text">精彩博文</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#设计相关"><span class="toc-nav-number">3.2.</span> <span class="toc-nav-text">设计相关</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#工具"><span class="toc-nav-number">3.3.</span> <span class="toc-nav-text">工具</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#总结"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">总结</span></a></li></ol>
+				
+			</div>
+		</aside>
+	
+
+
+<script>
+let toc = document.getElementById('toc')
+if (toc != null) {
+    window.addEventListener("scroll", scrollcatelogHandler);
+    let tocPosition = toc.offsetTop;
+    function scrollcatelogHandler(e) {
+        let event = e || window.event,
+            target = event.target || event.srcElement;
+        let scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+        if (scrollTop > tocPosition - 60) {
+            toc.classList.add("toc-fixed");
+        } else {
+            toc.classList.remove("toc-fixed");
+        }
+    }
+}
+</script>
+        </div>
+    </div>
+</article>
+
+    </div>
+    <!-- Main Content End -->
+
+    <span id="rocket"></span>
+
+    <!-- Google Analytics -->
+    
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-171834825-2" ></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag() {
+                dataLayer.push(arguments);
+            }
+            gtag("js", new Date());
+            gtag("config", "UA-171834825-2");
+        </script>
+    
+
+    <!-- Baidu Tongji -->
+    
+
+    <script>
+        // TOC scroll
+        $(".toc-nav-link").bind("click touch", function () {
+            // 根据a标签的href转换为id选择器，获取id元素所处的位置
+            $('html,body').animate({ scrollTop: ($($(this).attr('href')).offset().top) }, 300);
+        });
+    </script>
+</body>
+</html>
