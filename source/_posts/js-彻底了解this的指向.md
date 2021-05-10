@@ -1,7 +1,6 @@
 ---
 title: js-彻底了解this的指向
 catalog: true
-top: true
 tags:
   - JavaScript
 categories:
