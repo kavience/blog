@@ -256,6 +256,24 @@ git reset [--mixed | --soft | --hard | --merge | --keep] [-q] [<commit>]
   - `git reset --[soft|hard] HEAD^^` 上两次，等同于 `git reset --[soft|hard] HEAD~2`
   - `git reset --[soft|hard] HEAD^n^` 上n次，等同于 `git reset --[soft|hard] HEAD~n`
 
+## git rm
+用法：
+
+```
+git rm [<options>] [--] <file>...
+
+    -n, --dry-run         dry run
+    -q, --quiet           do not list removed files
+    --cached              only remove from the index
+    -f, --force           override the up-to-date check
+    -r                    allow recursive removal
+    --ignore-unmatch      exit with a zero status even if nothing matched
+```
+作用：删除缓存文件
+
+常用：
+- 移除已经添加到缓存区的文件
+  - `git rm -r --cached <file>`
 ## 总结
 
 这只是个人工作中总结常用的一些命令，并不全面，会持续更新。
