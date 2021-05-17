@@ -97,6 +97,8 @@ share: true
 # https://github.com/ludoviclefevre/hexo-generator-seo-friendly-sitemap#readme
 sitemap:
   path: sitemap.xml
+  page_priority: 0.6
+  post_priority: 0.8
 
 # hexo-translate-title
 # https://github.com/cometlj/hexo-translate-title#readme
