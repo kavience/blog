@@ -5,7 +5,7 @@ tags:
   - g6
   - 流程图
 categories:
-  - front-end
+  - frontend
 translate_title: demo-of-flow-chart-editor-based-on-g6
 date: 2020-10-14 14:01:46
 subtitle:

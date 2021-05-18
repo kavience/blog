@@ -4,7 +4,7 @@ catalog: true
 tags:
   - JavaScript
 categories:
-  - front-end
+  - frontend
 translate_title: js-thoroughly-understand-the-point-of-this
 date: 2020-09-07 17:37:16
 subtitle:

@@ -4,7 +4,7 @@ catalog: true
 tags:
   - Reactjs
 categories:
-  - front-end
+  - frontend
 translate_title: remember-to-build-a-react-project
 date: 2020-06-15 18:30:09
 subtitle:

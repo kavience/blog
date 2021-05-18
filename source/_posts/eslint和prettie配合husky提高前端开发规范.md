@@ -5,7 +5,7 @@ hidden: false
 tags:
   - eslint
 categories:
-  - front-end
+  - frontend
 translate_title: >-
   eslint-and-prettie-cooperate-with-husky-to-improve-frontend-development-specifications
 date: 2021-04-26 18:54:50

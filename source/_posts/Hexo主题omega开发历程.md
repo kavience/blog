@@ -206,7 +206,7 @@ less:
 
 ### 归档
 
-在开发归档的页面过程中，发现生成的 tag、category 都归属于 archive ，也就是说例如你想访问一个分类下的所有文章，像这样 https://www.kavience.com/categories/front-end/, 最终生成的这个页面采用的是 archive 模板。官网文档是这样描述的：
+在开发归档的页面过程中，发现生成的 tag、category 都归属于 archive ，也就是说例如你想访问一个分类下的所有文章，像这样 https://www.kavience.com/categories/frontend/, 最终生成的这个页面采用的是 archive 模板。官网文档是这样描述的：
 
 > 模板决定了网站内容的呈现方式，每个主题至少都应包含一个 index 模板，以下是各页面相对应的模板名称：
 

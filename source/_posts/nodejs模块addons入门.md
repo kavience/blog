@@ -5,7 +5,7 @@ tags:
   - nodejs
   - JavaScript
 categories:
-  - front-end
+  - frontend
 translate_title: getting-started-with-nodejs-module-addons
 date: 2021-03-30 13:17:19
 subtitle:

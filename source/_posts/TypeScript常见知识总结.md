@@ -4,7 +4,7 @@ catalog: true
 tags:
   - typescript
 categories:
-  - front-end
+  - frontend
 translate_title: typescript-common-knowledge-summary
 date: 2020-12-25 14:11:17
 subtitle:

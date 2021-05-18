@@ -5,7 +5,7 @@ tags:
   - mobx
   - mobx-react
 categories:
-  - front-end
+  - frontend
 translate_title: study-and-use-of-mobx
 date: 2021-03-24 13:20:39
 subtitle:

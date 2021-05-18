@@ -5,7 +5,7 @@ tags:
   - JavaScript
   - jest
 categories:
-  - front-end
+  - frontend
 translate_title: jest-unit-testing
 date: 2020-08-25 11:19:51
 subtitle:

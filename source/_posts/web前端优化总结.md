@@ -5,7 +5,7 @@ tags:
   - JavaScript
   - 优化
 categories:
-  - front-end
+  - frontend
 translate_title: summary-of-web-frontend-optimization
 date: 2020-08-04 10:04:24
 subtitle:

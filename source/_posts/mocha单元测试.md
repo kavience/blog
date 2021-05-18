@@ -5,7 +5,7 @@ tags:
   - mocha
   - 单元测试
 categories:
-  - front-end
+  - frontend
 translate_title: mocha-unit-test
 date: 2019-12-15 14:26:11
 subtitle:
