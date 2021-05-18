@@ -7,7 +7,8 @@ body,
 body {
   background-image: url('./images/bg.png');
   background-color: #f1e5c9;
-  font-size: 16px;
+  font-size: 14px;
+  line-height: 1.75;
 }
 body a:hover {
   text-decoration: none;
@@ -46,7 +47,7 @@ body hr {
 .post-container .post-statement span {
   display: block;
   margin: 8px 0;
-  font-size: 14px;
+  font-size: 12px;
 }
 .content-container blockquote,
 .post-container blockquote {
@@ -54,7 +55,7 @@ body hr {
   padding: 12px 23px;
   margin: 22px 0;
   border-left: 4px solid #cbcbcb;
-  font-size: 16px;
+  font-size: 14px;
   background-color: #f8f8f8;
 }
 .navbar-custom {

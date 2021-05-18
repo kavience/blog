@@ -1,0 +1,779 @@
+<!DOCTYPE html>
+<html lang="zh-CN ">
+<!-- Head Start -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="kavience 的博客, 专注于前端开发, web开发, 编程技术-Golang语言初探三">
+    <meta name="keyword"  content="kavience,javascript,前端开发,php,react,kavience博客,Golang语言初探三">
+    <link rel="shortcut icon" href="/img/avatar/my-avatar.jpg">
+    <title>
+        
+          Golang语言初探三 - kavience | Blog
+        
+    </title>
+    <link rel="canonical" href="http://www.kavience.com/backend/a-preliminary-study-of-golang-language3.html">
+    
+<link rel="stylesheet" href="/css/font-awesome.min.css">
+
+    
+<link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    
+<link rel="stylesheet" href="/css/omega.css">
+
+    
+<link rel="stylesheet" href="/css/highlight.css">
+
+    
+<link rel="stylesheet" href="/css/gitalk.min.css">
+
+    
+<link rel="stylesheet" href="/css/kkpager_orange.min.css">
+
+
+    
+<script src="/js/jquery.min.js"></script>
+
+    
+<script src="/js/bootstrap.min.js"></script>
+
+    
+<script src="/js/gitalk.min.js"></script>
+
+    
+<script src="/js/kkpager.min.js"></script>
+
+    
+<script src="/js/button.min.js"></script>
+
+    
+<script src="/js/fastclick.min.js"></script>
+
+    
+<script src="/js/omega.js"></script>
+
+<meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/feed.xml" title="Kavience" type="application/atom+xml">
+</head>
+
+<!-- Head End -->
+<body ontouchstart="">
+    <!-- Header Start -->
+     
+        <style type="text/css">
+    header.intro-header {
+        
+            background-image: url('/img/header_img/article-bg.jpg')
+        
+    }
+</style>
+<header id="intro-header" class="intro-header" >
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                
+                    <div class="post-heading">
+                        <div class="tags">
+                            
+                            <a class="tag" href="/tags/golang" title="golang">golang</a>
+                            
+                        </div>
+                        <h1>Golang语言初探三</h1>
+                        <h2 class="subheading"></h2>
+                        <span class="meta">
+                            Posted by Kavience on
+                            2021-05-18
+                        </span>
+                    </div>
+                
+            </div>
+        </div>
+    </div>
+</header>
+
+     
+    <!-- Header End -->
+
+    <!-- Nav Start -->
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header page-scroll">
+      <button type="button" class="navbar-toggle">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/">Kavience</a>
+    </div>
+
+    <div id="blog_navbar">
+      <div class="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <a href="#" id="search" ><img style="width: 16px;height: 16px;margin: -2px 5px 0px 0;" src="/icons/search.svg " alt="">搜索 </a>
+          </li>
+          <li>
+            <a href="/">首页 </a>
+          </li>
+           
+
+           
+             
+           
+            
+              <li>
+                <a href="/categories/">分类</a>
+              </li>
+             
+           
+            
+              <li>
+                <a href="/tags/">标签</a>
+              </li>
+             
+           
+            
+              <li>
+                <a href="/archive/">归档</a>
+              </li>
+             
+           
+            
+              <li>
+                <a href="/about/">关于</a>
+              </li>
+             
+          
+        </ul>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- Search Modal -->
+<div class="modal search-modal">
+  <div class="search-container">
+    <div class="search-container-top">
+      <img src="/icons/close.svg" alt="">
+    </div>
+    <input class="search-container-input" placeholder="输入关键字搜索 " type="text">
+    <div class="search-container-content"></div>
+  </div>
+</div>
+
+<script>
+  $('.search-container').css({ "height": window.innerHeight, "overflow": 'hidden' })
+  $('.search-container-content').css({ "height": window.innerHeight - 70, "overflow": 'scroll' })
+  var allArticles = [];
+  var xReq = new XMLHttpRequest();
+  xReq.open('GET', '/search.json');
+  xReq.send();
+  xReq.onreadystatechange = function(){
+    if(xReq.readyState === 4 && xReq.status === 200){
+      allArticles = JSON.parse(xReq.responseText);
+    }
+  }
+
+  $('#search').on('click', function() {
+    document.body.style['overflow-y'] = 'hidden'
+    $('.search-modal').addClass('modal-show');
+  });
+  
+  $('.search-modal,.search-container-top img').on('click', function() {
+    document.body.style['overflow-y'] = 'scroll';
+    $('.search-modal').removeClass('modal-show');
+  });
+  
+  $('.search-container').on('click', function(e) {
+    e.stopPropagation();
+  });
+  
+  $('.search-container-input').bind('input propertychange', function(e) {
+    var searchValue = e.currentTarget.value;
+    var correctArticles = allArticles.filter(article => article.content.toLowerCase().indexOf(searchValue.toLowerCase()) > -1 || article.title.toLowerCase().indexOf(searchValue.toLowerCase()) > -1)
+    var articleListHtml = '';
+    for (let index = 0; index < correctArticles.length; index++) {
+      var article = correctArticles[index];
+      article.description = article.content.replace(/<[^>]+>/g,"");
+      var title = article.title, description = '';
+      var searchReg = RegExp(searchValue, 'i');
+      var searchRegGlobal = RegExp(searchValue, 'ig');
+      if (article.title.match(searchReg)) {
+        title = article.title.replaceAll(searchRegGlobal, `<span class="search-value-active">${searchValue}</span>`);
+      }
+      var contentMatch = article.description.match(searchReg);
+      if (contentMatch) {
+        description = `...${article.description.substr(contentMatch['index'], 210)}...`.replaceAll(searchRegGlobal, `<span class="search-value-active">${searchValue}</span>`);
+      } else {
+        description = article.description.substr(0, 200);
+      }
+
+      articleListHtml += `<div class="search-container-content_item">
+        <a href="${article.url}" class="search-container-content_item-title">${title}</a>
+        <div class="search-container-content_item-description">${description}</div>
+      </div>`
+    }
+
+    $('.search-container-content').html(articleListHtml);
+  });
+  
+</script>
+<script>
+  var $body = document.body;
+  var $toggle = document.querySelector(".navbar-toggle");
+  var $navbar = document.querySelector("#blog_navbar");
+  var $collapse = document.querySelector(".navbar-collapse");
+
+  $toggle.addEventListener("click", handleMagic);
+  function handleMagic(e) {
+    if ($navbar.className.indexOf("in") > 0) {
+      $navbar.className = " ";
+      // wait until animation end.
+      setTimeout(function () {
+        // prevent frequently toggle
+        if ($navbar.className.indexOf("in") < 0) {
+          $collapse.style.height = "0px";
+        }
+      }, 400);
+    } else {
+      $collapse.style.height = "auto";
+      $navbar.className += " in";
+    }
+  }
+</script>
+
+    <!-- Nav End -->
+
+    <!-- Main Content Start -->
+    <div class="main-content content-post ">
+        
+<!-- Post Content Start -->
+<article>
+    <div class="container" style="overflow: hidden">
+        <div class="row">
+
+            <!-- Post Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container post-markdown-body
+            ">
+                <h2 id="what">what</h2>
+<p>关于 golang 入门的笔记。</p>
+<ul>
+<li><a href="/backend/a-preliminary-study-of-golang-language1.html">golang语言初探一</a></li>
+<li><a href="/backend/a-preliminary-study-of-golang-language2.html">golang语言初探二</a></li>
+<li>golang语言初探三</li>
+</ul>
+<h2 id="why">why</h2>
+<p>周末的时候研究了一下 golang 相关的文档，根据自己的工作经验，我觉得这门语言在未来一定会大放异彩，其实现在也比较热门了。主要有以下几个特点：</p>
+<ul>
+<li>语法简单，golang 的关键字才 25 个，入门也非常简单</li>
+<li>天然支持高并发，适用于大型微服务应用</li>
+<li>跨平台，可编译出支持各大主流平台的应用，且毫无依赖</li>
+</ul>
+<p>经过对 golang 的这些了解，顿时感觉有点兴趣了，在这里记录一些入门的资料。</p>
+<h2 id="how">how</h2>
+<h3 id="基本流程控制">基本流程控制</h3>
+<h4 id="if-语句">if 语句</h4>
+<p>if 语句一般会由关键字 if 、条件表达式和由花括号包裹的代码块组成。所谓代码块，即是包含了若干表达式和语句的序列。在 Go 语言中，代码块必须由花括号包裹。另外，这里的条件表达式是指其结果类型是 bool 的表达式。一条最简单的 if 语句可以是：</p>
+<pre><code class="highlight go"><span class="keyword">if</span> <span class="number">100</span> &gt; number &#123; 
+    number += <span class="number">3</span>
+&#125;</code></pre>
+<p>这里的标识符 number 可以代表一个 int 类型的值。这条 if 语句的意思是：如果 number 的值小于 100 ，那么就把其值增加 3 。我还可以在此之上添加 else 分支，就像这样：</p>
+<pre><code class="highlight go"><span class="keyword">if</span> <span class="number">100</span> &gt; number &#123;
+    number += <span class="number">3</span>
+&#125; <span class="keyword">else</span> &#123;
+    number -= <span class="number">2</span>
+&#125;</code></pre>
+<p>else 分支的含义是，提供在条件不成立（具体到这里是 number 的值不小于 100 ）的情况下需要执行的操作。除此之外， if 语句还支持串联。请看下面的例子：</p>
+<pre><code class="highlight go"><span class="keyword">if</span> <span class="number">100</span> &gt; number &#123;
+    number += <span class="number">3</span>
+&#125; <span class="keyword">else</span> <span class="keyword">if</span> <span class="number">100</span> &lt; number &#123;
+    number -= <span class="number">2</span>
+&#125; <span class="keyword">else</span> &#123;
+    fmt.Println(<span class="string">"OK!"</span>)
+&#125;</code></pre>
+<p>可以看到，上述代码很像是把多条 if 语句串接在一起了一样。这样的 if 语句用于对多个条件的综合判断。上述语句的意思是，若 number 的值小于 100 则将其加 3 ，若 number 的值大于 100 则将其减 2 ，若 number 的值等于 100 则打印 OK! 。</p>
+<blockquote>
+<p>注意，我们至此还未对 number 变量进行声明。上面的示例也因此不能通过编译。</p>
+</blockquote>
+<p>我们可以用单独的语句来声明该变量并为它赋值。但是我们也可以把这样的变量赋值直接加入到 if 子句中。示例如下：</p>
+<pre><code class="highlight go"><span class="keyword">if</span> number := <span class="number">4</span>; <span class="number">100</span> &gt; number &#123;
+    number += <span class="number">3</span>
+&#125; <span class="keyword">else</span> <span class="keyword">if</span> <span class="number">100</span> &lt; number &#123;
+    number -= <span class="number">2</span>
+&#125; <span class="keyword">else</span> &#123;
+    fmt.Println(<span class="string">"OK!"</span>)
+&#125;</code></pre>
+<p>这里的 <code>number := 4</code> 被叫做 if 语句的初始化子句。它应被放置在 if 关键字和条件表达式之间，并与前者由空格分隔、与后者由英文分号;分隔。注意，我们在这里使用了短变量声明语句，即：在声明变量 number 的同时为它赋值。这意味着这里的 number 被视为一个新的变量。它的作用域仅在这条 i 语句所代表的代码块中。也可以说，变量 number 对于该 if 语句之外的代码来说是不可见的。我们若要在该 if 语句以外使用 number 变量就会造成编译错误。</p>
+<p>另外还要注意，即使我们已经在这条if语句所代表的代码块之外声明了 number 变量，这里的语句 number := 4 也是合法的。请看这个例子：</p>
+<pre><code class="highlight go"><span class="keyword">var</span> number <span class="keyword">int</span>
+<span class="keyword">if</span> number := <span class="number">4</span>; <span class="number">100</span> &gt; number &#123;
+    number += <span class="number">3</span>
+&#125; <span class="keyword">else</span> <span class="keyword">if</span> <span class="number">100</span> &lt; number &#123;
+    number -= <span class="number">2</span>
+&#125; <span class="keyword">else</span> &#123;
+    fmt.Println(<span class="string">"OK!"</span>)
+&#125;</code></pre>
+<p>这种写法有一个专有名词，叫做：标识符的重声明。实际上，只要对同一个标识符的两次声明各自所在的代码块之间存在包含的关系，就会形成对该标识符的重声明。具体到这里，第一次声明的 number 变量所在的是该 if 语句的外层代码块，而 number := 4 所声明的 number 变量所在的是该if语句的代表代码块。它们之间存在包含关系。因此对 number 的重声明就形成了。</p>
+<p>这种情况造成的结果就是， if 语句内部对 number 的访问和赋值都只会涉及到第二次声明的那个 number 变量。这种现象也被叫做标识符的遮蔽。上述代码被执行完毕之后，第二次声明的 number 变量的值会是7，而第一次声明的 number 变量的值仍会是 0 。</p>
+<h4 id="switch-语句">switch 语句</h4>
+<p>与串联的 if 语句类似， switch 语句提供了一个多分支条件执行的方法。不过在这里用一个专有名词来代表分支——<code>case</code>。每一个 case 可以携带一个表达式或一个类型说明符。前者又可被简称为 case 表达式。因此， <strong>Go 语言的 switch 语句又分为表达式 switch 语句和类型 switch 语句</strong>。</p>
+<p>先说表达式 switch 语句。在此类 switch 语句中，每个 case 会携带一个表达式。与 if 语句中的条件表达式不同，这里的 case 表达式的结果类型并不一定是 bool 。不过，它们的结果类型需要与 switch 表达式的结果类型一致。所谓 switch 表达式是指 switch 语句中要被判定的那个表达式。 switch 语句会依据该表达式的结果与各个 case 表达式的结果是否相同来决定执行哪个分支。请看下面的示例：</p>
+<pre><code class="highlight go"><span class="keyword">var</span> name <span class="keyword">string</span>
+<span class="comment">// 省略若干条语句</span>
+<span class="keyword">switch</span> name &#123;
+<span class="keyword">case</span> <span class="string">"Golang"</span>:
+    fmt.Println(<span class="string">"A programming language from Google."</span>)
+<span class="keyword">case</span> <span class="string">"Rust"</span>:
+    fmt.Println(<span class="string">"A programming language from Mozilla."</span>)
+<span class="keyword">default</span>:
+    fmt.Println(<span class="string">"Unknown!"</span>)
+&#125;</code></pre>
+<p>可以看到，在上述 switch 语句中， name 充当了 switch 表达式，而&quot; Go “和” Rust &quot;充当了 case 表达式。它们的结果类型是一致的，都是 string 。顺便说一句，可以有只包含一个字面量或标识符的表达式。它们是最简单的表达式，属于基本表达式的一种。</p>
+<p>请大家注意 switch 语句的写法。 switch 表达式必须紧随 switch 关键字出现。在后面的花括号中，一个关键字 case、case 表达式、冒号以及后跟的若干条语句组成为一条 case 语句。在 switch 语句中可以有若干条 case 语句。 Go 语言会依照从上至下的顺序对每一条 case 语句中 case 表达式进行求值。只要被发现其表达式与 switch 表达式的结果相同，该 case 语句就会被选中。它包含的那些语句就会被执行。而其余的 case 语句则会被忽略。</p>
+<p>switch 语句中还可以存在一个特殊的 <strong>case——default case</strong> 。顾名思义，当没有一个常规的 case 被选中的时候，default case 就会被选中。上面示例中就存在一个default case 。它由关键字 default 、冒号和后跟的一条语句组成。实际上， default case 不一定被追加在最后。它可以是第一个 case ，或者出现在任意顺位上。</p>
+<p>另外，与 if 语句一样， switch 语句还可以包含初始化子句，且其出现位置和写法也如出一辙。如：</p>
+<pre><code class="highlight go">names := []<span class="keyword">string</span>&#123;<span class="string">"Golang"</span>, <span class="string">"Java"</span>, <span class="string">"Rust"</span>, <span class="string">"C"</span>&#125;
+<span class="keyword">switch</span> name := names[<span class="number">0</span>]; name &#123;
+<span class="keyword">case</span> <span class="string">"Golang"</span>:
+    fmt.Println(<span class="string">"A programming language from Google."</span>)
+<span class="keyword">case</span> <span class="string">"Rust"</span>:
+    fmt.Println(<span class="string">"A programming language from Mozilla."</span>)
+<span class="keyword">default</span>:
+    fmt.Println(<span class="string">"Unknown!"</span>)
+&#125;</code></pre>
+<p>另一个类型 switch 语句。它与一般形式有两点差别。第一点，紧随 case 关键字的不是表达式，而是类型说明符。类型说明符由若干个类型字面量组成，且多个类型字面量之间由英文逗号分隔。第二点，它的 switch 表达式是非常特殊的。这种特殊的表达式也起到了类型断言的作用，但其表现形式很特殊，如：v.(type)，其中 v 必须代表一个接口类型的值。注意，该类表达式只能出现在类型 switch 语句中，且只能充当 switch 表达式。一个类型 switch 语句的示例如下：</p>
+<pre><code class="highlight go">v := <span class="number">11</span>
+<span class="keyword">switch</span> i := <span class="keyword">interface</span>&#123;&#125;(v).(<span class="keyword">type</span>) &#123;
+<span class="keyword">case</span> <span class="keyword">int</span>, <span class="keyword">int8</span>, <span class="keyword">int16</span>, <span class="keyword">int32</span>, <span class="keyword">int64</span>:
+    fmt.Printf(<span class="string">"A signed integer: %d. The type is %T. \n"</span>, i, i)
+<span class="keyword">case</span> <span class="keyword">uint</span>, <span class="keyword">uint8</span>, <span class="keyword">uint16</span>, <span class="keyword">uint32</span>, <span class="keyword">uint64</span>:
+    fmt.Printf(<span class="string">"A unsigned integer: %d. The type is %T. \n"</span>, i, i)
+<span class="keyword">default</span>:
+    fmt.Println(<span class="string">"Unknown!"</span>)
+&#125;</code></pre>
+<p>请注意，我们在这里把 switch 表达式的结果赋给了一个变量。如此一来，我们就可以在该 switch 语句中使用这个结果了。这段代码被执行后，标准输出上会打印出 <code>A signed integer: 11. The type is int.</code>。</p>
+<p>最后，我们来说一下 fallthrough 。它既是一个关键字，又可以代表一条语句。 fallthrough 语句可被包含在表达式 switch 语句中的 case 语句中。它的作用是使控制权流转到下一个 case 。不过要注意， fallthrough 语句仅能作为 case 语句中的最后一条语句出现。并且，包含它的 case 语句不能是其所属 switch 语句的最后一条 case 语句。</p>
+<h4 id="for-语句">for 语句</h4>
+<p>for 语句代表着循环。一条语句通常由关键字 for 、初始化子句、条件表达式、后置子句和以花括号包裹的代码块组成。其中，初始化子句、条件表达式和后置子句之间需用分号分隔。示例如下：</p>
+<pre><code class="highlight go"><span class="keyword">for</span> i := <span class="number">0</span>; i &lt; <span class="number">10</span>; i++ &#123;
+    fmt.Print(i, <span class="string">" "</span>)
+&#125;</code></pre>
+<p>我们可以省略掉初始化子句、条件表达式、后置子句中的任何一个或多个，不过起到分隔作用的分号一般需要被保留下来，除非在仅有条件表达式或三者全被省略时分号才可以被一同省略。</p>
+<p>我们可以把上述的初始化子句、条件表达式、后置子句合称为for子句。实际上，for语句还有另外一种编写方式，那就是用 range 子句替换掉 for 子句。 range 子句包含一个或两个迭代变量（用于与迭代出的值绑定）、特殊标记 := 或 = 、关键字 range 以及 range 表达式。其中， range 表达式的结果值的类型应该是能够被迭代的，包括：字符串类型、数组类型、数组的指针类型、切片类型、字典类型和通道类型。例如：</p>
+<pre><code class="highlight go"><span class="keyword">for</span> i, v := <span class="keyword">range</span> <span class="string">"Go语言"</span> &#123;
+    fmt.Printf(<span class="string">"%d: %c\n"</span>, i, v)
+&#125;</code></pre>
+<p>对于字符串类型的被迭代值来说，for语句每次会迭代出两个值。第一个值代表第二个值在字符串中的索引，而第二个值则代表该字符串中的某一个字符。迭代是以索引递增的顺序进行的。例如，上面的 for 语句被执行后会在标准输出上打印出：</p>
+<pre><code class="highlight plain">0: G
+1: o
+2: 语
+5: 言</code></pre>
+<p>可以看到，这里迭代出的索引值并不是连续的。下面我们简单剖析一下此表象的本质。我们知道，字符串的底层是以字节数组的形式存储的。而在 Go 语言中，字符串到字节数组的转换是通过对其中的每个字符进行 UTF-8 编码来完成的。字符串&quot;Go语言&quot;中的每一个字符与相应的字节数组之间的对应关系如下：</p>
+<p><img src="/img/blog_img/golang-for.jpeg" alt="for"></p>
+<blockquote>
+<p>注意，一个中文字符在经过 UTF-8 编码之后会表现为三个字节。所以，我们用 <code>语[0]、语[1]和、语[2]</code> 分别表示字符’语’经编码后的第一、二、三个字节。对于字符’言’，我们如法炮制。</p>
+</blockquote>
+<p>对照这张表格，我们就能够解释上面那条 for 语句打印出的内容了，即：<strong>每次迭代出的第一个值所代表的是第二个字符值经编码后的第一个字节在该字符串经编码后的字节数组中的索引值</strong>。</p>
+<p>对于数组值、数组的指针值和切片之来说，range 子句每次也会迭代出两个值。其中，第一个值会是第二个值在被迭代值中的索引，而第二个值则是被迭代值中的某一个元素。同样的，迭代是以<strong>索引递增</strong>的顺序进行的。</p>
+<p>对于字典值来说，range 子句每次仍然会迭代出两个值。显然，第一个值是字典中的某一个键，而第二个值则是该键对应的那个值。</p>
+<blockquote>
+<p>注意，对字典值上的迭代， Go 语言是不保证其顺序的。</p>
+</blockquote>
+<p>携带 range 子句的 for 语句还可以应用于一个通道值之上。其作用是不断地从该通道值中接收数据，不过每次只会接收一个值。注意，如果通道值中没有数据，那么 for 语句的执行会处于阻塞状态。无论怎样，这样的循环会一直进行下去。直至该通道值被关闭，for 语句的执行才会结束。</p>
+<p>最后，我们来说一下 break 语句和 continue 语句。它们都可以被放置在 for 语句的代码块中。前者被执行时会使其所属的 for 语句的执行立即结束，而后者被执行时会使当次迭代被中止（当次迭代的后续语句会被忽略）而直接进入到下一次迭代。</p>
+<h4 id="select-语句">select 语句</h4>
+<p>select 语句属于条件分支流程控制方法，<strong>不过它只能用于通道</strong>。它可以包含若干条 case 语句，并根据条件选择其中的一个执行。进一步说， select 语句中的 case 关键字只能后跟<strong>用于通道的发送操作的表达式以及接收操作的表达式或语句</strong>。示例如下：</p>
+<pre><code class="highlight go">ch1 := <span class="built_in">make</span>(<span class="keyword">chan</span> <span class="keyword">int</span>, <span class="number">1</span>)
+ch2 := <span class="built_in">make</span>(<span class="keyword">chan</span> <span class="keyword">int</span>, <span class="number">1</span>)
+<span class="comment">// 省略若干条语句</span>
+<span class="keyword">select</span> &#123;
+<span class="keyword">case</span> e1 := &lt;-ch1:
+    fmt.Printf(<span class="string">"1th case is selected. e1=%v.\n"</span>, e1)
+<span class="keyword">case</span> e2 := &lt;-ch2:
+    fmt.Printf(<span class="string">"2th case is selected. e2=%v.\n"</span>, e2)
+<span class="keyword">default</span>:
+    fmt.Println(<span class="string">"No data!"</span>)
+&#125;</code></pre>
+<p>如果该 select 语句被执行时通道 ch1 和 ch2 中都没有任何数据，那么肯定只有 default case 会被执行。但是，只要有一个通道在当时有数据就不会轮到 default case 执行了。显然，对于包含通道接收操作的 case 来讲，其执行条件就是通道中存在数据（或者说通道未空）。如果在当时有数据的通道多于一个，那么 Go 语言会通过一种伪随机的算法来决定哪一个 case 将被执行。</p>
+<p>另一方面，对于包含通道发送操作的 case 来讲，其执行条件就是通道中至少还能缓冲一个数据（或者说通道未满）。类似的，当有多个 case 中的通道未满时，它们会被随机选择。请看下面的示例：</p>
+<pre><code class="highlight go">ch3 := <span class="built_in">make</span>(<span class="keyword">chan</span> <span class="keyword">int</span>, <span class="number">100</span>)
+<span class="comment">// 省略若干条语句</span>
+<span class="keyword">select</span> &#123;
+<span class="keyword">case</span> ch3 &lt;- <span class="number">1</span>:
+    fmt.Printf(<span class="string">"Sent %d\n"</span>, <span class="number">1</span>)
+<span class="keyword">case</span> ch3 &lt;- <span class="number">2</span>:
+    fmt.Printf(<span class="string">"Sent %d\n"</span>, <span class="number">2</span>)
+<span class="keyword">default</span>:
+    fmt.Println(<span class="string">"Full channel!"</span>)
+&#125;</code></pre>
+<p>该条 select 语句的两个 case 中包含的都是针对通道 ch3 的发送操作。如果我们把这条语句置于一个循环中，那么就相当于用有限范围的随机整数集合去填满一个通道。</p>
+<blockquote>
+<p>请注意，如果一条 select 语句中不存在 default case ， 并且在被执行时其中的所有 case 都不满足执行条件，那么它的执行将会被阻塞！当前流程的进行也会因此而停滞。直到其中一个 case 满足了执行条件，执行才会继续。我们一直在说 case 执行条件的满足与否取决于其操作的通道在当时的状态。这里特别强调一点，即：未被初始化的通道会使操作它的 case 永远满足不了执行条件。对于针对它的发送操作和接收操作来说都是如此。</p>
+</blockquote>
+<p>最后提一句， break 语句也可以被包含在 select 语句中的 case 语句中。它的作用是立即结束当前的 select 语句的执行，不论其所属的 case 语句中是否还有未被执行的语句。</p>
+<h3 id="更多流程控制">更多流程控制</h3>
+<h4 id="defer-语句">defer 语句</h4>
+<p>与 select 语句一样， Go 语言中的 defer 语句也非常独特，而且比前者有过之而无不及。 defer 语句仅能被放置在函数或方法中。它由关键字 defer 和一个调用表达式组成。注意，这里的调用表达式所表示的既不能是对 Go 语言内建函数的调用也不能是对 Go 语言标准库代码包 unsafe 中的那些函数的调用。实际上，满足上述条件的调用表达式被称为表达式语句。请看下面的示例：</p>
+<pre><code class="highlight go"><span class="function"><span class="keyword">func</span> <span class="title">readFile</span><span class="params">(path <span class="keyword">string</span>)</span> <span class="params">([]<span class="keyword">byte</span>, error)</span></span> &#123;
+    file, err := os.Open(path)
+    <span class="keyword">if</span> err != <span class="literal">nil</span> &#123;
+        <span class="keyword">return</span> <span class="literal">nil</span>, err
+    &#125;
+    <span class="keyword">defer</span> file.Close()
+    <span class="keyword">return</span> ioutil.ReadAll(file)
+&#125;</code></pre>
+<p>函数 readFile 的功能是读出指定文件或目录（以下统称为文件）本身的内容并将其返回，同时当有错误发生时立即向调用方报告。其中， os 和 ioutil （导入路径是 io/ioutil ）代表的都是 Go 语言标准库中的代码包。请注意这个函数中的倒数第二条语句。我们在打开指定文件且未发现有错误发生之后，紧跟了一条 defer 语句。其中携带的表达式语句表示的是对被打开文件的关闭操作。注意，当这条 defer 语句被执行的时候，其中的这条表达式语句并不会被立即执行。它的确切的执行时机是在其所属的函数（这里是 readFile ）的执行即将结束的那个时刻。也就是说，在 readFile 函数真正结束执行的前一刻， file.Close() 才会被执行。这也是 defer 语句被如此命名的原因。我们在结合上下文之后就可以看出，语句 defer file.Close() 的含义是在打开文件并读取其内容后及时地关闭它。该语句可以保证在 readFile 函数将结果返回给调用方之前，那个文件或目录一定会被关闭。这实际上是一种非常便捷和有效的保险措施。</p>
+<p>更为关键的是，无论 readFile 函数正常地返回了结果还是由于在其执行期间有运行时恐慌发生而被剥夺了流程控制权，其中的 file.Close() 都会在该函数即将退出那一刻被执行。这就更进一步地保证了资源的及时释放。</p>
+<p>注意，当一个函数中存在多个 defer 语句时，它们携带的表达式语句的执行顺序一定是它们的出现顺序的倒序。下面的示例可以很好的证明这一点：</p>
+<pre><code class="highlight go"><span class="function"><span class="keyword">func</span> <span class="title">deferIt</span><span class="params">()</span></span> &#123;
+    <span class="keyword">defer</span> <span class="function"><span class="keyword">func</span><span class="params">()</span></span> &#123;
+        fmt.Print(<span class="number">1</span>)
+    &#125;()
+    <span class="keyword">defer</span> <span class="function"><span class="keyword">func</span><span class="params">()</span></span> &#123;
+        fmt.Print(<span class="number">2</span>)
+    &#125;()
+    <span class="keyword">defer</span> <span class="function"><span class="keyword">func</span><span class="params">()</span></span> &#123;
+        fmt.Print(<span class="number">3</span>)
+    &#125;()
+    fmt.Print(<span class="number">4</span>)
+&#125;</code></pre>
+<p>deferIt 函数的执行会使标准输出上打印出 4321 。请大家猜测下面这个函数被执行时向标准输出打印的内容，并真正执行它以验证自己的猜测。最后论证一下自己的猜测为什么是对或者错的。</p>
+<pre><code class="highlight go"><span class="function"><span class="keyword">func</span> <span class="title">deferIt2</span><span class="params">()</span></span> &#123;
+    <span class="keyword">for</span> i := <span class="number">1</span>; i &lt; <span class="number">5</span>; i++ &#123;
+        <span class="keyword">defer</span> fmt.Print(i)
+    &#125;
+&#125;</code></pre>
+<p>最后，对于 defer 语句，我还有两个特别提示：</p>
+<ol>
+<li>defer 携带的表达式语句代表的是对某个函数或方法的调用。这个调用可能会有参数传入，比如：fmt.Print(i + 1) 。如果代表传入参数的是一个表达式，那么在 defer 语句被执行的时候该表达式就会被求值了。注意，这与被携带的表达式语句的执行时机是不同的。请揣测下面这段代码的执行：</li>
+</ol>
+<pre><code class="highlight go"><span class="function"><span class="keyword">func</span> <span class="title">deferIt3</span><span class="params">()</span></span> &#123;
+    f := <span class="function"><span class="keyword">func</span><span class="params">(i <span class="keyword">int</span>)</span> <span class="title">int</span></span> &#123;
+        fmt.Printf(<span class="string">"%d "</span>,i)
+        <span class="keyword">return</span> i * <span class="number">10</span>
+    &#125;
+    <span class="keyword">for</span> i := <span class="number">1</span>; i &lt; <span class="number">5</span>; i++ &#123;
+        <span class="keyword">defer</span> fmt.Printf(<span class="string">"%d "</span>, f(i))
+    &#125;
+&#125;</code></pre>
+<p>它在被执行之后，标准输出上打印出1 2 3 4 40 30 20 10 。</p>
+<ol start="2">
+<li>如果 defer 携带的表达式语句代表的是对匿名函数的调用，那么我们就一定要非常警惕。请看下面的示例：</li>
+</ol>
+<pre><code class="highlight go"><span class="function"><span class="keyword">func</span> <span class="title">deferIt4</span><span class="params">()</span></span> &#123;
+    <span class="keyword">for</span> i := <span class="number">1</span>; i &lt; <span class="number">5</span>; i++ &#123;
+        <span class="keyword">defer</span> <span class="function"><span class="keyword">func</span><span class="params">()</span></span> &#123;
+            fmt.Print(i)
+        &#125;()
+    &#125;
+&#125;</code></pre>
+<p>deferIt4 函数在被执行之后标出输出上会出现 5555 ，而不是 4321 。原因是 defer 语句携带的表达式语句中的那个匿名函数包含了对外部（确切地说，是该 defer 语句之外）的变量的使用。注意，等到这个匿名函数要被执行（且会被执行 4 次）的时候，包含该 defer 语句的那条 for 语句已经执行完毕了。此时的变量 i 的值已经变为了 5 。因此该匿名函数中的打印函数只会打印出 5 。正确的用法是：把要使用的外部变量作为参数传入到匿名函数中。修正后的 deferIt4 函数如下：</p>
+<pre><code class="highlight go"><span class="function"><span class="keyword">func</span> <span class="title">deferIt4</span><span class="params">()</span></span> &#123;
+    <span class="keyword">for</span> i := <span class="number">1</span>; i &lt; <span class="number">5</span>; i++ &#123;
+        <span class="keyword">defer</span> <span class="function"><span class="keyword">func</span><span class="params">(n <span class="keyword">int</span>)</span></span> &#123;
+            fmt.Print(n)
+        &#125;(i)
+    &#125;
+&#125;</code></pre>
+<h4 id="异常处理-error">异常处理 error</h4>
+<p>Go 语言的函数可以一次返回多个结果。这就为我们温和地报告错误提供了语言级别的支持。实际上，这也是 Go 语言中处理错误的惯用法之一。</p>
+<pre><code class="highlight go"><span class="function"><span class="keyword">func</span> <span class="title">readFile</span><span class="params">(path <span class="keyword">string</span>)</span> <span class="params">([]<span class="keyword">byte</span>, error)</span></span> &#123;
+    file, err := os.Open(path)
+    <span class="keyword">if</span> err != <span class="literal">nil</span> &#123;
+        <span class="keyword">return</span> <span class="literal">nil</span>, err
+    &#125;
+    <span class="keyword">defer</span> file.Close()
+    <span class="keyword">return</span> ioutil.ReadAll(file)
+&#125;</code></pre>
+<p>函数 readFile 有两个结果声明。第二个结果声明的类型是 error 。 error 是 Go 语言内置的一个接口类型。它的声明是这样的：</p>
+<pre><code class="highlight go"><span class="keyword">type</span> error <span class="keyword">interface</span> &#123; 
+    Error() <span class="keyword">string</span>
+&#125;</code></pre>
+<p>显然，只要一个类型的方法集合包含了名为 Error 、无参数声明且仅声明了一个 string 类型的结果的方法，就相当于实现了 error 接口。 os.Open 函数的第二个结果值就的类型就是这样的。我们把它赋给了变量 err 。也许你已经意识到，在 Go 语言中，函数与其调用方之间温和地传递错误的方法即是如此。</p>
+<p>在调用了 os.Open 函数并取得其结果之后，我们判断 err 是否为 nil 。如果答案是肯定的，那么就直接把该错误（这里由 err 代表）返回给调用方。这条 if 语句实际上是一条卫述语句。这样的语句会检查流程中的某个步骤是否存在异常，并在必要时中止流程并报告给上层的程序（这里是调用方）。在 Go 语言的标准库以及很多第三方库中，我们经常可以看到这样的代码。我们也建议大家在自己的程序中善用这样的卫述语句。</p>
+<p>现在我们把目光聚焦到 readFile 函数中的最后一条语句上。这是一条 return 语句。它把对 ioutil.ReadAll 函数的调用的结果直接作为 readFile 函数的结果返回了。实际上， ioutil.ReadAll 函数的结果声明列表与 readFile 的结果声明列表是一致的。也就是说，它们声明的结果的数量、类型和顺序都是相同的。因此，我们才能够做这种返回结果上的“嫁接”。这又是一个 Go 语言编码中的惯用法。</p>
+<p>好了，在知晓怎样在传递错误之后，让我们来看看怎样创造错误。没错，在很多时候，我们需要创造出错误（即 error 类型的值）并把它传递给上层程序。这很简单。只需调用标准库代码包 errors 的 New 函数即可。例如，我们只要在 readFile 函数的开始处加入下面这段代码就可以更快的在参数值无效时告知调用方：</p>
+<pre><code class="highlight go"><span class="keyword">if</span> path == <span class="string">""</span> &#123;
+    <span class="keyword">return</span> <span class="literal">nil</span>, errors.New(<span class="string">"The parameter is invalid!"</span>)
+&#125;</code></pre>
+<p>errors.New 是一个很常用的函数。在 Go 语言标准库的代码包中有很多由此函数创建出来的错误值，比如 os.ErrPermission 、 io.EOF 等变量的值。我们可以很方便地用操作符 == 来判断一个 error 类型的值与这些变量的值是否相等，从而来确定错误的具体类别。就拿 io.EOF 来说，它代表了一个信号。该信号用于通知数据读取方已无更多数据可读。我们在得到这样一个错误的时候不应该把它看成一个真正的错误，而应该只去结束相应的读取操作。请看下面的示例：</p>
+<pre><code class="highlight go">br := bufio.NewReader(file)
+<span class="keyword">var</span> buf bytes.Buffer
+<span class="keyword">for</span> &#123;
+    ba, isPrefix, err := br.ReadLine()
+    <span class="keyword">if</span> err != <span class="literal">nil</span> &#123;
+        <span class="keyword">if</span> err == io.EOF &#123;
+            <span class="keyword">break</span>
+        &#125;
+        fmt.Printf(<span class="string">"Error: %s\n"</span>, err)
+        <span class="keyword">break</span>
+    &#125;
+    buf.Write(ba)
+    <span class="keyword">if</span> !isPrefix &#123;
+        buf.WriteByte(<span class="string">'\n'</span>)
+    &#125;
+&#125;</code></pre>
+<p>可以看到，这段代码使用到了前面示例中的变量 file 。它的功能是把 file 代表的文件中的所有内容都读取到一个缓冲器（由变量 buf 代表）中。请注意，该示例中的第 6 ~ 8 行代码。如果判定 err 代表的错误值等于 io.EOF 的值（即它们是同一个值），那么我们只需退出当前的循环以使读取操作结束即可。</p>
+<p>总之，只要能够善用 error 接口、 errors.New 函数和比较操作符==，我们就可以玩儿转 Go 语言中的一般错误处理。</p>
+<h4 id="异常处理-panic">异常处理 panic</h4>
+<p>panic 可被意译为运行时恐慌。因为它只有在程序运行的时候才会被“抛出来”。并且，恐慌是会被扩散的。当有运行时恐慌发生时，它会被迅速地向调用栈的上层传递。如果我们不显式地处理它的话，程序的运行瞬间就会被终止。这里有一个专有名词——程序崩溃。内建函数 panic 可以让我们人为地产生一个运行时恐慌。不过，这种致命错误是可以被恢复的。在 Go 语言中，内建函数 recover 就可以做到这一点。</p>
+<p>实际上，内建函数 panic 和 recover 是天生的一对。前者用于产生运行时恐慌，而后者用于“恢复”它。不过要注意， recover 函数必须要在 defer 语句中调用才有效。因为一旦有运行时恐慌发生，当前函数以及在调用栈上的所有代码都是失去对流程的控制权。只有 defer 语句携带的函数中的代码才可能在运行时恐慌迅速向调用栈上层蔓延时“拦截到”它。这里有一个可以起到此作用的 defer 语句的示例：</p>
+<pre><code class="highlight go"><span class="keyword">defer</span> <span class="function"><span class="keyword">func</span><span class="params">()</span></span> &#123;
+    <span class="keyword">if</span> p := <span class="built_in">recover</span>(); p != <span class="literal">nil</span> &#123;
+        fmt.Printf(<span class="string">"Fatal error: %s\n"</span>, p)
+    &#125;
+&#125;()</code></pre>
+<p>在这条 defer 语句中，我们调用了 recover 函数。该函数会返回一个 interface{} 类型的值。还记得吗？ interface{} 代表空接口。 Go 语言中的任何类型都是它的实现类型。我们把这个值赋给了变量 p 。如果 p 不为 nil ，那么就说明当前确有运行时恐慌发生。这时我们需根据情况做相应处理。注意，一旦 defer 语句中的 recover 函数调用被执行了，运行时恐慌就会被恢复，不论我们是否进行了后续处理。所以，我们一定不要只“拦截”不处理。</p>
+<p>我们下面来反观 panic 函数。该函数可接受一个 interface{} 类型的值作为其参数。也就是说，我们可以在调用 panic 函数的时候可以传入任何类型的值。不过，我建议大家在这里只传入 error 类型的值。这样它表达的语义才是精确的。更重要的是，当我们调用 recover 函数来“恢复”由于调用 panic 函数而引发的运行时恐慌的时候，得到的值正是调用后者时传给它的那个参数。因此，有这样一个约定是很有必要的。</p>
+<p>总之，运行时恐慌代表程序运行过程中的致命错误。我们只应该在必要的时候引发它。人为引发运行时恐慌的方式是调用 panic 函数。 recover 函数是我们常会用到的。因为在通常情况下，我们肯定不想因为运行时恐慌的意外发生而使程序崩溃。最后，在“恢复”运行时恐慌的时候，大家一定要注意处理措施的得当。</p>
+<h4 id="go-语句">go 语句</h4>
+<p>go 语句和通道类型是 Go 语言的并发编程理念的最终体现。相比之下， go 语句在用法上要比通道简单很多。与 defer 语句相同， go 语句也可以携带一条表达式语句。</p>
+<blockquote>
+<p>注意，go 语句的执行会很快结束，并不会对当前流程的进行造成阻塞或明显的延迟。一个简单的示例如下：</p>
+</blockquote>
+<pre><code class="highlight go"><span class="keyword">go</span> fmt.Println(<span class="string">"Go!"</span>)</code></pre>
+<p>可以看到， go 语句仅由一个关键字 go 和一条表达式语句构成。同样的， go 语句的执行与其携带的表达式语句的执行在时间上没有必然联系。这里能够确定的仅仅是后者会在前者完成之后发生。在 go 语句被执行时，其携带的函数（也被称为 go 函数）以及要传给它的若干参数（如果有的话）会被封装成一个实体（即 Goroutine ），并被放入到相应的待运行队列中。 Go 语言的运行时系统会适时的从队列中取出待运行的 Goroutine 并执行相应的函数调用操作。注意，对传递给这里的函数的那些参数的求值会在 go 语句被执行时进行。这一点也是与 defer 语句类似的。</p>
+<p>正是由于 go 函数的执行时间的不确定性，所以 Go 语言提供了很多方法来帮助我们协调它们的执行。其中最简单粗暴的方法就是调用 time.Sleep 函数。请看下面的示例：</p>
+<pre><code class="highlight go"><span class="keyword">package</span> main
+
+<span class="keyword">import</span> (
+    <span class="string">"fmt"</span>
+)
+
+<span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;
+    <span class="keyword">go</span> fmt.Println(<span class="string">"Go!"</span>)
+&#125;</code></pre>
+<p>这样一个命令源码文件被运行时，标准输出上不会有任何内容出现。因为还没等 Go 语言运行时系统调度那个 go 函数执行，主函数 main 就已经执行完毕了。函数 main 的执行完毕意味着整个程序的执行的结束。因此，这个 go 函数根本就没有执行的机会。</p>
+<p>但是，当我们在上述 go 语句的后面添加一条对 time.Sleep 函数的调用语句之后情况就会不同了：</p>
+<pre><code class="highlight go"><span class="keyword">package</span> main
+
+<span class="keyword">import</span> (
+    <span class="string">"fmt"</span>
+    <span class="string">"time"</span>
+)
+
+<span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;
+    <span class="keyword">go</span> fmt.Println(<span class="string">"Go!"</span>)
+    time.Sleep(<span class="number">100</span> * time.Millisecond)
+&#125;</code></pre>
+<p>语句 time.Sleep(100 * time.Millisecond) 会把 main 函数的执行结束时间向后延迟 100 毫秒。 100 毫秒虽短暂，但足够 go 函数被调度执行的了。上述命令源码文件在被运行时会如我们所愿地在标准输出上打印出 Go! 。</p>
+<p>另一个比较绅士的做法是在 main 函数的最后调用 <code>runtime.Gosched</code> 函数。相应的程序版本如下：</p>
+<pre><code class="highlight go"><span class="keyword">package</span> main
+
+<span class="keyword">import</span> (
+    <span class="string">"fmt"</span>
+    <span class="string">"runtime"</span>
+)
+
+<span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;
+    <span class="keyword">go</span> fmt.Println(<span class="string">"Go!"</span>)
+    runtime.Gosched()
+&#125;</code></pre>
+<p>runtime.Gosched 函数的作用是让当前正在运行的 Goroutine （这里是运行 main 函数的那个 Goroutine ）暂时“休息”一下，而让 Go 运行时系统转去运行其它的 Goroutine （这里是与 <code>go fmt.Println(&quot;Go!&quot;)</code> 对应并会封装 <code>fmt.Println(&quot;Go!&quot;)</code> 的那个 Goroutine ）。如此一来，我们就更加精细地控制了对几个 Goroutine 的运行的调度。</p>
+<p>当然，我们还有其它方法可以满足上述需求。并且，如果我们需要去左右更多的 Goroutine 的运行时机的话，下面这种方法也许更合适一些。请看代码：</p>
+<pre><code class="highlight go"><span class="keyword">package</span> main
+
+<span class="keyword">import</span> (
+    <span class="string">"fmt"</span>
+    <span class="string">"sync"</span>
+)
+
+<span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;
+    <span class="keyword">var</span> wg sync.WaitGroup
+    wg.Add(<span class="number">3</span>)
+    <span class="keyword">go</span> <span class="function"><span class="keyword">func</span><span class="params">()</span></span> &#123;
+        fmt.Println(<span class="string">"Go!"</span>)
+        wg.Done()
+    &#125;()
+    <span class="keyword">go</span> <span class="function"><span class="keyword">func</span><span class="params">()</span></span> &#123;
+        fmt.Println(<span class="string">"Go!"</span>)
+        wg.Done()
+    &#125;()
+    <span class="keyword">go</span> <span class="function"><span class="keyword">func</span><span class="params">()</span></span> &#123;
+        fmt.Println(<span class="string">"Go!"</span>)
+        wg.Done()
+    &#125;()
+    wg.Wait()
+&#125;</code></pre>
+<p>sync.WaitGroup 类型有三个方法可用—— Add、 Done 和 Wait 。 Add 会使其所属值的一个内置整数得到相应增加， Done 会使那个整数减 1 ，而 Wait 方法会使当前 Goroutine（这里是运行 main 函数的那个 Goroutine ）阻塞直到那个整数为 0 。这下你应该明白上面这个示例所采用的方法了。我们在 main 函数中启用了三个 Goroutine 来封装三个 go 函数。每个匿名函数的最后都调用了 wg.Done 方法，并以此表达当前的 go 函数会立即执行结束的情况。当这三个 go 函数都调用过 wg.Done 函数之后，处于 main 函数最后的那条 wg.Wait() 语句的阻塞作用将会消失， main 函数的执行将立即结束。</p>
+<h2 id="总结">总结</h2>
+<p>（完）</p>
+
+                
+                <hr>
+                <div class="row">
+                    <div class="col-md-12 post-statement">
+                        <span>作者: Kavience</span>
+                        <span>本文链接: <a href="http://www.kavience.com/backend/a-preliminary-study-of-golang-language3.html">http://www.kavience.com/backend/a-preliminary-study-of-golang-language3.html </a></span>
+                        <span>转载请注明:《Golang语言初探三》转自 http://www.kavience.com/backend/a-preliminary-study-of-golang-language3.html，原作者：Kavience </span>
+                        <span><a href="https://creativecommons.org/licenses/by-nc-nd/3.0/deed.zh" target="_blank" rel="noopener">版权声明: 自由转载-非商用-非衍生-保持署名（创意共享3.0许可证）</a></span>
+                    </div>
+                    <div class="col-md-12">
+                        <!-- Categories Start -->
+                        <section>
+                            <h5><a href="/categories/">分类 </a></h5>
+                            <div class="tags">
+                                
+                                    <a class="tag" href="/categories/backend" title="backend">backend</a>
+                                
+                            </div>
+                        </section>
+                        <!-- Categories End -->
+                    </div>
+                    <div class="col-md-12">
+                        <!-- Tags Start -->
+                        <section class="past-tags">
+                            <h5><a href="/tags/">标签 </a></h5>
+                            <div class="tags">
+                                
+                                    <a class="tag" href="/tags/golang" title="golang">golang</a>
+                                
+                            </div>
+                        </section>
+                        <!-- Tags End -->
+                    </div>
+                </div>
+
+                <hr>
+                <!-- Pager Start -->
+                <ul class="pager">
+                    
+                    
+                        <li class="next">
+                            <a href="/backend/a-preliminary-study-of-golang-language2.html" data-toggle="tooltip" data-placement="top" title="Golang语言初探二">下一篇  &rarr;</a>
+                        </li>
+                    
+                </ul>
+                <!-- Pager End -->
+               
+                <!-- Comment Start -->
+<div class="comment">
+  
+      <div id="Golang语言初探三" class="gitalk"></div>
+  
+  
+
+  
+      <script>
+          new Gitalk({
+            clientID: `d25cda615a572205be1e`,
+            clientSecret: `faa4cf10f1daea3d4701f8be90d80feb88c818ac`,
+            repo: `blog`,
+            owner: `kavience`,
+            admin: `kavience`,
+            id: 'Golang语言初探三',
+            title: 'Golang语言初探三',
+            distractionFreeMode: `false`,
+            language: `zh-CN`
+          }).render('Golang语言初探三');
+      </script>
+  
+
+  
+</div>            
+<!-- Comment End -->
+                
+                <br>
+                <!-- Comment Start -->
+<div class="comment">
+  
+      <div id="Golang语言初探三" class="gitalk"></div>
+  
+  
+
+  
+      <script>
+          new Gitalk({
+            clientID: `d25cda615a572205be1e`,
+            clientSecret: `faa4cf10f1daea3d4701f8be90d80feb88c818ac`,
+            repo: `blog`,
+            owner: `kavience`,
+            admin: `kavience`,
+            id: 'Golang语言初探三',
+            title: 'Golang语言初探三',
+            distractionFreeMode: `false`,
+            language: `zh-CN`
+          }).render('Golang语言初探三');
+      </script>
+  
+
+  
+</div>            
+<!-- Comment End -->
+            </div>
+            
+            <!-- Tabe of Content -->
+            
+	
+		<aside id="sidebar">
+			<div id="toc" class="toc-article">
+				<strong class="toc-title">
+					目录
+				</strong>
+				
+					<ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#what"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">what</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#why"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">why</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#how"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">how</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#基本流程控制"><span class="toc-nav-number">3.1.</span> <span class="toc-nav-text">基本流程控制</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#if-语句"><span class="toc-nav-number">3.1.1.</span> <span class="toc-nav-text">if 语句</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#switch-语句"><span class="toc-nav-number">3.1.2.</span> <span class="toc-nav-text">switch 语句</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#for-语句"><span class="toc-nav-number">3.1.3.</span> <span class="toc-nav-text">for 语句</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#select-语句"><span class="toc-nav-number">3.1.4.</span> <span class="toc-nav-text">select 语句</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#更多流程控制"><span class="toc-nav-number">3.2.</span> <span class="toc-nav-text">更多流程控制</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#defer-语句"><span class="toc-nav-number">3.2.1.</span> <span class="toc-nav-text">defer 语句</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#异常处理-error"><span class="toc-nav-number">3.2.2.</span> <span class="toc-nav-text">异常处理 error</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#异常处理-panic"><span class="toc-nav-number">3.2.3.</span> <span class="toc-nav-text">异常处理 panic</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#go-语句"><span class="toc-nav-number">3.2.4.</span> <span class="toc-nav-text">go 语句</span></a></li></ol></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#总结"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">总结</span></a></li></ol>
+				
+			</div>
+		</aside>
+	
+
+
+<script>
+let toc = document.getElementById('toc')
+if (toc != null) {
+    window.addEventListener("scroll", scrollcatelogHandler);
+    let tocPosition = toc.offsetTop;
+    function scrollcatelogHandler(e) {
+        let event = e || window.event,
+            target = event.target || event.srcElement;
+        let scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+        if (scrollTop > tocPosition - 60) {
+            toc.classList.add("toc-fixed");
+        } else {
+            toc.classList.remove("toc-fixed");
+        }
+    }
+}
+</script>
+        </div>
+    </div>
+</article>
+
+    </div>
+    <!-- Main Content End -->
+
+    <span id="rocket"></span>
+
+    <!-- Google Analytics -->
+    
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-171834825-2" ></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag() {
+                dataLayer.push(arguments);
+            }
+            gtag("js", new Date());
+            gtag("config", "UA-171834825-2");
+        </script>
+    
+
+    <!-- Baidu Tongji -->
+    
+
+    <script>
+        // TOC scroll
+        $(".toc-nav-link").bind("click touch", function () {
+            // 根据a标签的href转换为id选择器，获取id元素所处的位置
+            $('html,body').animate({ scrollTop: ($($(this).attr('href')).offset().top) }, 300);
+        });
+    </script>
+</body>
+</html>

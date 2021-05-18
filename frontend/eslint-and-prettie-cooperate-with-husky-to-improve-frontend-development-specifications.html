@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="zh-CN ">
+<!-- Head Start -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="kavience 的博客, 专注于前端开发, web开发, 编程技术-Eslint和prettie配合husky提高前端开发规范">
+    <meta name="keyword"  content="kavience,javascript,前端开发,php,react,kavience博客,Eslint和prettie配合husky提高前端开发规范">
+    <link rel="shortcut icon" href="/img/avatar/my-avatar.jpg">
+    <title>
+        
+          Eslint和prettie配合husky提高前端开发规范 - kavience | Blog
+        
+    </title>
+    <link rel="canonical" href="http://www.kavience.com/frontend/eslint-and-prettie-cooperate-with-husky-to-improve-frontend-development-specifications.html">
+    
+<link rel="stylesheet" href="/css/font-awesome.min.css">
+
+    
+<link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    
+<link rel="stylesheet" href="/css/omega.css">
+
+    
+<link rel="stylesheet" href="/css/highlight.css">
+
+    
+<link rel="stylesheet" href="/css/gitalk.min.css">
+
+    
+<link rel="stylesheet" href="/css/kkpager_orange.min.css">
+
+
+    
+<script src="/js/jquery.min.js"></script>
+
+    
+<script src="/js/bootstrap.min.js"></script>
+
+    
+<script src="/js/gitalk.min.js"></script>
+
+    
+<script src="/js/kkpager.min.js"></script>
+
+    
+<script src="/js/button.min.js"></script>
+
+    
+<script src="/js/fastclick.min.js"></script>
+
+    
+<script src="/js/omega.js"></script>
+
+<meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/feed.xml" title="Kavience" type="application/atom+xml">
+</head>
+
+<!-- Head End -->
+<body ontouchstart="">
+    <!-- Header Start -->
+     
+        <style type="text/css">
+    header.intro-header {
+        
+            background-image: url('/img/header_img/article-bg.jpg')
+        
+    }
+</style>
+<header id="intro-header" class="intro-header" >
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                
+                    <div class="post-heading">
+                        <div class="tags">
+                            
+                            <a class="tag" href="/tags/eslint" title="eslint">eslint</a>
+                            
+                        </div>
+                        <h1>Eslint和prettie配合husky提高前端开发规范</h1>
+                        <h2 class="subheading"></h2>
+                        <span class="meta">
+                            Posted by Kavience on
+                            2021-04-26
+                        </span>
+                    </div>
+                
+            </div>
+        </div>
+    </div>
+</header>
+
+     
+    <!-- Header End -->
+
+    <!-- Nav Start -->
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header page-scroll">
+      <button type="button" class="navbar-toggle">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/">Kavience</a>
+    </div>
+
+    <div id="blog_navbar">
+      <div class="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <a href="#" id="search" ><img style="width: 16px;height: 16px;margin: -2px 5px 0px 0;" src="/icons/search.svg " alt="">搜索 </a>
+          </li>
+          <li>
+            <a href="/">首页 </a>
+          </li>
+           
+
+           
+             
+           
+            
+              <li>
+                <a href="/categories/">分类</a>
+              </li>
+             
+           
+            
+              <li>
+                <a href="/tags/">标签</a>
+              </li>
+             
+           
+            
+              <li>
+                <a href="/archive/">归档</a>
+              </li>
+             
+           
+            
+              <li>
+                <a href="/about/">关于</a>
+              </li>
+             
+          
+        </ul>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- Search Modal -->
+<div class="modal search-modal">
+  <div class="search-container">
+    <div class="search-container-top">
+      <img src="/icons/close.svg" alt="">
+    </div>
+    <input class="search-container-input" placeholder="输入关键字搜索 " type="text">
+    <div class="search-container-content"></div>
+  </div>
+</div>
+
+<script>
+  $('.search-container').css({ "height": window.innerHeight, "overflow": 'hidden' })
+  $('.search-container-content').css({ "height": window.innerHeight - 70, "overflow": 'scroll' })
+  var allArticles = [];
+  var xReq = new XMLHttpRequest();
+  xReq.open('GET', '/search.json');
+  xReq.send();
+  xReq.onreadystatechange = function(){
+    if(xReq.readyState === 4 && xReq.status === 200){
+      allArticles = JSON.parse(xReq.responseText);
+    }
+  }
+
+  $('#search').on('click', function() {
+    document.body.style['overflow-y'] = 'hidden'
+    $('.search-modal').addClass('modal-show');
+  });
+  
+  $('.search-modal,.search-container-top img').on('click', function() {
+    document.body.style['overflow-y'] = 'scroll';
+    $('.search-modal').removeClass('modal-show');
+  });
+  
+  $('.search-container').on('click', function(e) {
+    e.stopPropagation();
+  });
+  
+  $('.search-container-input').bind('input propertychange', function(e) {
+    var searchValue = e.currentTarget.value;
+    var correctArticles = allArticles.filter(article => article.content.toLowerCase().indexOf(searchValue.toLowerCase()) > -1 || article.title.toLowerCase().indexOf(searchValue.toLowerCase()) > -1)
+    var articleListHtml = '';
+    for (let index = 0; index < correctArticles.length; index++) {
+      var article = correctArticles[index];
+      article.description = article.content.replace(/<[^>]+>/g,"");
+      var title = article.title, description = '';
+      var searchReg = RegExp(searchValue, 'i');
+      var searchRegGlobal = RegExp(searchValue, 'ig');
+      if (article.title.match(searchReg)) {
+        title = article.title.replaceAll(searchRegGlobal, `<span class="search-value-active">${searchValue}</span>`);
+      }
+      var contentMatch = article.description.match(searchReg);
+      if (contentMatch) {
+        description = `...${article.description.substr(contentMatch['index'], 210)}...`.replaceAll(searchRegGlobal, `<span class="search-value-active">${searchValue}</span>`);
+      } else {
+        description = article.description.substr(0, 200);
+      }
+
+      articleListHtml += `<div class="search-container-content_item">
+        <a href="${article.url}" class="search-container-content_item-title">${title}</a>
+        <div class="search-container-content_item-description">${description}</div>
+      </div>`
+    }
+
+    $('.search-container-content').html(articleListHtml);
+  });
+  
+</script>
+<script>
+  var $body = document.body;
+  var $toggle = document.querySelector(".navbar-toggle");
+  var $navbar = document.querySelector("#blog_navbar");
+  var $collapse = document.querySelector(".navbar-collapse");
+
+  $toggle.addEventListener("click", handleMagic);
+  function handleMagic(e) {
+    if ($navbar.className.indexOf("in") > 0) {
+      $navbar.className = " ";
+      // wait until animation end.
+      setTimeout(function () {
+        // prevent frequently toggle
+        if ($navbar.className.indexOf("in") < 0) {
+          $collapse.style.height = "0px";
+        }
+      }, 400);
+    } else {
+      $collapse.style.height = "auto";
+      $navbar.className += " in";
+    }
+  }
+</script>
+
+    <!-- Nav End -->
+
+    <!-- Main Content Start -->
+    <div class="main-content content-post ">
+        
+<!-- Post Content Start -->
+<article>
+    <div class="container" style="overflow: hidden">
+        <div class="row">
+
+            <!-- Post Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container post-markdown-body
+            ">
+                <h2 id="what">what</h2>
+<p>使用 eslint 和 prettie 再配合 husky 提高前端开发规范。</p>
+<h2 id="why">why</h2>
+<p>平时的开发中，开发规范必不可少，手动修改规范既不可靠，也非常繁琐，所以可以利用 eslint 和 prettie 自动修复以及规范化代码。</p>
+<p>再配合 husky ，当开发者 commit 的时候，会自动校验，且尝试自动修复代码，一旦修复失败，则会放弃代码提交。</p>
+<h2 id="how">how</h2>
+<p>安装以下几个依赖：</p>
+<pre><code class="highlight json"><span class="comment">// package.json</span>
+&#123;
+  <span class="comment">// ...</span>
+  <span class="comment">// 忽略其他代码</span>
+  <span class="attr">"scripts"</span>: &#123;
+    <span class="attr">"test"</span>: <span class="string">"echo \"Error: no test specified\" &amp;&amp; exit 1"</span>,
+    <span class="attr">"lint"</span>: <span class="string">"lint-staged"</span>
+  &#125;,
+  <span class="attr">"dependencies"</span>: &#123;
+    <span class="attr">"eslint"</span>: <span class="string">"^7.25.0"</span>,
+    <span class="attr">"eslint-config-airbnb"</span>: <span class="string">"^18.2.1"</span>,
+    <span class="attr">"eslint-config-prettier"</span>: <span class="string">"^8.3.0"</span>,
+    <span class="attr">"eslint-import-resolver-alias"</span>: <span class="string">"^1.1.2"</span>,
+    <span class="attr">"eslint-plugin-import"</span>: <span class="string">"^2.22.1"</span>,
+    <span class="attr">"eslint-plugin-jsx-a11y"</span>: <span class="string">"^6.4.1"</span>,
+    <span class="attr">"eslint-plugin-prettier"</span>: <span class="string">"^3.4.0"</span>,
+    <span class="attr">"eslint-plugin-react"</span>: <span class="string">"^7.23.2"</span>,
+    <span class="attr">"husky"</span>: <span class="string">"^6.0.0"</span>,
+    <span class="attr">"lint-staged"</span>: <span class="string">"^10.5.4"</span>,
+    <span class="attr">"module-alias"</span>: <span class="string">"^2.2.2"</span>,
+    <span class="attr">"prettier"</span>: <span class="string">"^2.2.1"</span>
+  &#125;,
+  <span class="attr">"husky"</span>: &#123;
+    <span class="attr">"hooks"</span>: &#123;
+      <span class="attr">"pre-commit"</span>: <span class="string">"lint-staged"</span>
+    &#125;
+  &#125;,
+  <span class="attr">"lint-staged"</span>: &#123;
+    <span class="attr">"**/*.js"</span>: [
+      <span class="string">"eslint --fix"</span>,
+      <span class="string">"git add"</span>
+    ]
+  &#125;,
+  <span class="attr">"_moduleAliases"</span>: &#123;
+    <span class="attr">"@root"</span>: <span class="string">"."</span>,
+    <span class="attr">"@lib"</span>: <span class="string">"./lib"</span>
+  &#125;
+&#125;</code></pre>
+<p>配置 <strong>.eslintrc.js</strong></p>
+<pre><code class="highlight js"><span class="built_in">module</span>.exports = &#123;
+  <span class="comment">// 使用 airbnb, prettier 推荐的规范</span>
+  extends: [<span class="string">'airbnb'</span>, <span class="string">'plugin:prettier/recommended'</span>],
+  parserOptions: &#123;
+    <span class="comment">// 使用 es6</span>
+    ecmaVersion: <span class="number">6</span>,
+    sourceType: <span class="string">'module'</span>,
+  &#125;,
+  <span class="comment">// 自定义规则</span>
+  rules: &#123;
+    <span class="string">'arrow-body-style'</span>: <span class="number">0</span>,
+    strict: <span class="number">0</span>,
+    <span class="string">'no-console'</span>: <span class="number">0</span>,
+    <span class="string">'func-names'</span>: <span class="number">0</span>,
+    <span class="string">'space-before-function-paren'</span>: <span class="number">0</span>,
+    <span class="string">'no-param-reassign'</span>: <span class="number">0</span>,
+    <span class="string">'import/no-dynamic-require'</span>: <span class="number">0</span>,
+    <span class="string">'global-require'</span>: <span class="number">0</span>,
+    <span class="string">'consistent-return'</span>: <span class="number">0</span>,
+  &#125;,
+  <span class="comment">// 配置别名</span>
+  settings: &#123;
+    <span class="string">'import/resolver'</span>: &#123;
+      alias: &#123;
+        map: [[<span class="string">'@'</span>, <span class="string">'.'</span>]],
+        extensions: [<span class="string">'.js'</span>],
+      &#125;,
+    &#125;,
+  &#125;,
+&#125;;</code></pre>
+<p>配置好之后，安装 vscode 插件 eslint，这样可以在项目编译前检查错误，另外需要重启 vscode 使配置生效。</p>
+<p>接下来配置 husky，安装依赖后运行以下命令：</p>
+<pre><code class="highlight bash"><span class="comment"># husky v6 版本是需要先安装的，会在项目下生成 .husky 目录</span>
+node_modules/.bin/husky install
+
+<span class="comment"># 添加 pre-commit 钩子</span>
+node_modules/.bin/husky <span class="built_in">set</span> .husky/pre-commit <span class="string">"npm run lint"</span></code></pre>
+<p>到此为止，项目就配置完了，接下来可以测试一下，修改一个文件，然后 commit 的时候，就会自动运行 <strong>npm run lint</strong> 了。</p>
+<blockquote>
+<p>!注意如果 husky 没生效，一定要确认 git 是在 <strong>node_modules/.bin/husky set .husky/pre-commit “npm run lint”</strong> 之前初始化的。</p>
+</blockquote>
+<h2 id="总结">总结</h2>
+<p>添加项目规范，可以保证项目的格式统一，养成良好的开发习惯。</p>
+<p>（完）</p>
+
+                
+                <hr>
+                <div class="row">
+                    <div class="col-md-12 post-statement">
+                        <span>作者: Kavience</span>
+                        <span>本文链接: <a href="http://www.kavience.com/frontend/eslint-and-prettie-cooperate-with-husky-to-improve-frontend-development-specifications.html">http://www.kavience.com/frontend/eslint-and-prettie-cooperate-with-husky-to-improve-frontend-development-specifications.html </a></span>
+                        <span>转载请注明:《Eslint和prettie配合husky提高前端开发规范》转自 http://www.kavience.com/frontend/eslint-and-prettie-cooperate-with-husky-to-improve-frontend-development-specifications.html，原作者：Kavience </span>
+                        <span><a href="https://creativecommons.org/licenses/by-nc-nd/3.0/deed.zh" target="_blank" rel="noopener">版权声明: 自由转载-非商用-非衍生-保持署名（创意共享3.0许可证）</a></span>
+                    </div>
+                    <div class="col-md-12">
+                        <!-- Categories Start -->
+                        <section>
+                            <h5><a href="/categories/">分类 </a></h5>
+                            <div class="tags">
+                                
+                                    <a class="tag" href="/categories/frontend" title="frontend">frontend</a>
+                                
+                            </div>
+                        </section>
+                        <!-- Categories End -->
+                    </div>
+                    <div class="col-md-12">
+                        <!-- Tags Start -->
+                        <section class="past-tags">
+                            <h5><a href="/tags/">标签 </a></h5>
+                            <div class="tags">
+                                
+                                    <a class="tag" href="/tags/eslint" title="eslint">eslint</a>
+                                
+                            </div>
+                        </section>
+                        <!-- Tags End -->
+                    </div>
+                </div>
+
+                <hr>
+                <!-- Pager Start -->
+                <ul class="pager">
+                    
+                        <li class="previous">
+                            <a href="/tools/hexo-theme-omega-development-history.html" data-toggle="tooltip" data-placement="top" title="Hexo主题omega开发历程">&larr; 上一篇 </a>
+                        </li>
+                    
+                    
+                        <li class="next">
+                            <a href="/frontend/reengineering-the-frontend-component-library-wheel-project.html" data-toggle="tooltip" data-placement="top" title="再造前端组件库轮子项目">下一篇  &rarr;</a>
+                        </li>
+                    
+                </ul>
+                <!-- Pager End -->
+               
+                <!-- Comment Start -->
+<div class="comment">
+  
+      <div id="Eslint和prettie配合husky提高前端开发规范" class="gitalk"></div>
+  
+  
+
+  
+      <script>
+          new Gitalk({
+            clientID: `d25cda615a572205be1e`,
+            clientSecret: `faa4cf10f1daea3d4701f8be90d80feb88c818ac`,
+            repo: `blog`,
+            owner: `kavience`,
+            admin: `kavience`,
+            id: 'Eslint和prettie配合husky提高前端开发规范',
+            title: 'Eslint和prettie配合husky提高前端开发规范',
+            distractionFreeMode: `false`,
+            language: `zh-CN`
+          }).render('Eslint和prettie配合husky提高前端开发规范');
+      </script>
+  
+
+  
+</div>            
+<!-- Comment End -->
+                
+                <br>
+                <!-- Comment Start -->
+<div class="comment">
+  
+      <div id="Eslint和prettie配合husky提高前端开发规范" class="gitalk"></div>
+  
+  
+
+  
+      <script>
+          new Gitalk({
+            clientID: `d25cda615a572205be1e`,
+            clientSecret: `faa4cf10f1daea3d4701f8be90d80feb88c818ac`,
+            repo: `blog`,
+            owner: `kavience`,
+            admin: `kavience`,
+            id: 'Eslint和prettie配合husky提高前端开发规范',
+            title: 'Eslint和prettie配合husky提高前端开发规范',
+            distractionFreeMode: `false`,
+            language: `zh-CN`
+          }).render('Eslint和prettie配合husky提高前端开发规范');
+      </script>
+  
+
+  
+</div>            
+<!-- Comment End -->
+            </div>
+            
+            <!-- Tabe of Content -->
+            
+	
+		<aside id="sidebar">
+			<div id="toc" class="toc-article">
+				<strong class="toc-title">
+					目录
+				</strong>
+				
+					<ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#what"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">what</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#why"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">why</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#how"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">how</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#总结"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">总结</span></a></li></ol>
+				
+			</div>
+		</aside>
+	
+
+
+<script>
+let toc = document.getElementById('toc')
+if (toc != null) {
+    window.addEventListener("scroll", scrollcatelogHandler);
+    let tocPosition = toc.offsetTop;
+    function scrollcatelogHandler(e) {
+        let event = e || window.event,
+            target = event.target || event.srcElement;
+        let scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+        if (scrollTop > tocPosition - 60) {
+            toc.classList.add("toc-fixed");
+        } else {
+            toc.classList.remove("toc-fixed");
+        }
+    }
+}
+</script>
+        </div>
+    </div>
+</article>
+
+    </div>
+    <!-- Main Content End -->
+
+    <span id="rocket"></span>
+
+    <!-- Google Analytics -->
+    
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-171834825-2" ></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag() {
+                dataLayer.push(arguments);
+            }
+            gtag("js", new Date());
+            gtag("config", "UA-171834825-2");
+        </script>
+    
+
+    <!-- Baidu Tongji -->
+    
+
+    <script>
+        // TOC scroll
+        $(".toc-nav-link").bind("click touch", function () {
+            // 根据a标签的href转换为id选择器，获取id元素所处的位置
+            $('html,body').animate({ scrollTop: ($($(this).attr('href')).offset().top) }, 300);
+        });
+    </script>
+</body>
+</html>

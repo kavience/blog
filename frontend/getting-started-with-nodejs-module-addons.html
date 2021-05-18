@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="zh-CN ">
+<!-- Head Start -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="kavience 的博客, 专注于前端开发, web开发, 编程技术-Nodejs模块addons入门">
+    <meta name="keyword"  content="kavience,javascript,前端开发,php,react,kavience博客,Nodejs模块addons入门">
+    <link rel="shortcut icon" href="/img/avatar/my-avatar.jpg">
+    <title>
+        
+          Nodejs模块addons入门 - kavience | Blog
+        
+    </title>
+    <link rel="canonical" href="http://www.kavience.com/frontend/getting-started-with-nodejs-module-addons.html">
+    
+<link rel="stylesheet" href="/css/font-awesome.min.css">
+
+    
+<link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    
+<link rel="stylesheet" href="/css/omega.css">
+
+    
+<link rel="stylesheet" href="/css/highlight.css">
+
+    
+<link rel="stylesheet" href="/css/gitalk.min.css">
+
+    
+<link rel="stylesheet" href="/css/kkpager_orange.min.css">
+
+
+    
+<script src="/js/jquery.min.js"></script>
+
+    
+<script src="/js/bootstrap.min.js"></script>
+
+    
+<script src="/js/gitalk.min.js"></script>
+
+    
+<script src="/js/kkpager.min.js"></script>
+
+    
+<script src="/js/button.min.js"></script>
+
+    
+<script src="/js/fastclick.min.js"></script>
+
+    
+<script src="/js/omega.js"></script>
+
+<meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/feed.xml" title="Kavience" type="application/atom+xml">
+</head>
+
+<!-- Head End -->
+<body ontouchstart="">
+    <!-- Header Start -->
+     
+        <style type="text/css">
+    header.intro-header {
+        
+            background-image: url('/img/header_img/article-bg.jpg')
+        
+    }
+</style>
+<header id="intro-header" class="intro-header" >
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                
+                    <div class="post-heading">
+                        <div class="tags">
+                            
+                            <a class="tag" href="/tags/JavaScript" title="JavaScript">JavaScript</a>
+                            
+                            <a class="tag" href="/tags/nodejs" title="nodejs">nodejs</a>
+                            
+                        </div>
+                        <h1>Nodejs模块addons入门</h1>
+                        <h2 class="subheading"></h2>
+                        <span class="meta">
+                            Posted by Kavience on
+                            2021-03-30
+                        </span>
+                    </div>
+                
+            </div>
+        </div>
+    </div>
+</header>
+
+     
+    <!-- Header End -->
+
+    <!-- Nav Start -->
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header page-scroll">
+      <button type="button" class="navbar-toggle">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/">Kavience</a>
+    </div>
+
+    <div id="blog_navbar">
+      <div class="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <a href="#" id="search" ><img style="width: 16px;height: 16px;margin: -2px 5px 0px 0;" src="/icons/search.svg " alt="">搜索 </a>
+          </li>
+          <li>
+            <a href="/">首页 </a>
+          </li>
+           
+
+           
+             
+           
+            
+              <li>
+                <a href="/categories/">分类</a>
+              </li>
+             
+           
+            
+              <li>
+                <a href="/tags/">标签</a>
+              </li>
+             
+           
+            
+              <li>
+                <a href="/archive/">归档</a>
+              </li>
+             
+           
+            
+              <li>
+                <a href="/about/">关于</a>
+              </li>
+             
+          
+        </ul>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- Search Modal -->
+<div class="modal search-modal">
+  <div class="search-container">
+    <div class="search-container-top">
+      <img src="/icons/close.svg" alt="">
+    </div>
+    <input class="search-container-input" placeholder="输入关键字搜索 " type="text">
+    <div class="search-container-content"></div>
+  </div>
+</div>
+
+<script>
+  $('.search-container').css({ "height": window.innerHeight, "overflow": 'hidden' })
+  $('.search-container-content').css({ "height": window.innerHeight - 70, "overflow": 'scroll' })
+  var allArticles = [];
+  var xReq = new XMLHttpRequest();
+  xReq.open('GET', '/search.json');
+  xReq.send();
+  xReq.onreadystatechange = function(){
+    if(xReq.readyState === 4 && xReq.status === 200){
+      allArticles = JSON.parse(xReq.responseText);
+    }
+  }
+
+  $('#search').on('click', function() {
+    document.body.style['overflow-y'] = 'hidden'
+    $('.search-modal').addClass('modal-show');
+  });
+  
+  $('.search-modal,.search-container-top img').on('click', function() {
+    document.body.style['overflow-y'] = 'scroll';
+    $('.search-modal').removeClass('modal-show');
+  });
+  
+  $('.search-container').on('click', function(e) {
+    e.stopPropagation();
+  });
+  
+  $('.search-container-input').bind('input propertychange', function(e) {
+    var searchValue = e.currentTarget.value;
+    var correctArticles = allArticles.filter(article => article.content.toLowerCase().indexOf(searchValue.toLowerCase()) > -1 || article.title.toLowerCase().indexOf(searchValue.toLowerCase()) > -1)
+    var articleListHtml = '';
+    for (let index = 0; index < correctArticles.length; index++) {
+      var article = correctArticles[index];
+      article.description = article.content.replace(/<[^>]+>/g,"");
+      var title = article.title, description = '';
+      var searchReg = RegExp(searchValue, 'i');
+      var searchRegGlobal = RegExp(searchValue, 'ig');
+      if (article.title.match(searchReg)) {
+        title = article.title.replaceAll(searchRegGlobal, `<span class="search-value-active">${searchValue}</span>`);
+      }
+      var contentMatch = article.description.match(searchReg);
+      if (contentMatch) {
+        description = `...${article.description.substr(contentMatch['index'], 210)}...`.replaceAll(searchRegGlobal, `<span class="search-value-active">${searchValue}</span>`);
+      } else {
+        description = article.description.substr(0, 200);
+      }
+
+      articleListHtml += `<div class="search-container-content_item">
+        <a href="${article.url}" class="search-container-content_item-title">${title}</a>
+        <div class="search-container-content_item-description">${description}</div>
+      </div>`
+    }
+
+    $('.search-container-content').html(articleListHtml);
+  });
+  
+</script>
+<script>
+  var $body = document.body;
+  var $toggle = document.querySelector(".navbar-toggle");
+  var $navbar = document.querySelector("#blog_navbar");
+  var $collapse = document.querySelector(".navbar-collapse");
+
+  $toggle.addEventListener("click", handleMagic);
+  function handleMagic(e) {
+    if ($navbar.className.indexOf("in") > 0) {
+      $navbar.className = " ";
+      // wait until animation end.
+      setTimeout(function () {
+        // prevent frequently toggle
+        if ($navbar.className.indexOf("in") < 0) {
+          $collapse.style.height = "0px";
+        }
+      }, 400);
+    } else {
+      $collapse.style.height = "auto";
+      $navbar.className += " in";
+    }
+  }
+</script>
+
+    <!-- Nav End -->
+
+    <!-- Main Content Start -->
+    <div class="main-content content-post ">
+        
+<!-- Post Content Start -->
+<article>
+    <div class="container" style="overflow: hidden">
+        <div class="row">
+
+            <!-- Post Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container post-markdown-body
+            ">
+                <h2 id="what">what</h2>
+<p>打算好好学习一下 nodejs，那就先从 nodejs 官方文档看起吧，这篇博客主要是记录一下 nodejs 下的 c++ addnos 模块，看 nodejs 为什么要引入 c++ ，以及如何引入 c++ 代码。</p>
+<p><a href="https://nodejs.org/docs/latest-v9.x/api/addons.html" target="_blank" rel="noopener">c++ addons 官方文档</a></p>
+<h2 id="why">why</h2>
+<blockquote>
+<p>nodejs 采用事件驱动、异步编程，为网络服务而设计。其实 Javascript 的匿名函数和闭包特性非常适合事件驱动、异步编程。非阻塞模式的 IO 处理给 Node.js 带来在相对低系统资源耗用下的高性能与出众的负载能力，非常适合用作依赖其它 IO 资源的中间层服务。</p>
+</blockquote>
+<p>Nodejs 虽然有着不错的异步能力，但是在密集型计算的时候却并不出众，简单来说所有的异步任务会维护在一个事件循环中(队列)，线程会不断的去事件循环中取任务来执行，当 CPU 密集型的任务造成执行时间过长，就会导致其他任务无法执行，这样整个程序的性能就不行了。这个时候就可以用 c++ 来编写一些 nodejs 模块，加快运算时间。</p>
+<h2 id="how">how</h2>
+<p>以 fibonacci 函数为例，先看一下运行结果。</p>
+<pre><code class="highlight js"><span class="keyword">var</span> fibonacciC = <span class="built_in">require</span>(<span class="string">"./build/Release/fibonacci.node"</span>).fibonacci;
+<span class="function"><span class="keyword">function</span> <span class="title">fibonacciJS</span>(<span class="params">n</span>) </span>&#123;
+  <span class="keyword">if</span> (n &lt;= <span class="number">0</span>) <span class="keyword">return</span> <span class="number">0</span>;
+  <span class="keyword">else</span> <span class="keyword">if</span> (n == <span class="number">1</span>) <span class="keyword">return</span> <span class="number">1</span>;
+  <span class="keyword">else</span> <span class="keyword">return</span> fibonacciJS(n - <span class="number">1</span>) + fibonacciJS(n - <span class="number">2</span>);
+&#125;
+
+<span class="built_in">console</span>.time(<span class="string">"c++"</span>);
+<span class="built_in">console</span>.log(fibonacciC(<span class="number">40</span>));
+<span class="built_in">console</span>.timeEnd(<span class="string">"c++"</span>);
+
+<span class="built_in">console</span>.time(<span class="string">"js"</span>);
+<span class="built_in">console</span>.log(fibonacciJS(<span class="number">40</span>));
+<span class="built_in">console</span>.timeEnd(<span class="string">"js"</span>);
+
+<span class="comment">// 输出</span>
+<span class="number">102334155</span>
+c++: <span class="number">524.515</span>ms
+<span class="number">102334155</span>
+js: <span class="number">1.335</span>s</code></pre>
+<p>在 40 次的递归运算中，可以看到采用原生 js 实现的方式，时间是 c++ 方式实现的两倍多，如果计算时间更长的话，原生 js 实现的效率更低。</p>
+<p>接下来看一下是如何把 c++ 的代码结合到 nodejs 中。</p>
+<h3 id="编写-c-代码">编写 c++ 代码</h3>
+<pre><code class="highlight c++"><span class="comment">// fibonacci.cc</span>
+<span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;node.h&gt;</span></span>
+
+<span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;
+
+<span class="keyword">namespace</span> demo &#123;
+
+<span class="keyword">using</span> v8::FunctionCallbackInfo;
+<span class="keyword">using</span> v8::Isolate;
+<span class="keyword">using</span> v8::Local;
+<span class="keyword">using</span> v8::Object;
+<span class="keyword">using</span> v8::Number;
+<span class="keyword">using</span> v8::Value;
+
+<span class="function"><span class="keyword">int</span> <span class="title">fib</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;
+   <span class="keyword">if</span> (n &lt;= <span class="number">0</span>)
+        <span class="keyword">return</span> <span class="number">0</span>;
+    <span class="keyword">else</span> <span class="keyword">if</span> (n == <span class="number">1</span>)
+        <span class="keyword">return</span> <span class="number">1</span>;
+    <span class="keyword">else</span>
+        <span class="keyword">return</span> fib(n - <span class="number">1</span>) + fib(n - <span class="number">2</span>);
+&#125;
+
+<span class="comment">/* 通过 FunctionCallbackInfo&lt;Value&gt;&amp; args 可以设置返回值 */</span>
+<span class="function"><span class="keyword">void</span> <span class="title">fibonacci</span><span class="params">(<span class="keyword">const</span> FunctionCallbackInfo&lt;Value&gt;&amp; args)</span> </span>&#123;
+  Isolate *isolate = args.GetIsolate();
+  <span class="comment">// node v10 版本之前是这样获取 number 参数的</span>
+  <span class="comment">// args[0]-&gt;NumberValue()</span>
+  <span class="comment">// v10 版本之后是这样获取的</span>
+  <span class="comment">// args[0].As&lt;Number&gt;()-&gt;Value()</span>
+  Local&lt;Number&gt; num = Number::New(isolate, fib(args[<span class="number">0</span>].As&lt;Number&gt;()-&gt;Value()));
+
+  <span class="comment">// 设置函数调用的返回值</span>
+  args.GetReturnValue().Set(num);
+  <span class="keyword">return</span> ;
+&#125;
+
+<span class="function"><span class="keyword">void</span> <span class="title">Initialize</span><span class="params">(Local&lt;Object&gt; exports)</span> </span>&#123;
+  <span class="comment">// 指定 module 名字</span>
+  NODE_SET_METHOD(exports, <span class="string">"fibonacci"</span>, fibonacci);
+&#125;
+
+<span class="comment">// 加载 module</span>
+NODE_MODULE(NODE_GYP_MODULE_NAME, Initialize)
+
+&#125;</code></pre>
+<h3 id="编译-c-代码">编译 c++ 代码</h3>
+<pre><code class="highlight bash"><span class="comment"># 首先要安装 node-gyp</span>
+npm i -g node-gyp</code></pre>
+<p>在当前目录下添加 <code>binding.gyp</code> 文件，内容为:</p>
+<pre><code class="highlight js">&#123;
+  <span class="string">"targets"</span>: [
+    &#123;
+      <span class="string">"target_name"</span>: <span class="string">"fibonacci"</span>,
+      <span class="string">"sources"</span>: [ <span class="string">"fibonacci.cc"</span> ]
+    &#125;
+  ]
+&#125;</code></pre>
+<p>运行打包编译命令</p>
+<pre><code class="highlight bash"><span class="comment"># 先打包</span>
+node-gyp  configure
+<span class="comment"># 会生成一个 build 目录，然后进入这个目录</span>
+<span class="built_in">cd</span> build
+<span class="comment"># 编译文件</span>
+make</code></pre>
+<p>这个时候会生成一个 build 目录，以及 build 目录下的 Release 目录。</p>
+<h3 id="引入-c-模块">引入 c++ 模块</h3>
+<p>接下来就可以像这样引入该模块</p>
+<pre><code class="highlight js"><span class="keyword">var</span> fibonacciC = <span class="built_in">require</span>(<span class="string">"./build/Release/fibonacci.node"</span>).fibonacci;
+<span class="built_in">console</span>.log(fibonacciC(<span class="number">40</span>));</code></pre>
+<h2 id="总结">总结</h2>
+<p>引入 c++ ，借助其高效的计算能力，可以让 nodejs 也进行一些密集型的计算，本文只是一个简单的实例，更多强大的功能还需要看官方文档以及熟悉 c++ 才行。</p>
+
+                
+                <hr>
+                <div class="row">
+                    <div class="col-md-12 post-statement">
+                        <span>作者: Kavience</span>
+                        <span>本文链接: <a href="http://www.kavience.com/frontend/getting-started-with-nodejs-module-addons.html">http://www.kavience.com/frontend/getting-started-with-nodejs-module-addons.html </a></span>
+                        <span>转载请注明:《Nodejs模块addons入门》转自 http://www.kavience.com/frontend/getting-started-with-nodejs-module-addons.html，原作者：Kavience </span>
+                        <span><a href="https://creativecommons.org/licenses/by-nc-nd/3.0/deed.zh" target="_blank" rel="noopener">版权声明: 自由转载-非商用-非衍生-保持署名（创意共享3.0许可证）</a></span>
+                    </div>
+                    <div class="col-md-12">
+                        <!-- Categories Start -->
+                        <section>
+                            <h5><a href="/categories/">分类 </a></h5>
+                            <div class="tags">
+                                
+                                    <a class="tag" href="/categories/frontend" title="frontend">frontend</a>
+                                
+                            </div>
+                        </section>
+                        <!-- Categories End -->
+                    </div>
+                    <div class="col-md-12">
+                        <!-- Tags Start -->
+                        <section class="past-tags">
+                            <h5><a href="/tags/">标签 </a></h5>
+                            <div class="tags">
+                                
+                                    <a class="tag" href="/tags/JavaScript" title="JavaScript">JavaScript</a>
+                                
+                                    <a class="tag" href="/tags/nodejs" title="nodejs">nodejs</a>
+                                
+                            </div>
+                        </section>
+                        <!-- Tags End -->
+                    </div>
+                </div>
+
+                <hr>
+                <!-- Pager Start -->
+                <ul class="pager">
+                    
+                        <li class="previous">
+                            <a href="/tools/use-travis-for-ci-and-cd.html" data-toggle="tooltip" data-placement="top" title="利用travis做CI和CD">&larr; 上一篇 </a>
+                        </li>
+                    
+                    
+                        <li class="next">
+                            <a href="/tools/rosetta-and-npm-under-apple-m1.html" data-toggle="tooltip" data-placement="top" title="Apple M1 下的 Rosetta 与 Npm">下一篇  &rarr;</a>
+                        </li>
+                    
+                </ul>
+                <!-- Pager End -->
+               
+                <!-- Comment Start -->
+<div class="comment">
+  
+      <div id="Nodejs模块addons入门" class="gitalk"></div>
+  
+  
+
+  
+      <script>
+          new Gitalk({
+            clientID: `d25cda615a572205be1e`,
+            clientSecret: `faa4cf10f1daea3d4701f8be90d80feb88c818ac`,
+            repo: `blog`,
+            owner: `kavience`,
+            admin: `kavience`,
+            id: 'Nodejs模块addons入门',
+            title: 'Nodejs模块addons入门',
+            distractionFreeMode: `false`,
+            language: `zh-CN`
+          }).render('Nodejs模块addons入门');
+      </script>
+  
+
+  
+</div>            
+<!-- Comment End -->
+                
+                <br>
+                <!-- Comment Start -->
+<div class="comment">
+  
+      <div id="Nodejs模块addons入门" class="gitalk"></div>
+  
+  
+
+  
+      <script>
+          new Gitalk({
+            clientID: `d25cda615a572205be1e`,
+            clientSecret: `faa4cf10f1daea3d4701f8be90d80feb88c818ac`,
+            repo: `blog`,
+            owner: `kavience`,
+            admin: `kavience`,
+            id: 'Nodejs模块addons入门',
+            title: 'Nodejs模块addons入门',
+            distractionFreeMode: `false`,
+            language: `zh-CN`
+          }).render('Nodejs模块addons入门');
+      </script>
+  
+
+  
+</div>            
+<!-- Comment End -->
+            </div>
+            
+            <!-- Tabe of Content -->
+            
+	
+		<aside id="sidebar">
+			<div id="toc" class="toc-article">
+				<strong class="toc-title">
+					目录
+				</strong>
+				
+					<ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#what"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">what</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#why"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">why</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#how"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">how</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#编写-c-代码"><span class="toc-nav-number">3.1.</span> <span class="toc-nav-text">编写 c++ 代码</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#编译-c-代码"><span class="toc-nav-number">3.2.</span> <span class="toc-nav-text">编译 c++ 代码</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#引入-c-模块"><span class="toc-nav-number">3.3.</span> <span class="toc-nav-text">引入 c++ 模块</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#总结"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">总结</span></a></li></ol>
+				
+			</div>
+		</aside>
+	
+
+
+<script>
+let toc = document.getElementById('toc')
+if (toc != null) {
+    window.addEventListener("scroll", scrollcatelogHandler);
+    let tocPosition = toc.offsetTop;
+    function scrollcatelogHandler(e) {
+        let event = e || window.event,
+            target = event.target || event.srcElement;
+        let scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+        if (scrollTop > tocPosition - 60) {
+            toc.classList.add("toc-fixed");
+        } else {
+            toc.classList.remove("toc-fixed");
+        }
+    }
+}
+</script>
+        </div>
+    </div>
+</article>
+
+    </div>
+    <!-- Main Content End -->
+
+    <span id="rocket"></span>
+
+    <!-- Google Analytics -->
+    
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-171834825-2" ></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag() {
+                dataLayer.push(arguments);
+            }
+            gtag("js", new Date());
+            gtag("config", "UA-171834825-2");
+        </script>
+    
+
+    <!-- Baidu Tongji -->
+    
+
+    <script>
+        // TOC scroll
+        $(".toc-nav-link").bind("click touch", function () {
+            // 根据a标签的href转换为id选择器，获取id元素所处的位置
+            $('html,body').animate({ scrollTop: ($($(this).attr('href')).offset().top) }, 300);
+        });
+    </script>
+</body>
+</html>

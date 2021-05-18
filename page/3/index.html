@@ -255,7 +255,101 @@
 			
 				
 					<div class="post-preview">
-						<a href="/front-end/js-advanced-frontend-interview-questions-continuous-update.html">
+						<a href="/tools/rosetta-and-npm-under-apple-m1.html">
+							<h2 class="post-title">
+								 
+								Apple M1 下的 Rosetta 与 Npm
+							</h2>
+							<h3 class="post-subtitle">
+								
+							</h3>
+							<div class="post-content-preview">
+								what
+新版的 Apple M1 是基于 arm 架构的，然而大部分的软件 和 npm 包都还没有适配 arm 架构，所以苹果公司就使用 Rosetta 来兼容 x86 架构的软件。
+why
+第一次使用 x86 软件的时候，系统会自动提示安装 Rosetta ，安装后直接运行软件即可。
+然而，今天遇到一个非常奇怪的问题，在安装依赖的时候我发现无法安装 node-canvas 这个包，经过一......
+							</div>
+						</a>
+						<p class="post-meta">
+							Posted by Kavience on 2021-03-26
+						</p>
+						<div class="tags">
+							
+								<a href="/tags/apple" title="apple">apple</a>
+							
+						</div>
+					</div>
+					<hr />
+				 
+			
+				
+					<div class="post-preview">
+						<a href="/frontend/study-and-use-of-mobx.html">
+							<h2 class="post-title">
+								 
+								Mobx的学习与使用
+							</h2>
+							<h3 class="post-subtitle">
+								
+							</h3>
+							<div class="post-content-preview">
+								mobx 简介
+
+简单、可扩展的状态管理，相比于 redux，更轻巧，更简单，更灵活，在某些时候性能甚至更优越。
+
+在这里简单的记录和介绍一下 mobx 的使用。
+简单例子
+import &#123; observable &#125; from "mobx";
+import &#123; observer &#125; from "mobx-react";
+
+var numStore = ......
+							</div>
+						</a>
+						<p class="post-meta">
+							Posted by Kavience on 2021-03-24
+						</p>
+						<div class="tags">
+							
+								<a href="/tags/mobx" title="mobx">mobx</a>
+							
+								<a href="/tags/mobx-react" title="mobx-react">mobx-react</a>
+							
+						</div>
+					</div>
+					<hr />
+				 
+			
+				
+					<div class="post-preview">
+						<a href="/frontend/typescript-common-knowledge-summary.html">
+							<h2 class="post-title">
+								 
+								Typescript常见知识总结
+							</h2>
+							<h3 class="post-subtitle">
+								
+							</h3>
+							<div class="post-content-preview">
+								never, unknown, any 三者之间的区别
+三者都是 TypeScript 的类型, never 是最具体的类型，因为没有哪个集合比空集合更小了；而 unknown 是最弱的类型，因为它包含了全部可能的值。 any 则不为集合，它破坏了类型检查，因此请尽量不要使用 any。在 TypeScript 中， nerver 可以赋值为 unknown 和 any ，但是 unknown......
+							</div>
+						</a>
+						<p class="post-meta">
+							Posted by Kavience on 2020-12-25
+						</p>
+						<div class="tags">
+							
+								<a href="/tags/typescript" title="typescript">typescript</a>
+							
+						</div>
+					</div>
+					<hr />
+				 
+			
+				
+					<div class="post-preview">
+						<a href="/frontend/js-advanced-frontend-interview-questions-continuous-update.html">
 							<h2 class="post-title">
 								 
 								前端面试题之Js进阶(持续更新)
@@ -296,7 +390,7 @@ Undefined
 			
 				
 					<div class="post-preview">
-						<a href="/front-end/other-concepts-of-frontend-interview-questions-continuous-update.html">
+						<a href="/frontend/other-concepts-of-frontend-interview-questions-continuous-update.html">
 							<h2 class="post-title">
 								 
 								前端面试题之其它概念(持续更新)
@@ -326,7 +420,7 @@ Undefined
 			
 				
 					<div class="post-preview">
-						<a href="/front-end/interface-and-style-of-frontend-interview-questions-continuous-update.html">
+						<a href="/frontend/interface-and-style-of-frontend-interview-questions-continuous-update.html">
 							<h2 class="post-title">
 								 
 								前端面试题之界面与样式(持续更新)
@@ -355,106 +449,6 @@ DOCTYPE 的作用
 					<hr />
 				 
 			
-				
-					<div class="post-preview">
-						<a href="/front-end/demo-of-flow-chart-editor-based-on-g6.html">
-							<h2 class="post-title">
-								 
-								基于g6的流程图编辑器Demo
-							</h2>
-							<h3 class="post-subtitle">
-								
-							</h3>
-							<div class="post-content-preview">
-								✨ 特点
-
-拖拽式更新工作流程图
-数据与图双向转换
-
-📦 原理
-拖拽
-基于 react-dnd 和 react-dnd-html5-backend 创建拖拽节点与背景画布。
-图
-基于 g6 创建可视化图，根据 api 提供的 registerBehavior 注册行为，监听鼠标事件，基于 g6 提供的 ToolBar, Menu, Minimap, Grid 等插件，提供更多功能。
-样式
-......
-							</div>
-						</a>
-						<p class="post-meta">
-							Posted by Kavience on 2020-10-14
-						</p>
-						<div class="tags">
-							
-								<a href="/tags/g6" title="g6">g6</a>
-							
-								<a href="/tags/流程图" title="流程图">流程图</a>
-							
-						</div>
-					</div>
-					<hr />
-				 
-			
-				
-					<div class="post-preview">
-						<a href="/front-end/js-thoroughly-understand-the-point-of-this.html">
-							<h2 class="post-title">
-								 
-								Js-彻底了解This的指向
-							</h2>
-							<h3 class="post-subtitle">
-								
-							</h3>
-							<div class="post-content-preview">
-								起因
-对 js 的 this 指向问题还是会有点模糊，我决定下点功夫，写下这篇文章，彻底把 this 搞明白。
-什么是 this ？
-这也是我发出的第一个问题，究竟什么是 this ？在 js 中 this 代表的到底是什么？根据 w3c 的描述：
-
-The JavaScript this keyword refers to the object it belongs to.
-
-
-在 js ......
-							</div>
-						</a>
-						<p class="post-meta">
-							Posted by Kavience on 2020-09-07
-						</p>
-						<div class="tags">
-							
-								<a href="/tags/JavaScript" title="JavaScript">JavaScript</a>
-							
-						</div>
-					</div>
-					<hr />
-				 
-			
-				
-					<div class="post-preview">
-						<a href="/think/the-world-is-developing-mankind-progressing.html">
-							<h2 class="post-title">
-								 
-								世界在发展，人类有进步吗
-							</h2>
-							<h3 class="post-subtitle">
-								
-							</h3>
-							<div class="post-content-preview">
-								本文是受阮一峰老师的博客 为什么人类没有越来越闲？ 启发，于是想独立的思考更多这个问题。
-地球已经出现几十亿年，人类出现不过区区几百万年，而且真正开始在地球占领统治地位的时间则更短了。有时候我也时常在想，为什么我感觉现在人的生活并没有因为人类统治地位而更轻松？很明显，近现代一两百年的科技发展，将人类带上了一个新的台阶，我觉得这个变化不亚于人类第一次用火和人类第一次有国家、文明的概念。按理说，......
-							</div>
-						</a>
-						<p class="post-meta">
-							Posted by Kavience on 2020-08-27
-						</p>
-						<div class="tags">
-							
-								<a href="/tags/人类" title="人类">人类</a>
-							
-						</div>
-					</div>
-					<hr />
-				 
-			
 
 			<!-- Pager Start -->
 			<div id="kkpager"></div>
@@ -463,7 +457,7 @@ The JavaScript this keyword refers to the object it belongs to.
 					kkpager.generPageHtml({
 						pno: '3',
 						total: '6',
-						totalRecords: '33',
+						totalRecords: '36',
 						mode: 'link',
 						hrefFormer: '/page',
 						getLink: function(n){
@@ -573,23 +567,23 @@ The JavaScript this keyword refers to the object it belongs to.
     <ul>
       
         <li>
+          <a href="/backend/a-preliminary-study-of-golang-language3.html">Golang语言初探三</a>
+        </li>
+      
+        <li>
+          <a href="/backend/a-preliminary-study-of-golang-language2.html">Golang语言初探二</a>
+        </li>
+      
+        <li>
+          <a href="/backend/a-preliminary-study-of-golang-language1.html">Golang语言初探一</a>
+        </li>
+      
+        <li>
           <a href="/think/reprint-some-reflections-after-starting-a-business.html">[转载]创业后的一些反思</a>
         </li>
       
         <li>
           <a href="/tools/personal-collection-navigation.html">个人收藏导航</a>
-        </li>
-      
-        <li>
-          <a href="/tools/hexo-theme-omega-development-history.html">Hexo主题omega开发历程</a>
-        </li>
-      
-        <li>
-          <a href="/front-end/eslint-and-prettie-cooperate-with-husky-to-improve-frontend-development-specifications.html">Eslint和prettie配合husky提高前端开发规范</a>
-        </li>
-      
-        <li>
-          <a href="/front-end/reengineering-the-frontend-component-library-wheel-project.html">再造前端组件库轮子项目</a>
         </li>
       
     </ul>
@@ -600,7 +594,7 @@ The JavaScript this keyword refers to the object it belongs to.
         
     <h5>分类</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/front-end/">front-end</a><span class="category-list-count">16</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/php/">php</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/think/">think</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/tools/">tools</a><span class="category-list-count">7</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/backend/">backend</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/frontend/">frontend</a><span class="category-list-count">16</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/php/">php</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/think/">think</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/tools/">tools</a><span class="category-list-count">7</span></li></ul>
     </div>
 
         <hr>
@@ -608,7 +602,7 @@ The JavaScript this keyword refers to the object it belongs to.
         
     <h5><a href="/archives/">归档</a></h5>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/05/">五月 2021</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/04/">四月 2021</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/03/">三月 2021</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/12/">十二月 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">十一月 2020</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">十月 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/09/">九月 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">八月 2020</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">七月 2020</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">六月 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">十二月 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">十月 2019</a><span class="archive-list-count">2</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/05/">五月 2021</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/04/">四月 2021</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/03/">三月 2021</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/12/">十二月 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">十一月 2020</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">十月 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/09/">九月 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">八月 2020</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">七月 2020</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">六月 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">十二月 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">十月 2019</a><span class="archive-list-count">2</span></li></ul>
     </div>
 
         <hr>
@@ -620,7 +614,7 @@ The JavaScript this keyword refers to the object it belongs to.
         <h5><a href="/tags/">标签 </a></h5>
         <div id="myCanvasContainer" class="widget tagcloud">
             <canvas width="250" height="250" id="resCanvas" style="width: 100%">
-                <a href="/tags/2020%E8%AE%A1%E5%88%92/" style="font-size: 10px;">2020计划</a> <a href="/tags/CI-CD/" style="font-size: 10px;">CI-CD</a> <a href="/tags/JavaScript/" style="font-size: 20px;">JavaScript</a> <a href="/tags/PSR%E8%A7%84%E8%8C%83/" style="font-size: 10px;">PSR规范</a> <a href="/tags/Reactjs/" style="font-size: 10px;">Reactjs</a> <a href="/tags/apple/" style="font-size: 10px;">apple</a> <a href="/tags/eslint/" style="font-size: 10px;">eslint</a> <a href="/tags/g6/" style="font-size: 10px;">g6</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/jest/" style="font-size: 10px;">jest</a> <a href="/tags/mobx/" style="font-size: 10px;">mobx</a> <a href="/tags/mobx-react/" style="font-size: 10px;">mobx-react</a> <a href="/tags/mocha/" style="font-size: 10px;">mocha</a> <a href="/tags/nodejs/" style="font-size: 10px;">nodejs</a> <a href="/tags/omega/" style="font-size: 10px;">omega</a> <a href="/tags/sentry/" style="font-size: 10px;">sentry</a> <a href="/tags/typescript/" style="font-size: 10px;">typescript</a> <a href="/tags/%E4%BA%BA%E7%B1%BB/" style="font-size: 10px;">人类</a> <a href="/tags/%E4%BC%98%E5%8C%96/" style="font-size: 10px;">优化</a> <a href="/tags/%E5%88%9B%E4%B8%9A/" style="font-size: 10px;">创业</a> <a href="/tags/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E9%A2%98/" style="font-size: 15px;">前端面试题</a> <a href="/tags/%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/" style="font-size: 10px;">单元测试</a> <a href="/tags/%E5%9D%9A%E6%8C%81/" style="font-size: 10px;">坚持</a> <a href="/tags/%E5%BC%80%E5%A7%8B/" style="font-size: 10px;">开始</a> <a href="/tags/%E6%94%B6%E8%97%8F/" style="font-size: 10px;">收藏</a> <a href="/tags/%E6%B5%81%E7%A8%8B%E5%9B%BE/" style="font-size: 10px;">流程图</a> <a href="/tags/%E7%84%A6%E8%99%91/" style="font-size: 10px;">焦虑</a> <a href="/tags/%E7%94%9F%E5%91%BD/" style="font-size: 10px;">生命</a> <a href="/tags/%E7%BF%BB%E5%A2%99/" style="font-size: 10px;">翻墙</a> <a href="/tags/%E8%B7%AF/" style="font-size: 10px;">路</a> <a href="/tags/%E8%BF%B7%E8%8C%AB/" style="font-size: 10px;">迷茫</a> <a href="/tags/%E9%9A%8F%E7%AC%94%E9%97%B2%E8%B0%88/" style="font-size: 10px;">随笔闲谈</a>
+                <a href="/tags/2020%E8%AE%A1%E5%88%92/" style="font-size: 10px;">2020计划</a> <a href="/tags/CI-CD/" style="font-size: 10px;">CI-CD</a> <a href="/tags/JavaScript/" style="font-size: 20px;">JavaScript</a> <a href="/tags/PSR%E8%A7%84%E8%8C%83/" style="font-size: 10px;">PSR规范</a> <a href="/tags/Reactjs/" style="font-size: 10px;">Reactjs</a> <a href="/tags/apple/" style="font-size: 10px;">apple</a> <a href="/tags/eslint/" style="font-size: 10px;">eslint</a> <a href="/tags/g6/" style="font-size: 10px;">g6</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/golang/" style="font-size: 15px;">golang</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/jest/" style="font-size: 10px;">jest</a> <a href="/tags/mobx/" style="font-size: 10px;">mobx</a> <a href="/tags/mobx-react/" style="font-size: 10px;">mobx-react</a> <a href="/tags/mocha/" style="font-size: 10px;">mocha</a> <a href="/tags/nodejs/" style="font-size: 10px;">nodejs</a> <a href="/tags/omega/" style="font-size: 10px;">omega</a> <a href="/tags/sentry/" style="font-size: 10px;">sentry</a> <a href="/tags/typescript/" style="font-size: 10px;">typescript</a> <a href="/tags/%E4%BA%BA%E7%B1%BB/" style="font-size: 10px;">人类</a> <a href="/tags/%E4%BC%98%E5%8C%96/" style="font-size: 10px;">优化</a> <a href="/tags/%E5%88%9B%E4%B8%9A/" style="font-size: 10px;">创业</a> <a href="/tags/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E9%A2%98/" style="font-size: 15px;">前端面试题</a> <a href="/tags/%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/" style="font-size: 10px;">单元测试</a> <a href="/tags/%E5%9D%9A%E6%8C%81/" style="font-size: 10px;">坚持</a> <a href="/tags/%E5%BC%80%E5%A7%8B/" style="font-size: 10px;">开始</a> <a href="/tags/%E6%94%B6%E8%97%8F/" style="font-size: 10px;">收藏</a> <a href="/tags/%E6%B5%81%E7%A8%8B%E5%9B%BE/" style="font-size: 10px;">流程图</a> <a href="/tags/%E7%84%A6%E8%99%91/" style="font-size: 10px;">焦虑</a> <a href="/tags/%E7%94%9F%E5%91%BD/" style="font-size: 10px;">生命</a> <a href="/tags/%E7%BF%BB%E5%A2%99/" style="font-size: 10px;">翻墙</a> <a href="/tags/%E8%B7%AF/" style="font-size: 10px;">路</a> <a href="/tags/%E8%BF%B7%E8%8C%AB/" style="font-size: 10px;">迷茫</a> <a href="/tags/%E9%9A%8F%E7%AC%94%E9%97%B2%E8%B0%88/" style="font-size: 10px;">随笔闲谈</a>
             </canvas>
         </div>
     </div>
@@ -634,7 +628,7 @@ The JavaScript this keyword refers to the object it belongs to.
     Refers to <a href="http://huangxuan.me" target="_blank" rel="noopener">Hux</a>
     <br>
     <span class="post-count">
-      All posts 37k words altogether</span>
+      All posts 57.8k words altogether</span>
     <br />
     Copyright &copy; Kavience
       2021

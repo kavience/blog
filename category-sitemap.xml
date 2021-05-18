@@ -2,35 +2,43 @@
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
     <url>
-        <loc>http://www.kavience.com</loc>
+        <loc>http://www.kavience.com/</loc>
         <changefreq>daily</changefreq>
         <priority>1</priority>
     </url>
 
+
     <url>
         <loc>http://www.kavience.com/categories/think/</loc>
-        <lastmod>2021-05-10T09:36:45.262Z</lastmod>
+        <lastmod>2021-05-18T07:51:15.324Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>http://www.kavience.com/categories/front-end/</loc>
-        <lastmod>2021-05-10T09:36:45.262Z</lastmod>
+        <loc>http://www.kavience.com/categories/backend/</loc>
+        <lastmod>2021-05-18T07:51:15.324Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>http://www.kavience.com/categories/tools/</loc>
-        <lastmod>2021-05-10T09:36:45.262Z</lastmod>
+        <loc>http://www.kavience.com/categories/frontend/</loc>
+        <lastmod>2021-05-18T07:51:15.324Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>http://www.kavience.com/categories/php/</loc>
-        <lastmod>2021-05-10T09:36:45.258Z</lastmod>
+        <lastmod>2021-05-18T07:51:15.324Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://www.kavience.com/categories/tools/</loc>
+        <lastmod>2021-05-18T07:51:15.324Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
