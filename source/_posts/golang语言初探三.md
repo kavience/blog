@@ -443,6 +443,6 @@ sync.WaitGroup 类型有三个方法可用—— Add、 Done 和 Wait 。 Add �
   
 ## 总结
 
-
+本系列只是 golang 入门语法，是根据[慕课网-Go语言第一课](https://www.imooc.com/learn/345)学习，并记录下来，方便日后查阅，加深印象。感谢慕课网。
 
 （完）
