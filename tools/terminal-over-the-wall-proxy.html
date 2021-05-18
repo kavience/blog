@@ -6,14 +6,16 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="kavience 的博客, 专注于前端开发, web开发, 编程技术-Terminal翻墙代理">
-    <meta name="keyword"  content="kavience,javascript,前端开发,php,react,kavience博客,Terminal翻墙代理">
+    <meta name="keywords"  content="kavience,javascript,前端开发,php,react,kavience博客,Terminal翻墙代理">
+    <meta name="description" content="本文记录如何实现 terminal 翻墙代理">
+    <meta property="og:locale" content="zh-CN">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Terminal翻墙代理 - kavience | Blog">
+    <meta property="og:description" content="本文记录如何实现 terminal 翻墙代理">
+    <meta property="og:url" content="http://www.kavience.com/tools/terminal-over-the-wall-proxy.html">
+    <meta property="og:site_name" content="kavience | Blog">
     <link rel="shortcut icon" href="/img/avatar/my-avatar.jpg">
-    <title>
-        
-          Terminal翻墙代理 - kavience | Blog
-        
-    </title>
+    <title>Terminal翻墙代理 - kavience | Blog</title>
     <link rel="canonical" href="http://www.kavience.com/tools/terminal-over-the-wall-proxy.html">
     
 <link rel="stylesheet" href="/css/font-awesome.min.css">
@@ -81,7 +83,6 @@
                             
                         </div>
                         <h1>Terminal翻墙代理</h1>
-                        <h2 class="subheading"></h2>
                         <span class="meta">
                             Posted by Kavience on
                             2020-07-21
@@ -264,9 +265,7 @@
                 post-container post-markdown-body
             ">
                 <h2 id="what？">What？</h2>
-<blockquote>
 <p>通过 <a href="https://github.com/rofl0r/proxychains-ng" target="_blank" rel="noopener">proxychains-ng</a> 实现 terminal 代理</p>
-</blockquote>
 <h2 id="why？">Why？</h2>
 <blockquote>
 <p>目前的代理功能，大部分底层都是基于 socks5、http 等，然后配合插件如 SwitchyOmega 等，实现在浏览器端代理，或者是全局代理，但问题是在 terminal 下仍然不走代理。即使通过 <code>export http_proxy=http://127.0.0.1:1081 https_proxy=http://127.0.0.1:1081</code> 发现还是不行。这几天终于忍受不了，我觉得一定有人跟我一样的想法，肯定有人已经着手在做这件事情。果然，偶然发现 <a href="https://github.com/rofl0r/proxychains-ng" target="_blank" rel="noopener">proxychains-ng</a> 这款开源软件，决定试一下。</p>

@@ -6,14 +6,16 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="kavience 的博客, 专注于前端开发, web开发, 编程技术-Golang语言初探三">
-    <meta name="keyword"  content="kavience,javascript,前端开发,php,react,kavience博客,Golang语言初探三">
+    <meta name="keywords"  content="golang,golang入门,golang教程,golang入门文档">
+    <meta name="description" content="研究了一下 golang 相关的文档，写下这篇 golang 入门日记，包含 golang 基础教程，这是 golang 语言初探第三篇">
+    <meta property="og:locale" content="zh-CN">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Golang语言初探三 - kavience | Blog">
+    <meta property="og:description" content="研究了一下 golang 相关的文档，写下这篇 golang 入门日记，包含 golang 基础教程，这是 golang 语言初探第三篇">
+    <meta property="og:url" content="http://www.kavience.com/backend/a-preliminary-study-of-golang-language3.html">
+    <meta property="og:site_name" content="kavience | Blog">
     <link rel="shortcut icon" href="/img/avatar/my-avatar.jpg">
-    <title>
-        
-          Golang语言初探三 - kavience | Blog
-        
-    </title>
+    <title>Golang语言初探三 - kavience | Blog</title>
     <link rel="canonical" href="http://www.kavience.com/backend/a-preliminary-study-of-golang-language3.html">
     
 <link rel="stylesheet" href="/css/font-awesome.min.css">
@@ -81,7 +83,6 @@
                             
                         </div>
                         <h1>Golang语言初探三</h1>
-                        <h2 class="subheading"></h2>
                         <span class="meta">
                             Posted by Kavience on
                             2021-05-18
@@ -264,7 +265,7 @@
                 post-container post-markdown-body
             ">
                 <h2 id="what">what</h2>
-<p>关于 golang 入门的笔记。</p>
+<p>研究了一下 golang 相关的文档，写下这篇 golang 入门日记，包含 golang 基础教程，这是 golang 语言初探第三篇。</p>
 <ul>
 <li><a href="/backend/a-preliminary-study-of-golang-language1.html">golang语言初探一</a></li>
 <li><a href="/backend/a-preliminary-study-of-golang-language2.html">golang语言初探二</a></li>
@@ -605,6 +606,7 @@ ch2 := <span class="built_in">make</span>(<span class="keyword">chan</span> <spa
 &#125;</code></pre>
 <p>sync.WaitGroup 类型有三个方法可用—— Add、 Done 和 Wait 。 Add 会使其所属值的一个内置整数得到相应增加， Done 会使那个整数减 1 ，而 Wait 方法会使当前 Goroutine（这里是运行 main 函数的那个 Goroutine ）阻塞直到那个整数为 0 。这下你应该明白上面这个示例所采用的方法了。我们在 main 函数中启用了三个 Goroutine 来封装三个 go 函数。每个匿名函数的最后都调用了 wg.Done 方法，并以此表达当前的 go 函数会立即执行结束的情况。当这三个 go 函数都调用过 wg.Done 函数之后，处于 main 函数最后的那条 wg.Wait() 语句的阻塞作用将会消失， main 函数的执行将立即结束。</p>
 <h2 id="总结">总结</h2>
+<p>本系列只是 golang 入门语法，是根据<a href="https://www.imooc.com/learn/345" target="_blank" rel="noopener">慕课网-Go语言第一课</a>学习，并记录下来，方便日后查阅，加深印象。感谢慕课网。</p>
 <p>（完）</p>
 
                 
