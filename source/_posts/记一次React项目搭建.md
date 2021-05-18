@@ -7,7 +7,7 @@ categories:
   - frontend
 translate_title: remember-to-build-a-react-project
 date: 2020-06-15 18:30:09
-subtitle:
+subtitle: 通过 npm、webpack、babel、typescript 等工具，自己搭建一次 React 的 typescript 项目
 header_img:
 ---
 
@@ -17,7 +17,7 @@ header_img:
 
 ## What？
 
-> 通过 npm、webpack、babel、typescript 等工具，自己搭建一次 React 的 typescript 项目。
+通过 npm、webpack、babel、typescript 等工具，自己搭建一次 React 的 typescript 项目。
 
 ## Why？
 

@@ -8,7 +8,7 @@ categories:
   - frontend
 translate_title: study-and-use-of-mobx
 date: 2021-03-24 13:20:39
-subtitle:
+subtitle: mobx 是简单、可扩展的状态管理库，相比于 redux，更轻巧，更简单，更灵活，在某些时候性能甚至更优越
 header_img:
 ---
 

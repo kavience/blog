@@ -8,14 +8,15 @@ categories:
   - frontend
 translate_title: getting-started-with-nodejs-module-addons
 date: 2021-03-30 13:17:19
-subtitle:
+subtitle: 记录一下 nodejs 下的 c++ addons 模块，看 nodejs 为什么要引入 c++ ，以及如何引入 c++ 代码
+keywords: nodejs,c++,addons
 header_img:
 ---
 
 
 ## what
 
-打算好好学习一下 nodejs，那就先从 nodejs 官方文档看起吧，这篇博客主要是记录一下 nodejs 下的 c++ addnos 模块，看 nodejs 为什么要引入 c++ ，以及如何引入 c++ 代码。
+打算好好学习一下 nodejs，那就先从 nodejs 官方文档看起吧，这篇博客主要是记录一下 nodejs 下的 c++ addons 模块，看 nodejs 为什么要引入 c++ ，以及如何引入 c++ 代码。
 
 [c++ addons 官方文档](https://nodejs.org/docs/latest-v9.x/api/addons.html)
 

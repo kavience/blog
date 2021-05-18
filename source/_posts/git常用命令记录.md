@@ -9,7 +9,8 @@ categories:
   - tools
 translate_title: git-common-command-record
 date: 2021-04-23 10:17:23
-subtitle:
+subtitle: 一篇关于 Git 常用命令的记录文章，例如常用的git stash, git rebase, git reset, git rm 等
+keywords: git,git入门,git教程,git rebase,git reset,git rm
 header_img:
 ---
 

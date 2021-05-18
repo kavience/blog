@@ -8,7 +8,8 @@ categories:
   - frontend
 translate_title: demo-of-flow-chart-editor-based-on-g6
 date: 2020-10-14 14:01:46
-subtitle:
+subtitle: 基于g6的流程图编辑器Demo
+keywords: g6,流程图,react
 header_img:
 ---
 

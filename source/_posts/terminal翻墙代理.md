@@ -8,13 +8,13 @@ categories:
 abbrlink: 28167
 translate_title: terminal-over-the-wall-proxy
 date: 2020-07-21 10:06:58
-subtitle:
+subtitle: 本文记录如何实现 terminal 翻墙代理
 header_img:
 ---
 
 ## What？
 
-> 通过 [proxychains-ng](https://github.com/rofl0r/proxychains-ng) 实现 terminal 代理
+通过 [proxychains-ng](https://github.com/rofl0r/proxychains-ng) 实现 terminal 代理
 
 ## Why？
 

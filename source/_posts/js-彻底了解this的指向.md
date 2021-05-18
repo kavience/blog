@@ -7,7 +7,7 @@ categories:
   - frontend
 translate_title: js-thoroughly-understand-the-point-of-this
 date: 2020-09-07 17:37:16
-subtitle:
+subtitle: 对 js 的 this 指向问题还是会有点模糊，我决定下点功夫，写下这篇文章，彻底把 this 搞明白
 header_img:
 ---
 

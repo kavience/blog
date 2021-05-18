@@ -3,6 +3,8 @@ title: Apple M1 下的 Rosetta 与 npm
 translate_title: rosetta-and-npm-under-apple-m1
 catalog: true
 date: 2021-03-26 14:07:46
+subtitle: 新版的 Apple M1 是基于 arm 架构的，然而大部分的软件 和 npm 包都还没有适配 arm 架构，所以苹果公司就使用 Rosetta 来兼容 x86 架构的软件
+keywords: Apple M1, Rosetta, npm
 tags:
   - apple
 categories:

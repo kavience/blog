@@ -3,16 +3,16 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="<%= config.description + '-' + page.title || config.title  %>">
-    <meta name="keyword"  content="<%= config.keyword + ',' + page.title || config.title %>">
+    <meta name="keywords"  content="<%= page.keywords || (config.keyword + ',' + page.title || config.title) %>">
+    <meta name="description" content="<%= page.description || page.subtitle || (config.description + '-' + page.title || config.title)  %>">
+    <meta property="og:locale" content="<%= config.language  %>">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="<%= page.title ? page.title + ' - ' + theme.SEOTitle :  theme.SEOTitle %>">
+    <meta property="og:description" content="<%= page.description || page.subtitle || (config.description + '-' + page.title || config.title)  %>">
+    <meta property="og:url" content="<%= config.url + config.root + (page.path || '').replace('index.html', '') %>">
+    <meta property="og:site_name" content="<%= theme.SEOTitle %>">
     <link rel="shortcut icon" href="<%= config.root %>img/avatar/my-avatar.jpg">
-    <title>
-        <% if (page.title) { %>
-          <%= page.title + ' - ' + theme.SEOTitle %>
-        <% } else{%>
-          <%= theme.SEOTitle %>
-        <% } %>
-    </title>
+    <title><%= page.title ? page.title + ' - ' + theme.SEOTitle :  theme.SEOTitle %></title>
     <link rel="canonical" href="<%= config.url + config.root + (page.path || '').replace('index.html', '') %>">
     <%- css('css/font-awesome.min') %>
     <%- css('css/bootstrap.min') %>

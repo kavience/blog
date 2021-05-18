@@ -8,12 +8,13 @@ categories:
   - backend
 translate_title: a-preliminary-study-of-golang-language2
 date: 2021-05-18 09:54:55
-subtitle:
+subtitle: 研究了一下 golang 相关的文档，写下这篇 golang 入门日记，包含 golang 基础教程，这是 golang 语言初探第二篇
+keywords: golang,golang入门,golang教程,golang入门文档
 header_img:
 ---
 
 ## what
-关于 golang 入门的笔记。
+研究了一下 golang 相关的文档，写下这篇 golang 入门日记，包含 golang 基础教程，这是 golang 语言初探第二篇。
 
 - [golang语言初探一](/backend/a-preliminary-study-of-golang-language1.html)
 - golang语言初探二

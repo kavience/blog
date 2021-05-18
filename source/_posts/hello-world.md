@@ -7,7 +7,7 @@ categories:
   - think
 translate_title: hello-world
 date: 2019-10-16 23:02:43
-subtitle:
+subtitle: Hello World Hexo Omega, 试过各种各样的博客搭建平台，最终还是决定依托 HEXO 搭建，我觉得我的博客不需要有多少多复杂的功能，只需要简单清新一点就好了
 header_img:
 ---
 

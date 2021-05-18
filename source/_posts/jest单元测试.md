@@ -8,7 +8,8 @@ categories:
   - frontend
 translate_title: jest-unit-testing
 date: 2020-08-25 11:19:51
-subtitle:
+subtitle: 采用 Jest 对 react 项目进行单元测试
+kewords: Jest,react,单元测试
 header_img:
 ---
 

@@ -1,7 +1,8 @@
 ---
 title: {{ title }}
 translate_title:
-subtitle:
+subtitle: 
+keywords: 
 date: {{ date }}
 catalog: true
 hidden: false

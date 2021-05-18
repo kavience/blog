@@ -7,7 +7,7 @@ categories:
   - frontend
 translate_title: js-advanced-frontend-interview-questions-continuous-update
 date: 2020-11-12 19:05:46
-subtitle:
+subtitle: 前端面试题之js进阶(持续更新), 包括一些常见的 js 题，js 继承、promise实现、call、apply、bind 等
 header_img:
 ---
 

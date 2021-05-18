@@ -8,13 +8,13 @@ categories:
 abbrlink: 28080
 translate_title: psr1-basic-specification
 date: 2020-07-08 14:31:52
-subtitle:
+subtitle: 本文是根据 PSR 规范英文文档翻译而来，建议多次阅读以便熟悉这些规范，并在工作中用到这些规范。
 header_img:
 ---
 
 ## 阅读建议
 
-> 本文是根据 PSR 规范英文文档翻译而来，建议多次阅读以便熟悉这些规范，并在工作中用到这些规范。
+本文是根据 PSR 规范英文文档翻译而来，建议多次阅读以便熟悉这些规范，并在工作中用到这些规范。
 
 ## What?
 

@@ -7,13 +7,13 @@ categories:
   - frontend
 translate_title: js-advanced-execution-context-and-stack
 date: 2019-10-19 10:50:06
-subtitle:
+subtitle: 执行上下文是评估和执行 JavaScript 代码的环境的抽象概念，Javascript 代码都是在执行上下文中运行
 header_img:
 ---
 
 ## 什么是 JavaScript 执行上下文？
 
-> 执行上下文是评估和执行 JavaScript 代码的环境的抽象概念，Javascript 代码都是在执行上下文中运行。
+执行上下文是评估和执行 JavaScript 代码的环境的抽象概念，Javascript 代码都是在执行上下文中运行。
 
 ## 什么是 JavaScript 执行栈？
 

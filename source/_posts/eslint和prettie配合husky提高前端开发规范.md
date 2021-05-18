@@ -9,7 +9,8 @@ categories:
 translate_title: >-
   eslint-and-prettie-cooperate-with-husky-to-improve-frontend-development-specifications
 date: 2021-04-26 18:54:50
-subtitle:
+subtitle: 使用 eslint 和 prettie 再配合 husky 提高前端开发规范
+keywords: eslint,prettie,husky
 header_img:
 ---
 

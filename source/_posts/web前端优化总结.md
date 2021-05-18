@@ -8,7 +8,7 @@ categories:
   - frontend
 translate_title: summary-of-web-frontend-optimization
 date: 2020-08-04 10:04:24
-subtitle:
+subtitle: 针对 web 前端优化方案的总结, 主要技术栈为 React
 header_img:
 ---
 

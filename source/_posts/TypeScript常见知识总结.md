@@ -1,5 +1,5 @@
 ---
-title: typescript常见知识总结
+title: Typescript常见知识总结
 catalog: true
 tags:
   - typescript
@@ -7,7 +7,7 @@ categories:
   - frontend
 translate_title: typescript-common-knowledge-summary
 date: 2020-12-25 14:11:17
-subtitle:
+subtitle: Typescript 常见知识总结
 header_img:
 ---
 

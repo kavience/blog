@@ -8,7 +8,7 @@ categories:
   - frontend
 translate_title: mocha-unit-test
 date: 2019-12-15 14:26:11
-subtitle:
+subtitle: mocha 是一个测试框架，可以通过 npm 全局安装在本地，或者是局部安装在项目中
 header-img:
 ---
 

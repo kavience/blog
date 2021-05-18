@@ -10,7 +10,8 @@ categories:
   - tools
 translate_title: hexo-theme-omega-development-history
 date: 2021-04-30 14:58:13
-subtitle:
+subtitle: hexo-theme-omega 是 hexo 框架下的一个博客主题
+keywords: omega,hexo-theme-omega,hexo theme
 header_img:
 ---
 
