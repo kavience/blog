@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="zh-CN ">
+<!-- Head Start -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords"  content="kavience,javascript,前端开发,php,react,kavience博客,Kubectl常用命令记录">
+    <meta name="description" content="kubectl 常用命令记录，例如pod、日志、pvc、configmap、deployment、ingress、describe等操作。">
+    <meta property="og:locale" content="zh-CN">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Kubectl常用命令记录 - kavience | Blog">
+    <meta property="og:description" content="kubectl 常用命令记录，例如pod、日志、pvc、configmap、deployment、ingress、describe等操作。">
+    <meta property="og:url" content="http://www.kavience.com/uncategorized/kubectl-common-command-record.html">
+    <meta property="og:site_name" content="kavience | Blog">
+    <link rel="shortcut icon" href="/img/avatar/my-avatar.jpg">
+    <title>Kubectl常用命令记录 - kavience | Blog</title>
+    <link rel="canonical" href="http://www.kavience.com/uncategorized/kubectl-common-command-record.html">
+    
+<link rel="stylesheet" href="/css/font-awesome.min.css">
+
+    
+<link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    
+<link rel="stylesheet" href="/css/omega.css">
+
+    
+<link rel="stylesheet" href="/css/highlight.css">
+
+    
+<link rel="stylesheet" href="/css/gitalk.min.css">
+
+    
+<link rel="stylesheet" href="/css/kkpager_orange.min.css">
+
+
+    
+<script src="/js/jquery.min.js"></script>
+
+    
+<script src="/js/bootstrap.min.js"></script>
+
+    
+<script src="/js/gitalk.min.js"></script>
+
+    
+<script src="/js/kkpager.min.js"></script>
+
+    
+<script src="/js/button.min.js"></script>
+
+    
+<script src="/js/fastclick.min.js"></script>
+
+    
+<script src="/js/omega.js"></script>
+
+<meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/feed.xml" title="Kavience" type="application/atom+xml">
+</head>
+
+<!-- Head End -->
+<body ontouchstart="">
+    <!-- Header Start -->
+     
+        <style type="text/css">
+    header.intro-header {
+        
+            background-image: url('/img/header_img/article-bg.jpg')
+        
+    }
+</style>
+<header id="intro-header" class="intro-header" >
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                
+                    <div class="post-heading">
+                        <div class="tags">
+                            
+                        </div>
+                        <h1>Kubectl常用命令记录</h1>
+                        <span class="meta">
+                            Posted by Kavience on
+                            2021-06-01
+                        </span>
+                    </div>
+                
+            </div>
+        </div>
+    </div>
+</header>
+
+     
+    <!-- Header End -->
+
+    <!-- Nav Start -->
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header page-scroll">
+      <button type="button" class="navbar-toggle">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/">Kavience</a>
+    </div>
+
+    <div id="blog_navbar">
+      <div class="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <a href="#" id="search" ><img style="width: 16px;height: 16px;margin: -2px 5px 0px 0;" src="/icons/search.svg " alt="">搜索 </a>
+          </li>
+          <li>
+            <a href="/">首页 </a>
+          </li>
+           
+
+           
+             
+           
+            
+              <li>
+                <a href="/categories/">分类</a>
+              </li>
+             
+           
+            
+              <li>
+                <a href="/tags/">标签</a>
+              </li>
+             
+           
+            
+              <li>
+                <a href="/archive/">归档</a>
+              </li>
+             
+           
+            
+              <li>
+                <a href="/about/">关于</a>
+              </li>
+             
+          
+        </ul>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- Search Modal -->
+<div class="modal search-modal">
+  <div class="search-container">
+    <div class="search-container-top">
+      <img src="/icons/close.svg" alt="">
+    </div>
+    <input class="search-container-input" placeholder="输入关键字搜索 " type="text">
+    <div class="search-container-content"></div>
+  </div>
+</div>
+
+<script>
+  $('.search-container').css({ "height": window.innerHeight, "overflow": 'hidden' })
+  $('.search-container-content').css({ "height": window.innerHeight - 70, "overflow": 'scroll' })
+  var allArticles = [];
+  var xReq = new XMLHttpRequest();
+  xReq.open('GET', '/search.json');
+  xReq.send();
+  xReq.onreadystatechange = function(){
+    if(xReq.readyState === 4 && xReq.status === 200){
+      allArticles = JSON.parse(xReq.responseText);
+    }
+  }
+
+  $('#search').on('click', function() {
+    document.body.style['overflow-y'] = 'hidden'
+    $('.search-modal').addClass('modal-show');
+  });
+  
+  $('.search-modal,.search-container-top img').on('click', function() {
+    document.body.style['overflow-y'] = 'scroll';
+    $('.search-modal').removeClass('modal-show');
+  });
+  
+  $('.search-container').on('click', function(e) {
+    e.stopPropagation();
+  });
+  
+  $('.search-container-input').bind('input propertychange', function(e) {
+    var searchValue = e.currentTarget.value;
+    var correctArticles = allArticles.filter(article => article.content.toLowerCase().indexOf(searchValue.toLowerCase()) > -1 || article.title.toLowerCase().indexOf(searchValue.toLowerCase()) > -1)
+    var articleListHtml = '';
+    for (let index = 0; index < correctArticles.length; index++) {
+      var article = correctArticles[index];
+      article.description = article.content.replace(/<[^>]+>/g,"");
+      var title = article.title, description = '';
+      var searchReg = RegExp(searchValue, 'i');
+      var searchRegGlobal = RegExp(searchValue, 'ig');
+      if (article.title.match(searchReg)) {
+        title = article.title.replaceAll(searchRegGlobal, `<span class="search-value-active">${searchValue}</span>`);
+      }
+      var contentMatch = article.description.match(searchReg);
+      if (contentMatch) {
+        description = `...${article.description.substr(contentMatch['index'], 210)}...`.replaceAll(searchRegGlobal, `<span class="search-value-active">${searchValue}</span>`);
+      } else {
+        description = article.description.substr(0, 200);
+      }
+
+      articleListHtml += `<div class="search-container-content_item">
+        <a href="${article.url}" class="search-container-content_item-title">${title}</a>
+        <div class="search-container-content_item-description">${description}</div>
+      </div>`
+    }
+
+    $('.search-container-content').html(articleListHtml);
+  });
+  
+</script>
+<script>
+  var $body = document.body;
+  var $toggle = document.querySelector(".navbar-toggle");
+  var $navbar = document.querySelector("#blog_navbar");
+  var $collapse = document.querySelector(".navbar-collapse");
+
+  $toggle.addEventListener("click", handleMagic);
+  function handleMagic(e) {
+    if ($navbar.className.indexOf("in") > 0) {
+      $navbar.className = " ";
+      // wait until animation end.
+      setTimeout(function () {
+        // prevent frequently toggle
+        if ($navbar.className.indexOf("in") < 0) {
+          $collapse.style.height = "0px";
+        }
+      }, 400);
+    } else {
+      $collapse.style.height = "auto";
+      $navbar.className += " in";
+    }
+  }
+</script>
+
+    <!-- Nav End -->
+
+    <!-- Main Content Start -->
+    <div class="main-content content-post ">
+        
+<!-- Post Content Start -->
+<article>
+    <div class="container" style="overflow: hidden">
+        <div class="row">
+
+            <!-- Post Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container post-markdown-body
+            ">
+                <h2 id="what">what</h2>
+<p>记录工作中一些常用的命令。</p>
+<h2 id="why">why</h2>
+<p>使用的有点频繁，方便以后查找。</p>
+<h2 id="how">how</h2>
+<p>创建 pod</p>
+<pre><code class="highlight sudo">
+删除 pod
+
+&#96;&#96;&#96;sudo kubectl delete -f &lt;yaml文件&gt; -n &lt;命名空间&gt;</code></pre>
+<p>强制删除 pod</p>
+<pre><code class="highlight sudo">
+查看命名空间
+
+&#96;&#96;&#96;sudo kubectl get namespace</code></pre>
+<p>查看命名空间下的 pods 且分组</p>
+<pre><code class="highlight sudo">
+查看pod描述
+
+&#96;&#96;&#96;sudo kubectl describe pod &lt;pod 名字&gt; -n &lt;命名空间&gt;</code></pre>
+<p>查看日志</p>
+<pre><code class="highlight sudo">
+查看 ingress
+
+&#96;&#96;&#96;sudo kubectl get ingress -A</code></pre>
+<p>进入pod</p>
+<pre><code class="highlight kubectl">
+删除 pvc
+
+&#96;&#96;&#96;sudo kubectl patch pvc &lt;pvc名字&gt; -p &#39;&#123;&quot;metadata&quot;:&#123;&quot;finalizers&quot;:null&#125;&#125;&#39;</code></pre>
+<p>删除 deployment</p>
+<pre><code class="highlight sudo">
+编辑configmap
+
+&#96;&#96;&#96;sudo kubectl edit configmap sfa-wxwork-api-cm -n &lt;命名空间&gt;</code></pre>
+<h2 id="总结">总结</h2>
+<p>感觉容器化是一个趋势，尤其是针对项目将来需要 SaaS 独立部署，目前只记录一些简单命令，不够完善。</p>
+<p>（完）</p>
+
+                
+                <hr>
+                <div class="row">
+                    <div class="col-md-12 post-statement">
+                        <span>作者: Kavience</span>
+                        <span>本文链接: <a href="http://www.kavience.com/uncategorized/kubectl-common-command-record.html">http://www.kavience.com/uncategorized/kubectl-common-command-record.html </a></span>
+                        <span>转载请注明:《Kubectl常用命令记录》转自 http://www.kavience.com/uncategorized/kubectl-common-command-record.html，原作者：Kavience </span>
+                        <span><a href="https://creativecommons.org/licenses/by-nc-nd/3.0/deed.zh" target="_blank" rel="noopener">版权声明: 自由转载-非商用-非衍生-保持署名（创意共享3.0许可证）</a></span>
+                    </div>
+                    <div class="col-md-12">
+                        <!-- Categories Start -->
+                        <section>
+                            <h5><a href="/categories/">分类 </a></h5>
+                            <div class="tags">
+                                
+                            </div>
+                        </section>
+                        <!-- Categories End -->
+                    </div>
+                    <div class="col-md-12">
+                        <!-- Tags Start -->
+                        <section class="past-tags">
+                            <h5><a href="/tags/">标签 </a></h5>
+                            <div class="tags">
+                                
+                            </div>
+                        </section>
+                        <!-- Tags End -->
+                    </div>
+                </div>
+
+                <hr>
+                <!-- Pager Start -->
+                <ul class="pager">
+                    
+                    
+                        <li class="next">
+                            <a href="/uncategorized/lei-junentrepreneurship-lesson-one.html" data-toggle="tooltip" data-placement="top" title="雷军-创业第一课">下一篇  &rarr;</a>
+                        </li>
+                    
+                </ul>
+                <!-- Pager End -->
+               
+                <!-- Comment Start -->
+<div class="comment">
+  
+      <div id="Kubectl常用命令记录" class="gitalk"></div>
+  
+  
+
+  
+      <script>
+          new Gitalk({
+            clientID: `d25cda615a572205be1e`,
+            clientSecret: `faa4cf10f1daea3d4701f8be90d80feb88c818ac`,
+            repo: `blog`,
+            owner: `kavience`,
+            admin: `kavience`,
+            id: 'Kubectl常用命令记录',
+            title: 'Kubectl常用命令记录',
+            distractionFreeMode: `false`,
+            language: `zh-CN`
+          }).render('Kubectl常用命令记录');
+      </script>
+  
+
+  
+</div>            
+<!-- Comment End -->
+                
+                <br>
+                <!-- Comment Start -->
+<div class="comment">
+  
+      <div id="Kubectl常用命令记录" class="gitalk"></div>
+  
+  
+
+  
+      <script>
+          new Gitalk({
+            clientID: `d25cda615a572205be1e`,
+            clientSecret: `faa4cf10f1daea3d4701f8be90d80feb88c818ac`,
+            repo: `blog`,
+            owner: `kavience`,
+            admin: `kavience`,
+            id: 'Kubectl常用命令记录',
+            title: 'Kubectl常用命令记录',
+            distractionFreeMode: `false`,
+            language: `zh-CN`
+          }).render('Kubectl常用命令记录');
+      </script>
+  
+
+  
+</div>            
+<!-- Comment End -->
+            </div>
+            
+            <!-- Tabe of Content -->
+            
+	
+		<aside id="sidebar">
+			<div id="toc" class="toc-article">
+				<strong class="toc-title">
+					目录
+				</strong>
+				
+					<ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#what"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">what</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#why"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">why</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#how"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">how</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#总结"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">总结</span></a></li></ol>
+				
+			</div>
+		</aside>
+	
+
+
+<script>
+let toc = document.getElementById('toc')
+if (toc != null) {
+    window.addEventListener("scroll", scrollcatelogHandler);
+    let tocPosition = toc.offsetTop;
+    function scrollcatelogHandler(e) {
+        let event = e || window.event,
+            target = event.target || event.srcElement;
+        let scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+        if (scrollTop > tocPosition - 60) {
+            toc.classList.add("toc-fixed");
+        } else {
+            toc.classList.remove("toc-fixed");
+        }
+    }
+}
+</script>
+        </div>
+    </div>
+</article>
+
+    </div>
+    <!-- Main Content End -->
+
+    <span id="rocket"></span>
+
+    <!-- Google Analytics -->
+    
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-171834825-2" ></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag() {
+                dataLayer.push(arguments);
+            }
+            gtag("js", new Date());
+            gtag("config", "UA-171834825-2");
+        </script>
+    
+
+    <!-- Baidu Tongji -->
+    
+
+    <script>
+        // TOC scroll
+        $(".toc-nav-link").bind("click touch", function () {
+            // 根据a标签的href转换为id选择器，获取id元素所处的位置
+            $('html,body').animate({ scrollTop: ($($(this).attr('href')).offset().top) }, 300);
+        });
+    </script>
+</body>
+</html>
