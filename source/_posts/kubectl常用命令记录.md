@@ -23,51 +23,75 @@ header_img:
 
 创建 pod
 
-```sudo kubectl create -f <yaml文件> -n <命名空间>```
+```bash
+sudo kubectl create -f <yaml文件> -n <命名空间>
+```
 
 删除 pod
 
-```sudo kubectl delete -f <yaml文件> -n <命名空间>```
+```bash
+sudo kubectl delete -f <yaml文件> -n <命名空间>
+```
 
 强制删除 pod
 
-```sudo kubectl delete pod <pod名字> -n eip-release --grace-period=0 --force```
+```bash
+sudo kubectl delete pod <pod名字> -n eip-release --grace-period=0 --force
+```
 
 查看命名空间
 
-```sudo kubectl get namespace```
+```bash
+sudo kubectl get namespace
+```
 
 查看命名空间下的 pods 且分组
 
-```sudo kubectl get pods -n <命名空间> |grep <关键字>```
+```bash
+sudo kubectl get pods -n <命名空间> |grep <关键字>
+```
 
 查看pod描述
 
-```sudo kubectl describe pod <pod 名字> -n <命名空间>```
+```bash
+sudo kubectl describe pod <pod 名字> -n <命名空间>
+```
 
 查看日志
 
-```sudo kubectl logs <pod名字> -n <命名空间> -c <container>```
+```bash
+sudo kubectl logs <pod名字> -n <命名空间> -c <container>
+```
 
 查看 ingress
 
-```sudo kubectl get ingress -A```
+```
+sudo kubectl get ingress -A
+```
 
 进入pod
 
-```kubectl exec -ti <pod名字>  -n <命名空间>  -- sh```
+```bash
+kubectl exec -ti <pod名字>  -n <命名空间>  -- sh
+```
 
 删除 pvc
 
-```sudo kubectl patch pvc <pvc名字> -p '{"metadata":{"finalizers":null}}'```
+```bash
+sudo kubectl patch pvc <pvc名字> -p '{"metadata":{"finalizers":null}}'
+```
 
 删除 deployment
 
-```sudo kubectl delete deployment <deployment名字> -n <命名空间>```
+```bash
+sudo kubectl delete deployment <deployment名字> -n <命名空间>
+```
 
 编辑configmap
 
-```sudo kubectl edit configmap sfa-wxwork-api-cm -n <命名空间>```
+```bash
+sudo kubectl edit configmap sfa-wxwork-api-cm -n <命名空间>
+```
 
 ## 总结
 
