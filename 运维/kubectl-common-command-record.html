@@ -6,17 +6,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="keywords"  content="kavience,javascript,前端开发,php,react,kavience博客,雷军-创业第一课">
-    <meta name="description" content="看完雷军的演讲「创业第一课」有感，总结一些经验、思路。">
+    <meta name="keywords"  content="kavience,javascript,前端开发,php,react,kavience博客,Kubectl常用命令记录">
+    <meta name="description" content="kubectl 常用命令记录，例如pod、日志、pvc、configmap、deployment、ingress、describe等操作。">
     <meta property="og:locale" content="zh-CN">
     <meta property="og:type" content="article">
-    <meta property="og:title" content="雷军-创业第一课 - kavience | Blog">
-    <meta property="og:description" content="看完雷军的演讲「创业第一课」有感，总结一些经验、思路。">
-    <meta property="og:url" content="http://www.kavience.com/uncategorized/lei-junthe-first-lesson-of-entrepreneurship.html">
+    <meta property="og:title" content="Kubectl常用命令记录 - kavience | Blog">
+    <meta property="og:description" content="kubectl 常用命令记录，例如pod、日志、pvc、configmap、deployment、ingress、describe等操作。">
+    <meta property="og:url" content="http://www.kavience.com/运维/kubectl-common-command-record.html">
     <meta property="og:site_name" content="kavience | Blog">
     <link rel="shortcut icon" href="/img/avatar/my-avatar.jpg">
-    <title>雷军-创业第一课 - kavience | Blog</title>
-    <link rel="canonical" href="http://www.kavience.com/uncategorized/lei-junthe-first-lesson-of-entrepreneurship.html">
+    <title>Kubectl常用命令记录 - kavience | Blog</title>
+    <link rel="canonical" href="http://www.kavience.com/运维/kubectl-common-command-record.html">
     
 <link rel="stylesheet" href="/css/font-awesome.min.css">
 
@@ -79,11 +79,15 @@
                     <div class="post-heading">
                         <div class="tags">
                             
+                            <a class="tag" href="/tags/k8s" title="k8s">k8s</a>
+                            
+                            <a class="tag" href="/tags/kubectl" title="kubectl">kubectl</a>
+                            
                         </div>
-                        <h1>雷军-创业第一课</h1>
+                        <h1>Kubectl常用命令记录</h1>
                         <span class="meta">
                             Posted by Kavience on
-                            2021-05-21
+                            2021-06-01
                         </span>
                     </div>
                 
@@ -263,28 +267,36 @@
                 post-container post-markdown-body
             ">
                 <h2 id="what">what</h2>
-<p><a href="https://www.youtube.com/watch?v=cZgTCsOYaHI" target="_blank" rel="noopener">雷军-创业第一课</a> 总结</p>
+<p>记录工作中一些常用的命令。</p>
 <h2 id="why">why</h2>
-<p>学习雷军精神</p>
+<p>使用的有点频繁，方便以后查找。</p>
 <h2 id="how">how</h2>
-<ul>
-<li>组织力、威信力、自信、描绘蓝图的能力</li>
-<li>心态好，悄悄地干，坚持4年</li>
-<li>危机感</li>
-<li>选择自己感兴趣的领域</li>
-<li>go big market（要选择市场大的方向做）</li>
-<li>企业名字也很重要，利于外语发音、朗朗上口</li>
-<li>事情要『专注」、『极致」、『口碑」、『快」</li>
-<li>获得关注度</li>
-<li>寻找投资，要找你们信任的人、熟悉的人，陌生人很难给你投资，需要赢得别人的信任。</li>
-<li>账目资金剩余一半左右的时候适合融资</li>
-<li>认清自己的长项</li>
-<li>创业初期，创业者唯一拥有的就是这百分之百的股份，这百分之百的股份就是一个梦想，创业就是分享这个梦想的过程</li>
-<li>股权分配</li>
-<li></li>
-</ul>
+<p>创建 pod</p>
+<pre><code class="highlight bash">sudo kubectl create -f &lt;yaml文件&gt; -n &lt;命名空间&gt;</code></pre>
+<p>删除 pod</p>
+<pre><code class="highlight bash">sudo kubectl delete -f &lt;yaml文件&gt; -n &lt;命名空间&gt;</code></pre>
+<p>强制删除 pod</p>
+<pre><code class="highlight bash">sudo kubectl delete pod &lt;pod名字&gt; -n eip-release --grace-period=0 --force</code></pre>
+<p>查看命名空间</p>
+<pre><code class="highlight bash">sudo kubectl get namespace</code></pre>
+<p>查看命名空间下的 pods 且分组</p>
+<pre><code class="highlight bash">sudo kubectl get pods -n &lt;命名空间&gt; |grep &lt;关键字&gt;</code></pre>
+<p>查看pod描述</p>
+<pre><code class="highlight bash">sudo kubectl describe pod &lt;pod 名字&gt; -n &lt;命名空间&gt;</code></pre>
+<p>查看日志</p>
+<pre><code class="highlight bash">sudo kubectl logs &lt;pod名字&gt; -n &lt;命名空间&gt; -c &lt;container&gt;</code></pre>
+<p>查看 ingress</p>
+<pre><code class="highlight plain">sudo kubectl get ingress -A</code></pre>
+<p>进入pod</p>
+<pre><code class="highlight bash">kubectl <span class="built_in">exec</span> -ti &lt;pod名字&gt;  -n &lt;命名空间&gt;  -- sh</code></pre>
+<p>删除 pvc</p>
+<pre><code class="highlight bash">sudo kubectl patch pvc &lt;pvc名字&gt; -p <span class="string">'&#123;"metadata":&#123;"finalizers":null&#125;&#125;'</span></code></pre>
+<p>删除 deployment</p>
+<pre><code class="highlight bash">sudo kubectl delete deployment &lt;deployment名字&gt; -n &lt;命名空间&gt;</code></pre>
+<p>编辑configmap</p>
+<pre><code class="highlight bash">sudo kubectl edit configmap sfa-wxwork-api-cm -n &lt;命名空间&gt;</code></pre>
 <h2 id="总结">总结</h2>
-<p>听完雷军的演讲，感觉对雷军有了新的认识，对创业也有了完全不一样的认识。</p>
+<p>感觉容器化是一个趋势，尤其是针对项目将来需要 SaaS 独立部署，目前只记录一些简单命令，不够完善。</p>
 <p>（完）</p>
 
                 
@@ -292,8 +304,8 @@
                 <div class="row">
                     <div class="col-md-12 post-statement">
                         <span>作者: Kavience</span>
-                        <span>本文链接: <a href="http://www.kavience.com/uncategorized/lei-junthe-first-lesson-of-entrepreneurship.html">http://www.kavience.com/uncategorized/lei-junthe-first-lesson-of-entrepreneurship.html </a></span>
-                        <span>转载请注明:《雷军-创业第一课》转自 http://www.kavience.com/uncategorized/lei-junthe-first-lesson-of-entrepreneurship.html，原作者：Kavience </span>
+                        <span>本文链接: <a href="http://www.kavience.com/%E8%BF%90%E7%BB%B4/kubectl-common-command-record.html">http://www.kavience.com/%E8%BF%90%E7%BB%B4/kubectl-common-command-record.html </a></span>
+                        <span>转载请注明:《Kubectl常用命令记录》转自 http://www.kavience.com/%E8%BF%90%E7%BB%B4/kubectl-common-command-record.html，原作者：Kavience </span>
                         <span><a href="https://creativecommons.org/licenses/by-nc-nd/3.0/deed.zh" target="_blank" rel="noopener">版权声明: 自由转载-非商用-非衍生-保持署名（创意共享3.0许可证）</a></span>
                     </div>
                     <div class="col-md-12">
@@ -301,6 +313,8 @@
                         <section>
                             <h5><a href="/categories/">分类 </a></h5>
                             <div class="tags">
+                                
+                                    <a class="tag" href="/categories/运维" title="运维">运维</a>
                                 
                             </div>
                         </section>
@@ -312,6 +326,10 @@
                             <h5><a href="/tags/">标签 </a></h5>
                             <div class="tags">
                                 
+                                    <a class="tag" href="/tags/k8s" title="k8s">k8s</a>
+                                
+                                    <a class="tag" href="/tags/kubectl" title="kubectl">kubectl</a>
+                                
                             </div>
                         </section>
                         <!-- Tags End -->
@@ -322,13 +340,9 @@
                 <!-- Pager Start -->
                 <ul class="pager">
                     
-                        <li class="previous">
-                            <a href="/uncategorized/kubectl-common-command-record.html" data-toggle="tooltip" data-placement="top" title="Kubectl常用命令记录">&larr; 上一篇 </a>
-                        </li>
-                    
                     
                         <li class="next">
-                            <a href="/backend/a-preliminary-study-of-golang-language3.html" data-toggle="tooltip" data-placement="top" title="Golang语言初探三">下一篇  &rarr;</a>
+                            <a href="/think/lei-junentrepreneurship-lesson-one.html" data-toggle="tooltip" data-placement="top" title="雷军-创业第一课">下一篇  &rarr;</a>
                         </li>
                     
                 </ul>
@@ -337,7 +351,7 @@
                 <!-- Comment Start -->
 <div class="comment">
   
-      <div id="雷军-创业第一课" class="gitalk"></div>
+      <div id="Kubectl常用命令记录" class="gitalk"></div>
   
   
 
@@ -349,11 +363,11 @@
             repo: `blog`,
             owner: `kavience`,
             admin: `kavience`,
-            id: '雷军-创业第一课',
-            title: '雷军-创业第一课',
+            id: 'Kubectl常用命令记录',
+            title: 'Kubectl常用命令记录',
             distractionFreeMode: `false`,
             language: `zh-CN`
-          }).render('雷军-创业第一课');
+          }).render('Kubectl常用命令记录');
       </script>
   
 
@@ -365,7 +379,7 @@
                 <!-- Comment Start -->
 <div class="comment">
   
-      <div id="雷军-创业第一课" class="gitalk"></div>
+      <div id="Kubectl常用命令记录" class="gitalk"></div>
   
   
 
@@ -377,11 +391,11 @@
             repo: `blog`,
             owner: `kavience`,
             admin: `kavience`,
-            id: '雷军-创业第一课',
-            title: '雷军-创业第一课',
+            id: 'Kubectl常用命令记录',
+            title: 'Kubectl常用命令记录',
             distractionFreeMode: `false`,
             language: `zh-CN`
-          }).render('雷军-创业第一课');
+          }).render('Kubectl常用命令记录');
       </script>
   
 
