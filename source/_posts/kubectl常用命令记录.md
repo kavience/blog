@@ -3,9 +3,10 @@ title: kubectl常用命令记录
 catalog: true
 hidden: false
 tags:
-  - null
+  - k8s
+  - kubectl
 categories:
-  - null
+  - 运维
 date: 2021-06-01 16:45:00
 translate_title:
 subtitle: kubectl 常用命令记录，例如pod、日志、pvc、configmap、deployment、ingress、describe等操作。
