@@ -12,7 +12,7 @@ layout: page
 		<ul>
 		<% category.posts.map(function(post){ %>
 			<li>
-				<%= post.date.format('MM-DD') %>
+				<%= post.date.format('YYYY-MM-DD') %>
 				<i class="fa fa-angle-double-right" aria-hidden="true"></i>
 				<a href="<%- config.root %><%- post.path %>" style="color: #0085a1">
 					<span>
