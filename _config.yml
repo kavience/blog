@@ -103,7 +103,7 @@ sitemap:
 # hexo-translate-title
 # https://github.com/cometlj/hexo-translate-title#readme
 translate_title:
-  translate_way: google # google,youdao,baidu_with_appid,baidu_no_appid
+  translate_way: baidu_no_appid # google,youdao,baidu_with_appid,baidu_no_appid
   youdao_api_key: "" # Your youdao_api_key
   youdao_keyfrom: xxxx-blog # Your youdao_keyfrom
   is_need_proxy: false # true | false
