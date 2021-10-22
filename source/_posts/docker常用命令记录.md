@@ -3,11 +3,10 @@ title: docker常用命令记录
 catalog: true
 hidden: false
 tags:
-  - k8s
-  - kubectl
+  - docker
 categories:
   - dev-ops
-translate_title: kubectl-common-command-record
+translate_title: docker-common-command-record
 subtitle: docker常用命令记录, 例如查看镜像、打包、导出等操作
 date: 2021-06-01 16:45:00
 keywords:
