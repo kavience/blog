@@ -6,17 +6,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="keywords"  content="kavience,javascript,前端开发,php,react,kavience博客,Kubectl常用命令记录">
-    <meta name="description" content="kubectl 常用命令记录，例如pod、日志、pvc、configmap、deployment、ingress、describe等操作。">
+    <meta name="keywords"  content="nodejs,性能,分析">
+    <meta name="description" content="使用 nodejs 自带命令参数 prof 以及 chrome dev tool 和 ab 工具进行 nodejs 项目性能分析">
     <meta property="og:locale" content="zh-CN">
     <meta property="og:type" content="article">
-    <meta property="og:title" content="Kubectl常用命令记录 - kavience | Blog">
-    <meta property="og:description" content="kubectl 常用命令记录，例如pod、日志、pvc、configmap、deployment、ingress、describe等操作。">
-    <meta property="og:url" content="http://www.kavience.com/dev-ops/kubectl-common-command-record.html">
+    <meta property="og:title" content="Nodejs性能分析 - kavience | Blog">
+    <meta property="og:description" content="使用 nodejs 自带命令参数 prof 以及 chrome dev tool 和 ab 工具进行 nodejs 项目性能分析">
+    <meta property="og:url" content="http://www.kavience.com/frontend/.html">
     <meta property="og:site_name" content="kavience | Blog">
     <link rel="shortcut icon" href="/img/avatar/my-avatar.jpg">
-    <title>Kubectl常用命令记录 - kavience | Blog</title>
-    <link rel="canonical" href="http://www.kavience.com/dev-ops/kubectl-common-command-record.html">
+    <title>Nodejs性能分析 - kavience | Blog</title>
+    <link rel="canonical" href="http://www.kavience.com/frontend/.html">
     
 <link rel="stylesheet" href="/css/font-awesome.min.css">
 
@@ -79,15 +79,13 @@
                     <div class="post-heading">
                         <div class="tags">
                             
-                            <a class="tag" href="/tags/k8s" title="k8s">k8s</a>
-                            
-                            <a class="tag" href="/tags/kubectl" title="kubectl">kubectl</a>
+                            <a class="tag" href="/tags/JavaScript" title="JavaScript">JavaScript</a>
                             
                         </div>
-                        <h1>Kubectl常用命令记录</h1>
+                        <h1>Nodejs性能分析</h1>
                         <span class="meta">
                             Posted by Kavience on
-                            2021-06-01
+                            2021-10-22
                         </span>
                     </div>
                 
@@ -267,36 +265,29 @@
                 post-container post-markdown-body
             ">
                 <h2 id="what">what</h2>
-<p>记录工作中一些常用的命令。</p>
+<p>使用 nodejs 自带命令参数 prof 以及 chrome dev tool 和 ab 工具进行 nodejs 项目性能分析。</p>
 <h2 id="why">why</h2>
-<p>使用的有点频繁，方便以后查找。</p>
+<p>好久没写博客了，今天看到一个关于 nodejs 性能分析的视频，特此记录一下。</p>
+<p>刚好工作中有用到 nodejs 写项目，也在尝试自己写一个基于 nodejs 的 restful 框架。</p>
 <h2 id="how">how</h2>
-<p>创建 pod</p>
-<pre><code class="highlight bash">sudo kubectl create -f &lt;yaml文件&gt; -n &lt;命名空间&gt;</code></pre>
-<p>删除 pod</p>
-<pre><code class="highlight bash">sudo kubectl delete -f &lt;yaml文件&gt; -n &lt;命名空间&gt;</code></pre>
-<p>强制删除 pod</p>
-<pre><code class="highlight bash">sudo kubectl delete pod &lt;pod名字&gt; -n eip-release --grace-period=0 --force</code></pre>
-<p>查看命名空间</p>
-<pre><code class="highlight bash">sudo kubectl get namespace</code></pre>
-<p>查看命名空间下的 pods 且分组</p>
-<pre><code class="highlight bash">sudo kubectl get pods -n &lt;命名空间&gt; |grep &lt;关键字&gt;</code></pre>
-<p>查看pod描述</p>
-<pre><code class="highlight bash">sudo kubectl describe pod &lt;pod 名字&gt; -n &lt;命名空间&gt;</code></pre>
-<p>查看日志</p>
-<pre><code class="highlight bash">sudo kubectl logs &lt;pod名字&gt; -n &lt;命名空间&gt; -c &lt;container&gt;</code></pre>
-<p>查看 ingress</p>
-<pre><code class="highlight plain">sudo kubectl get ingress -A</code></pre>
-<p>进入pod</p>
-<pre><code class="highlight bash">kubectl <span class="built_in">exec</span> -ti &lt;pod名字&gt;  -n &lt;命名空间&gt;  -- sh</code></pre>
-<p>删除 pvc</p>
-<pre><code class="highlight bash">sudo kubectl patch pvc &lt;pvc名字&gt; -p <span class="string">'&#123;"metadata":&#123;"finalizers":null&#125;&#125;'</span></code></pre>
-<p>删除 deployment</p>
-<pre><code class="highlight bash">sudo kubectl delete deployment &lt;deployment名字&gt; -n &lt;命名空间&gt;</code></pre>
-<p>编辑configmap</p>
-<pre><code class="highlight bash">sudo kubectl edit configmap sfa-wxwork-api-cm -n &lt;命名空间&gt;</code></pre>
+<h3 id="nodejs-自带的性能分析">nodejs 自带的性能分析</h3>
+<p>首先 node 是自带性能分析的，使用以下命令</p>
+<pre><code class="highlight plain">node --prof xxx.js</code></pre>
+<p>增加 <code>prof</code> 参数会在与应用程序的本地运行相同的目录中生成了一个刻度文件。形式为 isolate-0xnnnnnnnnnnnn-v8.log (其中 n 为数字)。</p>
+<p>如果是一个 web 项目，可以使用 ab 工具进行压力测试，以增加更多分析数据。例如:</p>
+<pre><code class="highlight plain">ab -c50 -t10 http:&#x2F;&#x2F;127.0.0.1:8080&#x2F;xxxx</code></pre>
+<p>nodejs 会自动把进程信息存储在 isolate-0xnnnnnnnnnnnn-v8.log 内，该文件根本无法阅读，需要使用 nodejs 的刻度处理器，使用 <code>--prof-process</code> 参数。</p>
+<pre><code class="highlight plain">node --prof-process isolate-0xnnnnnnnnnnnn-v8.log &gt; analysis.txt</code></pre>
+<p>查看 analysis.txt 就可以看到更适合阅读的格式，</p>
+<p>查看关于 <code>prof</code> 的<a href="https://nodejs.org/zh-cn/docs/guides/simple-profiling/" target="_blank" rel="noopener">更多详解</a></p>
+<h3 id="使用-chrome-调试-nodejs-项目">使用 chrome 调试 nodejs 项目</h3>
+<p>自带的分析工具，还是不够直观，而且操作不够方便，nodejs 本身是基于 v8 引擎开发的，所以我们可以直接使用 chrome 的开发工具进行调试项目。</p>
+<pre><code class="highlight plain">node --inspect-brk xxx.js</code></pre>
+<p>使用 <code>inspect-brk</code> 参数可以启动调试，启动后会开启一个 wobsocket 服务。<br>
+我们可以在 chrome 浏览器地址栏中输入 <code>chrome://inspect</code> 进入开发工具，可以发现 target 下有一个 <code>inspect</code> 按钮，点击就可以进入调试模式了。接下来就和前端调试一样了，可以在 dev-tool 中看到源码、记录快照以及打印结果。</p>
+<p>查看关于 <code>inspect-brk</code> 的<a href="https://nodejs.org/zh-cn/docs/guides/debugging-getting-started/" target="_blank" rel="noopener">更多详解</a></p>
 <h2 id="总结">总结</h2>
-<p>感觉容器化是一个趋势，尤其是针对项目将来需要 SaaS 独立部署，目前只记录一些简单命令，不够完善。</p>
+<p>本文只简单记录，不够完善，以后有空再来深入了解。</p>
 <p>（完）</p>
 
                 
@@ -304,8 +295,8 @@
                 <div class="row">
                     <div class="col-md-12 post-statement">
                         <span>作者: Kavience</span>
-                        <span>本文链接: <a href="http://www.kavience.com/dev-ops/kubectl-common-command-record.html">http://www.kavience.com/dev-ops/kubectl-common-command-record.html </a></span>
-                        <span>转载请注明:《Kubectl常用命令记录》转自 http://www.kavience.com/dev-ops/kubectl-common-command-record.html，原作者：Kavience </span>
+                        <span>本文链接: <a href="http://www.kavience.com/frontend/.html">http://www.kavience.com/frontend/.html </a></span>
+                        <span>转载请注明:《Nodejs性能分析》转自 http://www.kavience.com/frontend/.html，原作者：Kavience </span>
                         <span><a href="https://creativecommons.org/licenses/by-nc-nd/3.0/deed.zh" target="_blank" rel="noopener">版权声明: 自由转载-非商用-非衍生-保持署名（创意共享3.0许可证）</a></span>
                     </div>
                     <div class="col-md-12">
@@ -314,7 +305,7 @@
                             <h5><a href="/categories/">分类 </a></h5>
                             <div class="tags">
                                 
-                                    <a class="tag" href="/categories/dev-ops" title="dev-ops">dev-ops</a>
+                                    <a class="tag" href="/categories/frontend" title="frontend">frontend</a>
                                 
                             </div>
                         </section>
@@ -326,9 +317,7 @@
                             <h5><a href="/tags/">标签 </a></h5>
                             <div class="tags">
                                 
-                                    <a class="tag" href="/tags/k8s" title="k8s">k8s</a>
-                                
-                                    <a class="tag" href="/tags/kubectl" title="kubectl">kubectl</a>
+                                    <a class="tag" href="/tags/JavaScript" title="JavaScript">JavaScript</a>
                                 
                             </div>
                         </section>
@@ -340,13 +329,9 @@
                 <!-- Pager Start -->
                 <ul class="pager">
                     
-                        <li class="previous">
-                            <a href="/dev-ops/docker-common-command-record.html" data-toggle="tooltip" data-placement="top" title="Docker常用命令记录">&larr; 上一篇 </a>
-                        </li>
-                    
                     
                         <li class="next">
-                            <a href="/think/lei-junentrepreneurship-lesson-one.html" data-toggle="tooltip" data-placement="top" title="雷军-创业第一课">下一篇  &rarr;</a>
+                            <a href="/dev-ops/docker-common-command-record.html" data-toggle="tooltip" data-placement="top" title="Docker常用命令记录">下一篇  &rarr;</a>
                         </li>
                     
                 </ul>
@@ -355,7 +340,7 @@
                 <!-- Comment Start -->
 <div class="comment">
   
-      <div id="Kubectl常用命令记录" class="gitalk"></div>
+      <div id="Nodejs性能分析" class="gitalk"></div>
   
   
 
@@ -367,11 +352,11 @@
             repo: `blog`,
             owner: `kavience`,
             admin: `kavience`,
-            id: 'Kubectl常用命令记录',
-            title: 'Kubectl常用命令记录',
+            id: 'Nodejs性能分析',
+            title: 'Nodejs性能分析',
             distractionFreeMode: `false`,
             language: `zh-CN`
-          }).render('Kubectl常用命令记录');
+          }).render('Nodejs性能分析');
       </script>
   
 
@@ -383,7 +368,7 @@
                 <!-- Comment Start -->
 <div class="comment">
   
-      <div id="Kubectl常用命令记录" class="gitalk"></div>
+      <div id="Nodejs性能分析" class="gitalk"></div>
   
   
 
@@ -395,11 +380,11 @@
             repo: `blog`,
             owner: `kavience`,
             admin: `kavience`,
-            id: 'Kubectl常用命令记录',
-            title: 'Kubectl常用命令记录',
+            id: 'Nodejs性能分析',
+            title: 'Nodejs性能分析',
             distractionFreeMode: `false`,
             language: `zh-CN`
-          }).render('Kubectl常用命令记录');
+          }).render('Nodejs性能分析');
       </script>
   
 
@@ -417,7 +402,7 @@
 					目录
 				</strong>
 				
-					<ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#what"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">what</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#why"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">why</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#how"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">how</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#总结"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">总结</span></a></li></ol>
+					<ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#what"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">what</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#why"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">why</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#how"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">how</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#nodejs-自带的性能分析"><span class="toc-nav-number">3.1.</span> <span class="toc-nav-text">nodejs 自带的性能分析</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#使用-chrome-调试-nodejs-项目"><span class="toc-nav-number">3.2.</span> <span class="toc-nav-text">使用 chrome 调试 nodejs 项目</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#总结"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">总结</span></a></li></ol>
 				
 			</div>
 		</aside>

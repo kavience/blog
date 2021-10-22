@@ -6,17 +6,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="keywords"  content="kavience,javascript,前端开发,php,react,kavience博客,Kubectl常用命令记录">
-    <meta name="description" content="kubectl 常用命令记录，例如pod、日志、pvc、configmap、deployment、ingress、describe等操作。">
+    <meta name="keywords"  content="kavience,javascript,前端开发,php,react,kavience博客,Docker常用命令记录">
+    <meta name="description" content="docker常用命令记录, 例如查看镜像、打包、导出等操作">
     <meta property="og:locale" content="zh-CN">
     <meta property="og:type" content="article">
-    <meta property="og:title" content="Kubectl常用命令记录 - kavience | Blog">
-    <meta property="og:description" content="kubectl 常用命令记录，例如pod、日志、pvc、configmap、deployment、ingress、describe等操作。">
-    <meta property="og:url" content="http://www.kavience.com/dev-ops/kubectl-common-command-record.html">
+    <meta property="og:title" content="Docker常用命令记录 - kavience | Blog">
+    <meta property="og:description" content="docker常用命令记录, 例如查看镜像、打包、导出等操作">
+    <meta property="og:url" content="http://www.kavience.com/dev-ops/docker-common-command-record.html">
     <meta property="og:site_name" content="kavience | Blog">
     <link rel="shortcut icon" href="/img/avatar/my-avatar.jpg">
-    <title>Kubectl常用命令记录 - kavience | Blog</title>
-    <link rel="canonical" href="http://www.kavience.com/dev-ops/kubectl-common-command-record.html">
+    <title>Docker常用命令记录 - kavience | Blog</title>
+    <link rel="canonical" href="http://www.kavience.com/dev-ops/docker-common-command-record.html">
     
 <link rel="stylesheet" href="/css/font-awesome.min.css">
 
@@ -79,12 +79,10 @@
                     <div class="post-heading">
                         <div class="tags">
                             
-                            <a class="tag" href="/tags/k8s" title="k8s">k8s</a>
-                            
-                            <a class="tag" href="/tags/kubectl" title="kubectl">kubectl</a>
+                            <a class="tag" href="/tags/docker" title="docker">docker</a>
                             
                         </div>
-                        <h1>Kubectl常用命令记录</h1>
+                        <h1>Docker常用命令记录</h1>
                         <span class="meta">
                             Posted by Kavience on
                             2021-06-01
@@ -271,32 +269,37 @@
 <h2 id="why">why</h2>
 <p>使用的有点频繁，方便以后查找。</p>
 <h2 id="how">how</h2>
-<p>创建 pod</p>
-<pre><code class="highlight bash">sudo kubectl create -f &lt;yaml文件&gt; -n &lt;命名空间&gt;</code></pre>
-<p>删除 pod</p>
-<pre><code class="highlight bash">sudo kubectl delete -f &lt;yaml文件&gt; -n &lt;命名空间&gt;</code></pre>
-<p>强制删除 pod</p>
-<pre><code class="highlight bash">sudo kubectl delete pod &lt;pod名字&gt; -n eip-release --grace-period=0 --force</code></pre>
-<p>查看命名空间</p>
-<pre><code class="highlight bash">sudo kubectl get namespace</code></pre>
-<p>查看命名空间下的 pods 且分组</p>
-<pre><code class="highlight bash">sudo kubectl get pods -n &lt;命名空间&gt; |grep &lt;关键字&gt;</code></pre>
-<p>查看pod描述</p>
-<pre><code class="highlight bash">sudo kubectl describe pod &lt;pod 名字&gt; -n &lt;命名空间&gt;</code></pre>
-<p>查看日志</p>
-<pre><code class="highlight bash">sudo kubectl logs &lt;pod名字&gt; -n &lt;命名空间&gt; -c &lt;container&gt;</code></pre>
-<p>查看 ingress</p>
-<pre><code class="highlight plain">sudo kubectl get ingress -A</code></pre>
-<p>进入pod</p>
-<pre><code class="highlight bash">kubectl <span class="built_in">exec</span> -ti &lt;pod名字&gt;  -n &lt;命名空间&gt;  -- sh</code></pre>
-<p>删除 pvc</p>
-<pre><code class="highlight bash">sudo kubectl patch pvc &lt;pvc名字&gt; -p <span class="string">'&#123;"metadata":&#123;"finalizers":null&#125;&#125;'</span></code></pre>
-<p>删除 deployment</p>
-<pre><code class="highlight bash">sudo kubectl delete deployment &lt;deployment名字&gt; -n &lt;命名空间&gt;</code></pre>
-<p>编辑configmap</p>
-<pre><code class="highlight bash">sudo kubectl edit configmap sfa-wxwork-api-cm -n &lt;命名空间&gt;</code></pre>
+<h3 id="docker-登录">docker 登录</h3>
+<p>没有 url 的话默认登录到 <a href="https://hub.docker.com/%EF%BC%8C%E5%8F%AF%E4%BB%A5%E4%BD%BF%E7%94%A8" target="_blank" rel="noopener">https://hub.docker.com/，可以使用</a> habor 自建容器仓库</p>
+<pre><code class="highlight bash">docker login <span class="variable">$url</span></code></pre>
+<h3 id="创建镜像">创建镜像</h3>
+<p>在Dockerfile所在目录下，确保Dockerfile中语法无误的情况下；运行</p>
+<pre><code class="highlight bash">docker build -t <span class="variable">$image_name</span>:<span class="variable">$tag_name</span> .</code></pre>
+<p>完成之后通过<code>docker images</code> 或者<code>docker image ls</code>检查是否创建成功</p>
+<h3 id="基于已有的镜像创建对应容器并通过bash交互：">基于已有的镜像创建对应容器并通过bash交互：</h3>
+<pre><code class="highlight bash">docker run -it <span class="variable">$image_name</span>:<span class="variable">$tag_name</span> /bin/bash</code></pre>
+<p>完成之后通过 <code>docker ps -a</code> 检查镜像是否创建成功</p>
+<h3 id="删除已有容器：">删除已有容器：</h3>
+<pre><code class="highlight bash">docker rm <span class="variable">$container_ID</span></code></pre>
+<h3 id="删除已有镜像：">删除已有镜像：</h3>
+<pre><code class="highlight bash">docker rmi <span class="variable">$image_name</span>:<span class="variable">$tag_name</span></code></pre>
+<h3 id="连接已有的容器：">连接已有的容器：</h3>
+<pre><code class="highlight bash">docker <span class="built_in">exec</span> -it <span class="variable">$container_ID</span> /bin/bash</code></pre>
+<p>如果容器未启动，则需用 <code>docker start $container_ID</code> 先启动该容器</p>
+<h3 id="导出镜像">导出镜像</h3>
+<p>导出镜像文件</p>
+<pre><code class="highlight bash">docker save <span class="variable">$container_ID</span> &gt; <span class="variable">$name</span></code></pre>
+<h3 id="拉取和上传镜像到仓库">拉取和上传镜像到仓库</h3>
+<p>上传</p>
+<pre><code class="highlight bash">docker push [OPTIONS] NAME[:TAG]</code></pre>
+<p>拉取</p>
+<pre><code class="highlight bash">docker pull [OPTIONS] NAME[:TAG|@DIGEST]</code></pre>
+<h3 id="复制宿主机的文件到容器内：">复制宿主机的文件到容器内：</h3>
+<p>前提是需在宿主机中执行</p>
+<pre><code class="highlight bash">sudo docker cp <span class="variable">$host_path</span> <span class="variable">$container_ID</span>:container_path</code></pre>
 <h2 id="总结">总结</h2>
 <p>感觉容器化是一个趋势，尤其是针对项目将来需要 SaaS 独立部署，目前只记录一些简单命令，不够完善。</p>
+<p>更多命令：<a href="https://docs.docker.com/engine/reference/commandline/pull/" target="_blank" rel="noopener">https://docs.docker.com/engine/reference/commandline/pull/</a></p>
 <p>（完）</p>
 
                 
@@ -304,8 +307,8 @@
                 <div class="row">
                     <div class="col-md-12 post-statement">
                         <span>作者: Kavience</span>
-                        <span>本文链接: <a href="http://www.kavience.com/dev-ops/kubectl-common-command-record.html">http://www.kavience.com/dev-ops/kubectl-common-command-record.html </a></span>
-                        <span>转载请注明:《Kubectl常用命令记录》转自 http://www.kavience.com/dev-ops/kubectl-common-command-record.html，原作者：Kavience </span>
+                        <span>本文链接: <a href="http://www.kavience.com/dev-ops/docker-common-command-record.html">http://www.kavience.com/dev-ops/docker-common-command-record.html </a></span>
+                        <span>转载请注明:《Docker常用命令记录》转自 http://www.kavience.com/dev-ops/docker-common-command-record.html，原作者：Kavience </span>
                         <span><a href="https://creativecommons.org/licenses/by-nc-nd/3.0/deed.zh" target="_blank" rel="noopener">版权声明: 自由转载-非商用-非衍生-保持署名（创意共享3.0许可证）</a></span>
                     </div>
                     <div class="col-md-12">
@@ -326,9 +329,7 @@
                             <h5><a href="/tags/">标签 </a></h5>
                             <div class="tags">
                                 
-                                    <a class="tag" href="/tags/k8s" title="k8s">k8s</a>
-                                
-                                    <a class="tag" href="/tags/kubectl" title="kubectl">kubectl</a>
+                                    <a class="tag" href="/tags/docker" title="docker">docker</a>
                                 
                             </div>
                         </section>
@@ -341,12 +342,12 @@
                 <ul class="pager">
                     
                         <li class="previous">
-                            <a href="/dev-ops/docker-common-command-record.html" data-toggle="tooltip" data-placement="top" title="Docker常用命令记录">&larr; 上一篇 </a>
+                            <a href="/frontend/.html" data-toggle="tooltip" data-placement="top" title="Nodejs性能分析">&larr; 上一篇 </a>
                         </li>
                     
                     
                         <li class="next">
-                            <a href="/think/lei-junentrepreneurship-lesson-one.html" data-toggle="tooltip" data-placement="top" title="雷军-创业第一课">下一篇  &rarr;</a>
+                            <a href="/dev-ops/kubectl-common-command-record.html" data-toggle="tooltip" data-placement="top" title="Kubectl常用命令记录">下一篇  &rarr;</a>
                         </li>
                     
                 </ul>
@@ -355,7 +356,7 @@
                 <!-- Comment Start -->
 <div class="comment">
   
-      <div id="Kubectl常用命令记录" class="gitalk"></div>
+      <div id="Docker常用命令记录" class="gitalk"></div>
   
   
 
@@ -367,11 +368,11 @@
             repo: `blog`,
             owner: `kavience`,
             admin: `kavience`,
-            id: 'Kubectl常用命令记录',
-            title: 'Kubectl常用命令记录',
+            id: 'Docker常用命令记录',
+            title: 'Docker常用命令记录',
             distractionFreeMode: `false`,
             language: `zh-CN`
-          }).render('Kubectl常用命令记录');
+          }).render('Docker常用命令记录');
       </script>
   
 
@@ -383,7 +384,7 @@
                 <!-- Comment Start -->
 <div class="comment">
   
-      <div id="Kubectl常用命令记录" class="gitalk"></div>
+      <div id="Docker常用命令记录" class="gitalk"></div>
   
   
 
@@ -395,11 +396,11 @@
             repo: `blog`,
             owner: `kavience`,
             admin: `kavience`,
-            id: 'Kubectl常用命令记录',
-            title: 'Kubectl常用命令记录',
+            id: 'Docker常用命令记录',
+            title: 'Docker常用命令记录',
             distractionFreeMode: `false`,
             language: `zh-CN`
-          }).render('Kubectl常用命令记录');
+          }).render('Docker常用命令记录');
       </script>
   
 
@@ -417,7 +418,7 @@
 					目录
 				</strong>
 				
-					<ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#what"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">what</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#why"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">why</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#how"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">how</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#总结"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">总结</span></a></li></ol>
+					<ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#what"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">what</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#why"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">why</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#how"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">how</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#docker-登录"><span class="toc-nav-number">3.1.</span> <span class="toc-nav-text">docker 登录</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#创建镜像"><span class="toc-nav-number">3.2.</span> <span class="toc-nav-text">创建镜像</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#基于已有的镜像创建对应容器并通过bash交互："><span class="toc-nav-number">3.3.</span> <span class="toc-nav-text">基于已有的镜像创建对应容器并通过bash交互：</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#删除已有容器："><span class="toc-nav-number">3.4.</span> <span class="toc-nav-text">删除已有容器：</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#删除已有镜像："><span class="toc-nav-number">3.5.</span> <span class="toc-nav-text">删除已有镜像：</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#连接已有的容器："><span class="toc-nav-number">3.6.</span> <span class="toc-nav-text">连接已有的容器：</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#导出镜像"><span class="toc-nav-number">3.7.</span> <span class="toc-nav-text">导出镜像</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#拉取和上传镜像到仓库"><span class="toc-nav-number">3.8.</span> <span class="toc-nav-text">拉取和上传镜像到仓库</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#复制宿主机的文件到容器内："><span class="toc-nav-number">3.9.</span> <span class="toc-nav-text">复制宿主机的文件到容器内：</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#总结"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">总结</span></a></li></ol>
 				
 			</div>
 		</aside>
