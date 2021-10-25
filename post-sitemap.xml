@@ -9,112 +9,16 @@
 
 
     <url>
-        <loc>http://www.kavience.com/think/lei-junentrepreneurship-lesson-one.html</loc>
-        <lastmod>2021-10-22T04:34:33.302Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.8</priority>
-
-    </url>
-
-    <url>
-        <loc>http://www.kavience.com/think/reprint-some-reflections-after-starting-a-business.html</loc>
-        <lastmod>2021-10-22T04:34:33.302Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.8</priority>
-
-    </url>
-
-    <url>
-        <loc>http://www.kavience.com/think/a-lost-day.html</loc>
-        <lastmod>2021-10-22T04:34:33.302Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.8</priority>
-
-    </url>
-
-    <url>
-        <loc>http://www.kavience.com/frontend/interface-and-style-of-frontend-interview-questions-continuous-update.html</loc>
-        <lastmod>2021-10-22T04:34:33.302Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.8</priority>
-
-    </url>
-
-    <url>
-        <loc>http://www.kavience.com/frontend/demo-of-flow-chart-editor-based-on-g6.html</loc>
-        <lastmod>2021-10-22T04:34:33.302Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.8</priority>
-
-    </url>
-
-    <url>
-        <loc>http://www.kavience.com/think/fragility-of-life.html</loc>
-        <lastmod>2021-10-22T04:34:33.302Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.8</priority>
-
-    </url>
-
-    <url>
-        <loc>http://www.kavience.com/think/if-you-stick-to-an-industry-for-five-years.html</loc>
-        <lastmod>2021-10-22T04:34:33.302Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.8</priority>
-
-    </url>
-
-    <url>
-        <loc>http://www.kavience.com/think/programmers-anxiety.html</loc>
-        <lastmod>2021-10-22T04:34:33.302Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.8</priority>
-
-    </url>
-
-    <url>
-        <loc>http://www.kavience.com/think/the-way-forward.html</loc>
-        <lastmod>2021-10-22T04:34:33.302Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.8</priority>
-
-    </url>
-
-    <url>
-        <loc>http://www.kavience.com/tools/selfbuilt-frontend-error-monitoring-system.html</loc>
-        <lastmod>2021-10-22T04:34:33.302Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.8</priority>
-
-    </url>
-
-    <url>
-        <loc>http://www.kavience.com/frontend/remember-to-build-a-react-project.html</loc>
-        <lastmod>2021-10-22T04:34:33.302Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.8</priority>
-
-    </url>
-
-    <url>
         <loc>http://www.kavience.com/tools/personal-collection-navigation.html</loc>
-        <lastmod>2021-10-22T04:34:33.298Z</lastmod>
+        <lastmod>2021-10-25T09:30:45.371Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
 
     </url>
 
     <url>
-        <loc>http://www.kavience.com/tools/hexo-theme-omega-development-history.html</loc>
-        <lastmod>2021-10-22T04:34:33.298Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.8</priority>
-
-    </url>
-
-    <url>
-        <loc>http://www.kavience.com/tools/git-common-command-record.html</loc>
-        <lastmod>2021-10-22T04:34:33.298Z</lastmod>
+        <loc>http://www.kavience.com/frontend/webpack-module-federation-demo.html</loc>
+        <lastmod>2021-10-25T09:30:45.371Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
 
@@ -122,15 +26,7 @@
 
     <url>
         <loc>http://www.kavience.com/frontend/nodejs-performance-analysis.html</loc>
-        <lastmod>2021-10-22T04:34:33.298Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.8</priority>
-
-    </url>
-
-    <url>
-        <loc>http://www.kavience.com/dev-ops/docker-common-command-record.html</loc>
-        <lastmod>2021-10-22T04:34:33.298Z</lastmod>
+        <lastmod>2021-10-25T09:30:45.371Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
 
@@ -138,39 +34,23 @@
 
     <url>
         <loc>http://www.kavience.com/dev-ops/kubectl-common-command-record.html</loc>
-        <lastmod>2021-10-22T04:34:33.298Z</lastmod>
+        <lastmod>2021-10-25T09:30:45.371Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
 
     </url>
 
     <url>
-        <loc>http://www.kavience.com/backend/a-preliminary-study-of-golang-language3.html</loc>
-        <lastmod>2021-10-22T04:34:33.298Z</lastmod>
+        <loc>http://www.kavience.com/think/lei-junentrepreneurship-lesson-one.html</loc>
+        <lastmod>2021-10-25T09:30:45.371Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
 
     </url>
 
     <url>
-        <loc>http://www.kavience.com/backend/a-preliminary-study-of-golang-language2.html</loc>
-        <lastmod>2021-10-22T04:34:33.298Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.8</priority>
-
-    </url>
-
-    <url>
-        <loc>http://www.kavience.com/backend/a-preliminary-study-of-golang-language1.html</loc>
-        <lastmod>2021-10-22T04:34:33.298Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.8</priority>
-
-    </url>
-
-    <url>
-        <loc>http://www.kavience.com/frontend/eslint-and-prettie-cooperate-with-husky-to-improve-frontend-development-specifications.html</loc>
-        <lastmod>2021-10-22T04:34:33.298Z</lastmod>
+        <loc>http://www.kavience.com/think/reprint-some-reflections-after-starting-a-business.html</loc>
+        <lastmod>2021-10-25T09:30:45.371Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
 
@@ -178,7 +58,15 @@
 
     <url>
         <loc>http://www.kavience.com/frontend/reengineering-the-frontend-component-library-wheel-project.html</loc>
-        <lastmod>2021-10-22T04:34:33.298Z</lastmod>
+        <lastmod>2021-10-25T09:30:45.371Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+
+    </url>
+
+    <url>
+        <loc>http://www.kavience.com/think/a-lost-day.html</loc>
+        <lastmod>2021-10-25T09:30:45.371Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
 
@@ -186,7 +74,7 @@
 
     <url>
         <loc>http://www.kavience.com/tools/use-travis-for-ci-and-cd.html</loc>
-        <lastmod>2021-10-22T04:34:33.298Z</lastmod>
+        <lastmod>2021-10-25T09:30:45.371Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
 
@@ -194,15 +82,7 @@
 
     <url>
         <loc>http://www.kavience.com/frontend/getting-started-with-nodejs-module-addons.html</loc>
-        <lastmod>2021-10-22T04:34:33.298Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.8</priority>
-
-    </url>
-
-    <url>
-        <loc>http://www.kavience.com/tools/rosetta-and-npm-under-apple-m1.html</loc>
-        <lastmod>2021-10-22T04:34:33.298Z</lastmod>
+        <lastmod>2021-10-25T09:30:45.371Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
 
@@ -210,15 +90,7 @@
 
     <url>
         <loc>http://www.kavience.com/frontend/study-and-use-of-mobx.html</loc>
-        <lastmod>2021-10-22T04:34:33.298Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.8</priority>
-
-    </url>
-
-    <url>
-        <loc>http://www.kavience.com/frontend/typescript-common-knowledge-summary.html</loc>
-        <lastmod>2021-10-22T04:34:33.298Z</lastmod>
+        <lastmod>2021-10-25T09:30:45.371Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
 
@@ -226,7 +98,7 @@
 
     <url>
         <loc>http://www.kavience.com/frontend/js-advanced-frontend-interview-questions-continuous-update.html</loc>
-        <lastmod>2021-10-22T04:34:33.298Z</lastmod>
+        <lastmod>2021-10-25T09:30:45.371Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
 
@@ -234,15 +106,23 @@
 
     <url>
         <loc>http://www.kavience.com/frontend/other-concepts-of-frontend-interview-questions-continuous-update.html</loc>
-        <lastmod>2021-10-22T04:34:33.298Z</lastmod>
+        <lastmod>2021-10-25T09:30:45.371Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
 
     </url>
 
     <url>
-        <loc>http://www.kavience.com/frontend/js-thoroughly-understand-the-point-of-this.html</loc>
-        <lastmod>2021-10-22T04:34:33.298Z</lastmod>
+        <loc>http://www.kavience.com/frontend/interface-and-style-of-frontend-interview-questions-continuous-update.html</loc>
+        <lastmod>2021-10-25T09:30:45.371Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+
+    </url>
+
+    <url>
+        <loc>http://www.kavience.com/frontend/demo-of-flow-chart-editor-based-on-g6.html</loc>
+        <lastmod>2021-10-25T09:30:45.371Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
 
@@ -250,15 +130,7 @@
 
     <url>
         <loc>http://www.kavience.com/think/the-world-is-developing-mankind-progressing.html</loc>
-        <lastmod>2021-10-22T04:34:33.298Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.8</priority>
-
-    </url>
-
-    <url>
-        <loc>http://www.kavience.com/frontend/jest-unit-testing.html</loc>
-        <lastmod>2021-10-22T04:34:33.298Z</lastmod>
+        <lastmod>2021-10-25T09:30:45.371Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
 
@@ -266,7 +138,15 @@
 
     <url>
         <loc>http://www.kavience.com/frontend/an-interesting-javascript-question.html</loc>
-        <lastmod>2021-10-22T04:34:33.298Z</lastmod>
+        <lastmod>2021-10-25T09:30:45.371Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+
+    </url>
+
+    <url>
+        <loc>http://www.kavience.com/think/fragility-of-life.html</loc>
+        <lastmod>2021-10-25T09:30:45.371Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
 
@@ -274,7 +154,31 @@
 
     <url>
         <loc>http://www.kavience.com/frontend/summary-of-web-frontend-optimization.html</loc>
-        <lastmod>2021-10-22T04:34:33.298Z</lastmod>
+        <lastmod>2021-10-25T09:30:45.371Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+
+    </url>
+
+    <url>
+        <loc>http://www.kavience.com/think/if-you-stick-to-an-industry-for-five-years.html</loc>
+        <lastmod>2021-10-25T09:30:45.371Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+
+    </url>
+
+    <url>
+        <loc>http://www.kavience.com/think/programmers-anxiety.html</loc>
+        <lastmod>2021-10-25T09:30:45.371Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+
+    </url>
+
+    <url>
+        <loc>http://www.kavience.com/think/the-way-forward.html</loc>
+        <lastmod>2021-10-25T09:30:45.371Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
 
@@ -282,7 +186,7 @@
 
     <url>
         <loc>http://www.kavience.com/tools/terminal-over-the-wall-proxy.html</loc>
-        <lastmod>2021-10-22T04:34:33.298Z</lastmod>
+        <lastmod>2021-10-25T09:30:45.371Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
 
@@ -290,15 +194,23 @@
 
     <url>
         <loc>http://www.kavience.com/think/plan-this-year.html</loc>
-        <lastmod>2021-10-22T04:34:33.298Z</lastmod>
+        <lastmod>2021-10-25T09:30:45.371Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
 
     </url>
 
     <url>
-        <loc>http://www.kavience.com/php/psr1-basic-specification.html</loc>
-        <lastmod>2021-10-22T04:34:33.298Z</lastmod>
+        <loc>http://www.kavience.com/tools/selfbuilt-frontend-error-monitoring-system.html</loc>
+        <lastmod>2021-10-25T09:30:45.371Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+
+    </url>
+
+    <url>
+        <loc>http://www.kavience.com/frontend/remember-to-build-a-react-project.html</loc>
+        <lastmod>2021-10-25T09:30:45.371Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
 
@@ -306,7 +218,103 @@
 
     <url>
         <loc>http://www.kavience.com/frontend/mocha-unit-test.html</loc>
-        <lastmod>2021-10-22T04:34:33.298Z</lastmod>
+        <lastmod>2021-10-25T09:30:45.371Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+
+    </url>
+
+    <url>
+        <loc>http://www.kavience.com/tools/hexo-theme-omega-development-history.html</loc>
+        <lastmod>2021-10-25T09:30:45.367Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+
+    </url>
+
+    <url>
+        <loc>http://www.kavience.com/tools/git-common-command-record.html</loc>
+        <lastmod>2021-10-25T09:30:45.367Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+
+    </url>
+
+    <url>
+        <loc>http://www.kavience.com/dev-ops/docker-common-command-record.html</loc>
+        <lastmod>2021-10-25T09:30:45.367Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+
+    </url>
+
+    <url>
+        <loc>http://www.kavience.com/backend/a-preliminary-study-of-golang-language3.html</loc>
+        <lastmod>2021-10-25T09:30:45.367Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+
+    </url>
+
+    <url>
+        <loc>http://www.kavience.com/backend/a-preliminary-study-of-golang-language2.html</loc>
+        <lastmod>2021-10-25T09:30:45.367Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+
+    </url>
+
+    <url>
+        <loc>http://www.kavience.com/backend/a-preliminary-study-of-golang-language1.html</loc>
+        <lastmod>2021-10-25T09:30:45.367Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+
+    </url>
+
+    <url>
+        <loc>http://www.kavience.com/frontend/eslint-and-prettie-cooperate-with-husky-to-improve-frontend-development-specifications.html</loc>
+        <lastmod>2021-10-25T09:30:45.367Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+
+    </url>
+
+    <url>
+        <loc>http://www.kavience.com/tools/rosetta-and-npm-under-apple-m1.html</loc>
+        <lastmod>2021-10-25T09:30:45.367Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+
+    </url>
+
+    <url>
+        <loc>http://www.kavience.com/frontend/typescript-common-knowledge-summary.html</loc>
+        <lastmod>2021-10-25T09:30:45.367Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+
+    </url>
+
+    <url>
+        <loc>http://www.kavience.com/frontend/js-thoroughly-understand-the-point-of-this.html</loc>
+        <lastmod>2021-10-25T09:30:45.367Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+
+    </url>
+
+    <url>
+        <loc>http://www.kavience.com/frontend/jest-unit-testing.html</loc>
+        <lastmod>2021-10-25T09:30:45.367Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+
+    </url>
+
+    <url>
+        <loc>http://www.kavience.com/php/psr1-basic-specification.html</loc>
+        <lastmod>2021-10-25T09:30:45.367Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
 
@@ -314,7 +322,7 @@
 
     <url>
         <loc>http://www.kavience.com/frontend/js-advanced-execution-context-and-stack.html</loc>
-        <lastmod>2021-10-22T04:34:33.298Z</lastmod>
+        <lastmod>2021-10-25T09:30:45.367Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
 
@@ -322,7 +330,7 @@
 
     <url>
         <loc>http://www.kavience.com/think/hello-world.html</loc>
-        <lastmod>2021-10-22T04:34:33.298Z</lastmod>
+        <lastmod>2021-10-25T09:30:45.367Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
 

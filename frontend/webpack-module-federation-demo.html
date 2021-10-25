@@ -6,17 +6,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="keywords"  content="nodejs,性能,分析">
-    <meta name="description" content="使用 nodejs 自带命令参数 prof 以及 chrome dev tool 和 ab 工具进行 nodejs 项目性能分析">
+    <meta name="keywords"  content="模块联邦,Module Federation,webpack5">
+    <meta name="description" content="模块联邦( Module Federation ) 是 webpack5 的一个新特性，它可以使程序像搭积木一样，分成多个模块共同开发，可以作为一种前端微服务的解决方案。">
     <meta property="og:locale" content="zh-CN">
     <meta property="og:type" content="article">
-    <meta property="og:title" content="Nodejs性能分析 - kavience | Blog">
-    <meta property="og:description" content="使用 nodejs 自带命令参数 prof 以及 chrome dev tool 和 ab 工具进行 nodejs 项目性能分析">
-    <meta property="og:url" content="http://www.kavience.com/frontend/nodejs-performance-analysis.html">
+    <meta property="og:title" content="Webpack模块联邦demo - kavience | Blog">
+    <meta property="og:description" content="模块联邦( Module Federation ) 是 webpack5 的一个新特性，它可以使程序像搭积木一样，分成多个模块共同开发，可以作为一种前端微服务的解决方案。">
+    <meta property="og:url" content="http://www.kavience.com/frontend/webpack-module-federation-demo.html">
     <meta property="og:site_name" content="kavience | Blog">
     <link rel="shortcut icon" href="/img/avatar/my-avatar.jpg">
-    <title>Nodejs性能分析 - kavience | Blog</title>
-    <link rel="canonical" href="http://www.kavience.com/frontend/nodejs-performance-analysis.html">
+    <title>Webpack模块联邦demo - kavience | Blog</title>
+    <link rel="canonical" href="http://www.kavience.com/frontend/webpack-module-federation-demo.html">
     
 <link rel="stylesheet" href="/css/font-awesome.min.css">
 
@@ -81,11 +81,13 @@
                             
                             <a class="tag" href="/tags/JavaScript" title="JavaScript">JavaScript</a>
                             
+                            <a class="tag" href="/tags/优化" title="优化">优化</a>
+                            
                         </div>
-                        <h1>Nodejs性能分析</h1>
+                        <h1>Webpack模块联邦demo</h1>
                         <span class="meta">
                             Posted by Kavience on
-                            2021-10-22
+                            2021-10-25
                         </span>
                     </div>
                 
@@ -264,30 +266,100 @@
                 col-md-10 col-md-offset-1
                 post-container post-markdown-body
             ">
-                <h2 id="what">what</h2>
-<p>使用 nodejs 自带命令参数 prof 以及 chrome dev tool 和 ab 工具进行 nodejs 项目性能分析。</p>
-<h2 id="why">why</h2>
-<p>好久没写博客了，今天看到一个关于 nodejs 性能分析的视频，特此记录一下。</p>
-<p>刚好工作中有用到 nodejs 写项目，也在尝试自己写一个基于 nodejs 的 restful 框架。</p>
-<h2 id="how">how</h2>
-<h3 id="nodejs-自带的性能分析">nodejs 自带的性能分析</h3>
-<p>首先 node 是自带性能分析的，使用以下命令</p>
-<pre><code class="highlight plain">node --prof xxx.js</code></pre>
-<p>增加 <code>prof</code> 参数会在与应用程序的本地运行相同的目录中生成了一个刻度文件。形式为 isolate-0xnnnnnnnnnnnn-v8.log (其中 n 为数字)。</p>
-<p>如果是一个 web 项目，可以使用 ab 工具进行压力测试，以增加更多分析数据。例如:</p>
-<pre><code class="highlight plain">ab -c50 -t10 http:&#x2F;&#x2F;127.0.0.1:8080&#x2F;xxxx</code></pre>
-<p>nodejs 会自动把进程信息存储在 isolate-0xnnnnnnnnnnnn-v8.log 内，该文件根本无法阅读，需要使用 nodejs 的刻度处理器，使用 <code>--prof-process</code> 参数。</p>
-<pre><code class="highlight plain">node --prof-process isolate-0xnnnnnnnnnnnn-v8.log &gt; analysis.txt</code></pre>
-<p>查看 analysis.txt 就可以看到更适合阅读的格式，</p>
-<p>查看关于 <code>prof</code> 的<a href="https://nodejs.org/zh-cn/docs/guides/simple-profiling/" target="_blank" rel="noopener">更多详解</a></p>
-<h3 id="使用-chrome-调试-nodejs-项目">使用 chrome 调试 nodejs 项目</h3>
-<p>自带的分析工具，还是不够直观，而且操作不够方便，nodejs 本身是基于 v8 引擎开发的，所以我们可以直接使用 chrome 的开发工具进行调试项目。</p>
-<pre><code class="highlight plain">node --inspect-brk xxx.js</code></pre>
-<p>使用 <code>inspect-brk</code> 参数可以启动调试，启动后会开启一个 wobsocket 服务。<br>
-我们可以在 chrome 浏览器地址栏中输入 <code>chrome://inspect</code> 进入开发工具，可以发现 target 下有一个 <code>inspect</code> 按钮，点击就可以进入调试模式了。接下来就和前端调试一样了，可以在 dev-tool 中看到源码、记录快照以及打印结果。</p>
-<p>查看关于 <code>inspect-brk</code> 的<a href="https://nodejs.org/zh-cn/docs/guides/debugging-getting-started/" target="_blank" rel="noopener">更多详解</a></p>
-<h2 id="总结">总结</h2>
-<p>本文只简单记录，不够完善，以后有空再来深入了解。</p>
+                <h2 id="webpack-模块联邦">webpack 模块联邦</h2>
+<p>模块联邦( Module Federation ) 是 webpack5 的一个新特性，它可以使程序像搭积木一样，分成多个模块共同开发，可以作为一种前端微服务的解决方案。</p>
+<h3 id="概念">概念</h3>
+<p>模块联邦是 webpack 的一个插件，使用非常简单，只需要在 webpack 的 plugins 下添加即可：</p>
+<pre><code class="highlight js"><span class="keyword">const</span> &#123; ModuleFederationPlugin &#125; = <span class="built_in">require</span>(<span class="string">"webpack"</span>).container;
+
+...
+plugins: [
+    <span class="keyword">new</span> ModuleFederationPlugin(&#123;
+      name: <span class="string">"module_federation_lib"</span>, <span class="comment">// 名字必须唯一，不能用中划线 '-' 分隔</span>
+      filename: <span class="string">"remoteEntry.js"</span>, <span class="comment">// 入口文件</span>
+      exposes: &#123;  <span class="comment">// 暴露出去的路径及依赖</span>
+        <span class="string">"./react"</span>: <span class="string">"react"</span>,
+        <span class="string">"./react-dom"</span>: <span class="string">"react-dom"</span>,
+      &#125;,
+    &#125;),
+  ],
+...</code></pre>
+<p>例如上述代码，定义一个<code>module_federation_lib</code>库，向外暴露 react 和 react-dom 两个库，入口文件是 remoteEntry.js ，使用的时候同样在 webpack 下的 plugins 添加如下代码：</p>
+<pre><code class="highlight js"><span class="keyword">new</span> ModuleFederationPlugin(&#123;
+      name: <span class="string">"subapp1"</span>, <span class="comment">// 名字必须唯一，不能用中划线 '-' 分隔</span>
+      filename: <span class="string">"remoteEntry.js"</span>,<span class="comment">// 入口文件</span>
+      exposes: &#123;  <span class="comment">// 暴露出去的路径及依赖</span>
+        <span class="string">"./index"</span>: <span class="string">"./app.js"</span>,
+      &#125;,
+      remotes: &#123; <span class="comment">// 引用的模块</span>
+        <span class="string">"module-federation-lib"</span>:
+          <span class="string">"module_federation_lib@http://localhost:6780/remoteEntry.js"</span>, <span class="comment">// 指定远程 module_federation_lib 路径</span>
+      &#125;,
+    &#125;),</code></pre>
+<p>就可以在代码中使用：</p>
+<pre><code class="highlight js"><span class="keyword">import</span> React, &#123; Component &#125;  <span class="keyword">from</span> <span class="string">"module-federation-lib/react"</span>;</code></pre>
+<blockquote>
+<p>注意：一个常规的 import 是同步的，并不会等待模块下载。这里将所有的异步 remote module 的加载处理成了异步语义(就像 import() )(注：但是需要一个异步加载的边界，)。 此时，就可以在加载本 chunk 的其他普通模块的同时，通过容器并行加载 remote module 。</p>
+</blockquote>
+<blockquote>
+<p>注意：异步加载边界不好理解，可以用 webpack 文档中 Module Federation 介绍中的一句话来说明：加载 remote module ，必须在任意一个异步 chunk 加载之后执行。所以官方 webpack repo 中给出的例子，直接在入口处添加一个 import(‘boostrap’) 即可，也可以查看项目下的代码示例。</p>
+</blockquote>
+<h3 id="demo">demo</h3>
+<p>本项目分为四个项目：</p>
+<ol>
+<li>module-federation-lib 存放模块库</li>
+<li>module-federation-main 存放主应用框架 protal</li>
+<li>module-federation-subapp1 和 module-federation-subapp2 ，子应用 1 和子应用 2</li>
+</ol>
+<p>分别进入项目安装依赖，然后分别启动即可。</p>
+<h3 id="效果">效果</h3>
+<p>使用模块联邦后的 demo 如下图所示:</p>
+<p><img src="https://github.com/kavience/module-federation-demo/blob/master/module-federation-demo.gif?raw=true" alt="模块联邦"></p>
+<p>具体配置可查看相关代码.</p>
+<h3 id="设想">设想</h3>
+<p>模块联邦提供了一种全新的机制，一方面可以隔离应用，另一方面可以复用应用之间的公共依赖，适合大项目的微服务化，而且还有提升项目打包速度，优化项目体积等作用。</p>
+<p>根据其官方文档，甚至可以通过修改 url 传参来响应不同的子应用版本，如下：</p>
+<pre><code class="highlight js">plugins: [
+   <span class="keyword">new</span> ModuleFederationPlugin(&#123;
+     name: <span class="string">'host'</span>,
+     remotes: &#123;
+       app1: <span class="string">`promise new Promise(resolve =&gt; &#123;</span>
+<span class="string">     const urlParams = new URLSearchParams(window.location.search)</span>
+<span class="string">     const version = urlParams.get('app1VersionParam')</span>
+<span class="string">     // This part depends on how you plan on hosting and versioning your federated modules</span>
+<span class="string">     const remoteUrlWithVersion = 'http://localhost:3001/' + version + '/remoteEntry.js'</span>
+<span class="string">     const script = document.createElement('script')</span>
+<span class="string">     script.src = remoteUrlWithVersion</span>
+<span class="string">     script.onload = () =&gt; &#123;</span>
+<span class="string">       // the injected script has loaded and is available on window</span>
+<span class="string">       // we can now resolve this Promise</span>
+<span class="string">       const proxy = &#123;</span>
+<span class="string">         get: (request) =&gt; window.app1.get(request),</span>
+<span class="string">         init: (arg) =&gt; &#123;</span>
+<span class="string">           try &#123;</span>
+<span class="string">             return window.app1.init(arg)</span>
+<span class="string">           &#125; catch(e) &#123;</span>
+<span class="string">             console.log('remote container already initialized')</span>
+<span class="string">           &#125;</span>
+<span class="string">         &#125;</span>
+<span class="string">       &#125;</span>
+<span class="string">       resolve(proxy)</span>
+<span class="string">     &#125;</span>
+<span class="string">     // inject this script with the src set to the versioned remoteEntry.js</span>
+<span class="string">     document.head.appendChild(script);</span>
+<span class="string">   &#125;)</span>
+<span class="string">   `</span>,
+     &#125;,
+     <span class="comment">// ...</span>
+   &#125;),
+ ],</code></pre>
+<p>这可能是目前最好的微服务方案了。</p>
+<p>Demo 源码地址: <a href="https://github.com/kavience/module-federation-demo" target="_blank" rel="noopener">https://github.com/kavience/module-federation-demo</a></p>
+<p>参考文档:</p>
+<ol>
+<li><a href="https://webpack.js.org/concepts/module-federation/" target="_blank" rel="noopener">https://webpack.js.org/concepts/module-federation/</a></li>
+<li><a href="https://webpack.docschina.org/plugins/module-federation-plugin/" target="_blank" rel="noopener">https://webpack.docschina.org/plugins/module-federation-plugin/</a></li>
+</ol>
 <p>（完）</p>
 
                 
@@ -295,8 +367,8 @@
                 <div class="row">
                     <div class="col-md-12 post-statement">
                         <span>作者: Kavience</span>
-                        <span>本文链接: <a href="http://www.kavience.com/frontend/nodejs-performance-analysis.html">http://www.kavience.com/frontend/nodejs-performance-analysis.html </a></span>
-                        <span>转载请注明:《Nodejs性能分析》转自 http://www.kavience.com/frontend/nodejs-performance-analysis.html，原作者：Kavience </span>
+                        <span>本文链接: <a href="http://www.kavience.com/frontend/webpack-module-federation-demo.html">http://www.kavience.com/frontend/webpack-module-federation-demo.html </a></span>
+                        <span>转载请注明:《Webpack模块联邦demo》转自 http://www.kavience.com/frontend/webpack-module-federation-demo.html，原作者：Kavience </span>
                         <span><a href="https://creativecommons.org/licenses/by-nc-nd/3.0/deed.zh" target="_blank" rel="noopener">版权声明: 自由转载-非商用-非衍生-保持署名（创意共享3.0许可证）</a></span>
                     </div>
                     <div class="col-md-12">
@@ -319,6 +391,8 @@
                                 
                                     <a class="tag" href="/tags/JavaScript" title="JavaScript">JavaScript</a>
                                 
+                                    <a class="tag" href="/tags/优化" title="优化">优化</a>
+                                
                             </div>
                         </section>
                         <!-- Tags End -->
@@ -329,13 +403,9 @@
                 <!-- Pager Start -->
                 <ul class="pager">
                     
-                        <li class="previous">
-                            <a href="/frontend/webpack-module-federation-demo.html" data-toggle="tooltip" data-placement="top" title="Webpack模块联邦demo">&larr; 上一篇 </a>
-                        </li>
-                    
                     
                         <li class="next">
-                            <a href="/dev-ops/docker-common-command-record.html" data-toggle="tooltip" data-placement="top" title="Docker常用命令记录">下一篇  &rarr;</a>
+                            <a href="/frontend/nodejs-performance-analysis.html" data-toggle="tooltip" data-placement="top" title="Nodejs性能分析">下一篇  &rarr;</a>
                         </li>
                     
                 </ul>
@@ -344,7 +414,7 @@
                 <!-- Comment Start -->
 <div class="comment">
   
-      <div id="Nodejs性能分析" class="gitalk"></div>
+      <div id="Webpack模块联邦demo" class="gitalk"></div>
   
   
 
@@ -356,11 +426,11 @@
             repo: `blog`,
             owner: `kavience`,
             admin: `kavience`,
-            id: 'Nodejs性能分析',
-            title: 'Nodejs性能分析',
+            id: 'Webpack模块联邦demo',
+            title: 'Webpack模块联邦demo',
             distractionFreeMode: `false`,
             language: `zh-CN`
-          }).render('Nodejs性能分析');
+          }).render('Webpack模块联邦demo');
       </script>
   
 
@@ -372,7 +442,7 @@
                 <!-- Comment Start -->
 <div class="comment">
   
-      <div id="Nodejs性能分析" class="gitalk"></div>
+      <div id="Webpack模块联邦demo" class="gitalk"></div>
   
   
 
@@ -384,11 +454,11 @@
             repo: `blog`,
             owner: `kavience`,
             admin: `kavience`,
-            id: 'Nodejs性能分析',
-            title: 'Nodejs性能分析',
+            id: 'Webpack模块联邦demo',
+            title: 'Webpack模块联邦demo',
             distractionFreeMode: `false`,
             language: `zh-CN`
-          }).render('Nodejs性能分析');
+          }).render('Webpack模块联邦demo');
       </script>
   
 
@@ -406,7 +476,7 @@
 					目录
 				</strong>
 				
-					<ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#what"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">what</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#why"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">why</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#how"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">how</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#nodejs-自带的性能分析"><span class="toc-nav-number">3.1.</span> <span class="toc-nav-text">nodejs 自带的性能分析</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#使用-chrome-调试-nodejs-项目"><span class="toc-nav-number">3.2.</span> <span class="toc-nav-text">使用 chrome 调试 nodejs 项目</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#总结"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">总结</span></a></li></ol>
+					<ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#webpack-模块联邦"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">webpack 模块联邦</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#概念"><span class="toc-nav-number">1.1.</span> <span class="toc-nav-text">概念</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#demo"><span class="toc-nav-number">1.2.</span> <span class="toc-nav-text">demo</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#效果"><span class="toc-nav-number">1.3.</span> <span class="toc-nav-text">效果</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#设想"><span class="toc-nav-number">1.4.</span> <span class="toc-nav-text">设想</span></a></li></ol></li></ol>
 				
 			</div>
 		</aside>

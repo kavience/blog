@@ -12,11 +12,11 @@
     <meta property="og:type" content="article">
     <meta property="og:title" content="kavience | Blog">
     <meta property="og:description" content="kavience 的博客, 专注于前端开发, web开发, 编程技术-undefined">
-    <meta property="og:url" content="http://www.kavience.com/archives/2019/12/">
+    <meta property="og:url" content="http://www.kavience.com/page/5/">
     <meta property="og:site_name" content="kavience | Blog">
     <link rel="shortcut icon" href="/img/avatar/my-avatar.jpg">
     <title>kavience | Blog</title>
-    <link rel="canonical" href="http://www.kavience.com/archives/2019/12/">
+    <link rel="canonical" href="http://www.kavience.com/page/5/">
     
 <link rel="stylesheet" href="/css/font-awesome.min.css">
 
@@ -67,7 +67,7 @@
         <style type="text/css">
     header.intro-header {
         
-            background-image: url('/img/header_img/archive.jpg')
+            background-image: url('/img/header_img/home.jpg') 
         
     }
 </style>
@@ -78,11 +78,7 @@
                 
                     <div class="site-heading">
                         <h1>Kavience</h1>
-                        <span class="subheading">
-                            
-                                All articles write in 2019
-                            
-                        </span>
+                        <span class="subheading">blog</span>
                     </div>
                 
             </div>
@@ -250,65 +246,88 @@
     <div class="main-content content- ">
         
 <div class="container">
-    <div class="row">
-        <div class="
-            col-lg-8 col-lg-offset-1
-            col-md-8 col-md-offset-1
-            col-sm-12
-            col-xs-12
-            content-container
-        ">
-            <!-- Archive / Tags / Categories  Start -->
-            
-                <!-- Archives Start -->
-                
-    
-                
-                    <div class="one-tag-list">
-                        <span class="fa fa-calendar-times-o listing-seperator" id="2019">
-                            <span class="tag-text">2019</span>
-                        </span>
-                        <ul>
-                        
-                            <li >
-                            12-15
-                            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-                            <a href="/frontend/mocha-unit-test.html" style="color: #0085a1">
-                                <span>
-                                    Mocha单元测试
-                                </span>
-                            </a>
-                        </li>
-                        
-                            <li >
-                            10-19
-                            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-                            <a href="/frontend/js-advanced-execution-context-and-stack.html" style="color: #0085a1">
-                                <span>
-                                    Js 进阶之执行上下文和执行栈
-                                </span>
-                            </a>
-                        </li>
-                        
-                            <li >
-                            10-16
-                            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-                            <a href="/think/hello-world.html" style="color: #0085a1">
-                                <span>
-                                    Hello World
-                                </span>
-                            </a>
-                        </li>
-                        
-                        </ul>
-                    </div>
-                 
-                <!-- Archives End -->
-             
-            <!-- Archive / Tags / Categories  End -->
-        </div>
+	<div class="row">
+		<div class="
+			col-lg-8 col-lg-offset-1
+			col-md-8 col-md-offset-1
+			col-sm-12
+			col-xs-12
+			content-container
+		">
+			
+				
+					<div class="post-preview">
+						<a href="/think/hello-world.html">
+							<h2 class="post-title">
+								 
+								Hello World
+							</h2>
+							<div class="post-content-preview">
+								Hello World
+试过各种各样的博客搭建平台，最终还是决定依托 HEXO 搭建，我觉得我的博客不需要有多少多复杂的功能，只需要简单清新一点就好了。
+目的
+做事总是带点目的性，个人博客于我而言，就像是网络上的一个家，这是属于自己的地盘，在网络上有了归属感，我想写点什么、记录点什么，都是自己决定。
+希望能一直纯粹下去。^_^
+...
+							</div>
+						</a>
+						<p class="post-meta">
+							Posted by Kavience on 2019-10-16
+						</p>
+						<div class="tags">
+							
+								<a href="/tags/开始" title="开始">开始</a>
+							
+						</div>
+					</div>
+					<hr />
+				 
+			
 
-        <!-- Sidebar Start -->
+			<!-- Pager Start -->
+			<div id="kkpager"></div>
+			<script>
+				$(function(){
+					kkpager.generPageHtml({
+						pno: '5',
+						total: '5',
+						totalRecords: '41',
+						mode: 'link',
+						hrefFormer: '/page',
+						getLink: function(n){
+						if(n == 1){
+							return '/';
+						}
+						return this.hrefFormer + '/' + n;
+						},
+						lang: {
+							firstPageText: '首页',
+							lastPageText: '尾页',
+							lastPageText: '尾页',
+							lastPageTipText: '尾页',
+							prePageText: '上一页',
+							prePageTipText: '上一页',
+							nextPageText: '下一页',
+							nextPageTipText: '下一页',
+							totalPageBeforeText: '共',
+							totalPageAfterText: '页',
+							currPageBeforeText: '当前',
+							currPageAfterText: '页',
+							totalInfoSplitStr: '/',
+							totalRecordsBeforeText: '共',
+							totalRecordsAfterText: '条数据',
+							gopageBeforeText: '转到',
+							gopageAfterText: '页',
+							gopageButtonOkText: '确定',
+							buttonTipBeforeText: '第',
+							buttonTipAfterText: '页',
+						}
+					});
+				});
+			</script>
+			<!-- Pager End -->
+		</div>
+		<!-- Sidebar Start -->
 <div class="
     col-lg-3 col-lg-offset-0
     col-md-3 col-md-offset-0
@@ -460,8 +479,10 @@
 </div>
 <!-- Sidebar End -->
 
-    </div>
+	</div>
 </div>
+
+
     </div>
     <!-- Main Content End -->
 
