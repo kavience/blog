@@ -14,7 +14,7 @@ keyword: "kavience,javascript,前端开发,php,react,kavience博客"
 # If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
 url: http://www.kavience.com/ # Note: don't forget to modify the CNAME file to your url
 root: /
-permalink: :category/:translate_title.html # Use hexo-translate-title
+permalink: :category/:translate_title.html # Use hexo-pinyin-plugin
 
 # Directory
 source_dir: source
@@ -100,17 +100,14 @@ sitemap:
   page_priority: 0.6
   post_priority: 0.8
 
-# hexo-translate-title
-# https://github.com/cometlj/hexo-translate-title#readme
-translate_title:
-  translate_way: baidu_no_appid # google,youdao,baidu_with_appid,baidu_no_appid
-  youdao_api_key: "" # Your youdao_api_key
-  youdao_keyfrom: xxxx-blog # Your youdao_keyfrom
-  is_need_proxy: false # true | false
-  # proxy_url: http://127.0.0.1:7890 # Your proxy_url
-  baidu_appid: "" # Your baidu_appid
-  baidu_appkey: "" # Your baidu_appkey
-  rewrite: false # is rewrite true | false
+# https://github.com/kavience/hexo-pinyin-plugin
+pinyin:
+  enable: true
+  rewrite: false
+  sourceKey: 'title'
+  targetKey: 'translate_title'
+  slugifystrOptions:
+    separator: '-'
 
 # hexo-generator-searchdb
 # https://github.com/next-theme/hexo-generator-searchdb#readme
