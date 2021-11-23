@@ -4,7 +4,6 @@ translate_title: use-travis-for-ci-and-cd
 subtitle: 利用travis做CI和CD
 date: 2021-04-21 18:46:14
 catalog: true
-hidden: true
 header_img:
 tags:
   - CI-CD
