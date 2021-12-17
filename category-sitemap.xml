@@ -10,42 +10,42 @@
 
     <url>
         <loc>http://www.kavience.com/categories/think/</loc>
-        <lastmod>2021-11-23T10:29:29.943Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://www.kavience.com/categories/frontend/</loc>
-        <lastmod>2021-11-23T10:29:29.943Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://www.kavience.com/categories/tools/</loc>
-        <lastmod>2021-11-23T10:29:29.943Z</lastmod>
+        <lastmod>2021-12-17T07:42:12.068Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>http://www.kavience.com/categories/backend/</loc>
-        <lastmod>2021-11-23T10:29:29.939Z</lastmod>
+        <lastmod>2021-12-17T07:42:12.064Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>http://www.kavience.com/categories/dev-ops/</loc>
-        <lastmod>2021-11-23T10:29:29.939Z</lastmod>
+        <lastmod>2021-12-17T07:42:12.064Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://www.kavience.com/categories/frontend/</loc>
+        <lastmod>2021-12-17T07:42:12.064Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>http://www.kavience.com/categories/php/</loc>
-        <lastmod>2021-11-23T10:29:29.939Z</lastmod>
+        <lastmod>2021-12-17T07:42:12.064Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://www.kavience.com/categories/tools/</loc>
+        <lastmod>2021-12-17T07:42:12.064Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
